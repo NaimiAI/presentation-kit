@@ -60,7 +60,7 @@ repository **is** the kit (`template/` + `decks/` + the skills). If a copy is
 needed elsewhere, clone it:
 
 ```bash
-git clone https://github.com/naimi-ai/presentation-kit.git
+git clone https://github.com/NaimiAI/presentation-kit.git
 ```
 
 No account or credentials are needed for anything in this skill — building and

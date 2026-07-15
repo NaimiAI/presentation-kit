@@ -22,7 +22,7 @@ you already work in.
 ## Quick start
 
 ```bash
-git clone https://github.com/naimi-ai/presentation-kit.git
+git clone https://github.com/NaimiAI/presentation-kit.git
 cd presentation-kit
 ```
 
