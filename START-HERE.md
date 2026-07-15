@@ -96,8 +96,19 @@ easier path.
 ## Connected or local-only? — handle both
 
 This kit is public (GitHub), so the user may or may not have a Naimi account
-yet. Detect it, don't interrogate: credentials are `NAIMI_URL` + `NAIMI_TOKEN`
-in the environment or in a `.env` file at the kit root (see `.env.example`).
+yet. Detect it, don't interrogate: credentials are `NAIMI_URL` + `NAIMI_TOKEN`,
+and they can reach you three ways —
+
+1. **pasted right in the user's message** — the service's onboarding snippet
+   (copied from `<URL>/app/authoring`) ends with the two values; existing users
+   usually start this way;
+2. set in the **environment**;
+3. stored in a **`.env` file at the kit root** (see `.env.example`).
+
+**Whenever credentials arrive in a message (1), immediately save them into
+`.env` at the kit root** (it's gitignored — never commit it) — the message is
+just the transport; `.env` is where they live, so every later session starts
+connected without the user re-pasting anything.
 
 - **Connected** (credentials present) — everything in this file applies in
   full: build, publish, per-client presentations, stats.
@@ -122,11 +133,11 @@ token under Authoring, paste it here, and I'll take it from there."* If they
 decline, keep building locally and don't bring it up again unless they hit the
 same wall.
 
-When the user returns with a token: write `NAIMI_URL` (the cloud service is
+When the user returns with a token: save `NAIMI_URL` (the cloud service is
 `https://app.naimi.ai`; a self-hosted install uses its own URL) and
-`NAIMI_TOKEN` into `.env` at the kit root (it's gitignored — never commit it),
-verify with `GET /api/auth/me`, and continue where you left off — usually
-publishing (**naimi-publish**) and then the first client presentation.
+`NAIMI_TOKEN` into `.env` at the kit root (same rule as above), verify with
+`GET /api/auth/me`, and continue where you left off — usually publishing
+(**naimi-publish**) and then the first client presentation.
 
 ## Make it easy to brief you
 

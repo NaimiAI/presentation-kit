@@ -47,8 +47,10 @@ fill the schema by meaning, confirm anything you invented, and return the presen
 ## Setup
 
 Everything in this skill is an API call, so it requires a **Naimi account** and
-two values — look for them in the environment or in a `.env` file at the kit
-root (see `.env.example`):
+two values. They may already be in this conversation (the service's onboarding
+snippet ends with them), in the environment, or in a `.env` file at the kit
+root (see `.env.example`) — whenever they arrive in a message, save them into
+`.env` right away (gitignored) so later sessions are set up:
 
 - `NAIMI_URL` — service URL: `https://app.naimi.ai` for the cloud service
   (self-hosted installs use their own URL)

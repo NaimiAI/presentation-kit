@@ -21,8 +21,11 @@ see the env section of `naimi-template`).
 ## Credentials
 
 Publishing is the first step that talks to the service, so it needs a **Naimi
-account** and two values — look for them in the environment or in a `.env` file
-at the kit root (see `.env.example`):
+account** and two values. They may already be in this conversation (the
+service's onboarding snippet ends with them), in the environment, or in a
+`.env` file at the kit root (see `.env.example`) — whenever they arrive in a
+message, save them into `.env` right away (gitignored) so later sessions are
+set up:
 
 ```bash
 export NAIMI_URL=https://app.naimi.ai       # the cloud service (self-hosted installs use their own URL)
@@ -35,9 +38,8 @@ local-only?" (one or two sentences, benefits first: a live shareable link,
 per-client personalized presentations, open tracking and notifications). Signup
 is at `https://app.naimi.ai/app/signup`, free plan; afterwards the user creates
 an API token at `<NAIMI_URL>/app/authoring` and pastes it to you. Save both
-values into `.env` at the kit root (gitignored) so future sessions are set up,
-then continue below. If the user already has an account and the values are just
-missing, ask for them the same way.
+values into `.env` and continue below. If the user already has an account and
+the values are just missing, ask for them the same way.
 
 ## Cover image
 
