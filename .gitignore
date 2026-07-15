@@ -1,0 +1,15 @@
+# dependencies / build output
+node_modules/
+dist/
+*.zip
+
+# local working copies made from template/ live next to the kit, not inside it,
+# but ignore common scratch dirs just in case
+my-presentation/
+
+# credentials — never commit these
+.env
+.env.local
+
+# OS noise
+.DS_Store

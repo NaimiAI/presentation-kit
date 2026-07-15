@@ -1,0 +1,151 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "design-brief",
+  "name": "Design studio brief",
+  "description": "Gallery-editorial intake brief for a design studio: the client describes the brand, picks a moodboard, scope of work, budget range and timeline — answers save themselves",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Company / brand",
+        "placeholder": "Client's brand name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "contactName",
+        "label": "Contact",
+        "placeholder": "Who the brief goes to",
+        "type": "text"
+      },
+      {
+        "key": "managerName",
+        "label": "Art director",
+        "placeholder": "Who leads the project from the studio",
+        "type": "text"
+      },
+      {
+        "key": "managerContact",
+        "label": "Art director's contact",
+        "placeholder": "Email / handle",
+        "type": "text"
+      }
+    ],
+    "showCustomFields": false
+  },
+  "demoData": {
+    "namespace": "designBrief",
+    "fields": [
+      {
+        "key": "brandEssence",
+        "label": "The brand in your own words",
+        "type": "string",
+        "defaultValue": "",
+        "collectFromClient": true,
+        "promoteToClientFacts": true
+      },
+      {
+        "key": "references",
+        "label": "References and anti-examples",
+        "type": "string",
+        "defaultValue": "",
+        "collectFromClient": true
+      },
+      {
+        "key": "styleMinimal",
+        "label": "Style: minimal",
+        "type": "boolean",
+        "defaultValue": false,
+        "collectFromClient": true
+      },
+      {
+        "key": "styleExpressive",
+        "label": "Style: expressive",
+        "type": "boolean",
+        "defaultValue": false,
+        "collectFromClient": true
+      },
+      {
+        "key": "styleClassic",
+        "label": "Style: classic",
+        "type": "boolean",
+        "defaultValue": false,
+        "collectFromClient": true
+      },
+      {
+        "key": "styleTech",
+        "label": "Style: tech",
+        "type": "boolean",
+        "defaultValue": false,
+        "collectFromClient": true
+      },
+      {
+        "key": "styleRetro",
+        "label": "Style: retro",
+        "type": "boolean",
+        "defaultValue": false,
+        "collectFromClient": true
+      },
+      {
+        "key": "styleLuxe",
+        "label": "Style: luxe",
+        "type": "boolean",
+        "defaultValue": false,
+        "collectFromClient": true
+      },
+      {
+        "key": "deliverableLogo",
+        "label": "Need: logo",
+        "type": "boolean",
+        "defaultValue": false,
+        "collectFromClient": true
+      },
+      {
+        "key": "deliverableIdentity",
+        "label": "Need: identity",
+        "type": "boolean",
+        "defaultValue": false,
+        "collectFromClient": true
+      },
+      {
+        "key": "deliverableWebsite",
+        "label": "Need: website",
+        "type": "boolean",
+        "defaultValue": false,
+        "collectFromClient": true
+      },
+      {
+        "key": "deliverablePackaging",
+        "label": "Need: packaging",
+        "type": "boolean",
+        "defaultValue": false,
+        "collectFromClient": true
+      },
+      {
+        "key": "deliverableSmm",
+        "label": "Need: social kit",
+        "type": "boolean",
+        "defaultValue": false,
+        "collectFromClient": true
+      },
+      {
+        "key": "budgetRange",
+        "label": "Budget range",
+        "type": "string",
+        "defaultValue": "",
+        "collectFromClient": true,
+        "promoteToClientFacts": true
+      },
+      {
+        "key": "deadlineText",
+        "label": "Timeline",
+        "type": "string",
+        "defaultValue": "",
+        "collectFromClient": true,
+        "promoteToClientFacts": true
+      }
+    ]
+  }
+}

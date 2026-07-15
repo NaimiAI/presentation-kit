@@ -1,0 +1,15 @@
+{
+  "personalization": {
+    "companyName": "The Hendersons",
+    "propertyAddress": "4128 SE Woodstock Blvd, Portland, OR",
+    "presentDate": "2026-03-14",
+    "homeHighlights": "Sun-filled corner lot with mature Japanese maples\nRenovated chef's kitchen with quartz island\nFinished basement with a legal ADU\nNew roof and heat pump (2024)",
+    "compsLines": "4102 SE 42nd Ave | $712,000 | 9\n3820 SE Steele St | $689,000 | 14\n4519 SE Reedway St | $748,000 | 6\n3944 SE Duke St | $701,000 | 12",
+    "recommendedPrice": "$725,000",
+    "bookingUrl": "https://calendly.com/claire-bennett/walkthrough",
+    "customFields": []
+  },
+  "clientFacts": {},
+  "demoData": {},
+  "canPersist": true
+}

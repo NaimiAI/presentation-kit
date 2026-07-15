@@ -1,0 +1,42 @@
+/*
+ * The "mint-fresh" theme — light and minty: a teal accent, soft surfaces.
+ * Activated from slides/index.ts; no need to touch index.html.
+ */
+/* :root[…] — higher specificity than the default :root block in theme.css
+   (the deck CSS lands in the bundle before theme.css, so source order alone
+   wouldn't win here). */
+:root[data-theme='mint-fresh'] {
+  --nk-font-display: 'Inter', system-ui, sans-serif;
+
+  --nk-surface: #f2faf7;
+  --nk-card: #ffffff;
+  --nk-ink: #0d3331;
+  --nk-ink-soft: #3f615e;
+  --nk-ink-faint: #6b8d89;
+  --nk-edge: #d7eae4;
+  --nk-accent: #0d9488;
+  --nk-accent-ink: #0f766e;
+  --nk-accent-soft: rgba(13, 148, 136, 0.1);
+  --nk-accent-edge: rgba(13, 148, 136, 0.25);
+  --nk-positive: #16a34a;
+  --nk-positive-ink: #15803d;
+  --nk-positive-soft: rgba(22, 163, 74, 0.1);
+  --nk-positive-edge: rgba(22, 163, 74, 0.25);
+  --nk-critical: #e11d48;
+  --nk-critical-soft: rgba(225, 29, 72, 0.07);
+  --nk-critical-edge: rgba(225, 29, 72, 0.2);
+
+  --nk-gradient: linear-gradient(135deg, #2dd4bf 0%, #0d9488 55%, #65a30d 100%);
+  --nk-orb-1: rgba(45, 212, 191, 0.14);
+  --nk-orb-2: rgba(101, 163, 13, 0.1);
+
+  --nk-nav-fade: rgba(235, 248, 243, 0.92);
+  --nk-nav-button: rgba(255, 255, 255, 0.75);
+  --nk-nav-button-hover: #ffffff;
+  --nk-nav-chip: rgba(255, 255, 255, 0.85);
+  --nk-nav-border: rgba(215, 234, 228, 0.9);
+  --nk-nav-icon: #0d3331;
+  --nk-nav-dot: rgba(107, 141, 137, 0.4);
+  --nk-nav-dot-hover: rgba(107, 141, 137, 0.6);
+  --nk-nav-dot-active: #0d9488;
+}

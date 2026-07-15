@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "proposal-mono",
+  "name": "Proposal — Swiss mono",
+  "description": "Universal service proposal in Swiss typographic style: black ink, one red accent, hard rules, staged pricing, terms — a pure document genre with zero interactive fields",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Client",
+        "placeholder": "Client company name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "contactName",
+        "label": "Contact",
+        "placeholder": "First and last name",
+        "type": "text"
+      },
+      {
+        "key": "offerNumber",
+        "label": "Proposal number",
+        "placeholder": "e.g. P-2026-041",
+        "type": "text"
+      },
+      {
+        "key": "projectTitle",
+        "label": "Project title",
+        "placeholder": "e.g. CRM implementation & data migration",
+        "type": "text"
+      },
+      {
+        "key": "projectOverview",
+        "label": "Our understanding",
+        "placeholder": "2–4 sentences: how you understood the client's problem",
+        "type": "textarea"
+      },
+      {
+        "key": "projectDuration",
+        "label": "Timeline estimate",
+        "placeholder": "e.g. 6–8 weeks",
+        "type": "text"
+      },
+      {
+        "key": "proposalDate",
+        "label": "Proposal date",
+        "type": "date"
+      },
+      {
+        "key": "validUntil",
+        "label": "Valid through",
+        "type": "date"
+      },
+      {
+        "key": "workConditions",
+        "label": "Terms (one line per item)",
+        "placeholder": "Payment: 50% to start, 50% on acceptance",
+        "type": "textarea"
+      },
+      {
+        "key": "managerName",
+        "label": "Account owner",
+        "placeholder": "Who's running the deal",
+        "type": "text"
+      },
+      {
+        "key": "managerContact",
+        "label": "Owner's contact",
+        "placeholder": "Phone / email",
+        "type": "text"
+      }
+    ],
+    "showCustomFields": false,
+    "showStagesEditor": true
+  },
+  "demoData": {
+    "namespace": "proposalMono",
+    "fields": []
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "job-offer",
+  "name": "Job offer to a candidate",
+  "description": "A warm job offer instead of an email: role, total compensation, US benefits and a first-90-days plan — the candidate replies right on the page",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Candidate name",
+        "placeholder": "How we address the candidate",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "roleTitle",
+        "label": "Role title",
+        "placeholder": "e.g. Senior Product Designer",
+        "type": "text"
+      },
+      {
+        "key": "baseSalary",
+        "label": "Base salary",
+        "placeholder": "e.g. $165,000 / yr",
+        "type": "text"
+      },
+      {
+        "key": "equityText",
+        "label": "Equity",
+        "placeholder": "e.g. 0.08% — 24,000 options, 4-yr vesting, 1-yr cliff",
+        "type": "text"
+      },
+      {
+        "key": "signingBonus",
+        "label": "Signing bonus (optional)",
+        "placeholder": "e.g. $20,000 — leave blank to hide",
+        "type": "text"
+      },
+      {
+        "key": "startDate",
+        "label": "Start date",
+        "type": "date"
+      },
+      {
+        "key": "validUntil",
+        "label": "Offer valid through",
+        "type": "date"
+      },
+      {
+        "key": "welcomeNote",
+        "label": "Personal note to the candidate",
+        "placeholder": "A few warm words from the team — why we want this person",
+        "type": "textarea"
+      },
+      {
+        "key": "managerName",
+        "label": "Hiring manager",
+        "placeholder": "Who the candidate reports to",
+        "type": "text"
+      },
+      {
+        "key": "recruiterContact",
+        "label": "Recruiter contact",
+        "placeholder": "Name · email",
+        "type": "text"
+      }
+    ],
+    "showCustomFields": false
+  },
+  "demoData": {
+    "namespace": "jobOffer",
+    "fields": [
+      {
+        "key": "candidateAnswer",
+        "label": "Candidate answer",
+        "type": "string",
+        "defaultValue": "",
+        "collectFromClient": true,
+        "promoteToClientFacts": true
+      },
+      {
+        "key": "candidateQuestion",
+        "label": "Candidate question",
+        "type": "string",
+        "defaultValue": "",
+        "collectFromClient": true
+      }
+    ]
+  }
+}

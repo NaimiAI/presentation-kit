@@ -1,0 +1,48 @@
+/*
+ * Theme "graphite-emerald" — a calm, data-forward boardroom report: warm-gray
+ * surface, crisp white cards with thin edges, graphite ink, emerald accent for
+ * good deltas, amber (mapped onto the `critical` token) for risks/attention.
+ * Activated from slides/index.ts, so index.html never needs editing.
+ */
+/* :root[…] wins over the default :root block in theme.css: the deck's CSS lands
+   in the bundle before theme.css, so higher specificity — not source order —
+   decides. */
+:root[data-theme='graphite-emerald'] {
+  --nk-font-display: 'Inter', system-ui, sans-serif;
+
+  --nk-surface: #fafaf9;
+  --nk-card: #ffffff;
+  --nk-ink: #1c1917;
+  --nk-ink-soft: #57534e;
+  --nk-ink-faint: #a8a29e;
+  --nk-edge: #e7e5e4;
+
+  --nk-accent: #059669;
+  --nk-accent-ink: #047857;
+  --nk-accent-soft: rgba(5, 150, 105, 0.08);
+  --nk-accent-edge: rgba(5, 150, 105, 0.24);
+
+  --nk-positive: #059669;
+  --nk-positive-ink: #047857;
+  --nk-positive-soft: rgba(5, 150, 105, 0.08);
+  --nk-positive-edge: rgba(5, 150, 105, 0.24);
+
+  /* Amber, not red: "attention", not "failure". */
+  --nk-critical: #d97706;
+  --nk-critical-soft: rgba(217, 119, 6, 0.09);
+  --nk-critical-edge: rgba(217, 119, 6, 0.26);
+
+  --nk-gradient: linear-gradient(135deg, #059669 0%, #0d9488 100%);
+  --nk-orb-1: rgba(5, 150, 105, 0.06);
+  --nk-orb-2: rgba(13, 148, 136, 0.06);
+
+  --nk-nav-fade: rgba(250, 250, 249, 0.92);
+  --nk-nav-button: rgba(255, 255, 255, 0.8);
+  --nk-nav-button-hover: #ffffff;
+  --nk-nav-chip: rgba(255, 255, 255, 0.85);
+  --nk-nav-border: rgba(231, 229, 228, 0.95);
+  --nk-nav-icon: #1c1917;
+  --nk-nav-dot: rgba(168, 162, 158, 0.4);
+  --nk-nav-dot-hover: rgba(168, 162, 158, 0.6);
+  --nk-nav-dot-active: #059669;
+}

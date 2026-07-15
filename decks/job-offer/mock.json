@@ -1,0 +1,18 @@
+{
+  "personalization": {
+    "companyName": "Jamie Rivera",
+    "roleTitle": "Senior Product Designer",
+    "baseSalary": "$165,000 / yr",
+    "equityText": "0.08% — 24,000 options, 4-year vesting, 1-year cliff",
+    "signingBonus": "$20,000, paid on day one",
+    "startDate": "2026-07-31",
+    "validUntil": "2026-07-10",
+    "welcomeNote": "Jamie, after the portfolio review the whole team said the same thing — we want to work with you. It's rare to meet someone who pairs sharp product thinking with such calm, clear craft. We can't wait to build with you.",
+    "managerName": "Elena Ruiz, Head of Design",
+    "recruiterContact": "Sam Woods · sam@cadencehq.com",
+    "customFields": []
+  },
+  "clientFacts": {},
+  "demoData": {},
+  "canPersist": true
+}

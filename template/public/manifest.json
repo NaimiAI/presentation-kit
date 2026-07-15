@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "my-presentation",
+  "name": "My presentation",
+  "description": "Starter presentation built on the Naimi presentation kit",
+  "entry": "index.html",
+  "personalization": {
+    "fields": [
+      { "key": "companyName", "label": "Company", "type": "text", "required": true },
+      { "key": "contactName", "label": "Contact person", "type": "text" }
+    ],
+    "showCustomFields": false
+  },
+  "demoData": {
+    "namespace": "myPresentation",
+    "fields": [
+      { "key": "monthlyVisitors", "label": "Monthly visitors", "type": "number", "defaultValue": 10000, "promoteToClientFacts": true },
+      { "key": "conversionRate", "label": "Conversion rate, %", "type": "number", "defaultValue": 2, "promoteToClientFacts": true },
+      { "key": "avgOrderValue", "label": "Average order value", "type": "number", "defaultValue": 85, "promoteToClientFacts": true },
+      { "key": "upliftPct", "label": "Conversion uplift, %", "type": "number", "defaultValue": 25, "promoteToClientFacts": true }
+    ]
+  }
+}

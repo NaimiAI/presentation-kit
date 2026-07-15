@@ -1,0 +1,49 @@
+/*
+ * "growth-green" theme — a light, energetic green palette: mint surface, emerald
+ * accent, lime positive, emerald→lime→teal gradient. Activated from
+ * slides/index.ts; no need to touch index.html.
+ */
+/* :root[…] has higher specificity than the default :root block in theme.css
+   (the deck CSS lands in the bundle before theme.css, so source order alone
+   would not win). */
+:root[data-theme='growth-green'] {
+  --nk-font-display: 'Inter', system-ui, sans-serif;
+
+  --nk-surface: #f2faf4;
+  --nk-card: #ffffff;
+  --nk-ink: #0b2e1d;
+  --nk-ink-soft: #3c5c4a;
+  --nk-ink-faint: #6d8a79;
+  --nk-edge: #d4e8da;
+  --nk-accent: #059669;
+  --nk-accent-ink: #047857;
+  --nk-accent-soft: rgba(5, 150, 105, 0.09);
+  --nk-accent-edge: rgba(5, 150, 105, 0.22);
+  --nk-positive: #65a30d;
+  --nk-positive-ink: #4d7c0f;
+  --nk-positive-soft: rgba(101, 163, 13, 0.1);
+  --nk-positive-edge: rgba(101, 163, 13, 0.25);
+  --nk-critical: #dc2626;
+  --nk-critical-soft: rgba(220, 38, 38, 0.07);
+  --nk-critical-edge: rgba(220, 38, 38, 0.2);
+
+  --nk-gradient: linear-gradient(135deg, #059669 0%, #84cc16 55%, #14b8a6 100%);
+  --nk-orb-1: rgba(5, 150, 105, 0.1);
+  --nk-orb-2: rgba(132, 204, 22, 0.12);
+
+  --nk-nav-fade: rgba(235, 247, 239, 0.92);
+  --nk-nav-button: rgba(255, 255, 255, 0.75);
+  --nk-nav-button-hover: #ffffff;
+  --nk-nav-chip: rgba(255, 255, 255, 0.85);
+  --nk-nav-border: rgba(212, 232, 218, 0.95);
+  --nk-nav-icon: #0b2e1d;
+  --nk-nav-dot: rgba(109, 138, 121, 0.4);
+  --nk-nav-dot-hover: rgba(109, 138, 121, 0.6);
+  --nk-nav-dot-active: #059669;
+}
+
+/* The number input in the calculator is right-aligned, and the suffix ("cust",
+   "$") sits over that same corner — pad the digits so they don't overlap it. */
+:root[data-theme='growth-green'] input[type='number'] {
+  padding-right: 2.5rem;
+}

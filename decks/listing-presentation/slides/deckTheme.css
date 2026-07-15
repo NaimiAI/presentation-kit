@@ -1,0 +1,51 @@
+/*
+ * Theme "estate-linen" — luxury residential brokerage: warm linen surface,
+ * deep hunter green accent, brass/gold gradient, serif display headlines.
+ * Activated from slides/index.ts — no need to touch index.html.
+ */
+/* :root[…] outranks the default :root block in theme.css (the deck's CSS lands
+   in the bundle before theme.css, so source order alone would not win). */
+:root[data-theme='estate-linen'] {
+  /* Reuse the serif display stack the "editorial" preset ships (system serif —
+     no webfont needed; the kit only bundles Inter). */
+  --nk-font-display: Georgia, 'Times New Roman', serif;
+
+  --nk-surface: #faf7f2;
+  --nk-card: #ffffff;
+  --nk-ink: #22251f;
+  --nk-ink-soft: #5a5e54;
+  --nk-ink-faint: #98988c;
+  --nk-edge: #e6e1d6;
+  --nk-accent: #1f4d3a;
+  --nk-accent-ink: #1f4d3a;
+  --nk-accent-soft: rgba(31, 77, 58, 0.08);
+  --nk-accent-edge: rgba(31, 77, 58, 0.22);
+  --nk-positive: #1f4d3a;
+  --nk-positive-ink: #1f4d3a;
+  --nk-positive-soft: rgba(31, 77, 58, 0.08);
+  --nk-positive-edge: rgba(31, 77, 58, 0.22);
+  --nk-critical: #9a3412;
+  --nk-critical-soft: rgba(154, 52, 18, 0.07);
+  --nk-critical-edge: rgba(154, 52, 18, 0.2);
+
+  /* Brass/gold secondary — used for kickers and the hero scrim gradient. */
+  --nk-gradient: linear-gradient(135deg, #1f4d3a 0%, #a3803c 100%);
+  --nk-orb-1: rgba(31, 77, 58, 0.07);
+  --nk-orb-2: rgba(163, 128, 60, 0.08);
+
+  --nk-nav-fade: rgba(250, 247, 242, 0.93);
+  --nk-nav-button: rgba(255, 255, 255, 0.8);
+  --nk-nav-button-hover: #ffffff;
+  --nk-nav-chip: rgba(255, 255, 255, 0.85);
+  --nk-nav-border: rgba(230, 225, 214, 0.95);
+  --nk-nav-icon: #22251f;
+  --nk-nav-dot: rgba(152, 152, 140, 0.4);
+  --nk-nav-dot-hover: rgba(152, 152, 140, 0.6);
+  --nk-nav-dot-active: #1f4d3a;
+}
+
+/* Brass token for the tiny kickers and hairline diamonds (not part of the
+   semantic palette, so it lives here as a plain custom property). */
+:root[data-theme='estate-linen'] {
+  --estate-brass: #a3803c;
+}

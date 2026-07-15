@@ -1,0 +1,41 @@
+/*
+ * Theme "navy-gold" — premium consulting: deep navy, ivory, a gold accent and
+ * serif headings. Activated from slides/index.ts, no need to touch index.html.
+ */
+/* :root[…] beats the default :root block in theme.css on specificity
+   (deck CSS lands in the bundle before theme.css, so source order won't help). */
+:root[data-theme='navy-gold'] {
+  --nk-font-display: Georgia, 'Times New Roman', serif;
+
+  --nk-surface: #0c1626;
+  --nk-card: rgba(255, 255, 255, 0.04);
+  --nk-ink: #f2ede2;
+  --nk-ink-soft: #c9c2b2;
+  --nk-ink-faint: #948e7d;
+  --nk-edge: rgba(242, 237, 226, 0.12);
+  --nk-accent: #d4a94c;
+  --nk-accent-ink: #e6c887;
+  --nk-accent-soft: rgba(212, 169, 76, 0.12);
+  --nk-accent-edge: rgba(212, 169, 76, 0.35);
+  --nk-positive: #34d399;
+  --nk-positive-ink: #6ee7b7;
+  --nk-positive-soft: rgba(52, 211, 153, 0.12);
+  --nk-positive-edge: rgba(52, 211, 153, 0.32);
+  --nk-critical: #f87171;
+  --nk-critical-soft: rgba(248, 113, 113, 0.12);
+  --nk-critical-edge: rgba(248, 113, 113, 0.3);
+
+  --nk-gradient: linear-gradient(120deg, #d4a94c 0%, #f0d78c 55%, #d4a94c 100%);
+  --nk-orb-1: rgba(212, 169, 76, 0.08);
+  --nk-orb-2: rgba(30, 58, 95, 0.35);
+
+  --nk-nav-fade: rgba(12, 22, 38, 0.92);
+  --nk-nav-button: rgba(242, 237, 226, 0.08);
+  --nk-nav-button-hover: rgba(242, 237, 226, 0.16);
+  --nk-nav-chip: rgba(242, 237, 226, 0.1);
+  --nk-nav-border: rgba(242, 237, 226, 0.16);
+  --nk-nav-icon: #f2ede2;
+  --nk-nav-dot: rgba(148, 142, 125, 0.45);
+  --nk-nav-dot-hover: rgba(148, 142, 125, 0.7);
+  --nk-nav-dot-active: #d4a94c;
+}

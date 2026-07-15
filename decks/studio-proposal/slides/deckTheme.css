@@ -1,0 +1,43 @@
+/*
+ * The "proposal-paper" theme — a printed document: warm paper, serif
+ * headings, a deep brick accent. Activated from slides/index.ts; no need to
+ * touch index.html.
+ */
+/* :root[…] — higher specificity than the default :root block in theme.css
+   (the deck CSS lands in the bundle before theme.css, so source order alone
+   wouldn't win here). */
+:root[data-theme='proposal-paper'] {
+  --nk-font-display: Georgia, 'Times New Roman', serif;
+
+  --nk-surface: #f5f1e8;
+  --nk-card: #fffdf7;
+  --nk-ink: #221d13;
+  --nk-ink-soft: #5b5344;
+  --nk-ink-faint: #8a8071;
+  --nk-edge: #e3dccb;
+  --nk-accent: #9a3412;
+  --nk-accent-ink: #7c2d12;
+  --nk-accent-soft: rgba(154, 52, 18, 0.08);
+  --nk-accent-edge: rgba(154, 52, 18, 0.25);
+  --nk-positive: #3f6212;
+  --nk-positive-ink: #365314;
+  --nk-positive-soft: rgba(63, 98, 18, 0.08);
+  --nk-positive-edge: rgba(63, 98, 18, 0.25);
+  --nk-critical: #9f1239;
+  --nk-critical-soft: rgba(159, 18, 57, 0.07);
+  --nk-critical-edge: rgba(159, 18, 57, 0.2);
+
+  --nk-gradient: linear-gradient(135deg, #9a3412 0%, #b45309 60%, #3f6212 100%);
+  --nk-orb-1: rgba(154, 52, 18, 0.05);
+  --nk-orb-2: rgba(63, 98, 18, 0.05);
+
+  --nk-nav-fade: rgba(240, 234, 220, 0.92);
+  --nk-nav-button: rgba(255, 253, 247, 0.75);
+  --nk-nav-button-hover: #fffdf7;
+  --nk-nav-chip: rgba(255, 253, 247, 0.85);
+  --nk-nav-border: rgba(227, 220, 203, 0.9);
+  --nk-nav-icon: #221d13;
+  --nk-nav-dot: rgba(138, 128, 113, 0.4);
+  --nk-nav-dot-hover: rgba(138, 128, 113, 0.6);
+  --nk-nav-dot-active: #9a3412;
+}

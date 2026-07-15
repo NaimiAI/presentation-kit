@@ -1,0 +1,15 @@
+{
+  "personalization": {
+    "companyName": "Summit Gear Co",
+    "contactName": "Laura Bennett",
+    "prospectPains": "Ticket volume spikes every time a carrier is late\nAgents copy tracking numbers by hand all day\nNo way to tell a customer about a delay before they ask",
+    "personalNote": "Laura — you mentioned the holiday surge nearly broke the queue last year. This is exactly the setup Ironwood used to get ahead of it. Happy to walk your team through it.",
+    "bookingUrl": "https://cal.example.com/dana-kim/20min",
+    "managerName": "Dana Kim",
+    "managerContact": "dana@relay.app",
+    "customFields": []
+  },
+  "clientFacts": {},
+  "demoData": {},
+  "canPersist": true
+}

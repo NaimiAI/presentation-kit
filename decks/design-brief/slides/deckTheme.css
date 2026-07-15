@@ -1,0 +1,43 @@
+/*
+ * The "gallery-serif" theme — gallery minimalism: a near-white sheet, hairline
+ * rules, oversized serifs, a Klein-blue accent. Activated from slides/index.ts;
+ * no need to touch index.html.
+ */
+/* :root[…] — higher specificity than the default :root block in theme.css
+   (the deck CSS lands in the bundle before theme.css, so source order alone
+   won't win). */
+:root[data-theme='gallery-serif'] {
+  --nk-font-display: Georgia, 'Times New Roman', serif;
+
+  --nk-surface: #fcfcfa;
+  --nk-card: #ffffff;
+  --nk-ink: #191919;
+  --nk-ink-soft: #4a4a48;
+  --nk-ink-faint: #8a8a86;
+  --nk-edge: #e6e5e0;
+  --nk-accent: #1d4ed8;
+  --nk-accent-ink: #1e40af;
+  --nk-accent-soft: rgba(29, 78, 216, 0.07);
+  --nk-accent-edge: rgba(29, 78, 216, 0.25);
+  --nk-positive: #191919;
+  --nk-positive-ink: #191919;
+  --nk-positive-soft: rgba(25, 25, 25, 0.05);
+  --nk-positive-edge: rgba(25, 25, 25, 0.2);
+  --nk-critical: #b91c1c;
+  --nk-critical-soft: rgba(185, 28, 28, 0.06);
+  --nk-critical-edge: rgba(185, 28, 28, 0.2);
+
+  --nk-gradient: linear-gradient(120deg, #1d4ed8 0%, #191919 100%);
+  --nk-orb-1: rgba(29, 78, 216, 0.05);
+  --nk-orb-2: rgba(25, 25, 25, 0.03);
+
+  --nk-nav-fade: rgba(252, 252, 250, 0.95);
+  --nk-nav-button: rgba(255, 255, 255, 0.85);
+  --nk-nav-button-hover: #ffffff;
+  --nk-nav-chip: rgba(255, 255, 255, 0.9);
+  --nk-nav-border: rgba(230, 229, 224, 0.95);
+  --nk-nav-icon: #191919;
+  --nk-nav-dot: rgba(138, 138, 134, 0.35);
+  --nk-nav-dot-hover: rgba(138, 138, 134, 0.55);
+  --nk-nav-dot-active: #1d4ed8;
+}

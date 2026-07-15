@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "b2b-services",
+  "name": "B2B services presentation — dark premium",
+  "description": "A B2B consulting presentation in a premium navy-and-gold theme: the client's context, practices with a priority pick, mini-cases, engagement model and contacts",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Company",
+        "placeholder": "The client's company name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "contactName",
+        "label": "Contact",
+        "placeholder": "First and last name",
+        "type": "text"
+      },
+      {
+        "key": "industry",
+        "label": "Client's industry",
+        "placeholder": "e.g. B2B logistics SaaS",
+        "type": "text"
+      },
+      {
+        "key": "painPoints",
+        "label": "What we heard (one item per line)",
+        "placeholder": "CRM adoption is low\nForecast misses by 30%+ every quarter",
+        "type": "textarea"
+      },
+      {
+        "key": "managerName",
+        "label": "Engagement partner",
+        "placeholder": "Who leads the account",
+        "type": "text"
+      },
+      {
+        "key": "managerContact",
+        "label": "Partner contact",
+        "placeholder": "Phone / email",
+        "type": "text"
+      }
+    ],
+    "showCustomFields": false
+  },
+  "demoData": {
+    "namespace": "b2bServices",
+    "fields": [
+      {
+        "key": "priorityService",
+        "label": "Priority practice",
+        "type": "string",
+        "defaultValue": "",
+        "promoteToClientFacts": true
+      }
+    ]
+  }
+}

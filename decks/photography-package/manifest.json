@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "photography-package",
+  "name": "Wedding photography packages",
+  "description": "Portfolio-led package proposal for couples: package picker and add-ons the couple fills in themselves, live total, booking timeline — fine-art gallery style",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Couple",
+        "placeholder": "e.g. Sarah & James",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "weddingDate",
+        "label": "Wedding date",
+        "placeholder": "Their wedding date",
+        "type": "date"
+      },
+      {
+        "key": "venueName",
+        "label": "Venue",
+        "placeholder": "e.g. Cedar Lakes Estate",
+        "type": "text"
+      },
+      {
+        "key": "personalNote",
+        "label": "Personal note",
+        "placeholder": "A short handwritten-style note to the couple",
+        "type": "textarea"
+      },
+      {
+        "key": "availabilityNote",
+        "label": "Availability note",
+        "placeholder": "e.g. Holding Oct 17 for you through Friday",
+        "type": "text"
+      },
+      {
+        "key": "bookingUrl",
+        "label": "Booking link",
+        "placeholder": "URL where the couple reserves their date",
+        "type": "text"
+      }
+    ],
+    "showCustomFields": false
+  },
+  "demoData": {
+    "namespace": "wedPhoto",
+    "fields": [
+      {
+        "key": "selectedPackage",
+        "label": "Selected collection",
+        "type": "string",
+        "defaultValue": "signature",
+        "collectFromClient": true,
+        "promoteToClientFacts": true
+      },
+      {
+        "key": "addonSecondShooter",
+        "label": "Add-on: second shooter",
+        "type": "boolean",
+        "defaultValue": false,
+        "collectFromClient": true
+      },
+      {
+        "key": "addonEngagement",
+        "label": "Add-on: engagement session",
+        "type": "boolean",
+        "defaultValue": false,
+        "collectFromClient": true
+      },
+      {
+        "key": "addonAlbum",
+        "label": "Add-on: fine-art album",
+        "type": "boolean",
+        "defaultValue": false,
+        "collectFromClient": true
+      },
+      {
+        "key": "addonRehearsal",
+        "label": "Add-on: rehearsal-dinner coverage",
+        "type": "boolean",
+        "defaultValue": false,
+        "collectFromClient": true
+      },
+      {
+        "key": "extraHours",
+        "label": "Extra hours of coverage",
+        "type": "number",
+        "defaultValue": 0,
+        "collectFromClient": true
+      },
+      {
+        "key": "dateFlexible",
+        "label": "Is the date locked in?",
+        "type": "string",
+        "defaultValue": "",
+        "collectFromClient": true
+      },
+      {
+        "key": "couplesQuestions",
+        "label": "Questions from the couple",
+        "type": "string",
+        "defaultValue": "",
+        "collectFromClient": true
+      }
+    ]
+  }
+}

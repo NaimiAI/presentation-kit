@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "saas-pitch",
+  "name": "SaaS product pitch with a pricing calculator",
+  "description": "Product pitch in a dark neon theme: problem/solution, an interface mockup, and an interactive plan + seat-count configurator",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Company",
+        "placeholder": "Client company name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "contactName",
+        "label": "Contact",
+        "placeholder": "First and last name",
+        "type": "text"
+      },
+      {
+        "key": "managerName",
+        "label": "Account lead",
+        "placeholder": "Who owns the deal",
+        "type": "text"
+      },
+      {
+        "key": "managerContact",
+        "label": "Account lead contact",
+        "placeholder": "Handle / email / phone",
+        "type": "text"
+      }
+    ],
+    "showCustomFields": false
+  },
+  "demoData": {
+    "namespace": "saasPitch",
+    "fields": [
+      {
+        "key": "plan",
+        "label": "Selected plan",
+        "type": "string",
+        "defaultValue": "growth",
+        "promoteToClientFacts": true
+      },
+      {
+        "key": "seats",
+        "label": "Seat count",
+        "type": "number",
+        "defaultValue": 25,
+        "promoteToClientFacts": true
+      },
+      {
+        "key": "billingAnnual",
+        "label": "Annual billing",
+        "type": "boolean",
+        "defaultValue": true
+      }
+    ]
+  }
+}

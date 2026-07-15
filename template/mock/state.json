@@ -1,0 +1,17 @@
+{
+  "personalization": {
+    "companyName": "Acme Retail",
+    "contactName": "Emily Carter",
+    "specialPrice": "",
+    "offerValidUntil": "",
+    "notes": "",
+    "projectOverview": "Online electronics store, 40,000 visitors a month.",
+    "customFields": []
+  },
+  "clientFacts": {
+    "monthlyVisitors": 24000,
+    "avgOrderValue": 120
+  },
+  "demoData": {},
+  "canPersist": true
+}

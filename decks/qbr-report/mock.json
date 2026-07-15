@@ -1,0 +1,28 @@
+{
+  "personalization": {
+    "companyName": "Harbor & Main Home Goods",
+    "periodLabel": "Q2 2026",
+    "presentDate": "2026-07-09",
+    "healthStatus": "On track",
+    "summaryNote": "Strong quarter — organic and email carried growth while paid held flat; the fix for Q3 is getting paid efficiency back and shipping the loyalty program.",
+    "winsLines": "Beat the revenue target by 14% ($1.42M vs $1.25M plan)\nOrganic sessions up 22% after the site-speed and content push\nEmail became the #2 channel — abandoned-cart flow alone drove $186K\nReturns rate dropped from 9.1% to 6.4% with the new sizing guide",
+    "watchoutsLines": "Paid CAC crept up 8% as June auction pressure spiked\nMobile checkout conversion still trails desktop by 1.9 points",
+    "kpiLines": "Revenue | $1.42M | +14%\nOrganic sessions | 128,400 | +22%\nEmail revenue | $186K | +31%\nRepeat purchase rate | 34% | +3pt\nConversion rate | 3.1% | +0.4pt\nAvg. order value | $94 | -2%",
+    "trendSeries": "62, 68, 71, 77, 74, 83, 88, 91, 97, 104, 109, 118",
+    "trendLabel": "Weekly online revenue ($K)",
+    "deliveredLines": "Rebuilt the product pages — 40% faster load, new sizing guide\nLaunched the abandoned-cart and win-back email flows\nShipped 9 SEO articles targeting high-intent category terms\nMigrated paid social to the new catalog + dynamic ads\nStood up weekly performance dashboards for your team",
+    "inFlightLines": "Loyalty & referral program — design done, build underway\nMobile checkout redesign — in usability testing\nInfluencer seeding pilot for the fall collection",
+    "nextPeriodLabel": "Q3 2026",
+    "planLines": "Ship the loyalty program and drive first-order-to-repeat rate\nRebuild mobile checkout to close the 1.9-point conversion gap\nScale paid search into two new metros with tightened CAC caps",
+    "recommendationNote": "Momentum is on organic and email — we'd double down there while we repair paid efficiency. The loyalty program is the single biggest lever on repeat revenue heading into the holiday season.",
+    "upsellLine": "Add a CRO sprint program — from $4,500/mo",
+    "nextReviewDate": "2026-10-08",
+    "managerName": "Morgan Whitfield",
+    "managerContact": "dana@beacondigital.example · (415) 555-0142",
+    "bookingUrl": "https://cal.example.com/beacon/qbr",
+    "customFields": []
+  },
+  "clientFacts": {},
+  "demoData": {},
+  "canPersist": true
+}

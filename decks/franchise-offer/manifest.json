@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "franchise-offer",
+  "name": "Franchise offer",
+  "description": "A franchise pitch for a prospective partner: unit economics of a location, an interactive payback calculator tuned to the partner's city, network support, and the terms to sign on",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Partner (name or company)",
+        "placeholder": "Who the offer is for",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "cityName",
+        "label": "Partner's city",
+        "placeholder": "e.g. Boise, ID",
+        "type": "text"
+      },
+      {
+        "key": "personalNote",
+        "label": "Personal note",
+        "placeholder": "e.g. we're already scouting two spaces in your area",
+        "type": "textarea"
+      },
+      {
+        "key": "managerName",
+        "label": "Franchise director",
+        "placeholder": "Who's working with the partner",
+        "type": "text"
+      },
+      {
+        "key": "managerContact",
+        "label": "Director contact",
+        "placeholder": "Phone / email",
+        "type": "text"
+      }
+    ],
+    "showCustomFields": false
+  },
+  "demoData": {
+    "namespace": "franchiseOffer",
+    "fields": [
+      {
+        "key": "avgTicket",
+        "label": "Average ticket, USD",
+        "type": "number",
+        "defaultValue": 9.5,
+        "promoteToClientFacts": true
+      },
+      {
+        "key": "dailyGuests",
+        "label": "Daily customers",
+        "type": "number",
+        "defaultValue": 260,
+        "promoteToClientFacts": true
+      }
+    ]
+  }
+}

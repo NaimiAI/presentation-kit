@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "event-invite",
+  "name": "Event invitation",
+  "description": "Poster-style personal invitation to a private event: full-bleed hero, program, and RSVP that saves the reply plus a one-click add-to-calendar link",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Company",
+        "placeholder": "Guest's company",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "contactName",
+        "label": "Guest name",
+        "placeholder": "First and last name",
+        "type": "text"
+      },
+      {
+        "key": "eventTitle",
+        "label": "Event name",
+        "placeholder": "e.g. Signal — an evening for revenue leaders",
+        "type": "text"
+      },
+      {
+        "key": "eventDate",
+        "label": "Event date",
+        "type": "date"
+      },
+      {
+        "key": "eventTime",
+        "label": "Time and format",
+        "placeholder": "e.g. 6:00 PM PT · dinner + talks",
+        "type": "text"
+      },
+      {
+        "key": "joinUrl",
+        "label": "Join link",
+        "placeholder": "https://...",
+        "type": "text"
+      }
+    ],
+    "showCustomFields": false
+  },
+  "demoData": {
+    "namespace": "eventInvite",
+    "fields": [
+      {
+        "key": "rsvpGoing",
+        "label": "Planning to attend",
+        "type": "boolean",
+        "defaultValue": false
+      },
+      {
+        "key": "attendeeCount",
+        "label": "Number of guests",
+        "type": "number",
+        "defaultValue": 2
+      }
+    ]
+  }
+}

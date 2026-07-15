@@ -1,0 +1,42 @@
+/*
+ * "orbit-night" theme — deep indigo cosmos with a neon gradient.
+ * Applied from slides/index.ts; no need to touch index.html.
+ */
+/* :root[…] — higher specificity than the default :root block in theme.css
+   (the deck CSS lands in the bundle before theme.css, so source order alone
+   would not win here). */
+:root[data-theme='orbit-night'] {
+  --nk-font-display: 'Inter', system-ui, sans-serif;
+
+  --nk-surface: #070b18;
+  --nk-card: rgba(255, 255, 255, 0.04);
+  --nk-ink: #f1f5fd;
+  --nk-ink-soft: #b3bdd4;
+  --nk-ink-faint: #7c87a3;
+  --nk-edge: rgba(255, 255, 255, 0.09);
+  --nk-accent: #818cf8;
+  --nk-accent-ink: #a5b4fc;
+  --nk-accent-soft: rgba(129, 140, 248, 0.13);
+  --nk-accent-edge: rgba(129, 140, 248, 0.32);
+  --nk-positive: #2dd4bf;
+  --nk-positive-ink: #5eead4;
+  --nk-positive-soft: rgba(45, 212, 191, 0.12);
+  --nk-positive-edge: rgba(45, 212, 191, 0.32);
+  --nk-critical: #fb7185;
+  --nk-critical-soft: rgba(251, 113, 133, 0.12);
+  --nk-critical-edge: rgba(251, 113, 133, 0.3);
+
+  --nk-gradient: linear-gradient(135deg, #22d3ee 0%, #818cf8 45%, #e879f9 100%);
+  --nk-orb-1: rgba(129, 140, 248, 0.16);
+  --nk-orb-2: rgba(34, 211, 238, 0.12);
+
+  --nk-nav-fade: rgba(7, 11, 24, 0.92);
+  --nk-nav-button: rgba(255, 255, 255, 0.07);
+  --nk-nav-button-hover: rgba(255, 255, 255, 0.15);
+  --nk-nav-chip: rgba(255, 255, 255, 0.09);
+  --nk-nav-border: rgba(255, 255, 255, 0.14);
+  --nk-nav-icon: #f1f5fd;
+  --nk-nav-dot: rgba(124, 135, 163, 0.45);
+  --nk-nav-dot-hover: rgba(124, 135, 163, 0.65);
+  --nk-nav-dot-active: #818cf8;
+}

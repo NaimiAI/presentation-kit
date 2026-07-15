@@ -1,0 +1,20 @@
+{
+  "personalization": {
+    "companyName": "Ridgeline Outfitters",
+    "contactName": "Dan Whitaker",
+    "offerNumber": "P-2026-041",
+    "projectTitle": "CRM implementation & data migration",
+    "projectOverview": "Leads land in five different inboxes and get lost in reps' private threads — there's no single source of truth, no shared statuses, and no way to catch a deal going cold. The goal is to bring every inquiry into one CRM, automate routing, and sync deals with your accounting so leadership sees the pipeline and the revenue in one view.",
+    "projectDuration": "6–8 weeks",
+    "proposalDate": "2026-07-01",
+    "validUntil": "2026-07-31",
+    "workConditions": "Payment: 50% to start, 50% on acceptance · Net 15\nWeekly status call and a written progress report\nTwo revision rounds included on every stage\nWarranty support: 60 days after launch",
+    "stagesJson": "[{\"title\":\"Stage 1. Discovery & design\",\"costRub\":4800,\"rows\":\"Sales process audit | Interviews, channel review, current pipeline\\nIntegration map | Accounting, telephony, website, messaging\\nScope & rollout plan | We lock down scope and timeline\"},{\"title\":\"Stage 2. Implementation & integrations\",\"costRub\":14500,\"rows\":\"CRM setup | Pipelines, roles, permissions, automations\\nAccounting sync | Invoices, payments, product catalog\\nTelephony & messaging | Calls and threads on the deal record\"},{\"title\":\"Stage 3. Rollout & training\",\"costRub\":6200,\"rows\":\"Team training | Two workshops + video guides\\nLaunch & stabilization | Two weeks of hands-on support after go-live\"}]",
+    "managerName": "Emily Carter",
+    "managerContact": "emily@northmark.co",
+    "customFields": []
+  },
+  "clientFacts": {},
+  "demoData": {},
+  "canPersist": true
+}

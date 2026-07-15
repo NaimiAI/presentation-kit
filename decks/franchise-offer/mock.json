@@ -1,0 +1,13 @@
+{
+  "personalization": {
+    "companyName": "Tony Ramirez",
+    "cityName": "Boise, ID",
+    "personalNote": "We're already scouting two spaces in Boise — one downtown on 8th Street and one in the North End; both pencil out on foot traffic.",
+    "managerName": "Rachel Boyd",
+    "managerContact": "(208) 555-0173 · rachel@daybreakcoffee.co",
+    "customFields": []
+  },
+  "clientFacts": {},
+  "demoData": {},
+  "canPersist": true
+}

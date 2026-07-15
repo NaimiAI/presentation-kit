@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "pilot-results",
+  "name": "Pilot results report",
+  "description": "A report on a pilot project's results: before/after metrics, weekly trend, dollar impact, and recommendations",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Client",
+        "placeholder": "Client company name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "periodLabel",
+        "label": "Pilot period",
+        "placeholder": "e.g. May 12 – Jun 22, 2026",
+        "type": "text"
+      },
+      {
+        "key": "managerName",
+        "label": "Project lead",
+        "placeholder": "Manager's name",
+        "type": "text"
+      }
+    ],
+    "showCustomFields": false
+  },
+  "demoData": {
+    "namespace": "pilotResults",
+    "fields": [
+      {
+        "key": "responseMinBefore",
+        "label": "Order-processing time before, min",
+        "type": "number",
+        "defaultValue": 14
+      },
+      {
+        "key": "responseMinAfter",
+        "label": "Order-processing time after, min",
+        "type": "number",
+        "defaultValue": 3,
+        "promoteToClientFacts": true
+      },
+      {
+        "key": "convBefore",
+        "label": "Tickets auto-resolved before, %",
+        "type": "number",
+        "defaultValue": 18
+      },
+      {
+        "key": "convAfter",
+        "label": "Tickets auto-resolved after, %",
+        "type": "number",
+        "defaultValue": 61,
+        "promoteToClientFacts": true
+      },
+      {
+        "key": "dialogsTotal",
+        "label": "Orders processed during the pilot",
+        "type": "number",
+        "defaultValue": 9200,
+        "promoteToClientFacts": true
+      },
+      {
+        "key": "avgCheck",
+        "label": "Fully-loaded labor rate, $/hr",
+        "type": "number",
+        "defaultValue": 32,
+        "promoteToClientFacts": true
+      }
+    ]
+  }
+}

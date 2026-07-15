@@ -1,0 +1,17 @@
+{
+  "personalization": {
+    "companyName": "Bluebird Coffee Roasters",
+    "contactName": "Maya Chen",
+    "projectTitle": "Marketing site redesign & design system",
+    "projectOverview": "Bluebird grew from a single roastery into a name people seek out, but the site still runs on a 2019 build: a dated product catalog, a weak mobile experience, and a checkout that loses people on the third step. The goal is to rebuild the site around the catalog and shorten the path to purchase from six steps to three.",
+    "proposalDate": "2026-06-15",
+    "validUntil": "2026-07-15",
+    "pricingDisclaimer": "Photography and copywriting quoted separately. Prices exclude sales tax.",
+    "workConditions": "Payment: 50% to start per stage, 50% on acceptance · Net 15\nTwo revision rounds included on every stage\nDesign source files handed over on final payment\nWarranty support: 30 days after launch",
+    "stagesJson": "[{\"title\":\"Stage 1. Discovery & concept\",\"costRub\":6500,\"rows\":\"Current-site audit | Analytics, heatmaps, team interviews\\nCompetitive review | 5–7 players, teardown of the best patterns\\nConcept & prototype | Structure, prototypes of key screens\"},{\"title\":\"Stage 2. Design & build\",\"costRub\":18000,\"rows\":\"Design system | Typography, color, UI kit\\nPage design | Up to 12 unique layouts\\nBuild & CMS | Responsive front end, up to 3 integrations\"},{\"title\":\"Stage 3. Launch\",\"costRub\":12500,\"rows\":\"Testing | Cross-browser and load testing\\nContent migration | Up to 40 pages\\nTeam training | Video guides and a handoff call\"}]",
+    "customFields": []
+  },
+  "clientFacts": {},
+  "demoData": {},
+  "canPersist": true
+}

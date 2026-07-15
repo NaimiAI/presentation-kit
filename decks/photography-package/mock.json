@@ -1,0 +1,14 @@
+{
+  "personalization": {
+    "companyName": "Sarah & James",
+    "weddingDate": "2026-12-05",
+    "venueName": "Cedar Lakes Estate",
+    "personalNote": "So glad we met at the tasting — here's everything we talked about. — S.",
+    "availabilityNote": "Holding Dec 5 for you through Friday.",
+    "bookingUrl": "",
+    "customFields": []
+  },
+  "clientFacts": {},
+  "demoData": {},
+  "canPersist": true
+}

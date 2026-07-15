@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "studio-proposal",
+  "name": "Studio proposal — paper",
+  "description": "Service proposal styled as a printed document: our understanding, process, stage-based estimate, terms, and a signature block",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Client",
+        "placeholder": "Client company name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "contactName",
+        "label": "Contact",
+        "placeholder": "First and last name",
+        "type": "text"
+      },
+      {
+        "key": "projectTitle",
+        "label": "Project title",
+        "placeholder": "e.g. Marketing site redesign & design system",
+        "type": "text"
+      },
+      {
+        "key": "projectOverview",
+        "label": "Our understanding",
+        "placeholder": "2–4 sentences: how you understood the client's problem",
+        "type": "textarea"
+      },
+      {
+        "key": "proposalDate",
+        "label": "Proposal date",
+        "type": "date"
+      },
+      {
+        "key": "validUntil",
+        "label": "Valid through",
+        "type": "date"
+      },
+      {
+        "key": "pricingDisclaimer",
+        "label": "Pricing note",
+        "placeholder": "e.g. Photography and copywriting quoted separately",
+        "type": "text"
+      },
+      {
+        "key": "workConditions",
+        "label": "Terms (one line per item)",
+        "placeholder": "Payment: 50% to start per stage",
+        "type": "textarea"
+      }
+    ],
+    "showCustomFields": false,
+    "showStagesEditor": true
+  },
+  "demoData": {
+    "namespace": "studioProposal",
+    "fields": []
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "service-configurator",
+  "name": "Service menu configurator",
+  "description": "Interactive price list: the client turns services on with cards, the bundle discount grows with the count, and the estimate recalculates live",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Client",
+        "placeholder": "Client company name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "contactName",
+        "label": "Contact",
+        "placeholder": "First and last name",
+        "type": "text"
+      },
+      {
+        "key": "offerNote",
+        "label": "Offer note",
+        "placeholder": "e.g. Pricing held through the end of the month",
+        "type": "text"
+      }
+    ],
+    "showCustomFields": false
+  },
+  "demoData": {
+    "namespace": "serviceConfig",
+    "fields": [
+      { "key": "svcAudit", "label": "SEO audit", "type": "boolean", "defaultValue": true },
+      { "key": "svcBrand", "label": "Analytics dashboard", "type": "boolean", "defaultValue": false },
+      { "key": "svcSite", "label": "Landing page", "type": "boolean", "defaultValue": true },
+      { "key": "svcSeo", "label": "Email flows", "type": "boolean", "defaultValue": false },
+      { "key": "svcContent", "label": "Content engine", "type": "boolean", "defaultValue": false },
+      { "key": "svcAds", "label": "Paid ads management", "type": "boolean", "defaultValue": true }
+    ]
+  }
+}

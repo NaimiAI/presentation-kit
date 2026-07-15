@@ -1,0 +1,42 @@
+/*
+ * The "noir-lime" theme — a poster look: a near-black surface with an acid-lime
+ * accent. Activated from slides/index.ts; no need to touch index.html.
+ */
+/* :root[…] — higher specificity than the default :root block in theme.css
+   (the deck CSS lands in the bundle before theme.css, so source order alone
+   won't win). */
+:root[data-theme='noir-lime'] {
+  --nk-font-display: 'Inter', system-ui, sans-serif;
+
+  --nk-surface: #0c0c0a;
+  --nk-card: rgba(255, 255, 255, 0.05);
+  --nk-ink: #f7f7f2;
+  --nk-ink-soft: #c6c6bb;
+  --nk-ink-faint: #8b8b80;
+  --nk-edge: rgba(255, 255, 255, 0.12);
+  --nk-accent: #a3e635;
+  --nk-accent-ink: #bef264;
+  --nk-accent-soft: rgba(163, 230, 53, 0.12);
+  --nk-accent-edge: rgba(163, 230, 53, 0.35);
+  --nk-positive: #34d399;
+  --nk-positive-ink: #6ee7b7;
+  --nk-positive-soft: rgba(52, 211, 153, 0.12);
+  --nk-positive-edge: rgba(52, 211, 153, 0.35);
+  --nk-critical: #fb7185;
+  --nk-critical-soft: rgba(251, 113, 133, 0.12);
+  --nk-critical-edge: rgba(251, 113, 133, 0.3);
+
+  --nk-gradient: linear-gradient(135deg, #a3e635 0%, #34d399 55%, #22d3ee 100%);
+  --nk-orb-1: rgba(163, 230, 53, 0.1);
+  --nk-orb-2: rgba(34, 211, 238, 0.08);
+
+  --nk-nav-fade: rgba(12, 12, 10, 0.92);
+  --nk-nav-button: rgba(255, 255, 255, 0.07);
+  --nk-nav-button-hover: rgba(255, 255, 255, 0.15);
+  --nk-nav-chip: rgba(255, 255, 255, 0.09);
+  --nk-nav-border: rgba(255, 255, 255, 0.16);
+  --nk-nav-icon: #f7f7f2;
+  --nk-nav-dot: rgba(139, 139, 128, 0.45);
+  --nk-nav-dot-hover: rgba(139, 139, 128, 0.65);
+  --nk-nav-dot-active: #a3e635;
+}

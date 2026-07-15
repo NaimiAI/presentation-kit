@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+/* Inter shipped as a file: the sandboxed iframe CSP forbids CDNs (Google Fonts). */
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets/fonts/InterVariable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*
+ * Semantic design tokens. Components and slides use Tailwind utilities like
+ * bg-surface / text-ink / text-accent; the actual values come from the active
+ * theme preset (data-theme attribute on <html>).
+ *
+ * Switch theme: edit data-theme in index.html, or preview all presets in the
+ * dev gallery (npm run dev → /#gallery).
+ */
+@theme inline {
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: var(--nk-font-display);
+
+  --color-surface: var(--nk-surface);        /* page background */
+  --color-card: var(--nk-card);              /* card background */
+  --color-ink: var(--nk-ink);                /* primary text */
+  --color-ink-soft: var(--nk-ink-soft);      /* secondary text */
+  --color-ink-faint: var(--nk-ink-faint);    /* tertiary text / labels */
+  --color-edge: var(--nk-edge);              /* default borders */
+  --color-accent: var(--nk-accent);          /* primary accent */
+  --color-accent-ink: var(--nk-accent-ink);  /* accent-colored text on light/soft bg */
+  --color-accent-soft: var(--nk-accent-soft);/* accent at ~10% for chips/badges */
+  --color-accent-edge: var(--nk-accent-edge);/* accent at ~20% for chip borders */
+  --color-positive: var(--nk-positive);
+  --color-positive-ink: var(--nk-positive-ink);
+  --color-positive-soft: var(--nk-positive-soft);
+  --color-positive-edge: var(--nk-positive-edge);
+  --color-critical: var(--nk-critical);
+  --color-critical-soft: var(--nk-critical-soft);
+  --color-critical-edge: var(--nk-critical-edge);
+}
+
+/* ---------------------------------------------------------------- themes -- */
+
+/* Naimi light — the product's native style: slate + sky/violet/pink gradient. */
+:root,
+[data-theme='naimi-light'] {
+  --nk-font-display: 'Inter', system-ui, sans-serif;
+
+  --nk-surface: #f8fafc;
+  --nk-card: #ffffff;
+  --nk-ink: #0f172a;
+  --nk-ink-soft: #475569;
+  --nk-ink-faint: #64748b;
+  --nk-edge: #e2e8f0;
+  --nk-accent: #0ea5e9;
+  --nk-accent-ink: #0369a1;
+  --nk-accent-soft: rgba(14, 165, 233, 0.1);
+  --nk-accent-edge: rgba(14, 165, 233, 0.2);
+  --nk-positive: #059669;
+  --nk-positive-ink: #047857;
+  --nk-positive-soft: rgba(16, 185, 129, 0.1);
+  --nk-positive-edge: rgba(16, 185, 129, 0.25);
+  --nk-critical: #dc2626;
+  --nk-critical-soft: rgba(220, 38, 38, 0.08);
+  --nk-critical-edge: rgba(220, 38, 38, 0.2);
+
+  --nk-gradient: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 50%, #ec4899 100%);
+  --nk-orb-1: rgba(14, 165, 233, 0.1);
+  --nk-orb-2: rgba(139, 92, 246, 0.1);
+
+  /* Deck navigation (matches the built-in Naimi player exactly). */
+  --nk-nav-fade: rgba(241, 245, 249, 0.9);
+  --nk-nav-button: rgba(255, 255, 255, 0.7);
+  --nk-nav-button-hover: #ffffff;
+  --nk-nav-chip: rgba(255, 255, 255, 0.8);
+  --nk-nav-border: rgba(226, 232, 240, 0.8);
+  --nk-nav-icon: #0f172a;
+  --nk-nav-dot: rgba(148, 163, 184, 0.4);
+  --nk-nav-dot-hover: rgba(148, 163, 184, 0.6);
+  --nk-nav-dot-active: #38bdf8;
+}
+
+/* Naimi dark — dark studio theme (like the closing slides of a proposal). */
+[data-theme='naimi-dark'] {
+  --nk-font-display: 'Inter', system-ui, sans-serif;
+
+  --nk-surface: #0f172a;
+  --nk-card: rgba(255, 255, 255, 0.05);
+  --nk-ink: #f8fafc;
+  --nk-ink-soft: #cbd5e1;
+  --nk-ink-faint: #94a3b8;
+  --nk-edge: rgba(255, 255, 255, 0.1);
+  --nk-accent: #38bdf8;
+  --nk-accent-ink: #7dd3fc;
+  --nk-accent-soft: rgba(56, 189, 248, 0.12);
+  --nk-accent-edge: rgba(56, 189, 248, 0.3);
+  --nk-positive: #34d399;
+  --nk-positive-ink: #6ee7b7;
+  --nk-positive-soft: rgba(52, 211, 153, 0.12);
+  --nk-positive-edge: rgba(52, 211, 153, 0.35);
+  --nk-critical: #f87171;
+  --nk-critical-soft: rgba(248, 113, 113, 0.12);
+  --nk-critical-edge: rgba(248, 113, 113, 0.3);
+
+  --nk-gradient: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 50%, #ec4899 100%);
+  --nk-orb-1: rgba(56, 189, 248, 0.12);
+  --nk-orb-2: rgba(139, 92, 246, 0.14);
+
+  --nk-nav-fade: rgba(15, 23, 42, 0.9);
+  --nk-nav-button: rgba(255, 255, 255, 0.08);
+  --nk-nav-button-hover: rgba(255, 255, 255, 0.16);
+  --nk-nav-chip: rgba(255, 255, 255, 0.1);
+  --nk-nav-border: rgba(255, 255, 255, 0.15);
+  --nk-nav-icon: #f8fafc;
+  --nk-nav-dot: rgba(148, 163, 184, 0.4);
+  --nk-nav-dot-hover: rgba(148, 163, 184, 0.6);
+  --nk-nav-dot-active: #38bdf8;
+}
+
+/* Editorial — warm "paper" theme with serif headings. */
+[data-theme='editorial'] {
+  --nk-font-display: Georgia, 'Times New Roman', serif;
+
+  --nk-surface: #faf7f2;
+  --nk-card: #ffffff;
+  --nk-ink: #1c1917;
+  --nk-ink-soft: #57534e;
+  --nk-ink-faint: #78716c;
+  --nk-edge: #e7e0d6;
+  --nk-accent: #c2410c;
+  --nk-accent-ink: #9a3412;
+  --nk-accent-soft: rgba(194, 65, 12, 0.08);
+  --nk-accent-edge: rgba(194, 65, 12, 0.2);
+  --nk-positive: #15803d;
+  --nk-positive-ink: #166534;
+  --nk-positive-soft: rgba(21, 128, 61, 0.08);
+  --nk-positive-edge: rgba(21, 128, 61, 0.25);
+  --nk-critical: #b91c1c;
+  --nk-critical-soft: rgba(185, 28, 28, 0.07);
+  --nk-critical-edge: rgba(185, 28, 28, 0.2);
+
+  --nk-gradient: linear-gradient(135deg, #c2410c 0%, #b45309 50%, #0f766e 100%);
+  --nk-orb-1: rgba(194, 65, 12, 0.07);
+  --nk-orb-2: rgba(15, 118, 110, 0.07);
+
+  --nk-nav-fade: rgba(245, 240, 232, 0.9);
+  --nk-nav-button: rgba(255, 255, 255, 0.7);
+  --nk-nav-button-hover: #ffffff;
+  --nk-nav-chip: rgba(255, 255, 255, 0.8);
+  --nk-nav-border: rgba(231, 224, 214, 0.9);
+  --nk-nav-icon: #1c1917;
+  --nk-nav-dot: rgba(168, 162, 158, 0.4);
+  --nk-nav-dot-hover: rgba(168, 162, 158, 0.6);
+  --nk-nav-dot-active: #c2410c;
+}
+
+/* ------------------------------------------------------------------ base -- */
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  background: var(--nk-surface);
+  color: var(--nk-ink);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.3);
+}
+
+/* --------------------------------------------------------------- helpers -- */
+
+.gradient-text {
+  background: var(--nk-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-accent {
+  box-shadow: 0 0 40px var(--nk-accent-soft);
+}

@@ -1,0 +1,14 @@
+{
+  "personalization": {
+    "companyName": "TrueNorth Logistics",
+    "contactName": "Karen Doyle",
+    "industry": "B2B logistics SaaS · $40M revenue",
+    "painPoints": "CRM adoption is low — reps live in spreadsheets and half the pipeline never makes it into the system\nForecast misses by 30%+ every quarter, so the board stops trusting the number\nReps spend hours a week on manual data entry instead of selling",
+    "managerName": "David Reyes",
+    "managerContact": "(415) 555-0142 · david@meridianadvisory.com",
+    "customFields": []
+  },
+  "clientFacts": {},
+  "demoData": {},
+  "canPersist": true
+}

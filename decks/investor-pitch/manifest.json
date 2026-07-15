@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "investor-pitch",
+  "name": "Investor pitch deck",
+  "description": "Seed pitch in a light glass theme: problem and solution, market, traction with a chart, round terms with a ticket calculator, and the team",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Fund / investor",
+        "placeholder": "Fund name or angel's name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "contactName",
+        "label": "Partner / contact",
+        "placeholder": "Who you're talking to",
+        "type": "text"
+      },
+      {
+        "key": "personalNote",
+        "label": "Why this investor",
+        "placeholder": "1–2 sentences on why this fund fits the round (thesis, portfolio, network)",
+        "type": "textarea"
+      },
+      {
+        "key": "roundClosing",
+        "label": "Target round close",
+        "type": "date"
+      },
+      {
+        "key": "managerName",
+        "label": "Who's leading the conversation",
+        "placeholder": "Founder / CEO",
+        "type": "text"
+      },
+      {
+        "key": "managerContact",
+        "label": "Contact",
+        "placeholder": "Email / handle",
+        "type": "text"
+      }
+    ],
+    "showCustomFields": false
+  },
+  "demoData": {
+    "namespace": "investorPitch",
+    "fields": [
+      {
+        "key": "ticketK",
+        "label": "Ticket under discussion, USD",
+        "type": "number",
+        "defaultValue": 250000,
+        "promoteToClientFacts": true
+      }
+    ]
+  }
+}

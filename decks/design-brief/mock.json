@@ -1,0 +1,19 @@
+{
+  "personalization": {
+    "companyName": "Juniper Skincare",
+    "contactName": "Olivia",
+    "managerName": "Leo Marsh",
+    "managerContact": "leo@formatandco.studio · @leomarsh",
+    "customFields": []
+  },
+  "clientFacts": {},
+  "demoData": {
+    "brandEssence": "A clean, plant-based skincare line made in small batches in Oregon. We want to look more premium than the drugstore shelf, but still feel warm and approachable — never clinical.",
+    "styleMinimal": true,
+    "styleClassic": true,
+    "deliverableIdentity": true,
+    "deliverablePackaging": true,
+    "budgetRange": "10-25k"
+  },
+  "canPersist": true
+}

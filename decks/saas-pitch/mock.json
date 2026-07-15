@@ -1,0 +1,12 @@
+{
+  "personalization": {
+    "companyName": "Summit Gear Co",
+    "contactName": "Laura Bennett",
+    "managerName": "Dana Kim",
+    "managerContact": "@danakim · dana@relay.app",
+    "customFields": []
+  },
+  "clientFacts": {},
+  "demoData": {},
+  "canPersist": true
+}

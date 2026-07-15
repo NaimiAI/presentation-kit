@@ -1,0 +1,42 @@
+/*
+ * "warm-interior" theme — warm interior palette: cream, terracotta, sage, serif
+ * headings. Activated from slides/index.ts; no need to touch index.html.
+ */
+/* :root[…] has higher specificity than the default :root block in theme.css
+   (the deck CSS lands in the bundle before theme.css, so source order alone
+   would not win). */
+:root[data-theme='warm-interior'] {
+  --nk-font-display: Georgia, 'Times New Roman', serif;
+
+  --nk-surface: #faf5ee;
+  --nk-card: #ffffff;
+  --nk-ink: #362a20;
+  --nk-ink-soft: #6b5d4d;
+  --nk-ink-faint: #98897a;
+  --nk-edge: #eadfd0;
+  --nk-accent: #bf5b2b;
+  --nk-accent-ink: #9c4a22;
+  --nk-accent-soft: rgba(191, 91, 43, 0.09);
+  --nk-accent-edge: rgba(191, 91, 43, 0.25);
+  --nk-positive: #4d7c0f;
+  --nk-positive-ink: #3f6212;
+  --nk-positive-soft: rgba(77, 124, 15, 0.09);
+  --nk-positive-edge: rgba(77, 124, 15, 0.25);
+  --nk-critical: #b91c1c;
+  --nk-critical-soft: rgba(185, 28, 28, 0.07);
+  --nk-critical-edge: rgba(185, 28, 28, 0.2);
+
+  --nk-gradient: linear-gradient(135deg, #bf5b2b 0%, #d9a441 55%, #7c9a5a 100%);
+  --nk-orb-1: rgba(191, 91, 43, 0.08);
+  --nk-orb-2: rgba(124, 154, 90, 0.1);
+
+  --nk-nav-fade: rgba(247, 240, 229, 0.93);
+  --nk-nav-button: rgba(255, 255, 255, 0.78);
+  --nk-nav-button-hover: #ffffff;
+  --nk-nav-chip: rgba(255, 255, 255, 0.85);
+  --nk-nav-border: rgba(234, 223, 208, 0.95);
+  --nk-nav-icon: #362a20;
+  --nk-nav-dot: rgba(152, 137, 122, 0.4);
+  --nk-nav-dot-hover: rgba(152, 137, 122, 0.6);
+  --nk-nav-dot-active: #bf5b2b;
+}

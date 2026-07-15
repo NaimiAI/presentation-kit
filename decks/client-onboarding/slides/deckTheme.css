@@ -1,0 +1,42 @@
+/*
+ * The "sunrise" theme — warm and friendly: a cream surface with an orange
+ * accent. Activated from slides/index.ts; no need to touch index.html.
+ */
+/* :root[…] — higher specificity than the default :root block in theme.css
+   (the deck CSS lands in the bundle before theme.css, so source order alone
+   won't win). */
+:root[data-theme='sunrise'] {
+  --nk-font-display: 'Inter', system-ui, sans-serif;
+
+  --nk-surface: #fff8f0;
+  --nk-card: #ffffff;
+  --nk-ink: #3b2415;
+  --nk-ink-soft: #6f513c;
+  --nk-ink-faint: #9a7d66;
+  --nk-edge: #f3e2d0;
+  --nk-accent: #ea580c;
+  --nk-accent-ink: #c2410c;
+  --nk-accent-soft: rgba(234, 88, 12, 0.09);
+  --nk-accent-edge: rgba(234, 88, 12, 0.25);
+  --nk-positive: #16a34a;
+  --nk-positive-ink: #15803d;
+  --nk-positive-soft: rgba(22, 163, 74, 0.09);
+  --nk-positive-edge: rgba(22, 163, 74, 0.25);
+  --nk-critical: #dc2626;
+  --nk-critical-soft: rgba(220, 38, 38, 0.07);
+  --nk-critical-edge: rgba(220, 38, 38, 0.2);
+
+  --nk-gradient: linear-gradient(135deg, #fb923c 0%, #ea580c 50%, #e11d48 100%);
+  --nk-orb-1: rgba(251, 146, 60, 0.16);
+  --nk-orb-2: rgba(225, 29, 72, 0.08);
+
+  --nk-nav-fade: rgba(255, 244, 230, 0.92);
+  --nk-nav-button: rgba(255, 255, 255, 0.75);
+  --nk-nav-button-hover: #ffffff;
+  --nk-nav-chip: rgba(255, 255, 255, 0.85);
+  --nk-nav-border: rgba(243, 226, 208, 0.9);
+  --nk-nav-icon: #3b2415;
+  --nk-nav-dot: rgba(154, 125, 102, 0.4);
+  --nk-nav-dot-hover: rgba(154, 125, 102, 0.6);
+  --nk-nav-dot-active: #ea580c;
+}

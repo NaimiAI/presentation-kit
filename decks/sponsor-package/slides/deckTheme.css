@@ -1,0 +1,43 @@
+/*
+ * "velvet-night" theme — an evening poster: deep aubergine, amber glow,
+ * fuchsia in the gradient. Applied from slides/index.ts; no need to touch
+ * index.html.
+ */
+/* :root[…] — higher specificity than the default :root block in theme.css
+   (the deck CSS lands in the bundle before theme.css, so source order alone
+   would not win here). */
+:root[data-theme='velvet-night'] {
+  --nk-font-display: 'Inter', system-ui, sans-serif;
+
+  --nk-surface: #171029;
+  --nk-card: rgba(255, 255, 255, 0.05);
+  --nk-ink: #f7f3ff;
+  --nk-ink-soft: #cfc4e8;
+  --nk-ink-faint: #9c90b8;
+  --nk-edge: rgba(247, 243, 255, 0.13);
+  --nk-accent: #f59e0b;
+  --nk-accent-ink: #fbbf24;
+  --nk-accent-soft: rgba(245, 158, 11, 0.13);
+  --nk-accent-edge: rgba(245, 158, 11, 0.4);
+  --nk-positive: #34d399;
+  --nk-positive-ink: #6ee7b7;
+  --nk-positive-soft: rgba(52, 211, 153, 0.13);
+  --nk-positive-edge: rgba(52, 211, 153, 0.35);
+  --nk-critical: #fb7185;
+  --nk-critical-soft: rgba(251, 113, 133, 0.13);
+  --nk-critical-edge: rgba(251, 113, 133, 0.35);
+
+  --nk-gradient: linear-gradient(120deg, #f59e0b 0%, #e879f9 55%, #8b5cf6 100%);
+  --nk-orb-1: rgba(245, 158, 11, 0.13);
+  --nk-orb-2: rgba(217, 70, 239, 0.16);
+
+  --nk-nav-fade: rgba(23, 16, 41, 0.92);
+  --nk-nav-button: rgba(247, 243, 255, 0.08);
+  --nk-nav-button-hover: rgba(247, 243, 255, 0.16);
+  --nk-nav-chip: rgba(247, 243, 255, 0.1);
+  --nk-nav-border: rgba(247, 243, 255, 0.16);
+  --nk-nav-icon: #f7f3ff;
+  --nk-nav-dot: rgba(156, 144, 184, 0.45);
+  --nk-nav-dot-hover: rgba(156, 144, 184, 0.7);
+  --nk-nav-dot-active: #f59e0b;
+}

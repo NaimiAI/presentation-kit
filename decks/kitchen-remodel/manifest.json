@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "kitchen-remodel",
+  "name": "Kitchen remodel proposal",
+  "description": "A design-build studio proposal in a warm interior theme: a live kitchen configurator (linear feet + cabinet line + countertop + hardware) with pricing and financing, budget and timeline questions the client answers themselves, and a free in-home consultation booking",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Client name(s)",
+        "placeholder": "How to address the homeowners",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "specialOffer",
+        "label": "Special offer",
+        "placeholder": "e.g. 10% off cabinetry if booked by July 15",
+        "type": "text"
+      },
+      {
+        "key": "managerName",
+        "label": "Your designer",
+        "placeholder": "Design consultant name",
+        "type": "text"
+      },
+      {
+        "key": "managerContact",
+        "label": "Designer contact",
+        "placeholder": "Phone / email",
+        "type": "text"
+      }
+    ],
+    "showCustomFields": false
+  },
+  "demoData": {
+    "namespace": "kitchenRemodel",
+    "fields": [
+      {
+        "key": "cabinetFeet",
+        "label": "Cabinetry, linear ft",
+        "type": "number",
+        "defaultValue": 18,
+        "promoteToClientFacts": true
+      },
+      {
+        "key": "cabinetLine",
+        "label": "Cabinet line",
+        "type": "string",
+        "defaultValue": "semiCustom",
+        "promoteToClientFacts": true
+      },
+      {
+        "key": "countertop",
+        "label": "Countertop",
+        "type": "string",
+        "defaultValue": "quartz",
+        "promoteToClientFacts": true
+      },
+      {
+        "key": "premiumHardware",
+        "label": "Premium hardware",
+        "type": "boolean",
+        "defaultValue": true
+      },
+      {
+        "key": "clientBudget",
+        "label": "Comfortable budget, USD",
+        "type": "number",
+        "defaultValue": 0,
+        "collectFromClient": true,
+        "promoteToClientFacts": true
+      },
+      {
+        "key": "projectTiming",
+        "label": "When they plan the remodel",
+        "type": "string",
+        "defaultValue": "",
+        "collectFromClient": true,
+        "promoteToClientFacts": true
+      }
+    ]
+  }
+}

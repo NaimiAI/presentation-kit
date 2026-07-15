@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "sponsor-package",
+  "name": "Event sponsorship package",
+  "description": "Dark poster deck for selling sponsorship: the event audience, three selectable tiers, a benefits matrix, and booking terms",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Sponsor company",
+        "placeholder": "Who you're pitching sponsorship to",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "contactName",
+        "label": "Contact",
+        "placeholder": "First and last name",
+        "type": "text"
+      },
+      {
+        "key": "specialTerms",
+        "label": "Custom term",
+        "placeholder": "e.g. category exclusivity in fintech — reserved for you",
+        "type": "text"
+      },
+      {
+        "key": "validUntil",
+        "label": "Package hold valid until",
+        "type": "date"
+      },
+      {
+        "key": "managerName",
+        "label": "Partnerships lead",
+        "placeholder": "Who owns the sponsor relationship",
+        "type": "text"
+      },
+      {
+        "key": "managerContact",
+        "label": "Contact details",
+        "placeholder": "Phone / email / handle",
+        "type": "text"
+      }
+    ],
+    "showCustomFields": false
+  },
+  "demoData": {
+    "namespace": "sponsorPackage",
+    "fields": [
+      {
+        "key": "selectedTier",
+        "label": "Selected package",
+        "type": "string",
+        "defaultValue": "",
+        "promoteToClientFacts": true
+      }
+    ]
+  }
+}

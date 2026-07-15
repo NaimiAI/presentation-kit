@@ -1,0 +1,12 @@
+{
+  "personalization": {
+    "companyName": "Ridgeline Outfitters",
+    "managerName": "Emily Carter",
+    "managerContact": "emily@northmark.co · (415) 555-0142",
+    "startDate": "2026-07-17",
+    "customFields": []
+  },
+  "clientFacts": {},
+  "demoData": {},
+  "canPersist": true
+}

@@ -1,0 +1,52 @@
+/*
+ * Theme "gallery-ivory" — a fine-art gallery: warm ivory paper, dusty
+ * champagne-rose accent, editorial serif display. Activated from slides/index.ts,
+ * so index.html never needs editing.
+ *
+ * :root[…] has higher specificity than theme.css's default :root block (the deck
+ * CSS lands in the bundle before theme.css, so source order alone won't win).
+ */
+:root[data-theme='gallery-ivory'] {
+  /* Editorial serif display stack (mirrors the kit's "editorial" preset). */
+  --nk-font-display: 'Georgia', 'Times New Roman', 'Iowan Old Style', serif;
+
+  --nk-surface: #fbf9f5;
+  --nk-card: #ffffff;
+  --nk-ink: #2b2724;
+  --nk-ink-soft: #6b625c;
+  --nk-ink-faint: #a89e97;
+  --nk-edge: #eae4dc;
+  --nk-accent: #b4836a;
+  --nk-accent-ink: #9a6a52;
+  --nk-accent-soft: rgba(180, 131, 106, 0.1);
+  --nk-accent-edge: rgba(180, 131, 106, 0.28);
+  --nk-positive: #6f8f6a;
+  --nk-positive-ink: #567052;
+  --nk-positive-soft: rgba(111, 143, 106, 0.12);
+  --nk-positive-edge: rgba(111, 143, 106, 0.28);
+  --nk-critical: #b5564e;
+  --nk-critical-soft: rgba(181, 86, 78, 0.08);
+  --nk-critical-edge: rgba(181, 86, 78, 0.22);
+
+  --nk-gradient: linear-gradient(135deg, #b4836a 0%, #8c6f5a 100%);
+  --nk-orb-1: rgba(180, 131, 106, 0.12);
+  --nk-orb-2: rgba(140, 111, 90, 0.1);
+
+  --nk-nav-fade: rgba(251, 249, 245, 0.92);
+  --nk-nav-button: rgba(255, 255, 255, 0.78);
+  --nk-nav-button-hover: #ffffff;
+  --nk-nav-chip: rgba(255, 255, 255, 0.86);
+  --nk-nav-border: rgba(234, 228, 220, 0.9);
+  --nk-nav-icon: #2b2724;
+  --nk-nav-dot: rgba(168, 158, 151, 0.45);
+  --nk-nav-dot-hover: rgba(168, 158, 151, 0.65);
+  --nk-nav-dot-active: #b4836a;
+}
+
+/* Print-style ivory mat around a portfolio photo. */
+.photo-mat {
+  background: var(--nk-card);
+  padding: 0.6rem;
+  border: 1px solid var(--nk-edge);
+  box-shadow: 0 18px 40px -28px rgba(43, 39, 36, 0.5);
+}

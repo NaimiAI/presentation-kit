@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "case-study",
+  "name": "Case study — customer story",
+  "description": "Editorial customer-success story with a personalized 'your numbers' projection: pains sidebar, results dashboard, quote, and an interactive savings calculator",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Prospect company",
+        "placeholder": "Company you're sending this to",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "contactName",
+        "label": "Contact",
+        "placeholder": "Who receives this",
+        "type": "text"
+      },
+      {
+        "key": "prospectPains",
+        "label": "Their pains — one per line",
+        "placeholder": "Rising WISMO tickets\nSlow first response\nManual carrier updates",
+        "type": "textarea"
+      },
+      {
+        "key": "personalNote",
+        "label": "Personal note",
+        "placeholder": "A line or two to the recipient",
+        "type": "textarea"
+      },
+      {
+        "key": "bookingUrl",
+        "label": "Booking link (optional)",
+        "placeholder": "https://cal.example.com/you/20min",
+        "type": "text"
+      },
+      {
+        "key": "managerName",
+        "label": "Your name",
+        "placeholder": "Who's sending this",
+        "type": "text"
+      },
+      {
+        "key": "managerContact",
+        "label": "Your contact",
+        "placeholder": "email or phone",
+        "type": "text"
+      }
+    ],
+    "showCustomFields": false
+  },
+  "demoData": {
+    "namespace": "caseStudy",
+    "fields": [
+      {
+        "key": "monthlyTickets",
+        "label": "Their support tickets per month",
+        "type": "number",
+        "defaultValue": 2000,
+        "promoteToClientFacts": true,
+        "collectFromClient": true
+      }
+    ]
+  }
+}

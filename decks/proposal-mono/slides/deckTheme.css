@@ -1,0 +1,42 @@
+/*
+ * The "swiss-mono" theme — Swiss typography: white sheet, black ink,
+ * one red accent. Activated from slides/index.ts; no need to touch index.html.
+ */
+/* :root[…] — higher specificity than the default :root block in theme.css
+   (the deck CSS lands in the bundle before theme.css, so source order alone
+   wouldn't win here). */
+:root[data-theme='swiss-mono'] {
+  --nk-font-display: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+
+  --nk-surface: #ffffff;
+  --nk-card: #f7f7f5;
+  --nk-ink: #0a0a0a;
+  --nk-ink-soft: #3f3f3f;
+  --nk-ink-faint: #7a7a7a;
+  --nk-edge: #d9d9d4;
+  --nk-accent: #e30613;
+  --nk-accent-ink: #c00511;
+  --nk-accent-soft: rgba(227, 6, 19, 0.07);
+  --nk-accent-edge: rgba(227, 6, 19, 0.28);
+  --nk-positive: #0a0a0a;
+  --nk-positive-ink: #0a0a0a;
+  --nk-positive-soft: rgba(10, 10, 10, 0.05);
+  --nk-positive-edge: rgba(10, 10, 10, 0.2);
+  --nk-critical: #e30613;
+  --nk-critical-soft: rgba(227, 6, 19, 0.07);
+  --nk-critical-edge: rgba(227, 6, 19, 0.28);
+
+  --nk-gradient: linear-gradient(135deg, #0a0a0a 0%, #e30613 100%);
+  --nk-orb-1: rgba(10, 10, 10, 0.03);
+  --nk-orb-2: rgba(227, 6, 19, 0.04);
+
+  --nk-nav-fade: rgba(255, 255, 255, 0.94);
+  --nk-nav-button: rgba(247, 247, 245, 0.9);
+  --nk-nav-button-hover: #ffffff;
+  --nk-nav-chip: rgba(247, 247, 245, 0.92);
+  --nk-nav-border: rgba(217, 217, 212, 0.9);
+  --nk-nav-icon: #0a0a0a;
+  --nk-nav-dot: rgba(122, 122, 122, 0.4);
+  --nk-nav-dot-hover: rgba(122, 122, 122, 0.65);
+  --nk-nav-dot-active: #e30613;
+}

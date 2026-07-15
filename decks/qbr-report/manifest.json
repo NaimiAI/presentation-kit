@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "qbr-report",
+  "name": "Quarterly business review",
+  "description": "Data-forward QBR: KPI grid and trend chart filled from simple text fields, wins/risks, next-quarter plan, and a client feedback block that saves answers to the client card",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Client",
+        "placeholder": "Account / company name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "periodLabel",
+        "label": "Period",
+        "placeholder": "e.g. Q2 2026",
+        "type": "text"
+      },
+      {
+        "key": "presentDate",
+        "label": "Review date",
+        "type": "date"
+      },
+      {
+        "key": "healthStatus",
+        "label": "Account health",
+        "placeholder": "On track / Needs attention / At risk",
+        "type": "text"
+      },
+      {
+        "key": "summaryNote",
+        "label": "TL;DR (one line)",
+        "placeholder": "The single-sentence takeaway for this quarter",
+        "type": "textarea"
+      },
+      {
+        "key": "winsLines",
+        "label": "Wins (one per line)",
+        "placeholder": "Beat pipeline target by 18%\nLaunched the new landing page",
+        "type": "textarea"
+      },
+      {
+        "key": "watchoutsLines",
+        "label": "Watch-outs (one per line, leave empty to hide)",
+        "placeholder": "Paid CAC crept up in June\nContent calendar slipped two weeks",
+        "type": "textarea"
+      },
+      {
+        "key": "kpiLines",
+        "label": "KPIs — one per line: Metric | value | change",
+        "placeholder": "Organic sessions | 128,400 | +22%\nMQLs | 640 | +11%\nCAC | $312 | -6%",
+        "type": "textarea"
+      },
+      {
+        "key": "trendSeries",
+        "label": "Trend series (comma-separated numbers)",
+        "placeholder": "84, 92, 96, 103, 110, 118",
+        "type": "text"
+      },
+      {
+        "key": "trendLabel",
+        "label": "Trend label",
+        "placeholder": "e.g. Leads per week",
+        "type": "text"
+      },
+      {
+        "key": "deliveredLines",
+        "label": "Delivered (one per line)",
+        "placeholder": "Rebuilt the pricing page\nShipped 6 blog posts",
+        "type": "textarea"
+      },
+      {
+        "key": "inFlightLines",
+        "label": "In flight (one per line)",
+        "placeholder": "Lifecycle email revamp\nAnalytics dashboard",
+        "type": "textarea"
+      },
+      {
+        "key": "nextPeriodLabel",
+        "label": "Next period label",
+        "placeholder": "e.g. Q3 2026",
+        "type": "text"
+      },
+      {
+        "key": "planLines",
+        "label": "Next-quarter priorities (one per line)",
+        "placeholder": "Scale paid search into two new geos\nLaunch the referral program",
+        "type": "textarea"
+      },
+      {
+        "key": "recommendationNote",
+        "label": "Our recommendation",
+        "placeholder": "Where you'd steer the account next quarter",
+        "type": "textarea"
+      },
+      {
+        "key": "upsellLine",
+        "label": "Upsell line (optional callout)",
+        "placeholder": "e.g. Add CRO program — from $4,500/mo",
+        "type": "text"
+      },
+      {
+        "key": "nextReviewDate",
+        "label": "Next review date",
+        "type": "date"
+      },
+      {
+        "key": "managerName",
+        "label": "Account lead",
+        "placeholder": "Who runs this account",
+        "type": "text"
+      },
+      {
+        "key": "managerContact",
+        "label": "Account lead contact",
+        "placeholder": "Email / phone",
+        "type": "text"
+      },
+      {
+        "key": "bookingUrl",
+        "label": "Booking link (optional)",
+        "placeholder": "https://...",
+        "type": "text"
+      }
+    ],
+    "showCustomFields": false
+  },
+  "demoData": {
+    "namespace": "qbr",
+    "fields": [
+      {
+        "key": "qbrRating",
+        "label": "Quarter rating (1-5)",
+        "type": "number",
+        "defaultValue": 0,
+        "collectFromClient": true,
+        "promoteToClientFacts": true
+      },
+      {
+        "key": "qbrFeedback",
+        "label": "Client feedback",
+        "type": "string",
+        "defaultValue": "",
+        "collectFromClient": true
+      }
+    ]
+  }
+}

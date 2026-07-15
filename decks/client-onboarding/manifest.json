@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "client-onboarding",
+  "name": "New-client welcome pack",
+  "description": "A post-signature document: meet the team, a first-30-days plan with dates counted from kickoff, materials and contacts",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Company",
+        "placeholder": "Client's company name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "managerName",
+        "label": "Account manager",
+        "placeholder": "First and last name",
+        "type": "text"
+      },
+      {
+        "key": "managerContact",
+        "label": "Manager's contact",
+        "placeholder": "Email / handle / phone",
+        "type": "text"
+      },
+      {
+        "key": "startDate",
+        "label": "Kickoff date",
+        "type": "date"
+      }
+    ],
+    "showCustomFields": false
+  },
+  "demoData": {
+    "namespace": "clientOnboarding",
+    "fields": []
+  }
+}
