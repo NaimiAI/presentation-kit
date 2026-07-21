@@ -1,16 +1,19 @@
 // Slide deck engine — identical look and behavior to the built-in Naimi decks:
 // spring slide transitions, keyboard navigation (←/→/Home/End/Space/Enter),
-// touch swipe with a first-slide hint, desktop dot navigation, mobile bar,
-// collapsible thumbnail panel that docks left and pushes the deck (desktop,
+// touch swipe with a first-slide hint, desktop dot navigation (bottom bar in
+// slide mode, vertical right-side rail in scroll view), mobile bar, collapsible
+// thumbnail panel that docks left and pushes the deck (desktop,
 // PowerPoint-style), and an alternative scroll view — all slides stacked as one
 // vertically scrollable document (PDF-like), toggled by the viewer.
 import { memo, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion'
 import {
+  ChevronDown,
   ChevronLeft,
   ChevronRight,
   ChevronsLeft,
   ChevronsRight,
+  ChevronUp,
   GalleryHorizontal,
   GalleryVertical,
   PanelLeft,
@@ -443,7 +446,9 @@ export default function SlideDeckPlayer<TSlideProps extends object>({ slides, sl
         )}
       </AnimatePresence>
 
-      <div className="relative h-full flex-1 min-w-0">
+      {/* overflow-hidden clips the slide transition to the deck area — a slide
+          animating in/out must not paint over the open thumbnail panel. */}
+      <div className="relative h-full flex-1 min-w-0 overflow-hidden">
         {viewMode === 'slides' ? (
           <div className="h-full w-full relative">
             <AnimatePresence initial={false} custom={direction} mode="wait">
@@ -481,62 +486,102 @@ export default function SlideDeckPlayer<TSlideProps extends object>({ slides, sl
           </div>
         )}
 
-        <div className="absolute bottom-0 left-0 right-0 z-50 hidden md:block">
-          <div className="flex items-center justify-between px-8 py-6 bg-gradient-to-t from-[var(--nk-nav-fade)] to-transparent">
-            <div className="flex items-center gap-2">
-              <button
-                onClick={goFirst}
-                disabled={currentSlide === 0}
-                className="p-3 rounded-xl bg-[var(--nk-nav-button)] border border-[var(--nk-nav-border)] backdrop-blur-sm hover:bg-[var(--nk-nav-button-hover)] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
-                title="First slide (Home)"
-              >
-                <ChevronsLeft className="w-5 h-5 text-[var(--nk-nav-icon)] group-hover:scale-110 transition-transform" />
-              </button>
+        {viewMode === 'slides' ? (
+          <div className="absolute bottom-0 left-0 right-0 z-50 hidden md:block">
+            <div className="flex items-center justify-between px-8 py-6 bg-gradient-to-t from-[var(--nk-nav-fade)] to-transparent">
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={goFirst}
+                  disabled={currentSlide === 0}
+                  className="p-3 rounded-xl bg-[var(--nk-nav-button)] border border-[var(--nk-nav-border)] backdrop-blur-sm hover:bg-[var(--nk-nav-button-hover)] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
+                  title="First slide (Home)"
+                >
+                  <ChevronsLeft className="w-5 h-5 text-[var(--nk-nav-icon)] group-hover:scale-110 transition-transform" />
+                </button>
+                <button
+                  onClick={goPrev}
+                  disabled={currentSlide === 0}
+                  className="p-3 rounded-xl bg-[var(--nk-nav-button)] border border-[var(--nk-nav-border)] backdrop-blur-sm hover:bg-[var(--nk-nav-button-hover)] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
+                  title="Previous (←)"
+                >
+                  <ChevronLeft className="w-5 h-5 text-[var(--nk-nav-icon)] group-hover:scale-110 transition-transform" />
+                </button>
+              </div>
+
+              <div className="flex items-center gap-2">
+                {slides.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => navigateToSlide(index)}
+                    className={`transition-all duration-300 rounded-full ${
+                      index === currentSlide
+                        ? 'w-8 h-2 bg-[var(--nk-nav-dot-active)]'
+                        : 'w-2 h-2 bg-[var(--nk-nav-dot)] hover:bg-[var(--nk-nav-dot-hover)]'
+                    }`}
+                    title={`Slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={goNext}
+                  disabled={currentSlide === slides.length - 1}
+                  className="p-3 rounded-xl bg-[var(--nk-nav-button)] border border-[var(--nk-nav-border)] backdrop-blur-sm hover:bg-[var(--nk-nav-button-hover)] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
+                  title="Next (→)"
+                >
+                  <ChevronRight className="w-5 h-5 text-[var(--nk-nav-icon)] group-hover:scale-110 transition-transform" />
+                </button>
+                <button
+                  onClick={goLast}
+                  disabled={currentSlide === slides.length - 1}
+                  className="p-3 rounded-xl bg-[var(--nk-nav-button)] border border-[var(--nk-nav-border)] backdrop-blur-sm hover:bg-[var(--nk-nav-button-hover)] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
+                  title="Last slide (End)"
+                >
+                  <ChevronsRight className="w-5 h-5 text-[var(--nk-nav-icon)] group-hover:scale-110 transition-transform" />
+                </button>
+              </div>
+            </div>
+          </div>
+        ) : (
+          // Scroll view: navigation moves to a vertical rail on the right —
+          // dots match the vertical flow, arrows turn into up/down section
+          // jumps (Home/End stay on the keyboard; no first/last buttons here).
+          <div className="absolute right-6 top-1/2 z-50 hidden -translate-y-1/2 md:block">
+            <div className="flex flex-col items-center gap-3 rounded-full bg-[var(--nk-nav-chip)] border border-[var(--nk-nav-border)] px-2 py-2.5 backdrop-blur-sm">
               <button
                 onClick={goPrev}
                 disabled={currentSlide === 0}
-                className="p-3 rounded-xl bg-[var(--nk-nav-button)] border border-[var(--nk-nav-border)] backdrop-blur-sm hover:bg-[var(--nk-nav-button-hover)] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
+                className="p-1.5 rounded-lg hover:bg-[var(--nk-nav-button-hover)] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
                 title="Previous (←)"
               >
-                <ChevronLeft className="w-5 h-5 text-[var(--nk-nav-icon)] group-hover:scale-110 transition-transform" />
+                <ChevronUp className="w-4 h-4 text-[var(--nk-nav-icon)] group-hover:scale-110 transition-transform" />
               </button>
-            </div>
-
-            <div className="flex items-center gap-2">
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => navigateToSlide(index)}
-                  className={`transition-all duration-300 rounded-full ${
-                    index === currentSlide
-                      ? 'w-8 h-2 bg-[var(--nk-nav-dot-active)]'
-                      : 'w-2 h-2 bg-[var(--nk-nav-dot)] hover:bg-[var(--nk-nav-dot-hover)]'
-                  }`}
-                  title={`Slide ${index + 1}`}
-                />
-              ))}
-            </div>
-
-            <div className="flex items-center gap-2">
+              <div className="flex flex-col items-center gap-2">
+                {slides.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => navigateToSlide(index)}
+                    className={`transition-all duration-300 rounded-full ${
+                      index === currentSlide
+                        ? 'h-8 w-2 bg-[var(--nk-nav-dot-active)]'
+                        : 'h-2 w-2 bg-[var(--nk-nav-dot)] hover:bg-[var(--nk-nav-dot-hover)]'
+                    }`}
+                    title={`Slide ${index + 1}`}
+                  />
+                ))}
+              </div>
               <button
                 onClick={goNext}
                 disabled={currentSlide === slides.length - 1}
-                className="p-3 rounded-xl bg-[var(--nk-nav-button)] border border-[var(--nk-nav-border)] backdrop-blur-sm hover:bg-[var(--nk-nav-button-hover)] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
+                className="p-1.5 rounded-lg hover:bg-[var(--nk-nav-button-hover)] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
                 title="Next (→)"
               >
-                <ChevronRight className="w-5 h-5 text-[var(--nk-nav-icon)] group-hover:scale-110 transition-transform" />
-              </button>
-              <button
-                onClick={goLast}
-                disabled={currentSlide === slides.length - 1}
-                className="p-3 rounded-xl bg-[var(--nk-nav-button)] border border-[var(--nk-nav-border)] backdrop-blur-sm hover:bg-[var(--nk-nav-button-hover)] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
-                title="Last slide (End)"
-              >
-                <ChevronsRight className="w-5 h-5 text-[var(--nk-nav-icon)] group-hover:scale-110 transition-transform" />
+                <ChevronDown className="w-4 h-4 text-[var(--nk-nav-icon)] group-hover:scale-110 transition-transform" />
               </button>
             </div>
           </div>
-        </div>
+        )}
 
         <AnimatePresence>
           {showSwipeHint && (
