@@ -2,10 +2,20 @@
 // spring slide transitions, keyboard navigation (←/→/Home/End/Space/Enter),
 // touch swipe with a first-slide hint, desktop dot navigation, mobile bar,
 // collapsible thumbnail panel that docks left and pushes the deck (desktop,
-// PowerPoint-style).
-import { memo, useCallback, useEffect, useRef, useState } from 'react'
+// PowerPoint-style), and an alternative scroll view — all slides stacked as one
+// vertically scrollable document (PDF-like), toggled by the viewer.
+import { memo, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion'
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, PanelLeft, PanelLeftClose } from 'lucide-react'
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
+  GalleryHorizontal,
+  GalleryVertical,
+  PanelLeft,
+  PanelLeftClose,
+} from 'lucide-react'
 import type { ComponentType } from 'react'
 import type { TouchEvent } from 'react'
 import { useDemoDataFlush } from './hooks'
@@ -14,6 +24,11 @@ interface SlideDeckPlayerProps<TSlideProps extends object> {
   slides: Array<ComponentType<TSlideProps>>
   slideProps: TSlideProps
 }
+
+// 'slides' — classic one-at-a-time show; 'scroll' — every slide stacked into one
+// vertically scrollable document. The default MUST stay 'slides': the platform's
+// PDF export drives the deck with arrow keys and relies on slide-mode DOM.
+type ViewMode = 'slides' | 'scroll'
 
 // While a client is typing into an interactive field (text input, textarea,
 // select, contenteditable), Space/Enter/arrows belong to that field — not to
@@ -88,6 +103,40 @@ function ThumbnailItemImpl<TSlideProps extends object>({
 }
 const ThumbnailItem = memo(ThumbnailItemImpl) as typeof ThumbnailItemImpl
 
+interface ScrollSectionProps<TSlideProps extends object> {
+  slide: ComponentType<TSlideProps>
+  slideProps: TSlideProps
+  index: number
+  isMounted: boolean
+  registerRef: (index: number, el: HTMLElement | null) => void
+}
+
+// One scroll-view section. Slides size against their container (SlideShell is
+// min-h-full), but a section only has a min-height — percentages can't resolve
+// against it, so a flex column with [&>*]:flex-auto stretches short slides to a
+// full screen and lets tall ones grow naturally. memo: the scroll observers bump
+// currentSlide on every crossing; N mounted slide trees must not re-render from it.
+function ScrollSectionImpl<TSlideProps extends object>({
+  slide: Slide,
+  slideProps,
+  index,
+  isMounted,
+  registerRef,
+}: ScrollSectionProps<TSlideProps>) {
+  return (
+    <section
+      ref={(el) => registerRef(index, el)}
+      data-section-index={index}
+      className={`relative flex min-h-screen w-full flex-col bg-surface [&>*]:flex-auto ${
+        index > 0 ? 'border-t border-[var(--nk-nav-border)]' : ''
+      }`}
+    >
+      {isMounted ? <Slide {...slideProps} /> : null}
+    </section>
+  )
+}
+const ScrollSection = memo(ScrollSectionImpl) as typeof ScrollSectionImpl
+
 const slideVariants = {
   enter: (direction: number) => ({
     x: direction > 0 ? '100%' : '-100%',
@@ -108,10 +157,19 @@ export default function SlideDeckPlayer<TSlideProps extends object>({ slides, sl
   const [direction, setDirection] = useState(0)
   const [isSwipeHintDismissed, setIsSwipeHintDismissed] = useState(false)
   const [isPanelOpen, setIsPanelOpen] = useState(false)
+  const [viewMode, setViewMode] = useState<ViewMode>('slides')
+  const [mountedSections, setMountedSections] = useState<boolean[]>(() => slides.map((_, index) => index === 0))
   const panelListRef = useRef<HTMLDivElement | null>(null)
+  const scrollAreaRef = useRef<HTMLDivElement | null>(null)
+  const sectionRefs = useRef<Array<HTMLElement | null>>([])
+  const currentSlideRef = useRef(0)
   const touchStartRef = useRef<{ x: number; y: number; time: number } | null>(null)
-  const showSwipeHint = currentSlide === 0 && !isSwipeHintDismissed
+  const showSwipeHint = viewMode === 'slides' && currentSlide === 0 && !isSwipeHintDismissed
   const flushDemoData = useDemoDataFlush()
+
+  useEffect(() => {
+    currentSlideRef.current = currentSlide
+  })
 
   // Flush any pending interactive-field edits before changing slides.
   const triggerFlush = useCallback(() => {
@@ -131,71 +189,168 @@ export default function SlideDeckPlayer<TSlideProps extends object>({ slides, sl
     }
   }, [currentSlide, slides.length, triggerFlush])
 
-  // goToSlide changes identity on every slide change; thumbnails get a stable
-  // callback through a ref so memo() actually skips them.
-  const goToSlideRef = useRef(goToSlide)
-  useEffect(() => {
-    goToSlideRef.current = goToSlide
-  })
-  const selectSlide = useCallback((index: number) => {
-    goToSlideRef.current(index)
+  const registerSectionRef = useCallback((index: number, el: HTMLElement | null) => {
+    sectionRefs.current[index] = el
   }, [])
 
-  const nextSlide = useCallback(() => {
-    if (currentSlide < slides.length - 1) {
-      triggerFlush()
-      setDirection(1)
-      setCurrentSlide((prev) => prev + 1)
-    }
-  }, [currentSlide, slides.length, triggerFlush])
+  const scrollToSection = useCallback((index: number, behavior: ScrollBehavior = 'smooth') => {
+    sectionRefs.current[index]?.scrollIntoView({ block: 'start', behavior })
+  }, [])
 
-  const prevSlide = useCallback(() => {
-    if (currentSlide > 0) {
-      triggerFlush()
-      const nextIndex = currentSlide - 1
-      setDirection(-1)
-      setCurrentSlide(nextIndex)
-      if (nextIndex === 0) {
-        setIsSwipeHintDismissed(false)
+  // Single navigation entry for dots/buttons/panel/keyboard: slide mode switches
+  // with the spring transition, scroll mode smooth-scrolls to the section
+  // (currentSlide catches up via the observer as the scroll passes by).
+  const navigateToSlide = useCallback((index: number) => {
+    if (index < 0 || index >= slides.length) return
+    if (viewMode === 'scroll') {
+      if (index !== currentSlideRef.current) triggerFlush()
+      scrollToSection(index)
+    } else {
+      goToSlide(index)
+    }
+  }, [goToSlide, scrollToSection, slides.length, triggerFlush, viewMode])
+
+  // navigateToSlide changes identity on every slide change; thumbnails get a
+  // stable callback through a ref so memo() actually skips them.
+  const navigateRef = useRef(navigateToSlide)
+  useEffect(() => {
+    navigateRef.current = navigateToSlide
+  })
+  const selectSlide = useCallback((index: number) => {
+    navigateRef.current(index)
+  }, [])
+
+  const goNext = useCallback(() => navigateToSlide(currentSlide + 1), [currentSlide, navigateToSlide])
+  const goPrev = useCallback(() => navigateToSlide(currentSlide - 1), [currentSlide, navigateToSlide])
+  const goFirst = useCallback(() => navigateToSlide(0), [navigateToSlide])
+  const goLast = useCallback(() => navigateToSlide(slides.length - 1), [navigateToSlide])
+
+  const enterScrollMode = useCallback(() => {
+    const current = currentSlideRef.current
+    // Mount the current slide and its neighbors upfront — no blank sections on entry.
+    setMountedSections((prev) => prev.map((mounted, index) => mounted || Math.abs(index - current) <= 1))
+    setViewMode('scroll')
+  }, [])
+
+  const exitScrollMode = useCallback(() => setViewMode('slides'), [])
+
+  const toggleViewMode = useCallback(() => {
+    if (viewMode === 'scroll') {
+      exitScrollMode()
+    } else {
+      enterScrollMode()
+    }
+  }, [enterScrollMode, exitScrollMode, viewMode])
+
+  // Entering scroll view jumps straight to the current slide (mode continuity;
+  // the way back needs nothing: currentSlide is already tracked by the observer).
+  useLayoutEffect(() => {
+    if (viewMode !== 'scroll') return
+    scrollToSection(currentSlideRef.current, 'auto')
+  }, [scrollToSection, viewMode])
+
+  // Lazy-mount scroll sections: a slide mounts as it approaches the viewport
+  // (~a third of a screen ahead) — entrance animations play when the viewer
+  // scrolls to it, and N trees don't mount at once on mode entry. Never
+  // unmounted back: replayed animations and lost focus in interactive fields
+  // cost more than the memory.
+  useEffect(() => {
+    if (viewMode !== 'scroll') return
+    const area = scrollAreaRef.current
+    if (!area) return
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue
+        const index = Number((entry.target as HTMLElement).dataset.sectionIndex)
+        if (Number.isNaN(index)) continue
+        setMountedSections((prev) => {
+          if (prev[index]) return prev
+          const next = [...prev]
+          next[index] = true
+          return next
+        })
+        observer.unobserve(entry.target)
       }
+    }, { root: area, rootMargin: '35% 0px 35% 0px' })
+    for (const el of sectionRefs.current) {
+      if (el) observer.observe(el)
     }
-  }, [currentSlide, triggerFlush])
+    return () => observer.disconnect()
+  }, [slides.length, viewMode])
 
-  const goToFirst = useCallback(() => {
-    if (currentSlide !== 0) {
-      triggerFlush()
-      setDirection(-1)
-      setCurrentSlide(0)
-      setIsSwipeHintDismissed(false)
+  // Active slide in scroll view = the section under the viewport middle: the
+  // observer root is shrunk to a narrow center band (rootMargin −49%), and at any
+  // moment exactly one section crosses it (sections are at least a screen tall
+  // and stack with no gaps).
+  useEffect(() => {
+    if (viewMode !== 'scroll') return
+    const area = scrollAreaRef.current
+    if (!area) return
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue
+        const index = Number((entry.target as HTMLElement).dataset.sectionIndex)
+        if (Number.isNaN(index) || index === currentSlideRef.current) continue
+        triggerFlush()
+        setCurrentSlide(index)
+      }
+    }, { root: area, rootMargin: '-49% 0px -49% 0px' })
+    for (const el of sectionRefs.current) {
+      if (el) observer.observe(el)
     }
-  }, [currentSlide, triggerFlush])
-
-  const goToLast = useCallback(() => {
-    if (currentSlide !== slides.length - 1) {
-      triggerFlush()
-      setDirection(1)
-      setCurrentSlide(slides.length - 1)
-    }
-  }, [currentSlide, slides.length, triggerFlush])
+    return () => observer.disconnect()
+  }, [slides.length, triggerFlush, viewMode])
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (isEditableTarget(event.target)) return
+      // Space/Enter on a focused button/link activate it — don't hijack those.
+      if (
+        (event.key === ' ' || event.key === 'Enter') &&
+        event.target instanceof HTMLElement &&
+        event.target.closest('button, a')
+      ) {
+        return
+      }
+      // In scroll view the intercepted keys get preventDefault: the scroll
+      // container has native reactions of its own — without it actions double up.
+      const isScroll = viewMode === 'scroll'
+      const area = scrollAreaRef.current
       switch (event.key) {
         case 'ArrowRight':
         case ' ':
         case 'Enter':
-          nextSlide()
+          if (isScroll) event.preventDefault()
+          goNext()
           break
         case 'ArrowLeft':
         case 'Backspace':
-          prevSlide()
+          if (isScroll) event.preventDefault()
+          goPrev()
           break
         case 'Home':
-          goToFirst()
+          if (isScroll) event.preventDefault()
+          goFirst()
           break
         case 'End':
-          goToLast()
+          if (isScroll) event.preventDefault()
+          goLast()
+          break
+        case 'ArrowDown':
+        case 'ArrowUp':
+          // PDF-like free scrolling in small steps (in slide mode these keys are
+          // not ours — a tall slide scrolls itself natively).
+          if (isScroll && area) {
+            event.preventDefault()
+            area.scrollBy({ top: event.key === 'ArrowDown' ? 160 : -160, behavior: 'smooth' })
+          }
+          break
+        case 'PageDown':
+        case 'PageUp':
+          if (isScroll && area) {
+            event.preventDefault()
+            area.scrollBy({ top: (event.key === 'PageDown' ? 1 : -1) * area.clientHeight * 0.85, behavior: 'smooth' })
+          }
           break
         case 'Escape':
           setIsPanelOpen(false)
@@ -205,7 +360,7 @@ export default function SlideDeckPlayer<TSlideProps extends object>({ slides, sl
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [goToFirst, goToLast, nextSlide, prevSlide])
+  }, [goFirst, goLast, goNext, goPrev, viewMode])
 
   // Keep the active thumbnail in view while navigating with the panel open.
   useEffect(() => {
@@ -248,9 +403,9 @@ export default function SlideDeckPlayer<TSlideProps extends object>({ slides, sl
 
     if (absDx > 60 && absDx > absDy * 1.2 && elapsed < 600) {
       if (dx < 0) {
-        nextSlide()
+        goNext()
       } else {
-        prevSlide()
+        goPrev()
       }
     }
 
@@ -289,33 +444,48 @@ export default function SlideDeckPlayer<TSlideProps extends object>({ slides, sl
       </AnimatePresence>
 
       <div className="relative h-full flex-1 min-w-0">
-        <div className="h-full w-full relative">
-          <AnimatePresence initial={false} custom={direction} mode="wait">
-            <motion.div
-              key={currentSlide}
-              custom={direction}
-              variants={slideVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{
-                x: { type: 'spring', stiffness: 300, damping: 30 },
-                opacity: { duration: 0.2 },
-              }}
-              className="absolute inset-0 overflow-y-auto overflow-x-hidden"
-              onTouchStart={handleTouchStart}
-              onTouchEnd={handleTouchEnd}
-            >
-              <CurrentSlide {...slideProps} />
-            </motion.div>
-          </AnimatePresence>
-        </div>
+        {viewMode === 'slides' ? (
+          <div className="h-full w-full relative">
+            <AnimatePresence initial={false} custom={direction} mode="wait">
+              <motion.div
+                key={currentSlide}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: 'spring', stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.2 },
+                }}
+                className="absolute inset-0 overflow-y-auto overflow-x-hidden"
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+              >
+                <CurrentSlide {...slideProps} />
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        ) : (
+          <div ref={scrollAreaRef} className="h-full w-full overflow-y-auto overflow-x-hidden overscroll-contain">
+            {slides.map((slide, index) => (
+              <ScrollSection
+                key={index}
+                slide={slide}
+                slideProps={slideProps}
+                index={index}
+                isMounted={mountedSections[index] ?? false}
+                registerRef={registerSectionRef}
+              />
+            ))}
+          </div>
+        )}
 
         <div className="absolute bottom-0 left-0 right-0 z-50 hidden md:block">
           <div className="flex items-center justify-between px-8 py-6 bg-gradient-to-t from-[var(--nk-nav-fade)] to-transparent">
             <div className="flex items-center gap-2">
               <button
-                onClick={goToFirst}
+                onClick={goFirst}
                 disabled={currentSlide === 0}
                 className="p-3 rounded-xl bg-[var(--nk-nav-button)] border border-[var(--nk-nav-border)] backdrop-blur-sm hover:bg-[var(--nk-nav-button-hover)] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
                 title="First slide (Home)"
@@ -323,7 +493,7 @@ export default function SlideDeckPlayer<TSlideProps extends object>({ slides, sl
                 <ChevronsLeft className="w-5 h-5 text-[var(--nk-nav-icon)] group-hover:scale-110 transition-transform" />
               </button>
               <button
-                onClick={prevSlide}
+                onClick={goPrev}
                 disabled={currentSlide === 0}
                 className="p-3 rounded-xl bg-[var(--nk-nav-button)] border border-[var(--nk-nav-border)] backdrop-blur-sm hover:bg-[var(--nk-nav-button-hover)] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
                 title="Previous (←)"
@@ -336,7 +506,7 @@ export default function SlideDeckPlayer<TSlideProps extends object>({ slides, sl
               {slides.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => goToSlide(index)}
+                  onClick={() => navigateToSlide(index)}
                   className={`transition-all duration-300 rounded-full ${
                     index === currentSlide
                       ? 'w-8 h-2 bg-[var(--nk-nav-dot-active)]'
@@ -349,7 +519,7 @@ export default function SlideDeckPlayer<TSlideProps extends object>({ slides, sl
 
             <div className="flex items-center gap-2">
               <button
-                onClick={nextSlide}
+                onClick={goNext}
                 disabled={currentSlide === slides.length - 1}
                 className="p-3 rounded-xl bg-[var(--nk-nav-button)] border border-[var(--nk-nav-border)] backdrop-blur-sm hover:bg-[var(--nk-nav-button-hover)] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
                 title="Next (→)"
@@ -357,7 +527,7 @@ export default function SlideDeckPlayer<TSlideProps extends object>({ slides, sl
                 <ChevronRight className="w-5 h-5 text-[var(--nk-nav-icon)] group-hover:scale-110 transition-transform" />
               </button>
               <button
-                onClick={goToLast}
+                onClick={goLast}
                 disabled={currentSlide === slides.length - 1}
                 className="p-3 rounded-xl bg-[var(--nk-nav-button)] border border-[var(--nk-nav-border)] backdrop-blur-sm hover:bg-[var(--nk-nav-button-hover)] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
                 title="Last slide (End)"
@@ -400,7 +570,7 @@ export default function SlideDeckPlayer<TSlideProps extends object>({ slides, sl
         <div className="absolute left-0 right-0 z-50 md:hidden bottom-[calc(0.75rem+env(safe-area-inset-bottom))]">
           <div className="flex items-center justify-between px-4 pt-3 pb-3 bg-gradient-to-t from-[var(--nk-nav-fade)] to-transparent">
             <button
-              onClick={goToFirst}
+              onClick={goFirst}
               disabled={currentSlide === 0}
               className="p-2 rounded-lg bg-[var(--nk-nav-chip)] border border-[var(--nk-nav-border)] backdrop-blur-sm disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200"
               title="First slide"
@@ -409,7 +579,7 @@ export default function SlideDeckPlayer<TSlideProps extends object>({ slides, sl
               <ChevronsLeft className="w-5 h-5 text-[var(--nk-nav-icon)]" />
             </button>
             <button
-              onClick={prevSlide}
+              onClick={goPrev}
               disabled={currentSlide === 0}
               className="p-2 rounded-lg bg-[var(--nk-nav-chip)] border border-[var(--nk-nav-border)] backdrop-blur-sm disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200"
               title="Previous"
@@ -421,7 +591,7 @@ export default function SlideDeckPlayer<TSlideProps extends object>({ slides, sl
               {currentSlide + 1} / {slides.length}
             </div>
             <button
-              onClick={nextSlide}
+              onClick={goNext}
               disabled={currentSlide === slides.length - 1}
               className="p-2 rounded-lg bg-[var(--nk-nav-chip)] border border-[var(--nk-nav-border)] backdrop-blur-sm disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200"
               title="Next"
@@ -430,7 +600,7 @@ export default function SlideDeckPlayer<TSlideProps extends object>({ slides, sl
               <ChevronRight className="w-5 h-5 text-[var(--nk-nav-icon)]" />
             </button>
             <button
-              onClick={goToLast}
+              onClick={goLast}
               disabled={currentSlide === slides.length - 1}
               className="p-2 rounded-lg bg-[var(--nk-nav-chip)] border border-[var(--nk-nav-border)] backdrop-blur-sm disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200"
               title="Last slide"
@@ -447,7 +617,7 @@ export default function SlideDeckPlayer<TSlideProps extends object>({ slides, sl
           </div>
         </div>
 
-        <div className="absolute top-6 left-8 z-50 hidden md:block">
+        <div className="absolute top-6 left-8 z-50 hidden md:flex items-center gap-2">
           <button
             onClick={() => setIsPanelOpen((prev) => !prev)}
             className="p-3 rounded-xl bg-[var(--nk-nav-button)] border border-[var(--nk-nav-border)] backdrop-blur-sm hover:bg-[var(--nk-nav-button-hover)] transition-all duration-200 group"
@@ -459,6 +629,35 @@ export default function SlideDeckPlayer<TSlideProps extends object>({ slides, sl
               <PanelLeftClose className="w-5 h-5 text-[var(--nk-nav-icon)] group-hover:scale-110 transition-transform" />
             ) : (
               <PanelLeft className="w-5 h-5 text-[var(--nk-nav-icon)] group-hover:scale-110 transition-transform" />
+            )}
+          </button>
+          <button
+            onClick={toggleViewMode}
+            className="p-3 rounded-xl bg-[var(--nk-nav-button)] border border-[var(--nk-nav-border)] backdrop-blur-sm hover:bg-[var(--nk-nav-button-hover)] transition-all duration-200 group"
+            title={viewMode === 'scroll' ? 'Slide view' : 'Scroll view'}
+            aria-label={viewMode === 'scroll' ? 'Switch to slide view' : 'Switch to scroll view'}
+            aria-pressed={viewMode === 'scroll'}
+          >
+            {viewMode === 'scroll' ? (
+              <GalleryHorizontal className="w-5 h-5 text-[var(--nk-nav-icon)] group-hover:scale-110 transition-transform" />
+            ) : (
+              <GalleryVertical className="w-5 h-5 text-[var(--nk-nav-icon)] group-hover:scale-110 transition-transform" />
+            )}
+          </button>
+        </div>
+
+        <div className="absolute right-3 z-50 md:hidden top-[calc(0.75rem+env(safe-area-inset-top))]">
+          <button
+            onClick={toggleViewMode}
+            className="p-2 rounded-lg bg-[var(--nk-nav-chip)] border border-[var(--nk-nav-border)] backdrop-blur-sm transition-all duration-200"
+            title={viewMode === 'scroll' ? 'Slide view' : 'Scroll view'}
+            aria-label={viewMode === 'scroll' ? 'Switch to slide view' : 'Switch to scroll view'}
+            aria-pressed={viewMode === 'scroll'}
+          >
+            {viewMode === 'scroll' ? (
+              <GalleryHorizontal className="w-5 h-5 text-[var(--nk-nav-icon)]" />
+            ) : (
+              <GalleryVertical className="w-5 h-5 text-[var(--nk-nav-icon)]" />
             )}
           </button>
         </div>
