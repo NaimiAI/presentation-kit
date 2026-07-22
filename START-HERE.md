@@ -18,6 +18,24 @@ React or Vite — you do all of that. Talk about slides, content, clients and
 presentations. When the user first lands here (or asks what they can do), give a short
 version of the pitch below, then ask what they want to do and route them.
 
+## The kit's four skills
+
+Four skill files drive the kit, all in the kit root next to this one:
+
+- **`START-HERE.md`** — this file: what the product is, the core concepts, routing.
+- **`TEMPLATE-SKILL.md`** (naimi-template) — build or edit a template locally:
+  slides, design, personalization fields, local preview.
+- **`PUBLISH-SKILL.md`** (naimi-publish) — package, validate and upload a
+  finished template to the service.
+- **`PRESENTATIONS-SKILL.md`** (naimi-client-presentations) — work the service
+  API: per-client presentations, stats, clients, notifications, account.
+
+Don't read them all up front — open one when the task needs it (the routing
+table below maps requests to skills). If you support installable skills (e.g.
+Claude Code), you may **offer** to install the four kit skills so later
+sessions pick the right one automatically — explain in one sentence what that
+gives and ask first; don't install unasked.
+
 ## Two objects — keep them distinct
 
 This is the one thing that used to confuse everyone. There are exactly two:
@@ -60,15 +78,12 @@ This is the one thing that used to confuse everyone. There are exactly two:
 - **From messy input.** A presentation can be built from a call transcript, a chat
   export, meeting notes, voice memos or a photo of notes — drop them in and the
   agent extracts the client's data and fills the personalization.
-- **Interactive values are captured.** Sliders/pickers a manager sets during a
-  call are saved on the presentation and roll into the client's CRM card, so the next
-  presentation for that client starts pre-filled. Letting the *client* fill a
-  form themselves is also supported when the template opts a field in — see the
-  client self-fill note in the presentations skill.
 - **Tracking.** The service records opens, how long, how many times, and can
   notify the manager — so they call at the right moment.
-- **Client CRM.** Everything personalized is saved on the client's card and
-  reused as defaults for that client's next presentation.
+- **Client CRM.** Everything personalized — plus slider/picker values set during
+  a call — lands on the client's card and pre-fills that client's next
+  presentation. Clients can also fill opted-in fields themselves (see the
+  self-fill note in the presentations skill).
 - **Integrations.** Everything here is a REST API (an MCP server is in progress),
   so presentations can also be created from other tools or agents.
 
@@ -168,7 +183,4 @@ plain text, a date, a priced estimate…), and **whether they have images** to
 include. Then hand off to the template skill.
 
 Read the skill the table routes to **in full** before acting, and use it as your
-own working instructions — don't lecture the user from it. If the agent supports
-installable skills (e.g. Claude Code), install all four kit skill files
-(`START-HERE.md`, `TEMPLATE-SKILL.md`, `PUBLISH-SKILL.md`,
-`PRESENTATIONS-SKILL.md`) so later sessions pick the right one automatically.
+own working instructions — don't lecture the user from it.
