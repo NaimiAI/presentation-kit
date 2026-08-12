@@ -62,5 +62,20 @@
         "defaultValue": 2
       }
     ]
-  }
+  },
+  "engine": "nk/0.9.0",
+  "slides": [
+    {
+      "id": "poster",
+      "title": "Poster"
+    },
+    {
+      "id": "agenda",
+      "title": "Program"
+    },
+    {
+      "id": "rsvp",
+      "title": "RSVP"
+    }
+  ]
 }

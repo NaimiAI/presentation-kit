@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en" data-theme="aurora-glass">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Investor pitch deck</title>
+  <link rel="stylesheet" href="naimi-kit/kit.css">
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+  <div id="root"></div>
+
+  <main id="deck" hidden>
+
+    <!-- Slide 1 — Investor pitch -->
+    <section class="hero shell-orbs" data-nk-slide="hero">
+      <div class="orbs" aria-hidden="true"><span class="orb orb-one"></span><span class="orb orb-two"></span></div>
+      <div class="wrap hero-wrap">
+        <div data-animate="up">
+          <div class="badge badge-small">
+            <svg class="ico ico-small" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
+            <span>Seed round · prepared for <span data-nk-text="companyName" data-nk-fallback="a future partner"></span></span>
+          </div>
+        </div>
+        <h1 data-animate="up-lg" data-delay="0.1"><span class="gradient-text">Loop</span></h1>
+        <p class="hero-copy" data-animate="up" data-delay="0.22">The returns-management platform for e-commerce brands: turn returns into exchanges, recover margin, and keep customers instead of losing them at checkout.</p>
+        <div class="hero-stats" data-animate="up" data-delay="0.35">
+          <article class="glass-card"><p class="stat-label">MRR</p><p class="stat-value">$46K</p></article>
+          <article class="glass-card"><p class="stat-label">MRR growth, 12 mo</p><p class="stat-value">5.8×</p></article>
+          <article class="glass-card"><p class="stat-label">Brands on the platform</p><p class="stat-value">47</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2 — Problem and solution -->
+    <section class="shell shell-orbs" data-nk-slide="problem-solution">
+      <div class="orbs" aria-hidden="true"><span class="orb orb-one"></span><span class="orb orb-two"></span></div>
+      <div class="wrap wrap-wide content-wrap problem-wrap">
+        <p class="kicker">Problem → solution</p>
+        <h2>Every return is a refund waiting to happen</h2>
+        <div class="problem-grid">
+          <article class="problem-card critical-card" data-animate="left" data-delay="0.15">
+            <p class="card-eyebrow critical-text">Today</p>
+            <div class="problem-list">
+              <div class="problem-item"><svg class="ico problem-ico critical-text" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 17h6v-6"></path><path d="m22 17-8.5-8.5-5 5L2 7"></path></svg><p>Returns cost online brands 15–20% of revenue — and most of it leaves as a refund, never a re-purchase</p></div>
+              <div class="problem-item"><svg class="ico problem-ico critical-text" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z"></path><path d="m7 16.5-4.74-2.85"></path><path d="m7 16.5 5-3"></path><path d="M7 16.5v5.17"></path><path d="M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z"></path><path d="m17 16.5-5-3"></path><path d="m17 16.5 4.74-2.85"></path><path d="M17 16.5v5.17"></path><path d="M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z"></path><path d="M12 8 7.26 5.15"></path><path d="m12 8 4.74-2.85"></path><path d="M12 13.5V8"></path></svg><p>Returned inventory sits in limbo: on average 24% is never resold, tying up working capital</p></div>
+              <div class="problem-item"><svg class="ico problem-ico critical-text" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6v6h4"></path><circle cx="12" cy="12" r="10"></circle></svg><p>Support teams handle returns by hand across email, spreadsheets, and store credit — slow and error-prone</p></div>
+            </div>
+          </article>
+          <div class="problem-arrow"><div data-animate="scale" data-delay="0.4"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></div></div>
+          <article class="problem-card positive-card" data-animate="right" data-delay="0.3">
+            <p class="card-eyebrow positive-text">With Loop</p>
+            <div class="problem-list solution-list">
+              <div class="problem-item"><span class="solution-dot"></span><p>A branded self-service portal that steers shoppers to exchanges and store credit first</p></div>
+              <div class="problem-item"><span class="solution-dot"></span><p>Automated routing, restocking, and refunds — one rule engine instead of manual case work</p></div>
+              <div class="problem-item"><span class="solution-dot"></span><p>Live in 2 weeks on Shopify or your existing stack, no re-platforming required</p></div>
+            </div>
+          </article>
+        </div>
+        <p class="why-now" data-animate="up" data-delay="0.5">Why now: online returns hit an all-time high, shipping costs keep climbing, and shoppers expect a one-tap returns experience — brands can no longer absorb this by hand.</p>
+      </div>
+    </section>
+
+    <!-- Slide 3 — Market -->
+    <section class="shell" data-nk-slide="market">
+      <div class="wrap content-wrap market-wrap">
+        <p class="kicker">Market</p>
+        <div class="heading-row">
+          <h2>Returns are growing faster than brands can handle</h2>
+          <div class="badge positive-badge"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 7h6v6"></path><path d="m22 7-8.5 8.5-5-5L2 17"></path></svg><span>+22% a year</span></div>
+        </div>
+        <div class="market-layers">
+          <article class="market-layer layer-tam" data-animate="scale" data-delay="0.15"><div><span class="layer-label">TAM</span><span class="layer-value">$8.5B</span><span class="layer-note">post-purchase &amp; returns software for US e-commerce</span></div></article>
+          <article class="market-layer layer-sam" data-animate="scale" data-delay="0.3"><div><span class="layer-label">SAM</span><span class="layer-value">$2.4B</span><span class="layer-note">DTC brands doing 100+ orders a day</span></div></article>
+          <article class="market-layer layer-som" data-animate="scale" data-delay="0.45"><div><span class="layer-label">SOM</span><span class="layer-value">$310M</span><span class="layer-note">reachable in 4 years at current unit economics</span></div></article>
+        </div>
+        <div class="market-stats" data-animate="up" data-delay="0.6">
+          <article class="glass-card"><p class="market-stat-value">$890B</p><p>in US goods returned every year</p></article>
+          <article class="glass-card"><p class="market-stat-value">70%</p><p>of shoppers check the return policy before they buy</p></article>
+          <article class="glass-card"><p class="market-stat-value">3×</p><p>more likely to re-order after a smooth exchange</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4 — Traction -->
+    <section class="shell" data-nk-slide="traction">
+      <div class="wrap content-wrap traction-wrap">
+        <p class="kicker positive-text">Traction</p>
+        <h2>MRR up 5.8× in twelve months</h2>
+        <article class="chart-card" data-animate="up" data-delay="0.15">
+          <svg viewBox="0 0 640 200" role="img" aria-label="MRR growth by month">
+            <defs><linearGradient id="mrrFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--nk-accent)" stop-opacity="0.28"></stop><stop offset="100%" stop-color="var(--nk-accent)" stop-opacity="0.02"></stop></linearGradient></defs>
+            <polygon points="8,192 8,160 64.72727272727272,152 121.45454545454545,140 178.1818181818182,128 234.9090909090909,116 291.6363636363636,100 348.3636363636364,83.99999999999999 405.09090909090907,68 461.8181818181818,52 518.5454545454545,36 575.2727272727273,20 632,8 632,192" fill="url(#mrrFill)"></polygon>
+            <polyline points="8,160 64.72727272727272,152 121.45454545454545,140 178.1818181818182,128 234.9090909090909,116 291.6363636363636,100 348.3636363636364,83.99999999999999 405.09090909090907,68 461.8181818181818,52 518.5454545454545,36 575.2727272727273,20 632,8" fill="none" stroke="var(--nk-accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+            <g class="chart-points"><circle cx="8" cy="160" r="3"></circle><circle cx="64.72727272727272" cy="152" r="3"></circle><circle cx="121.45454545454545" cy="140" r="3"></circle><circle cx="178.1818181818182" cy="128" r="3"></circle><circle cx="234.9090909090909" cy="116" r="3"></circle><circle cx="291.6363636363636" cy="100" r="3"></circle><circle cx="348.3636363636364" cy="83.99999999999999" r="3"></circle><circle cx="405.09090909090907" cy="68" r="3"></circle><circle cx="461.8181818181818" cy="52" r="3"></circle><circle cx="518.5454545454545" cy="36" r="3"></circle><circle cx="575.2727272727273" cy="20" r="3"></circle><circle class="last-point" cx="632" cy="8" r="5"></circle></g>
+          </svg>
+          <div class="chart-labels"><span>Jul · $8K</span><span>Jun · $46K</span></div>
+        </article>
+        <div class="traction-stats" data-animate="up" data-delay="0.35">
+          <article class="metric-card"><p>Net revenue retention</p><strong>124%</strong></article>
+          <article class="metric-card"><p>Logo churn</p><strong>1.8%</strong><span>per month</span></article>
+          <article class="metric-card"><p>CAC payback</p><strong>7 mo</strong></article>
+          <article class="metric-card metric-positive"><p>Trial → contract</p><strong>71%</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 5 — Round -->
+    <section class="shell" data-nk-slide="round">
+      <div class="wrap content-wrap round-wrap">
+        <p class="kicker">Round</p>
+        <div class="heading-row round-heading">
+          <h2>Raising $2.5M</h2>
+          <p class="round-meta">$10M pre-money<span id="closing-wrap" hidden> · closing by <strong id="closing-date"></strong></span></p>
+        </div>
+        <div class="round-grid">
+          <article class="round-card" data-animate="up" data-delay="0.15">
+            <p class="card-eyebrow faint-text">Use of funds</p>
+            <div class="fund-list">
+              <div class="fund-row"><div><span>Product &amp; engineering</span><strong>45%</strong></div><div class="fund-track"><span style="width:45%" data-animate="left" data-delay="0.3"></span></div></div>
+              <div class="fund-row"><div><span>Sales &amp; marketing</span><strong>35%</strong></div><div class="fund-track"><span style="width:35%" data-animate="left" data-delay="0.45"></span></div></div>
+              <div class="fund-row"><div><span>Operations &amp; infrastructure</span><strong>20%</strong></div><div class="fund-track"><span style="width:20%" data-animate="left" data-delay="0.6"></span></div></div>
+            </div>
+            <p class="fund-note">This round funds 20 months of growth to operating break-even at current unit economics.</p>
+          </article>
+          <article class="round-card participation-card" data-animate="up" data-delay="0.3">
+            <p class="card-eyebrow accent-text">Your participation</p>
+            <div class="range-field">
+              <div class="range-head"><label for="ticket-range">Ticket size</label><span id="ticket-display">$250,000</span></div>
+              <div class="range-controls">
+                <input id="ticket-range" type="range" min="50000" max="1000000" step="50000" value="250000" data-nk-field="ticketK">
+                <div class="number-wrap"><input type="number" min="50000" max="1000000" step="50000" value="250000" data-nk-field="ticketK" aria-label="Ticket size"></div>
+              </div>
+            </div>
+            <div class="share-grid"><div><p>Share of round</p><strong id="round-share">10%</strong></div><div><p>Share of company</p><strong id="equity-share">≈2.0%</strong></div></div>
+            <p class="range-hint">Move the slider to your check size — it's saved to this presentation, and we'll pick it up again in the term sheet.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 6 — Team and next step -->
+    <section class="shell shell-orbs" data-nk-slide="team">
+      <div class="orbs" aria-hidden="true"><span class="orb orb-one"></span><span class="orb orb-two"></span></div>
+      <div class="wrap content-wrap team-wrap">
+        <p class="kicker">Team</p>
+        <h2>The people behind <span class="gradient-text">Loop</span></h2>
+        <div class="team-grid" data-stagger="0.1" data-stagger-base="0.12">
+          <article class="team-card" data-animate="up"><img class="founder-photo" src="assets/founder-ceo.webp" alt="Sarah Lin, CEO"><h3>Sarah Lin</h3><p class="role">CEO</p><p class="member-note">Ex-Shopify; led post-purchase product for 20k+ merchants</p></article>
+          <article class="team-card" data-animate="up"><img class="founder-photo" src="assets/founder-cto.webp" alt="Marcus Bell, CTO"><h3>Marcus Bell</h3><p class="role">CTO</p><p class="member-note">Ex-Stripe infrastructure; scaled payments to billions of requests</p></article>
+          <article class="team-card" data-animate="up"><img class="founder-photo" src="assets/founder-coo.webp" alt="Rachel Ortiz, COO"><h3>Rachel Ortiz</h3><p class="role">COO</p><p class="member-note">2× ops leader; built support &amp; logistics orgs from scratch</p></article>
+        </div>
+        <article class="personal-note" data-nk-hide-empty="personalNote" data-animate="up" data-delay="0.45"><p class="card-eyebrow accent-text">Why we're talking to <span data-nk-text="companyName" data-nk-fallback="you"></span></p><p data-nk-text="personalNote"></p></article>
+        <div class="next-step" data-animate="up" data-delay="0.6">
+          <div><p class="next-title" id="next-step-title">Next step — 30 minutes with the founders</p><p>We'll walk the product live and open up the metrics and data room.</p></div>
+          <div class="contact-chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg><div><p data-nk-text="managerName" data-nk-fallback="The Loop team"></p><p data-nk-hide-empty="managerContact"><span data-nk-text="managerContact"></span></p></div></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="naimi-kit/kit.js" defer></script>
+  <script src="deck.js" defer></script>
+</body>
+</html>

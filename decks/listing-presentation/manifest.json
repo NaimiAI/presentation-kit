@@ -85,5 +85,32 @@
         "collectFromClient": true
       }
     ]
-  }
+  },
+  "engine": "nk/0.9.0",
+  "slides": [
+    {
+      "id": "cover",
+      "title": "Cover"
+    },
+    {
+      "id": "market",
+      "title": "Your home & the market"
+    },
+    {
+      "id": "pricing",
+      "title": "Pricing strategy"
+    },
+    {
+      "id": "marketing-plan",
+      "title": "Marketing plan"
+    },
+    {
+      "id": "track-record",
+      "title": "Why Claire"
+    },
+    {
+      "id": "next-steps",
+      "title": "Next steps"
+    }
+  ]
 }

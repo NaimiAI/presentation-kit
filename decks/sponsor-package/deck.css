@@ -1,0 +1,310 @@
+/* "velvet-night" — an evening poster: deep aubergine, amber glow, fuchsia gradient. */
+:root[data-theme='velvet-night'] {
+  --nk-font-display: 'Inter', system-ui, sans-serif;
+
+  --nk-surface: #171029;
+  --nk-card: rgba(255, 255, 255, 0.05);
+  --nk-ink: #f7f3ff;
+  --nk-ink-soft: #cfc4e8;
+  --nk-ink-faint: #9c90b8;
+  --nk-edge: rgba(247, 243, 255, 0.13);
+  --nk-accent: #f59e0b;
+  --nk-accent-ink: #fbbf24;
+  --nk-accent-soft: rgba(245, 158, 11, 0.13);
+  --nk-accent-edge: rgba(245, 158, 11, 0.4);
+  --nk-positive: #34d399;
+  --nk-positive-ink: #6ee7b7;
+  --nk-positive-soft: rgba(52, 211, 153, 0.13);
+  --nk-positive-edge: rgba(52, 211, 153, 0.35);
+  --nk-critical: #fb7185;
+  --nk-critical-soft: rgba(251, 113, 133, 0.13);
+  --nk-critical-edge: rgba(251, 113, 133, 0.35);
+
+  --nk-gradient: linear-gradient(120deg, #f59e0b 0%, #e879f9 55%, #8b5cf6 100%);
+  --nk-orb-1: rgba(245, 158, 11, 0.13);
+  --nk-orb-2: rgba(217, 70, 239, 0.16);
+  --nk-poster-overlay: linear-gradient(180deg, rgba(23, 16, 41, 0.72) 0%, rgba(23, 16, 41, 0.86) 55%, rgba(23, 16, 41, 0.97) 100%);
+  --nk-audience-wash: linear-gradient(90deg, rgba(23, 16, 41, 0.55) 0%, rgba(23, 16, 41, 0.15) 45%, rgba(23, 16, 41, 0.55) 100%);
+  --nk-selection-shadow: rgba(245, 158, 11, 0.18);
+
+  --nk-nav-fade: rgba(23, 16, 41, 0.92);
+  --nk-nav-button: rgba(247, 243, 255, 0.08);
+  --nk-nav-button-hover: rgba(247, 243, 255, 0.16);
+  --nk-nav-chip: rgba(247, 243, 255, 0.1);
+  --nk-nav-border: rgba(247, 243, 255, 0.16);
+  --nk-nav-icon: #f7f3ff;
+  --nk-nav-dot: rgba(156, 144, 184, 0.45);
+  --nk-nav-dot-hover: rgba(156, 144, 184, 0.7);
+  --nk-nav-dot-active: #f59e0b;
+}
+
+/* Slide shell. */
+section {
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: var(--nk-surface);
+  padding-bottom: 96px;
+}
+.shell { display: block; }
+.poster, .booking { display: flex; }
+
+.wrap { position: relative; z-index: 10; margin: 0 auto; width: 100%; padding: 56px 32px; }
+.wrap-4xl { max-width: 56rem; }
+.wrap-5xl { max-width: 64rem; }
+.poster .wrap,
+.booking .wrap { margin: auto; padding-top: 48px; padding-bottom: 48px; }
+.poster .wrap { display: flex; flex-direction: column; align-items: center; }
+.center { text-align: center; }
+
+.ico { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ico-accent { color: var(--nk-accent-ink); }
+.ico-positive { color: var(--nk-positive-ink); }
+
+/* Full-bleed stage image and the two guarded background orbs. */
+.poster-photo {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; opacity: 0.25; pointer-events: none;
+}
+.poster-overlay { position: absolute; inset: 0; background: var(--nk-poster-overlay); pointer-events: none; }
+.orbs { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.orb { position: absolute; width: 384px; height: 384px; border-radius: 999px; filter: blur(64px); }
+.orb-1 { top: 25%; left: 25%; background: var(--nk-orb-1); }
+.orb-2 { bottom: 25%; right: 25%; background: var(--nk-orb-2); }
+@media (prefers-reduced-motion: no-preference) {
+  .orb { animation: orb-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+  @keyframes orb-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+}
+
+/* Typography shared by content slides. */
+.kicker {
+  font-size: 12px; line-height: 16px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.4em;
+  color: var(--nk-accent-ink);
+}
+.slide-title {
+  margin-top: 16px;
+  font-family: var(--nk-font-display);
+  font-size: 48px; line-height: 1.25; font-weight: 800;
+  color: var(--nk-ink);
+}
+.slide-title-narrow { max-width: 42rem; }
+
+/* Slide 1 — poster. */
+.poster-glow {
+  position: absolute; top: -128px; left: 50%; transform: translateX(-50%);
+  width: 42rem; height: 384px; border-radius: 999px;
+  background: color-mix(in srgb, var(--nk-accent) 10%, transparent);
+  filter: blur(64px); pointer-events: none;
+}
+.poster-kind {
+  font-size: 12px; line-height: 16px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.5em;
+  color: var(--nk-ink-faint);
+}
+.poster-title {
+  margin-top: 24px;
+  font-family: var(--nk-font-display);
+  font-size: 96px; line-height: 0.9; font-weight: 900;
+  text-transform: uppercase; letter-spacing: -0.025em;
+  color: var(--nk-ink);
+}
+.poster-title-2 { display: block; }
+.poster-facts {
+  margin-top: 32px; display: flex; flex-wrap: wrap;
+  align-items: center; justify-content: center; gap: 12px;
+  font-size: 14px; line-height: 20px; font-weight: 500;
+  color: var(--nk-ink-soft);
+}
+.fact {
+  border-radius: 999px; border: 1px solid var(--nk-edge);
+  background: var(--nk-card); padding: 8px 16px; backdrop-filter: blur(4px);
+}
+.poster-for {
+  margin-top: 56px;
+  border: 1px solid var(--nk-accent-edge); background: var(--nk-accent-soft);
+  padding: 20px 32px; backdrop-filter: blur(4px);
+}
+.poster-for-label {
+  font-size: 11px; line-height: 1.5; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.35em;
+  color: var(--nk-accent-ink);
+}
+.poster-for-company {
+  margin-top: 8px;
+  font-family: var(--nk-font-display);
+  font-size: 30px; line-height: 36px; font-weight: 700;
+  color: var(--nk-ink);
+}
+.poster-note {
+  margin-top: 40px; max-width: 28rem;
+  font-size: 14px; line-height: 1.625;
+  color: var(--nk-ink-faint);
+}
+
+/* Slide 2 — audience. */
+.stats { margin-top: 48px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.stat {
+  border-radius: 16px; border: 1px solid var(--nk-edge);
+  background: var(--nk-card); padding: 24px; backdrop-filter: blur(4px);
+}
+.stat-value {
+  font-family: var(--nk-font-display);
+  font-size: 36px; line-height: 40px; font-weight: 900;
+  font-variant-numeric: tabular-nums;
+}
+.stat-label { margin-top: 8px; font-size: 14px; line-height: 20px; font-weight: 600; color: var(--nk-ink); }
+.stat-note { margin-top: 4px; font-size: 12px; line-height: 1.625; color: var(--nk-ink-faint); }
+
+.audience-photo {
+  position: relative; margin-top: 40px; overflow: hidden;
+  border-radius: 16px; border: 1px solid var(--nk-edge); aspect-ratio: 16 / 6;
+  /* The border WRAPS the aspect box; with border-box it would eat 1.25px of height. */
+  box-sizing: content-box; width: calc(100% - 2px);
+}
+.audience-photo img { width: 100%; height: 100%; object-fit: cover; }
+.audience-photo-wash { position: absolute; inset: 0; background: var(--nk-audience-wash); }
+
+.profile { margin-top: 32px; }
+.profile-head {
+  font-size: 12px; line-height: 16px;
+  text-transform: uppercase; letter-spacing: 0.3em;
+  color: var(--nk-ink-faint);
+}
+.profile-chips { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 12px; }
+.chip {
+  border-radius: 999px; border: 1px solid var(--nk-edge); background: var(--nk-card);
+  padding: 10px 20px; font-size: 14px; line-height: 20px; color: var(--nk-ink-soft);
+}
+
+/* Slide 3 — packages. */
+.tiers-head { margin-top: 16px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; }
+.tiers-head .slide-title { margin-top: 0; }
+.tiers-hint { font-size: 14px; line-height: 20px; color: var(--nk-ink-faint); }
+
+.tiers { margin-top: 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.tier {
+  position: relative; display: flex; flex-direction: column;
+  border-radius: 16px; border: 1px solid var(--nk-edge);
+  background: var(--nk-card); padding: 28px; text-align: left;
+  backdrop-filter: blur(4px);
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.tier:hover { border-color: var(--nk-accent-edge); }
+.tier[aria-pressed='true'] {
+  border-color: var(--nk-accent); background: var(--nk-accent-soft);
+  box-shadow: 0 0 45px var(--nk-selection-shadow);
+}
+.tier-flagship {
+  position: absolute; top: -12px; left: 24px;
+  border-radius: 999px; background: var(--nk-gradient); padding: 4px 12px;
+  font-size: 10px; line-height: 1.5; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--nk-surface);
+}
+.tier-label {
+  font-size: 14px; line-height: 20px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--nk-ink-soft);
+}
+.tier-price {
+  margin-top: 16px;
+  font-family: var(--nk-font-display);
+  font-size: 30px; line-height: 36px; font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  color: var(--nk-ink);
+}
+.tier[aria-pressed='true'] .tier-price { color: var(--nk-accent-ink); }
+.tier-seats { margin-top: 4px; font-size: 12px; line-height: 16px; color: var(--nk-ink-faint); }
+.tier-vibe { margin-top: 20px; font-size: 14px; line-height: 1.625; color: var(--nk-ink-soft); }
+.tier-state {
+  margin-top: 24px; display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; line-height: 16px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--nk-ink-faint);
+}
+.tier[aria-pressed='true'] .tier-state { color: var(--nk-accent-ink); }
+.tier-state-on { display: none; }
+.tier[aria-pressed='true'] .tier-state-off { display: none; }
+.tier[aria-pressed='true'] .tier-state-on { display: inline; }
+
+.tiers-note { margin-top: 32px; font-size: 14px; line-height: 1.625; color: var(--nk-ink-faint); }
+
+/* Slide 4 — benefits matrix. */
+.matrix-scroll { margin-top: 40px; overflow-x: auto; }
+.matrix { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 14px; line-height: 20px; }
+.matrix th {
+  padding-bottom: 12px; border-bottom: 1px solid var(--nk-edge);
+  font-size: 12px; line-height: 16px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.2em; text-align: center;
+  color: var(--nk-ink-faint);
+}
+.matrix th.matrix-feature { width: 38%; text-align: left; }
+.matrix th.is-active { border-bottom-color: var(--nk-accent); color: var(--nk-accent-ink); }
+.th-check { display: none; margin-left: 6px; }
+.matrix th.is-active .th-check { display: inline; }
+
+.matrix td {
+  padding-top: 14px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--nk-edge);
+  text-align: center; font-weight: 500; color: var(--nk-ink);
+}
+.matrix td.matrix-feature {
+  padding-right: 16px; text-align: left; font-weight: 400;
+  line-height: 1.625; color: var(--nk-ink-soft);
+}
+.matrix td.is-active { border-bottom-color: var(--nk-accent-edge); background: var(--nk-accent-soft); }
+.yes { color: var(--nk-positive-ink); }
+.dash { color: color-mix(in srgb, var(--nk-ink-faint) 50%, transparent); }
+
+.matrix-note { margin-top: 24px; font-size: 12px; line-height: 16px; color: var(--nk-ink-faint); }
+
+/* Slide 5 — booking. */
+.booking-tier { margin-top: 12px; font-size: 14px; line-height: 20px; color: var(--nk-ink-soft); }
+.booking-grid { margin-top: 40px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.booking-card {
+  border-radius: 16px; border: 1px solid var(--nk-edge);
+  background: var(--nk-card); padding: 24px; backdrop-filter: blur(4px);
+}
+.booking-card-accent {
+  grid-column: span 2;
+  border-color: var(--nk-accent-edge); background: var(--nk-accent-soft);
+}
+.booking-special { display: flex; align-items: flex-start; gap: 12px; }
+.booking-special .ico { margin-top: 2px; color: var(--nk-accent-ink); }
+.booking-label {
+  margin-top: 12px;
+  font-size: 12px; line-height: 16px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.25em;
+  color: var(--nk-ink-faint);
+}
+.booking-label-accent { margin-top: 0; color: var(--nk-accent-ink); }
+.booking-terms { margin-top: 8px; font-size: 14px; line-height: 1.625; color: var(--nk-ink); }
+.booking-hint { margin-top: 8px; font-size: 12px; line-height: 1.625; color: var(--nk-ink-faint); }
+.booking-value {
+  margin-top: 8px;
+  font-family: var(--nk-font-display);
+  font-size: 20px; line-height: 28px; font-weight: 700;
+  color: var(--nk-ink);
+}
+.booking-contact { margin-top: 4px; font-size: 14px; line-height: 20px; color: var(--nk-ink-soft); }
+.booking-org { margin-top: 8px; font-size: 12px; line-height: 16px; color: var(--nk-ink-faint); }
+.booking-next { margin-top: 32px; font-size: 14px; line-height: 1.625; color: var(--nk-ink-faint); }
+
+/* Responsive layout: long slides stay vertically readable in the engine scroll area. */
+@media (max-width: 1023px) {
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  .wrap { padding-left: 24px; padding-right: 24px; }
+  .poster-title { font-size: 60px; }
+  .poster-for-company { font-size: 24px; line-height: 32px; }
+  .slide-title { font-size: 30px; line-height: 1.25; }
+  .tiers { grid-template-columns: 1fr; }
+}
+@media (max-width: 639px) {
+  .stats { grid-template-columns: 1fr; }
+  .booking-grid { grid-template-columns: 1fr; }
+  .booking-card-accent { grid-column: auto; }
+}

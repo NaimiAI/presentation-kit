@@ -11,8 +11,7 @@ What it demonstrates:
 - **candidate self-fill** (`collectFromClient: true`) as the closing mechanic:
   the candidate answers the offer right on the page — accept / questions /
   need-time chips (`candidateAnswer`, promoted to the client's CRM card) plus a
-  free-text question box (`candidateQuestion`, bound via the local
-  `OfferTextarea`);
+  free-text question box (`candidateQuestion`, bound through `deck.js`);
 - rich per-candidate personalization: role, a US total-comp breakdown (base
   salary, equity, an optional signing bonus whose card hides when empty), start
   date, an offer expiration date and a personal welcome note quoted on the cover;
@@ -22,7 +21,9 @@ What it demonstrates:
 - a bundled team-culture photo (`assets/team-culture.webp`) as a rounded hero
   panel on the cover.
 
-The employer brand (name, tagline, size) is the `COMPANY` constant in
-`slides/content.ts` — replace it when adapting.
+The employer brand (name, tagline, size) is embedded in `index.html` — replace
+it when adapting.
 
-Build: `node scripts/build-deck.mjs job-offer` from the kit root.
+To build on this deck, copy `decks/job-offer/` into your working folder and add
+`template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent
+which deck you want to start from).

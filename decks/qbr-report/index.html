@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en" data-theme="graphite-emerald">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quarterly business review</title>
+  <link rel="stylesheet" href="naimi-kit/kit.css">
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+  <div id="root"></div>
+
+  <main id="deck" hidden>
+
+    <!-- Slide 1 — Cover -->
+    <section class="slide cover" data-nk-slide="cover">
+      <div class="orbs" aria-hidden="true"><i class="orb orb-one"></i><i class="orb orb-two"></i></div>
+      <div class="wrap wrap-wide cover-wrap">
+        <div class="cover-grid">
+          <div>
+            <p class="eyebrow neutral" data-animate="up">Quarterly business review</p>
+            <h1 id="cover-period" data-animate="up" data-delay="0.08">Q2 2026</h1>
+            <p class="cover-company" id="cover-company" data-animate="up" data-delay="0.16">Harbor &amp; Main Home Goods</p>
+            <div class="chips" data-animate="up" data-delay="0.28">
+              <span class="chip" id="manager-chip">
+                <svg class="ico ico-sm" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+                <span id="cover-manager">Prepared by Morgan Whitfield</span>
+              </span>
+              <span class="chip" id="date-chip">
+                <svg class="ico ico-sm" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+                <span id="cover-date">Jul 9, 2026</span>
+              </span>
+              <span class="chip">
+                <svg class="ico ico-sm" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
+                Beacon Digital
+              </span>
+            </div>
+          </div>
+          <div class="health-card is-positive" id="health-card" data-animate="scale" data-delay="0.2">
+            <p>Account health</p>
+            <strong id="health-status">On track</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2 — Executive summary -->
+    <section class="slide" data-nk-slide="executive-summary">
+      <div class="wrap wrap-wide">
+        <header class="slide-head" data-animate="up">
+          <p class="eyebrow">Executive summary</p>
+          <h2>Where <span id="summary-company">Harbor &amp; Main Home Goods</span> landed this quarter</h2>
+        </header>
+        <div class="summary-grid" id="summary-grid">
+          <article class="card" data-animate="up" data-delay="0.1">
+            <div class="card-title is-positive">
+              <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              <h3>Wins this quarter</h3>
+            </div>
+            <ul class="detail-list" id="wins-list">
+              <li><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Beat the revenue target by 14% ($1.42M vs $1.25M plan)</span></li>
+              <li><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Organic sessions up 22% after the site-speed and content push</span></li>
+              <li><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Email became the #2 channel — abandoned-cart flow alone drove $186K</span></li>
+              <li><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Returns rate dropped from 9.1% to 6.4% with the new sizing guide</span></li>
+            </ul>
+          </article>
+          <article class="card attention-card" id="watchouts-card" data-animate="up" data-delay="0.18">
+            <div class="card-title is-attention">
+              <svg class="ico" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+              <h3>Watch-outs</h3>
+            </div>
+            <ul class="detail-list attention-list" id="watchouts-list">
+              <li><svg class="ico" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><span>Paid CAC crept up 8% as June auction pressure spiked</span></li>
+              <li><svg class="ico" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><span>Mobile checkout conversion still trails desktop by 1.9 points</span></li>
+            </ul>
+          </article>
+        </div>
+        <div class="tldr" id="summary-card" data-animate="up" data-delay="0.28">
+          <div>
+            <p class="eyebrow">TL;DR</p>
+            <p id="summary-note">Strong quarter — organic and email carried growth while paid held flat; the fix for Q3 is getting paid efficiency back and shipping the loyalty program.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3 — The numbers -->
+    <section class="slide" data-nk-slide="metrics">
+      <div class="wrap wrap-wide">
+        <header class="slide-head" data-animate="up">
+          <p class="eyebrow">The numbers</p>
+          <h2><span id="metrics-period">Q2 2026</span> in metrics</h2>
+        </header>
+        <div class="kpi-grid" id="kpi-grid">
+          <article class="kpi-card"><p>Revenue</p><div><strong>$1.42M</strong><span class="delta is-up"><svg class="ico" viewBox="0 0 24 24"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>+14%</span></div></article>
+          <article class="kpi-card"><p>Organic sessions</p><div><strong>128,400</strong><span class="delta is-up"><svg class="ico" viewBox="0 0 24 24"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>+22%</span></div></article>
+          <article class="kpi-card"><p>Email revenue</p><div><strong>$186K</strong><span class="delta is-up"><svg class="ico" viewBox="0 0 24 24"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>+31%</span></div></article>
+          <article class="kpi-card"><p>Repeat purchase rate</p><div><strong>34%</strong><span class="delta is-up"><svg class="ico" viewBox="0 0 24 24"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>+3pt</span></div></article>
+          <article class="kpi-card"><p>Conversion rate</p><div><strong>3.1%</strong><span class="delta is-up"><svg class="ico" viewBox="0 0 24 24"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>+0.4pt</span></div></article>
+          <article class="kpi-card"><p>Avg. order value</p><div><strong>$94</strong><span class="delta is-down"><svg class="ico" viewBox="0 0 24 24"><path d="M16 17h6v-6"/><path d="m22 17-8.5-8.5-5 5L2 7"/></svg>-2%</span></div></article>
+        </div>
+        <article class="trend-card" id="trend-card" data-animate="up" data-delay="0.3">
+          <p id="trend-label">Weekly online revenue ($K)</p>
+          <svg viewBox="0 0 720 220" preserveAspectRatio="none" role="img" aria-label="Weekly online revenue ($K)" id="trend-svg">
+            <defs><linearGradient id="qbrTrendFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--nk-accent)" stop-opacity="0.18"/><stop offset="100%" stop-color="var(--nk-accent)" stop-opacity="0"/></linearGradient></defs>
+            <path id="trend-area" fill="url(#qbrTrendFill)"/>
+            <path id="trend-line" fill="none" stroke="var(--nk-accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle id="trend-end" r="4" fill="var(--nk-accent)"/>
+          </svg>
+        </article>
+      </div>
+    </section>
+
+    <!-- Slide 4 — Delivery -->
+    <section class="slide" data-nk-slide="delivery">
+      <div class="wrap wrap-wide">
+        <header class="slide-head" data-animate="up">
+          <p class="eyebrow">Delivery</p>
+          <h2>What we shipped</h2>
+        </header>
+        <div class="delivery-grid" id="delivery-grid">
+          <article class="card" data-animate="up" data-delay="0.1">
+            <div class="card-title is-positive">
+              <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><h3>Delivered</h3>
+            </div>
+            <ul class="detail-list detail-list-roomy" id="delivered-list">
+              <li><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Rebuilt the product pages — 40% faster load, new sizing guide</span></li>
+              <li><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Launched the abandoned-cart and win-back email flows</span></li>
+              <li><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Shipped 9 SEO articles targeting high-intent category terms</span></li>
+              <li><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Migrated paid social to the new catalog + dynamic ads</span></li>
+              <li><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Stood up weekly performance dashboards for your team</span></li>
+            </ul>
+          </article>
+          <article class="card inflight-card" id="inflight-card" data-animate="up" data-delay="0.18">
+            <div class="card-title">
+              <svg class="ico" viewBox="0 0 24 24"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><h3>In flight</h3>
+            </div>
+            <ul class="detail-list detail-list-roomy muted-icons" id="inflight-list">
+              <li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><span>Loyalty &amp; referral program — design done, build underway</span></li>
+              <li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><span>Mobile checkout redesign — in usability testing</span></li>
+              <li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><span>Influencer seeding pilot for the fall collection</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 5 — Looking ahead -->
+    <section class="slide" data-nk-slide="next-quarter">
+      <div class="wrap wrap-wide">
+        <header class="slide-head" data-animate="up">
+          <p class="eyebrow">Looking ahead</p>
+          <h2>Priorities for <span id="next-period">Q3 2026</span></h2>
+        </header>
+        <div class="next-grid">
+          <div class="priorities" id="priorities-list">
+            <article class="priority" data-animate="up" data-delay="0.08"><strong>01</strong><span>Ship the loyalty program and drive first-order-to-repeat rate</span></article>
+            <article class="priority" data-animate="up" data-delay="0.14"><strong>02</strong><span>Rebuild mobile checkout to close the 1.9-point conversion gap</span></article>
+            <article class="priority" data-animate="up" data-delay="0.20"><strong>03</strong><span>Scale paid search into two new metros with tightened CAC caps</span></article>
+          </div>
+          <article class="card recommendation" data-animate="up" data-delay="0.2">
+            <div class="card-title is-accent">
+              <svg class="ico" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg><h3>Our recommendation</h3>
+            </div>
+            <p id="recommendation-note">Momentum is on organic and email — we'd double down there while we repair paid efficiency. The loyalty program is the single biggest lever on repeat revenue heading into the holiday season.</p>
+            <div class="upsell" id="upsell-card">
+              <svg class="ico" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
+              <span id="upsell-line">Add a CRO sprint program — from $4,500/mo</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 6 — Feedback and sign-off -->
+    <section class="slide" data-nk-slide="feedback">
+      <div class="wrap wrap-wide">
+        <header class="slide-head" data-animate="up">
+          <p class="eyebrow">Feedback &amp; sign-off</p>
+          <h2>How did we do this quarter?</h2>
+        </header>
+        <div class="feedback-grid">
+          <article class="card feedback-card" data-animate="up" data-delay="0.1">
+            <h3>Rate the quarter</h3>
+            <p class="field-hint">Tap a number — 1 is rough, 5 is excellent.</p>
+            <div class="rating" id="rating-buttons">
+              <button type="button" data-score="1" data-nk-action="quarter-rating" aria-pressed="false">1</button>
+              <button type="button" data-score="2" data-nk-action="quarter-rating" aria-pressed="false">2</button>
+              <button type="button" data-score="3" data-nk-action="quarter-rating" aria-pressed="false">3</button>
+              <button type="button" data-score="4" data-nk-action="quarter-rating" aria-pressed="false">4</button>
+              <button type="button" data-score="5" data-nk-action="quarter-rating" aria-pressed="false">5</button>
+            </div>
+            <h3 class="feedback-question">Anything we should change?</h3>
+            <p class="field-hint feedback-hint">Priorities, cadence, reporting — tell us what would make next quarter better.</p>
+            <textarea id="feedback-textarea" rows="4" placeholder="Write it here — your account lead will read it before the call…"></textarea>
+            <p class="saved-note"><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Your answers are saved automatically.</p>
+          </article>
+          <div class="signoff-side" data-animate="up" data-delay="0.18">
+            <article class="next-review" id="next-review-card">
+              <div><svg class="ico" viewBox="0 0 24 24"><path d="M16 14v2.2l1.6 1"/><path d="M16 2v4"/><path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"/><path d="M3 10h5"/><path d="M8 2v4"/><circle cx="16" cy="16" r="6"/></svg><p>Next review</p></div>
+              <strong id="next-review-date">Oct 8, 2026</strong>
+            </article>
+            <article class="manager-card">
+              <div class="manager-row">
+                <span class="avatar"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
+                <div><strong id="signoff-manager">Morgan Whitfield</strong><p id="signoff-contact">dana@beacondigital.example · (415) 555-0142</p></div>
+              </div>
+              <a id="booking-link" href="https://cal.example.com/beacon/qbr" target="_blank" rel="noopener noreferrer" data-nk-action="book-review">Book the review call</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="naimi-kit/kit.js" defer></script>
+  <script src="deck.js" defer></script>
+</body>
+</html>

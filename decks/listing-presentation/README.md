@@ -21,8 +21,8 @@ linen surface, deep hunter green accent, brass gradient, serif headlines).
 **Personalization** — seller name(s), property address, presentation date, home
 highlights, comps, recommended list price, and an optional booking link.
 
-**Build**
+**Compose and validate**
 
-```bash
-node scripts/build-deck.mjs listing-presentation
-```
+To build on this deck, copy `decks/listing-presentation/` into your working folder and add
+`template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent
+which deck you want to start from).

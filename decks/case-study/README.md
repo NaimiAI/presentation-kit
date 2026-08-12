@@ -8,7 +8,7 @@ accent, oversized metrics — in the `editorial-blue` theme.
 ## What it demonstrates
 
 - **Static story vs. prospect personalization.** The featured customer (Ironwood
-  Logistics) and the vendor (Relay) are fixed template content in `slides/content.ts`.
+  Logistics) and the vendor (Relay) are fixed template content in `index.html`.
   Everything about the *recipient* — company name, contact, their pains, a personal
   note, the manager's signature, and the booking link — comes from personalization,
   so one story reaches many prospects with a tailored frame.
@@ -24,13 +24,13 @@ accent, oversized metrics — in the `editorial-blue` theme.
 
 ## Make it your own
 
-Swap the constants at the top of `slides/content.ts` — `CUSTOMER`, `CHALLENGES`,
-`RESULTS`, `QUOTE`, `TICKETS_PER_WEEK` — to tell your own customer's story, and replace
+Swap the customer story in `index.html` — the cover, challenges, results and the
+quote — and the savings constants at the top of `deck.js`, then replace
 `assets/customer-ops.webp` and `assets/quote-headshot.webp` with your customer's photo
 and headshot.
 
 ## Build
 
-```bash
-node scripts/build-deck.mjs case-study
-```
+To build on this deck, copy `decks/case-study/` into your working folder and add
+`template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent
+which deck you want to start from).

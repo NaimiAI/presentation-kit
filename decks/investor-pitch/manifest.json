@@ -57,5 +57,32 @@
         "promoteToClientFacts": true
       }
     ]
-  }
+  },
+  "engine": "nk/0.9.0",
+  "slides": [
+    {
+      "id": "hero",
+      "title": "Investor pitch"
+    },
+    {
+      "id": "problem-solution",
+      "title": "Problem and solution"
+    },
+    {
+      "id": "market",
+      "title": "Market"
+    },
+    {
+      "id": "traction",
+      "title": "Traction"
+    },
+    {
+      "id": "round",
+      "title": "Round"
+    },
+    {
+      "id": "team",
+      "title": "Team and next step"
+    }
+  ]
 }

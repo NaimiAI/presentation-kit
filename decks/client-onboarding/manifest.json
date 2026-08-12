@@ -37,5 +37,24 @@
   "demoData": {
     "namespace": "clientOnboarding",
     "fields": []
-  }
+  },
+  "engine": "nk/0.9.0",
+  "slides": [
+    {
+      "id": "welcome",
+      "title": "Welcome"
+    },
+    {
+      "id": "team",
+      "title": "Team"
+    },
+    {
+      "id": "first-month-plan",
+      "title": "First 30 days"
+    },
+    {
+      "id": "resources",
+      "title": "Resources"
+    }
+  ]
 }

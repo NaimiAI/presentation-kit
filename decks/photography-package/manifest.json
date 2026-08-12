@@ -108,5 +108,28 @@
         "collectFromClient": true
       }
     ]
-  }
+  },
+  "engine": "nk/0.9.0",
+  "slides": [
+    {
+      "id": "cover",
+      "title": "Cover"
+    },
+    {
+      "id": "work",
+      "title": "The work"
+    },
+    {
+      "id": "collections",
+      "title": "Collections"
+    },
+    {
+      "id": "addons-total",
+      "title": "Add-ons and total"
+    },
+    {
+      "id": "booking",
+      "title": "How it works"
+    }
+  ]
 }

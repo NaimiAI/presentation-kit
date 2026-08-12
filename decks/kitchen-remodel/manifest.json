@@ -82,5 +82,28 @@
         "promoteToClientFacts": true
       }
     ]
-  }
+  },
+  "engine": "nk/0.9.0",
+  "slides": [
+    {
+      "id": "welcome",
+      "title": "Welcome"
+    },
+    {
+      "id": "process",
+      "title": "Process"
+    },
+    {
+      "id": "configurator",
+      "title": "Configurator"
+    },
+    {
+      "id": "budget",
+      "title": "Budget and timing"
+    },
+    {
+      "id": "next-step",
+      "title": "Next step"
+    }
+  ]
 }

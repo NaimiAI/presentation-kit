@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en" data-theme="gallery-serif">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design studio brief</title>
+  <link rel="stylesheet" href="naimi-kit/kit.css">
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+  <div id="root"></div>
+
+  <main id="deck" hidden>
+
+    <!-- Slide 1 — Cover -->
+    <section class="slide cover" data-nk-slide="cover">
+      <div class="cover-wrap">
+        <div class="folio" data-animate="up">
+          <span>format &amp; co</span>
+          <span>no. 2026 / 07</span>
+        </div>
+
+        <div class="cover-main">
+          <h1 data-animate="up-lg" data-delay="0.15">the brief<span>.</span></h1>
+          <p class="cover-title" data-animate="up" data-delay="0.3">
+            a conversation about <span data-nk-text="companyName" data-nk-fallback="your brand"></span> —
+            before the first sketch
+          </p>
+          <p class="cover-note" id="cover-note" data-animate="up" data-delay="0.45">
+            There are no right answers here — write it the way you feel it. Everything saves itself; come back and add more anytime.
+          </p>
+        </div>
+
+        <div class="cover-index" data-animate="up" data-delay="0.6">
+          <span>01 — the brand</span>
+          <span>02 — the mood</span>
+          <span>03 — scope &amp; limits</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2 — The brand -->
+    <section class="slide form-slide" data-nk-slide="brand-story">
+      <div class="form-wrap">
+        <header class="section-head" data-animate="up">
+          <span>01</span>
+          <h2>the brand</h2>
+        </header>
+
+        <div class="question" data-animate="up" data-delay="0.15">
+          <p class="question-title">Tell us about <span data-nk-text="companyName" data-nk-fallback="your brand"></span> the way you'd introduce a close friend.</p>
+          <p class="question-hint">what you do, who it's for, what you're proud of, what you'd rather hide — 3–5 sentences</p>
+          <div class="field-wrap">
+            <textarea class="underline-field" rows="5" data-nk-textarea="brandEssence" placeholder="We make…"></textarea>
+          </div>
+        </div>
+
+        <div class="question" data-animate="up" data-delay="0.3">
+          <p class="question-title">What do you love — and what's a hard no?</p>
+          <p class="question-hint">links to brands, sites, packaging; the anti-examples help even more</p>
+          <div class="field-wrap">
+            <textarea class="underline-field" rows="4" data-nk-textarea="references" placeholder="Love… Can't stand…"></textarea>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3 — The mood -->
+    <section class="slide form-slide" data-nk-slide="moodboard">
+      <div class="mood-wrap">
+        <header class="section-head mood-head" data-animate="up">
+          <span>02</span>
+          <div>
+            <h2>the mood</h2>
+            <p>pick a few</p>
+          </div>
+        </header>
+
+        <p class="mood-intro">
+          Where should the design lean? Choose two or three directions — the brand's
+          character usually lives where they overlap.
+        </p>
+
+        <div class="mood-grid" data-stagger="0.07" data-stagger-base="0.15">
+          <button type="button" class="mood-card" aria-pressed="false" data-field="styleMinimal" data-kind="boolean" data-nk-action="mood-minimal" data-animate="up">
+            <span class="mood-image"><img src="assets/mood-minimal.webp" alt=""><span class="mood-check"><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span></span>
+            <span class="mood-copy"><span class="mood-label">minimal</span><span class="mood-note">space, precision, nothing extra</span><span class="select-state">+ select</span></span>
+          </button>
+          <button type="button" class="mood-card" aria-pressed="false" data-field="styleExpressive" data-kind="boolean" data-nk-action="mood-expressive" data-animate="up">
+            <span class="mood-image"><img src="assets/mood-expressive.webp" alt=""><span class="mood-check"><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span></span>
+            <span class="mood-copy"><span class="mood-label">expressive</span><span class="mood-note">bold color, a big gesture</span><span class="select-state">+ select</span></span>
+          </button>
+          <button type="button" class="mood-card" aria-pressed="false" data-field="styleClassic" data-kind="boolean" data-nk-action="mood-classic" data-animate="up">
+            <span class="mood-image"><img src="assets/mood-classic.webp" alt=""><span class="mood-check"><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span></span>
+            <span class="mood-copy"><span class="mood-label">classic</span><span class="mood-note">serifs, restraint, heritage</span><span class="select-state">+ select</span></span>
+          </button>
+          <button type="button" class="mood-card" aria-pressed="false" data-field="styleTech" data-kind="boolean" data-nk-action="mood-tech" data-animate="up">
+            <span class="mood-image"><img src="assets/mood-tech.webp" alt=""><span class="mood-check"><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span></span>
+            <span class="mood-copy"><span class="mood-label">tech</span><span class="mood-note">grids, mono type, interface feel</span><span class="select-state">+ select</span></span>
+          </button>
+          <button type="button" class="mood-card" aria-pressed="false" data-field="styleRetro" data-kind="boolean" data-nk-action="mood-retro" data-animate="up">
+            <span class="mood-image"><img src="assets/mood-retro.webp" alt=""><span class="mood-check"><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span></span>
+            <span class="mood-copy"><span class="mood-label">retro</span><span class="mood-note">vintage print, warm nostalgia</span><span class="select-state">+ select</span></span>
+          </button>
+          <button type="button" class="mood-card" aria-pressed="false" data-field="styleLuxe" data-kind="boolean" data-nk-action="mood-luxe" data-animate="up">
+            <span class="mood-image"><img src="assets/mood-luxe.webp" alt=""><span class="mood-check"><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span></span>
+            <span class="mood-copy"><span class="mood-label">luxe</span><span class="mood-note">rich materials, quiet, gloss</span><span class="select-state">+ select</span></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4 — Scope and limits -->
+    <section class="slide form-slide" data-nk-slide="scope">
+      <div class="form-wrap">
+        <header class="section-head" data-animate="up">
+          <span>03</span>
+          <h2>scope &amp; limits</h2>
+        </header>
+
+        <div class="deliverables-block">
+          <p class="eyebrow">what we'll make</p>
+          <div class="deliverables" data-stagger="0.06" data-stagger-base="0.15">
+            <button type="button" class="deliverable" aria-pressed="false" data-field="deliverableLogo" data-kind="boolean" data-nk-action="deliverable-logo" data-animate="left"><span>logo &amp; mark</span><span class="check">✓</span></button>
+            <button type="button" class="deliverable" aria-pressed="false" data-field="deliverableIdentity" data-kind="boolean" data-nk-action="deliverable-identity" data-animate="left"><span>identity &amp; guidelines</span><span class="check">✓</span></button>
+            <button type="button" class="deliverable" aria-pressed="false" data-field="deliverableWebsite" data-kind="boolean" data-nk-action="deliverable-website" data-animate="left"><span>website</span><span class="check">✓</span></button>
+            <button type="button" class="deliverable" aria-pressed="false" data-field="deliverablePackaging" data-kind="boolean" data-nk-action="deliverable-packaging" data-animate="left"><span>packaging</span><span class="check">✓</span></button>
+            <button type="button" class="deliverable" aria-pressed="false" data-field="deliverableSmm" data-kind="boolean" data-nk-action="deliverable-smm" data-animate="left"><span>social kit &amp; templates</span><span class="check">✓</span></button>
+          </div>
+        </div>
+
+        <div class="bounds-grid">
+          <div data-animate="up" data-delay="0.4">
+            <p class="eyebrow">budget range</p>
+            <div class="chips">
+              <button type="button" class="chip" aria-pressed="false" data-field="budgetRange" data-value="lt10k" data-nk-action="budget-lt10k">&lt; $10k</button>
+              <button type="button" class="chip" aria-pressed="false" data-field="budgetRange" data-value="10-25k" data-nk-action="budget-10-25k">$10–25k</button>
+              <button type="button" class="chip" aria-pressed="false" data-field="budgetRange" data-value="25-50k" data-nk-action="budget-25-50k">$25–50k</button>
+              <button type="button" class="chip" aria-pressed="false" data-field="budgetRange" data-value="gt50k" data-nk-action="budget-gt50k">$50k +</button>
+            </div>
+          </div>
+          <div data-animate="up" data-delay="0.5">
+            <p class="eyebrow">when you need it</p>
+            <div class="chips">
+              <button type="button" class="chip" aria-pressed="false" data-field="deadlineText" data-value="month" data-nk-action="deadline-month">a month</button>
+              <button type="button" class="chip" aria-pressed="false" data-field="deadlineText" data-value="quarter" data-nk-action="deadline-quarter">2–3 months</button>
+              <button type="button" class="chip" aria-pressed="false" data-field="deadlineText" data-value="halfyear" data-nk-action="deadline-halfyear">six months</button>
+              <button type="button" class="chip" aria-pressed="false" data-field="deadlineText" data-value="norush" data-nk-action="deadline-norush">no rush</button>
+            </div>
+          </div>
+        </div>
+
+        <p class="scope-note" data-animate="up" data-delay="0.6">
+          The range isn't a quote — it just helps us propose a scope that makes sense
+          within it, instead of "everything, maxed out."
+        </p>
+      </div>
+    </section>
+
+    <!-- Slide 5 — Thank you -->
+    <section class="slide thanks" data-nk-slide="thanks">
+      <div class="thanks-wrap">
+        <h2 data-animate="up-lg">thank you<span>.</span></h2>
+        <p class="thanks-copy" data-animate="up" data-delay="0.2">Your answers are saved. Now it's our turn to get to work.</p>
+
+        <div class="timeline" data-stagger="0.12" data-stagger-base="0.3">
+          <div class="timeline-row" data-animate="up"><span>within a day</span><p>your art director reads the brief and follows up with a few questions</p></div>
+          <div class="timeline-row" data-animate="up"><span>in 3–4 days</span><p>we'll come back with a direction, a scope of work and an estimate</p></div>
+          <div class="timeline-row" data-animate="up"><span>then</span><p>a 30-minute call — and if we're a fit, we start</p></div>
+        </div>
+
+        <div class="studio-contact" data-animate="up" data-delay="0.7">
+          <div>
+            <p class="manager-name" data-nk-text="managerName" data-nk-fallback="your art director"></p>
+            <p class="manager-contact" data-nk-text="managerContact" data-nk-hide-empty="managerContact"></p>
+          </div>
+          <p>format &amp; co · formatandco.studio</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="naimi-kit/kit.js" defer></script>
+  <script src="deck.js" defer></script>
+</body>
+</html>

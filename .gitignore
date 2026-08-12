@@ -1,10 +1,8 @@
-# dependencies / build output
-node_modules/
-dist/
+# packaged bundles
 *.zip
 
-# local working copies made from template/ live next to the kit, not inside it,
-# but ignore common scratch dirs just in case
+# working copies made from template/ or decks/ usually live next to the kit,
+# but ignore the common scratch names just in case
 my-presentation/
 
 # credentials — never commit these

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "my-presentation",
+  "name": "My presentation",
+  "description": "Starter presentation on the Naimi kit: a personalized title slide, a staggered problem slide and an impact calculator",
+  "entry": "index.html",
+  "personalization": {
+    "fields": [
+      { "key": "companyName", "label": "Company", "placeholder": "The client's company name", "type": "text", "required": true },
+      { "key": "contactName", "label": "Contact", "placeholder": "First and last name", "type": "text" }
+    ],
+    "showCustomFields": false
+  },
+  "demoData": {
+    "namespace": "myPresentation",
+    "fields": [
+      { "key": "monthlyVisitors", "label": "Monthly visitors", "type": "number", "defaultValue": 10000, "promoteToClientFacts": true },
+      { "key": "conversionRate", "label": "Conversion, %", "type": "number", "defaultValue": 2, "promoteToClientFacts": true },
+      { "key": "avgOrderValue", "label": "Average order value", "type": "number", "defaultValue": 120, "promoteToClientFacts": true },
+      { "key": "upliftPct", "label": "Conversion uplift, %", "type": "number", "defaultValue": 25, "promoteToClientFacts": true }
+    ]
+  }
+}

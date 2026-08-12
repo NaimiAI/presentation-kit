@@ -61,5 +61,28 @@
   "demoData": {
     "namespace": "studioProposal",
     "fields": []
-  }
+  },
+  "engine": "nk/0.9.0",
+  "slides": [
+    {
+      "id": "cover",
+      "title": "Cover"
+    },
+    {
+      "id": "brief",
+      "title": "Our understanding"
+    },
+    {
+      "id": "process",
+      "title": "How we work"
+    },
+    {
+      "id": "estimate",
+      "title": "Project estimate"
+    },
+    {
+      "id": "terms",
+      "title": "Terms & next step"
+    }
+  ]
 }

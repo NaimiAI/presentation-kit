@@ -73,5 +73,28 @@
         "promoteToClientFacts": true
       }
     ]
-  }
+  },
+  "engine": "nk/0.9.0",
+  "slides": [
+    {
+      "id": "pilot-summary",
+      "title": "Pilot results"
+    },
+    {
+      "id": "before-after",
+      "title": "Before and after metrics"
+    },
+    {
+      "id": "auto-resolution-trend",
+      "title": "Auto-resolution trend"
+    },
+    {
+      "id": "labor-savings",
+      "title": "Dollar impact"
+    },
+    {
+      "id": "rollout-plan",
+      "title": "Takeaways and recommendations"
+    }
+  ]
 }

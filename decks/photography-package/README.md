@@ -25,8 +25,8 @@ dusty champagne-rose accent, editorial serif, portfolio photos in print-style iv
 5. **How it works** — booking timeline, self-fill (date flexibility chips + questions),
    availability callout, "Reserve your date" CTA or contact line.
 
-## Build
+## Compose and validate
 
-```bash
-node scripts/build-deck.mjs photography-package
-```
+To build on this deck, copy `decks/photography-package/` into your working folder and add
+`template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent
+which deck you want to start from).

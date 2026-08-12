@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en" data-theme="orbit-night">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SaaS product pitch — Relay</title>
+  <link rel="stylesheet" href="naimi-kit/kit.css">
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+  <div id="root"></div>
+
+  <main id="deck" hidden>
+
+    <!-- Slide 1 — Hero -->
+    <section class="hero" data-nk-slide="hero">
+      <div class="orbs" aria-hidden="true"><i class="orb orb-1"></i><i class="orb orb-2"></i></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="wrap wrap-narrow center">
+        <div class="badge badge-sm" data-animate="up">
+          <svg class="ico" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
+          <span>Prepared for <span data-nk-text="companyName" data-nk-fallback="your team"></span></span>
+        </div>
+        <h1 data-animate="up-lg" data-delay="0.1">Every customer conversation,<br><span class="gradient-text">in one place</span></h1>
+        <p class="lead" data-animate="up" data-delay="0.2">
+          Relay is the customer-communications platform: one shared inbox, a full
+          history for every account, and AI that flags churn before it happens.
+        </p>
+        <div class="metrics" data-animate="up" data-delay="0.3">
+          <div class="metric"><p class="metric-value">1,200+</p><p class="metric-label">teams on the platform</p></div>
+          <div class="metric"><p class="metric-value">4.8 / 5</p><p class="metric-label">support rating</p></div>
+          <div class="metric"><p class="metric-value">99.9%</p><p class="metric-label">uptime last 12 months</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2 — Problem → solution -->
+    <section class="shell" data-nk-slide="problem-solution">
+      <div class="wrap wrap-wide">
+        <header class="slide-head" data-animate="up">
+          <p class="kicker">Problem → solution for <span data-nk-text="companyName" data-nk-fallback="your team"></span></p>
+          <h2>What hurts today — and how Relay fixes it</h2>
+        </header>
+        <div class="ps-grid">
+          <div class="col" data-stagger="0.1" data-stagger-base="0.1">
+            <div class="card card-critical" data-animate="left">
+              <div class="card-head"><svg class="ico" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg><h3>Conversations are scattered</h3></div>
+              <p>Email, chat, and social live in separate tools — no single thread per customer.</p>
+            </div>
+            <div class="card card-critical" data-animate="left">
+              <div class="card-head"><svg class="ico" viewBox="0 0 24 24"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M8 13h2"/><path d="M14 13h2"/><path d="M8 17h2"/><path d="M14 17h2"/></svg><h3>Reporting is manual</h3></div>
+              <p>Every Monday someone pulls exports by hand instead of acting on the numbers.</p>
+            </div>
+            <div class="card card-critical" data-animate="left">
+              <div class="card-head"><svg class="ico" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg><h3>Churn shows up too late</h3></div>
+              <p>You see an account leave only after it happens — when winning it back is expensive.</p>
+            </div>
+          </div>
+          <div class="ps-arrow" data-animate="scale" data-delay="0.4">
+            <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </div>
+          <div class="col" data-stagger="0.1" data-stagger-base="0.2">
+            <div class="card card-positive" data-animate="right">
+              <div class="card-head"><svg class="ico" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg><h3>One thread per customer</h3></div>
+              <p>Every message, deal, and payment syncs automatically from the tools you already use.</p>
+            </div>
+            <div class="card card-positive" data-animate="right">
+              <div class="card-head"><svg class="ico" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m19 9-5 5-4-4-3 3"/></svg><h3>Reports build themselves</h3></div>
+              <p>Live dashboards for revenue, cohorts, and reps — no exports, no spreadsheets.</p>
+            </div>
+            <div class="card card-positive" data-animate="right">
+              <div class="card-head"><svg class="ico" viewBox="0 0 24 24"><path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"/><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/><path d="M18 18a4 4 0 0 0 2-7.464"/><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"/><path d="M6 18a4 4 0 0 1-2-7.464"/><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/></svg><h3>AI flags churn early</h3></div>
+              <p>The model surfaces at-risk accounts 3–4 weeks before they slip away.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3 — Product (CSS dashboard mockup) -->
+    <section class="shell" data-nk-slide="product">
+      <div class="wrap wrap-wide">
+        <header class="slide-head product-head" data-animate="up">
+          <p class="kicker">Product</p>
+          <h2>One screen instead of five exports</h2>
+        </header>
+        <div class="product-grid">
+          <div class="mockup" data-animate="up-lg" data-delay="0.15">
+            <div class="mockup-bar">
+              <i class="dot dot-critical"></i><i class="dot dot-warn"></i><i class="dot dot-positive"></i>
+              <span class="mockup-url">relay.app / dashboard</span>
+            </div>
+            <div class="mockup-body">
+              <div class="kpis">
+                <div class="kpi"><p class="kpi-label">Revenue, mo</p><p class="kpi-value">$112K</p><p class="kpi-delta">+12%</p></div>
+                <div class="kpi"><p class="kpi-label">Active accounts</p><p class="kpi-value">1,286</p><p class="kpi-delta">+38</p></div>
+                <div class="kpi"><p class="kpi-label">Churn risk</p><p class="kpi-value">17 accounts</p><p class="kpi-delta">−5</p></div>
+              </div>
+              <div class="chart">
+                <p class="kpi-label">Revenue by month</p>
+                <div class="chart-bars">
+                  <i data-animate="grow" data-grow="34%" data-delay="0.30"></i>
+                  <i data-animate="grow" data-grow="48%" data-delay="0.35"></i>
+                  <i data-animate="grow" data-grow="42%" data-delay="0.40"></i>
+                  <i data-animate="grow" data-grow="60%" data-delay="0.45"></i>
+                  <i data-animate="grow" data-grow="55%" data-delay="0.50"></i>
+                  <i data-animate="grow" data-grow="72%" data-delay="0.55"></i>
+                  <i data-animate="grow" data-grow="66%" data-delay="0.60"></i>
+                  <i data-animate="grow" data-grow="84%" data-delay="0.65"></i>
+                  <i data-animate="grow" data-grow="78%" data-delay="0.70"></i>
+                  <i class="is-last" data-animate="grow" data-grow="95%" data-delay="0.75"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="product-side" data-animate="right" data-delay="0.3">
+            <ul class="bullets">
+              <li><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Dashboards update in real time</li>
+              <li><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Cohorts, LTV, and pipeline — no setup</li>
+              <li><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Role-based access: sales, marketing, leadership</li>
+            </ul>
+            <div class="features">
+              <div class="feature"><svg class="ico" viewBox="0 0 24 24"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg><p>Slack alerts the moment a metric crosses a threshold</p></div>
+              <div class="feature"><svg class="ico" viewBox="0 0 24 24"><path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z"/></svg><p>Segment customers in two clicks — no SQL</p></div>
+              <div class="feature"><svg class="ico" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg><p>Share any report with the board via a single link</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4 — Interactive pricing -->
+    <section class="shell" data-nk-slide="pricing">
+      <div class="wrap wrap-wide pricing-wrap">
+        <header class="slide-head pricing-head" data-animate="up">
+          <p class="kicker">Pricing</p>
+          <h2>Build a plan for <span data-nk-text="companyName" data-nk-fallback="your team"></span></h2>
+          <p class="sub">Your choice is saved to the demo — we'll draft the order from these same numbers.</p>
+        </header>
+
+        <div class="plans" data-stagger="0.08" data-stagger-base="0.1">
+          <button type="button" class="plan" aria-pressed="false" data-nk-field="plan" data-nk-value="starter" data-nk-action="package-select" data-animate="up">
+            <div class="plan-head"><h3>Starter</h3><span class="plan-check"><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span></div>
+            <p class="plan-price">$29<span> / seat · mo</span></p>
+            <ul class="plan-features">
+              <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Shared inbox &amp; contacts</li>
+              <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Standard reports</li>
+              <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Chat support</li>
+            </ul>
+          </button>
+          <button type="button" class="plan" aria-pressed="true" data-nk-field="plan" data-nk-value="growth" data-nk-action="package-select" data-animate="up">
+            <span class="plan-popular">Popular</span>
+            <div class="plan-head"><h3>Growth</h3><span class="plan-check"><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span></div>
+            <p class="plan-price">$59<span> / seat · mo</span></p>
+            <ul class="plan-features">
+              <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Everything in Starter</li>
+              <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>AI churn signals</li>
+              <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Integrations: your CRM, Slack, HubSpot</li>
+              <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Roles &amp; permissions</li>
+            </ul>
+          </button>
+          <button type="button" class="plan" aria-pressed="false" data-nk-field="plan" data-nk-value="enterprise" data-nk-action="package-select" data-animate="up">
+            <div class="plan-head"><h3>Enterprise</h3><span class="plan-check"><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span></div>
+            <p class="plan-price">Let's talk</p>
+            <ul class="plan-features">
+              <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Everything in Growth</li>
+              <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>SSO &amp; audit log</li>
+              <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Dedicated success manager</li>
+              <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>99.9% SLA</li>
+            </ul>
+          </button>
+        </div>
+
+        <div class="calc-grid">
+          <div class="calc card" data-animate="left" data-delay="0.3">
+            <div class="range-row">
+              <div class="range-head"><label for="seats-range">Seats</label><span class="range-value" id="seats-value">25</span></div>
+              <div class="range-controls">
+                <input id="seats-range" type="range" min="1" max="500" step="1" value="25" data-nk-field="seats">
+                <input type="number" min="1" max="500" step="1" value="25" data-nk-field="seats" aria-label="Seats">
+              </div>
+            </div>
+            <div class="billing">
+              <p>Billing</p>
+              <div class="billing-toggle">
+                <button type="button" aria-pressed="false" data-nk-field="billingAnnual" data-nk-type="boolean" data-nk-value="false">Monthly</button>
+                <button type="button" aria-pressed="true" data-nk-field="billingAnnual" data-nk-type="boolean" data-nk-value="true">Annual · 2 mo free</button>
+              </div>
+            </div>
+          </div>
+          <div class="total" data-animate="right" data-delay="0.35">
+            <div class="total-head">
+              <svg class="ico" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg>
+              <span id="total-plan">Growth · 25 seats</span>
+            </div>
+            <div>
+              <p class="total-label">Per month</p>
+              <p class="total-monthly" id="total-monthly">$1,224</p>
+              <p class="total-yearly" id="total-yearly">$14,691 / year</p>
+            </div>
+            <span class="badge badge-positive badge-sm" id="savings">Save $3,009 a year</span>
+            <p class="total-hint" id="savings-hint" hidden>Switch to annual billing to see the savings.</p>
+            <p class="total-hint" id="custom-hint" hidden>We'll scope SSO, security review, and SLA together — book a call below.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 5 — CTA -->
+    <section class="hero" data-nk-slide="cta">
+      <div class="orbs" aria-hidden="true"><i class="orb orb-1"></i><i class="orb orb-2"></i></div>
+      <div class="wrap wrap-narrow center">
+        <div class="badge badge-positive badge-sm" data-animate="up">Free 14-day pilot</div>
+        <h2 class="cta-title" data-animate="up-lg" data-delay="0.1">
+          We'll get <span data-nk-text="companyName" data-nk-fallback="your team"></span> live on Relay
+          <span class="gradient-text">in two weeks</span>
+        </h2>
+        <div class="steps" data-stagger="0.1" data-stagger-base="0.2">
+          <div class="step" data-animate="up">
+            <svg class="ico" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+            <p class="step-title">Day 1</p>
+            <p>Get access and import your data — no engineering required.</p>
+          </div>
+          <div class="step" data-animate="up">
+            <svg class="ico" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>
+            <p class="step-title">Week 1</p>
+            <p>We configure dashboards and alerts around how your team works.</p>
+          </div>
+          <div class="step" data-animate="up">
+            <svg class="ico" viewBox="0 0 24 24"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg>
+            <p class="step-title">Day 14</p>
+            <p>We review the first results and measure the impact together.</p>
+          </div>
+        </div>
+        <div class="contact" data-animate="up" data-delay="0.5">
+          <p>Next step — a quick call with <span data-nk-text="managerName" data-nk-fallback="your account lead"></span></p>
+          <p class="contact-strong" data-nk-text="managerContact" data-nk-hide-empty="managerContact"></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="naimi-kit/kit.js" defer></script>
+  <script src="deck.js" defer></script>
+</body>
+</html>

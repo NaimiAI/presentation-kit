@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en" data-theme="naimi-light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pilot results report</title>
+  <link rel="stylesheet" href="naimi-kit/kit.css">
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+  <div id="root"></div>
+
+  <main id="deck" hidden>
+
+    <!-- Slide 1 — Pilot results -->
+    <section class="slide hero" data-nk-slide="pilot-summary">
+      <div class="orbs" aria-hidden="true"><i class="orb orb-one"></i><i class="orb orb-two"></i></div>
+      <div class="wrap wrap-wide center">
+        <div class="badge badge-positive" data-animate="up">
+          <svg class="ico ico-sm" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg>
+          <span>Pilot complete</span>
+        </div>
+        <h1 data-animate="up-lg" data-delay="0.1">Pilot results for <span class="gradient-text" data-nk-text="companyName" data-nk-fallback="the client"></span></h1>
+        <p class="hero-meta" data-animate="up" data-delay="0.2">
+          <span data-nk-text="periodLabel" data-nk-fallback="the last 6 weeks"></span><span data-nk-hide-empty="managerName"> · report by <span data-nk-text="managerName"></span></span>
+        </p>
+        <div class="summary-grid" data-animate="up" data-delay="0.3">
+          <article class="stat stat-positive">
+            <p class="stat-label">Order-processing time</p>
+            <p class="stat-value" id="hero-response-delta">−79%</p>
+            <p class="stat-sub" id="hero-response-values">14 min → 3 min</p>
+          </article>
+          <article class="stat stat-positive">
+            <p class="stat-label">Tickets auto-resolved</p>
+            <p class="stat-value" id="hero-conv-delta">+239%</p>
+            <p class="stat-sub" id="hero-conv-values">18% → 61%</p>
+          </article>
+          <article class="stat">
+            <p class="stat-label">Orders processed</p>
+            <p class="stat-value" id="hero-dialogs">9,200</p>
+            <p class="stat-sub">during the pilot</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2 — Before and after metrics -->
+    <section class="slide shell" data-nk-slide="before-after">
+      <div class="wrap wrap-wide">
+        <header class="slide-head" data-animate="up">
+          <p class="kicker">Key metrics</p>
+          <h2>What changed during the pilot</h2>
+          <p class="head-copy">Fine-tune the numbers right in the meeting — the report recalculates and the values save.</p>
+        </header>
+        <div class="metrics-layout">
+          <div class="panel fields-panel" data-animate="left" data-delay="0.1">
+            <div class="panel-title">
+              <svg class="ico ico-xs" viewBox="0 0 24 24"><path d="M10 5H3"/><path d="M12 19H3"/><path d="M14 3v4"/><path d="M16 17v4"/><path d="M21 12h-9"/><path d="M21 19h-5"/><path d="M21 5h-7"/><path d="M8 10v4"/><path d="M8 12H3"/></svg>
+              <span>Actual values</span>
+            </div>
+            <div class="range-field">
+              <div class="range-head"><label for="response-before-range">Processing time before, min</label><span id="response-before-display">14</span></div>
+              <div class="range-controls"><input id="response-before-range" type="range" min="1" max="30" step="1" value="14" data-nk-field="responseMinBefore"><input aria-label="Processing time before, min" type="number" min="1" max="30" step="1" value="14" data-nk-field="responseMinBefore"></div>
+            </div>
+            <div class="range-field range-positive">
+              <div class="range-head"><label for="response-after-range">Processing time after, min</label><span id="response-after-display">3</span></div>
+              <div class="range-controls"><input id="response-after-range" type="range" min="1" max="30" step="1" value="3" data-nk-field="responseMinAfter"><input aria-label="Processing time after, min" type="number" min="1" max="30" step="1" value="3" data-nk-field="responseMinAfter"></div>
+            </div>
+            <div class="range-field">
+              <div class="range-head"><label for="conv-before-range">Auto-resolved before, %</label><span id="conv-before-display">18%</span></div>
+              <div class="range-controls"><input id="conv-before-range" type="range" min="0" max="100" step="1" value="18" data-nk-field="convBefore"><input aria-label="Auto-resolved before, %" type="number" min="0" max="100" step="1" value="18" data-nk-field="convBefore"></div>
+            </div>
+            <div class="range-field range-positive">
+              <div class="range-head"><label for="conv-after-range">Auto-resolved after, %</label><span id="conv-after-display">61%</span></div>
+              <div class="range-controls"><input id="conv-after-range" type="range" min="0" max="100" step="1" value="61" data-nk-field="convAfter"><input aria-label="Auto-resolved after, %" type="number" min="0" max="100" step="1" value="61" data-nk-field="convAfter"></div>
+            </div>
+          </div>
+          <div class="comparison-column">
+            <article class="panel comparison" data-animate="right" data-delay="0.2">
+              <div class="comparison-head"><h3>Order-processing time</h3><span class="badge badge-sm badge-positive" id="response-badge">−79%</span></div>
+              <div class="before-after">
+                <div class="value-card value-before"><p>Before</p><strong id="response-before-card">14 min</strong></div>
+                <svg class="ico comparison-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                <div class="value-card value-after"><p>After</p><strong id="response-after-card">3 min</strong></div>
+              </div>
+            </article>
+            <article class="panel comparison" data-animate="right" data-delay="0.3">
+              <div class="comparison-head"><h3>Support tickets auto-resolved</h3><span class="badge badge-sm badge-positive" id="conv-badge">+239%</span></div>
+              <div class="before-after">
+                <div class="value-card value-before"><p>Before</p><strong id="conv-before-card">18%</strong></div>
+                <svg class="ico comparison-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                <div class="value-card value-after"><p>After</p><strong id="conv-after-card">61%</strong></div>
+              </div>
+            </article>
+            <p class="facts-hint" data-animate="up" data-delay="0.45">The "after" values save to the client profile — the next proposal starts from these numbers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3 — Auto-resolution trend -->
+    <section class="slide shell" data-nk-slide="auto-resolution-trend">
+      <div class="wrap wrap-wide">
+        <header class="slide-head" data-animate="up">
+          <p class="kicker">Trend</p>
+          <h2>Auto-resolution climbed every week</h2>
+        </header>
+        <div class="dynamics-layout">
+          <div class="panel chart-panel" data-animate="up-lg" data-delay="0.15">
+            <div class="panel-title">
+              <svg class="ico ico-xs" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+              <span>Tickets auto-resolved, % by week</span>
+            </div>
+            <svg id="resolution-chart" viewBox="0 0 720 260" role="img" aria-label="Weekly auto-resolution trend">
+              <g class="chart-grid"></g>
+              <g class="chart-bars"></g>
+            </svg>
+          </div>
+          <div class="influence" data-animate="right" data-delay="0.3">
+            <h3>What drove it</h3>
+            <div class="bullet"><svg class="ico ico-xs" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Weeks 1–2: connected the order and support systems, mapped the base workflows</span></div>
+            <div class="bullet"><svg class="ico ico-xs" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Weeks 3–4: tuned the automation on real tickets and edge cases</span></div>
+            <div class="bullet"><svg class="ico ico-xs" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Weeks 5–6: auto-routing and auto-replies took over the repetitive volume</span></div>
+            <p class="chart-hint">The chart is built from the values on the previous slide — change them and the trend recalculates.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4 — Dollar impact -->
+    <section class="slide shell" data-nk-slide="labor-savings">
+      <div class="wrap wrap-wide">
+        <header class="slide-head" data-animate="up">
+          <p class="kicker kicker-positive">Dollar impact</p>
+          <h2>What faster processing saves you</h2>
+        </header>
+        <div class="money-layout">
+          <div class="panel fields-panel money-fields" data-animate="left" data-delay="0.1">
+            <div class="panel-title">
+              <svg class="ico ico-xs" viewBox="0 0 24 24"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></svg>
+              <span>Assumptions</span>
+            </div>
+            <div class="range-field">
+              <div class="range-head"><label for="dialogs-range">Orders processed during the pilot</label><span id="dialogs-display">9,200</span></div>
+              <div class="range-controls"><input id="dialogs-range" type="range" min="100" max="50000" step="100" value="9200" data-nk-field="dialogsTotal"><input aria-label="Orders processed during the pilot" type="number" min="100" max="50000" step="100" value="9200" data-nk-field="dialogsTotal"></div>
+            </div>
+            <div class="range-field">
+              <div class="range-head"><label for="rate-range">Fully-loaded labor rate, $/hr</label><span id="rate-display">$32</span></div>
+              <div class="range-controls"><input id="rate-range" type="range" min="15" max="120" step="1" value="32" data-nk-field="avgCheck"><input aria-label="Fully-loaded labor rate, $/hr" type="number" min="15" max="120" step="1" value="32" data-nk-field="avgCheck"></div>
+            </div>
+            <p class="calc-hint">Processing time comes from the metrics slide: <span id="money-response-before">14</span> min → <span id="money-response-after">3</span> min per order. Cost per order: <span id="cost-before">$7</span> → <span id="cost-after">$2</span>.</p>
+          </div>
+          <div class="money-stats">
+            <article class="stat" data-animate="up" data-delay="0.2"><p class="stat-label">Hours saved during the pilot</p><p class="stat-value" id="hours-saved">+1,687 hrs</p><p class="stat-sub" id="pilot-savings">$53,973 in labor saved</p></article>
+            <article class="stat stat-positive" data-animate="up" data-delay="0.3"><p class="stat-label">Per month</p><p class="stat-value" id="monthly-savings">+$35,982</p><p class="stat-sub">at the current order volume</p></article>
+            <article class="stat stat-positive" data-animate="up" data-delay="0.4"><p class="stat-label">Annualized</p><p class="stat-value" id="yearly-savings">+$431,787</p><p class="stat-sub">before any growth in order volume</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 5 — Takeaways and recommendations -->
+    <section class="slide shell" data-nk-slide="rollout-plan">
+      <div class="wrap wrap-wide">
+        <header class="slide-head" data-animate="up">
+          <p class="kicker">Takeaways &amp; recommendations</p>
+          <h2>The pilot proved out — we recommend a full rollout</h2>
+        </header>
+        <div class="conclusion-grid" data-stagger="0.1" data-stagger-base="0.1">
+          <article class="content-card" data-animate="up"><div class="card-title"><svg class="ico" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg><h3>Speed</h3></div><p>Orders clear in minutes, not the better part of an hour — fewer bottlenecks and less overtime at peak.</p></article>
+          <article class="content-card" data-animate="up"><div class="card-title"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><h3>Deflection</h3></div><p>Auto-resolution held steady: the back half of the pilot stayed well above the first.</p></article>
+          <article class="content-card" data-animate="up"><div class="card-title"><svg class="ico" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg><h3>The team</h3></div><p>The ops team is off the repetitive tickets and focused on the exceptions that actually need a human.</p></article>
+        </div>
+        <div class="rollout-layout">
+          <div class="panel rollout" data-animate="up" data-delay="0.35">
+            <div class="panel-title"><svg class="ico ico-xs" viewBox="0 0 24 24"><path d="M16 14v2.2l1.6 1"/><path d="M16 2v4"/><path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"/><path d="M3 10h5"/><path d="M8 2v4"/><circle cx="16" cy="16" r="6"/></svg><span>Full-rollout plan for <span data-nk-text="companyName" data-nk-fallback="your company"></span></span></div>
+            <div class="rollout-steps">
+              <div><strong>Week 1</strong><p>Move the pilot workflow to production and roll out to the returns team next</p></div>
+              <div><strong>Weeks 2–3</strong><p>Connect your ERP and inventory feed, and stand up reporting for team leads</p></div>
+              <div><strong>Week 4</strong><p>Checkpoint: reconcile the metrics against your quarterly targets</p></div>
+            </div>
+          </div>
+          <div class="next-step" data-animate="up" data-delay="0.45">
+            <span class="badge badge-sm badge-positive">Next step</span>
+            <p>Lock the rollout terms on a call with <span data-nk-text="managerName" data-nk-fallback="your account lead"></span>. Every number in this report is already saved — the contract will be built from them.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="naimi-kit/kit.js" defer></script>
+  <script src="deck.js" defer></script>
+</body>
+</html>

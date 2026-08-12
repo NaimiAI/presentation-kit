@@ -15,7 +15,10 @@ What it demonstrates:
 - event photography bundled in `assets/` — the stage shot behind the poster
   type, the networking shot on the audience slide, both graded into the palette.
 
-Event facts, tiers and the benefits matrix are constants in
-`slides/content.ts` — replace them with the real event when adapting.
+Event facts and the benefits matrix live in `index.html`, the tiers and their
+prices in the `TIERS` constant at the top of `deck.js` — replace them with the
+real event when adapting.
 
-Build: `node scripts/build-deck.mjs sponsor-package` from the kit root.
+To build on this deck, copy `decks/sponsor-package/` into your working folder and add
+`template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent
+which deck you want to start from).

@@ -1,128 +1,122 @@
 ---
 name: naimi-publish
-description: Build, validate and publish a Naimi Web Pres template to the service — package the local presentation into a ZIP, run validation against the bundle rules, set the cover, and upload it as a new template or as a new revision of an existing one via the API. Use after a template is ready locally (see naimi-template), or to re-publish an edit to an already-published template.
+description: Validate, zip and publish a Naimi Web Pres template to the service — check the bundle rules, refresh the slide index and cover, pack the working folder into a ZIP and upload it as a new template or as a new revision of an existing one via the API. No build step — the folder is the bundle. Use after a template is ready locally (see naimi-template), or to re-publish an edit to an already-published template.
 ---
 
-# Naimi template — build & publish
+# Naimi template — publish
 
-This skill turns a finished local **template** (built with `naimi-template`) into a
-validated ZIP and uploads it to the service. Run it once the slides render
-correctly in local preview.
-
-**Reply to the user in their own language — whatever language they write to you
-in — in plain language.** Don't show raw build logs or JSON unless asked — run the steps yourself and report the result (published /
-updated, the presentation name, any problem in one sentence). The commands below
-are bash/zsh; on Windows use `$env:NAIMI_URL = "..."` instead of `export`.
-
-Prerequisites: a working copy made with `naimi-template`, and **Node.js >= 20.19**
-(if you're starting a fresh session just to re-publish, check `node -v` first —
-see the env section of `naimi-template`).
+Turns the working folder made with `naimi-template` into a ZIP and uploads it. There
+is no build: **the folder is the bundle** — publishing is a check, a zip and one API
+call. **Reply in the user's language**, don't show raw logs or JSON; report the result
+in one plain sentence.
 
 ## Credentials
 
-Publishing is the first step that talks to the service, so it needs a **Naimi
-account** and two values. They may already be in this conversation (the
-service's onboarding snippet ends with them), in the environment, or in a
-`.env` file at the kit root (see `.env.example`) — whenever they arrive in a
-message, save them into `.env` right away (gitignored) so later sessions are
-set up:
+This is the first step that needs a **free Naimi account** — everything up to here is
+local. `NAIMI_URL` + `NAIMI_TOKEN` reach you in the user's message, the environment
+or `.env` at the kit root; whenever they arrive in a message, save them to `.env`
+(see `START-HERE.md` → "Connected or local-only?"). The cloud service is
+`https://app.naimi.ai` — sign-up at `/app/signup`, tokens at `/app/authoring`; a
+self-hosted install uses its own URL.
 
 ```bash
-export NAIMI_URL=https://app.naimi.ai       # the cloud service (self-hosted installs use their own URL)
-export NAIMI_TOKEN=naimi_pk_...             # API token, created at <NAIMI_URL>/app/authoring
+export NAIMI_URL=https://app.naimi.ai
+export NAIMI_TOKEN=naimi_pk_...
 ```
 
-**If they're absent, the user probably has no account yet.** Don't treat it as
-an error — make the free-account offer from `START-HERE.md` → "Connected or
-local-only?" (one or two sentences, benefits first: a live shareable link,
-per-client personalized presentations, open tracking and notifications). Signup
-is at `https://app.naimi.ai/app/signup`, free plan; afterwards the user creates
-an API token at `<NAIMI_URL>/app/authoring` and pastes it to you. Save both
-values into `.env` and continue below. If the user already has an account and
-the values are just missing, ask for them the same way.
+If the user has no account yet, say in one sentence what publishing unlocks (a share
+link, per-client presentations, open tracking) and let them decide — never block the
+local work over it.
 
-## Cover image
+Commands here are bash; on Windows use `$env:NAIMI_URL = "..."` — `curl.exe` works
+the same.
 
-The template card shows `manifest.preview`. If you captured a cover during
-local preview, make sure `public/preview.webp` exists and `"preview"` points at
-it in `public/manifest.json`. If you changed slides since the last capture,
-re-capture from the **current first slide** so the card isn't stale (full steps
-in `naimi-template` → "Cover image"). No cover is fine — the card shows a
-placeholder and the manager can upload one later; never block publishing over it.
+## Pre-flight
 
-## Hard constraints (server validation + iframe CSP)
+1. **Slide grammar**: every direct `<section>` of `#deck` has a marker comment before
+   it and a unique `data-nk-slide` (see naimi-template). Fix the deck if not.
+2. **Slide index**: set `manifest.json → "slides": [{ "id", "title" }, …]` — `id` from
+   `data-nk-slide`, `title` from the marker comment, order = DOM order. Regenerate it
+   after any slide add/rename/reorder — the service uses it to label per-slide
+   analytics and slide links without opening the bundle.
+3. **Bundle rules** (server re-checks on upload): no CDN / absolute URLs / `data:`
+   images; fonts and images are files inside the folder; no script/executable file
+   types; ≤250 files, ≤5 MB per file, ≤40 MB total; `mock/state.json` present;
+   `index.html` (the manifest's `entry`) at the folder root.
+4. **Cover**: `preview.webp` fresh (re-capture if slides changed) and referenced by
+   `manifest.preview` — or the key dropped. Never block publishing over a cover.
 
-`npm run package` builds and validates, reporting any violation before zipping:
+## Zip
 
-- **No CDNs** anywhere (scripts, styles, fonts, images). Inter ships as a file;
-  fonts/images live in `src/assets/` as files.
-- **No `data:image` inlining** — keep `assetsInlineLimit: 0` in `vite.config.ts`.
-- Keep `base: './'` in `vite.config.ts` (assets serve from a nested path).
-- **No direct network/API/cookies/localStorage** — only the kit hooks.
-- Limits: ≤250 files, ≤5 MB per file, ≤40 MB unpacked.
-
-## Build & validate
+Zip the folder's **contents** — `index.html` must sit at the ZIP root:
 
 ```bash
-cd my-presentation
-npm run package      # tsc + vite build + validation → produces <id>.zip
+cd my-presentation && zip -r ../retail-roi-offer.zip . -x ".*" -x "*/.*" && cd ..
 ```
 
-If it fails, fix and re-run (see Troubleshooting). Don't upload until `package`
-passes cleanly.
+PowerShell: `Compress-Archive -Path my-presentation\* -DestinationPath retail-roi-offer.zip -Force`
 
-## Publish
+## Upload
 
 ```bash
-npm run upload                       # new template from <id>.zip
-npm run upload -- --list             # list template ids (to find one to update)
-npm run upload -- --update <id>      # new revision of an existing template
+# new template (add -F "status=draft" to keep it hidden from managers for now)
+curl -sf -H "Authorization: Bearer $NAIMI_TOKEN" \
+  -F "bundle=@retail-roi-offer.zip;type=application/zip" \
+  "$NAIMI_URL/api/templates/upload"
+
+# find an existing template's id
+curl -sf -H "Authorization: Bearer $NAIMI_TOKEN" "$NAIMI_URL/api/templates"
+
+# new revision of an existing template
+curl -sf -H "Authorization: Bearer $NAIMI_TOKEN" \
+  -F "bundle=@retail-roi-offer.zip;type=application/zip" \
+  "$NAIMI_URL/api/templates/<templateId>/revisions"
 ```
 
-- **New template** → `npm run upload`.
-- **Editing an already-published template** → `npm run upload -- --update <id>`.
-  Find the id with `--list` (or the user can read it off the template card).
+New template → `upload`; editing an already-published one → `…/revisions`.
+**Updating is safe**: presentations already sent to clients stay pinned to the
+revision they were created from; only new presentations use the new one — iterate
+freely. Manual fallback for updates: the Update button on the template card at
+`<URL>/app/templates`.
 
-**Updating is safe.** Presentations already sent to clients stay pinned to the revision
-they were created from and keep rendering the old version; only *new* presentations use
-the new revision. So you can iterate without breaking presentations in the wild.
+## After publishing
 
-Manual fallback **for updates only**: the Update button on the template
-card at `<URL>/app/templates`. New templates are published via the API
-(`npm run upload`).
+1. **Apply the start mode agreed in naimi-template**: templates open as slides by
+   default; if the user chose the scrolling feed, set it now (it's a template
+   setting, not part of the bundle — survives future revisions):
+
+```bash
+curl -sf -X PATCH -H "Authorization: Bearer $NAIMI_TOKEN" -H "Content-Type: application/json" \
+  -d '{"defaultViewMode":"scroll"}' "$NAIMI_URL/api/templates/<templateId>"   # back: "slides"
+```
+
+2. Tell the user it's live (name + it now appears under Templates), then offer the
+   natural next step: **create the first presentation** — switch to
+   **naimi-client-presentations** (`PRESENTATIONS-SKILL.md`).
+
+Worth knowing:
+
+- **Cover without a new revision**: `POST /api/templates/<id>/preview` (multipart,
+  field `preview`, PNG/JPEG/WebP ≤2 MB); `DELETE` on the same path resets.
+- **Keep the working folder** — the service stores the bundle; future edits start
+  from these local files.
 
 ## Troubleshooting
 
 | Symptom | Cause → fix |
 |---|---|
-| `npm install` / engine warning | Node < 20.19 → install a current Node (see `naimi-template` Step 0) |
-| `tsc` errors on `npm run package` | Fix the slide code; the build is type-checked |
-| Validation: CDN / data:image / file limits | See Hard constraints; move assets into `src/assets/`, downscale heavy images |
-| Upload 401/403 | Token missing or wrong → re-check `NAIMI_TOKEN` from `/app/authoring` |
-| Upload 400 with manifest errors | Fix `public/manifest.json` against the contract in `naimi-template` |
-| Upload 402 `limit_exceeded` | Plan limit — the body names it: `maxTemplateBytes` (ZIP too big for the plan → compress/downscale images, re-package) or `maxTemplates` (template count → update an existing one with `--update`, or a tenant admin deletes an unused template — **that destroys its presentations**, confirm explicitly — or upgrades at `<URL>/app/billing`). `GET /api/billing/subscription` shows the plan, limits and current usage. Self-hosted installs have no plan limits |
-
-## After publishing
-
-Tell the user it's live (name + that it now appears under Templates). Then
-offer the natural next step: **create the first presentation for a real client** —
-switch to **naimi-client-presentations** (`PRESENTATIONS-SKILL.md`).
-
-Two follow-ups worth knowing:
-
-- **The card cover can be set or replaced at any time without a new revision:**
-  `POST /api/templates/:templateId/preview` (multipart, field `preview`,
-  PNG/JPEG/WebP, ≤ 2 MB); `DELETE` on the same path resets to the bundle's
-  manifest cover.
-- **Tell the user to keep the working folder** — the service stores the built
-  bundle, not the sources; a future edit of this template starts from these
-  local files.
+| 400 "manifest" errors | Fix `manifest.json` against the contract in naimi-template |
+| 400 CDN / data:image / file type / limits | Bundle rules above: make assets local files, downscale images, drop stray files |
+| 400 entry/manifest not found | ZIP has a folder at its root → re-zip the folder's *contents* |
+| 401 / 403 | Token missing or wrong → re-check `NAIMI_TOKEN` from `/app/authoring` |
+| 402 `limit_exceeded` | Plan limit, body names it: `maxTemplateBytes` → compress images and re-zip; `maxTemplates` → update an existing template instead, or a tenant admin deletes an unused one (**that destroys its presentations** — confirm explicitly) or upgrades at `<URL>/app/billing`. `GET /api/billing/subscription` shows plan and usage. Self-hosted installs have no plan limits |
 
 ## Final checklist
 
 ```
-- [ ] npm run package passes (build + validation, no violations)
-- [ ] cover present (public/preview.webp + "preview" set) or intentionally skipped
-- [ ] published via npm run upload; for an edit used --update <id>
+- [ ] grammar checked; manifest.slides regenerated; bundle rules pass
+- [ ] cover fresh (or intentionally skipped)
+- [ ] zip has index.html at its root; uploaded via upload / revisions as appropriate
+- [ ] start mode applied (PATCH defaultViewMode) if the user chose the feed
 - [ ] user got a plain-language confirmation + offer to create the first presentation
 ```

@@ -1,12 +1,149 @@
 <!doctype html>
-<html lang="ru" data-theme="naimi-light">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Naimi presentation</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<!--
+  Starter deck of the Naimi kit (no build). Edit this file, deck.css and deck.js —
+  there is nothing to compile: the working folder IS the bundle.
+
+  Slide grammar (required):
+    • a slide is a DIRECT <section> child of #deck, show order = DOM order;
+    • before each section — a marker comment "Slide N — Title";
+    • on each section — a stable data-nk-slide="name" (kebab-case, unique in the
+      deck; it is a name, not a number: it does NOT change when slides are
+      inserted or reordered).
+  That way editing one slide never means reading the whole file: grep the marker
+  or data-nk-slide → read that range → edit in place.
+-->
+<html lang="en" data-theme="naimi-light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My presentation</title>
+  <link rel="stylesheet" href="naimi-kit/kit.css">
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+  <div id="root"></div>
+
+  <main id="deck" hidden>
+
+    <!-- Slide 1 — Title -->
+    <section class="hero" data-nk-slide="title">
+      <div class="orbs" aria-hidden="true"><i class="orb orb-1"></i><i class="orb orb-2"></i></div>
+      <div class="wrap wrap-narrow center">
+        <div class="badge badge-sm" data-animate="up">
+          <svg class="ico" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+          <span>Interactive presentation</span>
+        </div>
+        <!-- data-nk-text fills in a personalization value (the key is declared in
+             manifest.json), data-nk-fallback — what to show while it is empty. -->
+        <h1 data-animate="up-lg" data-delay="0.1">
+          A proposal<br>for <span class="gradient-text" data-nk-text="companyName" data-nk-fallback="your company"></span>
+        </h1>
+        <p class="lead" data-animate="up" data-delay="0.2">
+          Let's run the numbers on your own data right here in the meeting — and
+          keep the result, so the written offer arrives with the same figures.
+        </p>
+        <p class="hint" data-animate="up" data-delay="0.35">
+          <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          Next up — what's holding growth back, and what fixing it is worth
+        </p>
+      </div>
+    </section>
+
+    <!-- Slide 2 — The problem (staggered reveal) -->
+    <section class="shell" data-nk-slide="problem">
+      <div class="wrap wrap-wide">
+        <header class="slide-head" data-animate="up">
+          <p class="kicker">The problem</p>
+          <h2>What keeps <span data-nk-text="companyName" data-nk-fallback="your company"></span> from growing faster</h2>
+        </header>
+        <!-- data-stagger on a container hands its data-animate children delays in
+             order (0.1s step, 0.1s start) — no manual data-delay needed. -->
+        <div class="cards" data-stagger="0.1" data-stagger-base="0.1">
+          <div class="card" data-animate="up">
+            <div class="card-head">
+              <svg class="ico" viewBox="0 0 24 24"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
+              <h3>Slow replies</h3>
+            </div>
+            <p>Customers write around the clock while the team answers in office hours — the hottest enquiries go cold.</p>
+          </div>
+          <div class="card" data-animate="up">
+            <div class="card-head">
+              <svg class="ico" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg>
+              <h3>Expensive people on routine work</h3>
+            </div>
+            <p>Most requests are the same handful of questions that never needed an expert.</p>
+          </div>
+          <div class="card" data-animate="up">
+            <div class="card-head">
+              <svg class="ico" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+              <h3>Uneven quality</h3>
+            </div>
+            <p>The answer depends on who picked up the ticket and how busy they were, not on a standard.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3 — Impact calculator (interactive + maths in deck.js) -->
+    <section class="shell" data-nk-slide="calculator">
+      <div class="wrap wrap-wide">
+        <header class="slide-head" data-animate="up">
+          <p class="kicker">Impact calculator</p>
+          <h2>Let's plug in <span data-nk-text="companyName" data-nk-fallback="your"></span> numbers</h2>
+          <p class="sub">The values are saved on the presentation and on the client's card — the written offer reuses them automatically.</p>
+        </header>
+
+        <div class="calc-grid">
+          <!-- Controls are bound declaratively: data-nk-field="key" (the keys are
+               declared in manifest.json → demoData.fields). The runtime writes the
+               value into state, notifies subscribers and patches the host. -->
+          <div class="card calc" data-animate="left" data-delay="0.25">
+            <div class="range-row">
+              <div class="range-head"><label for="visitors">Monthly visitors</label><span class="range-value" id="visitors-value">10,000</span></div>
+              <input id="visitors" type="range" min="0" max="200000" step="500" value="10000" data-nk-field="monthlyVisitors">
+            </div>
+            <div class="range-row">
+              <div class="range-head"><label for="conversion">Conversion to order, %</label><span class="range-value" id="conversion-value">2.0%</span></div>
+              <input id="conversion" type="range" min="0" max="20" step="0.1" value="2" data-nk-field="conversionRate">
+            </div>
+            <div class="range-row">
+              <div class="range-head"><label for="aov">Average order value</label><span class="range-value" id="aov-value">$120</span></div>
+              <input id="aov" type="range" min="0" max="2000" step="5" value="120" data-nk-field="avgOrderValue">
+            </div>
+            <div class="range-row is-accent">
+              <div class="range-head"><label for="uplift">Conversion uplift, %</label><span class="range-value" id="uplift-value">+25%</span></div>
+              <input id="uplift" type="range" min="0" max="100" step="1" value="25" data-nk-field="upliftPct">
+            </div>
+          </div>
+
+          <!-- deck.js computes the derived sums on kit.onChange and writes them here. -->
+          <div class="result" data-animate="right" data-delay="0.3">
+            <div class="result-head">
+              <svg class="ico" viewBox="0 0 24 24"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>
+              <span>Projection</span>
+            </div>
+            <div>
+              <p class="result-label">Revenue today, per month</p>
+              <p class="result-now" id="revenue-now">$24,000</p>
+            </div>
+            <div>
+              <p class="result-label">Projected, per month</p>
+              <p class="result-next" id="revenue-next">$30,000</p>
+            </div>
+            <div class="result-gain">
+              <p class="result-label">Revenue gain</p>
+              <p class="result-gain-month" id="gain-month">+$6,000 per month</p>
+              <p class="result-gain-year" id="gain-year">$72,000 per year</p>
+            </div>
+            <p class="result-note">Illustrative maths. The final projection comes after the pilot.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="naimi-kit/kit.js" defer></script>
+  <script src="deck.js" defer></script>
+</body>
 </html>

@@ -8,14 +8,21 @@ What it demonstrates:
 
 - event marketing as an unexpected genre for a presentation service;
 - RSVP through demoData: the attendance answer and guest count are saved on the
-  presentation, so the host sees them without forms or email;
-- external links: a confirm-your-seat link, an "add to Google Calendar" link
-  generated from the event date, and a past-event YouTube recording;
+  presentation, so the host sees them without forms or email. The two reply
+  chips also expose `data-nk-action` (`rsvp-yes` / `rsvp-no`);
+- external links: a confirm-your-seat link (`confirm-seat`), an "add to Google
+  Calendar" link generated from the event date (`calendar-add`), and a
+  past-event YouTube recording (`watch-recording`);
 - poster typography: outlined text (`-webkit-text-stroke`), a huge background
   line, and a tilted date sticker, all layered over a low-opacity hero photo.
 
-Program, speakers and the recording link are constants in `slides/content.ts`
-and `Slide02Agenda.tsx`; replace them with your own. The hero photo lives in
-`assets/event-hero.webp`.
+Program, speakers and the recording link are constants in `index.html`; the
+event title fallback and link derivation live in `deck.js`. Replace them with
+your own.
 
-Build: `node scripts/build-deck.mjs event-invite` from the kit root.
+Slides: `poster` → `agenda` → `rsvp` (see the `<!-- Slide N -->` markers in
+`index.html`).
+
+To build on this deck, copy `decks/event-invite/` into your working folder and add
+`template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent
+which deck you want to start from).

@@ -12,7 +12,11 @@ What it demonstrates:
 - proposal metadata as personalization: proposal number, dates, timeline, validity;
 - zero interactive fields — a pure static-document genre.
 
-Sender details are the `SENDER` constant in `slides/content.ts` — replace them
-with the user's company once when adapting the template.
+Sender details are the fixed Northmark Consulting copy in `index.html` — replace
+them with the user's company once when adapting the template.
 
-Build: `node scripts/build-deck.mjs proposal-mono` from the kit root.
+Compose and validate from the repository root:
+
+To build on this deck, copy `decks/proposal-mono/` into your working folder and add
+`template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent
+which deck you want to start from).

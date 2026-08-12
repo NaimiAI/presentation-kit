@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en" data-theme="swiss-mono">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proposal — Swiss mono</title>
+  <link rel="stylesheet" href="naimi-kit/kit.css">
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+  <div id="root"></div>
+
+  <main id="deck" hidden>
+
+    <!-- Slide 1 — Cover -->
+    <section class="cover" data-nk-slide="cover">
+      <div class="wrap cover-wrap">
+        <header class="brand-line" data-animate="up">
+          <div>
+            <p class="sender-name">Northmark Consulting</p>
+            <p class="sender-tagline">revenue systems &amp; automation</p>
+          </div>
+          <p class="offer-number" data-nk-text="offerNumber" data-nk-fallback="P-2026-001"></p>
+        </header>
+
+        <div class="cover-main">
+          <p class="kicker" data-animate="up">Proposal</p>
+          <h1 data-animate="up" data-delay="0.1">
+            <span data-nk-text="projectTitle" data-nk-fallback="Full-scope project"></span>
+          </h1>
+          <p class="cover-client" data-animate="up" data-delay="0.2">
+            Prepared for <strong data-nk-text="companyName" data-nk-fallback="your company"></strong><span class="contact-inline" data-nk-hide-empty="contactName"> · <span data-nk-text="contactName"></span></span>
+          </p>
+        </div>
+
+        <div class="cover-facts" data-animate="up" data-delay="0.35">
+          <div>
+            <p>Date</p>
+            <strong id="proposal-date"></strong>
+          </div>
+          <div>
+            <p>Timeline</p>
+            <strong data-nk-text="projectDuration" data-nk-fallback="6–8 weeks"></strong>
+          </div>
+          <div>
+            <p>Valid through</p>
+            <strong id="cover-valid-until" class="accent-text">by agreement</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2 — The problem -->
+    <section class="shell" data-nk-slide="scope">
+      <div class="wrap content-wrap">
+        <header class="slide-head" data-animate="up">
+          <span>01</span>
+          <h2>The problem</h2>
+        </header>
+
+        <div class="scope-grid">
+          <div data-animate="up" data-delay="0.1">
+            <p class="eyebrow">How we read it</p>
+            <p class="overview" data-nk-text="projectOverview" data-nk-fallback="Describe how you understood the client’s problem: what hurts today, the outcome they’re after, and why it matters right now."></p>
+            <p class="scope-note">
+              If we got anything wrong, tell your account owner and we’ll send an
+              updated proposal the same day.
+            </p>
+          </div>
+
+          <div class="promises" data-stagger="0.1" data-stagger-base="0.2">
+            <div class="promise" data-animate="up">
+              <h3>Fixed-price scope</h3>
+              <p>The price per stage is locked in the contract — no mid-project surprises.</p>
+            </div>
+            <div class="promise" data-animate="up">
+              <h3>Transparent timeline</h3>
+              <p>Weekly status: what shipped, what’s next, where we need a call from your side.</p>
+            </div>
+            <div class="promise" data-animate="up">
+              <h3>Outcomes, not hours</h3>
+              <p>Every stage closes with sign-off against criteria agreed up front.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3 — Estimate -->
+    <section class="shell" data-nk-slide="estimate">
+      <div class="wrap content-wrap">
+        <header class="slide-head" data-animate="up">
+          <span>02</span>
+          <h2>Estimate</h2>
+        </header>
+
+        <div id="estimate-content" class="estimate-content">
+          <div id="stages-list" class="stages-list"></div>
+          <div class="estimate-total" data-animate="up" data-delay="0.45">
+            <p>Total</p>
+            <strong id="stages-total">$0</strong>
+          </div>
+          <p id="estimate-valid-until" class="estimate-valid" hidden>Price held through <span></span></p>
+        </div>
+        <div id="estimate-empty" class="empty-state" hidden>
+          No stages added yet. Add them in the stages editor when you create the
+          presentation — the table and the total will build automatically.
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4 — How we work -->
+    <section class="shell" data-nk-slide="process">
+      <div class="wrap content-wrap">
+        <header class="slide-head process-head" data-animate="up">
+          <div>
+            <span>03</span>
+            <h2>How we work</h2>
+          </div>
+          <p>timeline: <strong data-nk-text="projectDuration" data-nk-fallback="6–8 weeks"></strong></p>
+        </header>
+
+        <div class="process-grid" data-stagger="0.1" data-stagger-base="0.12">
+          <div class="process-step" data-animate="up">
+            <p class="step-number">01</p>
+            <h3>Contract &amp; kickoff</h3>
+            <p>We lock the estimate, timeline and sign-off criteria. Work starts within 3 business days of the deposit.</p>
+          </div>
+          <div class="process-step" data-animate="up">
+            <p class="step-number">02</p>
+            <h3>Work in stages</h3>
+            <p>Each stage ships a clear result. Weekly status: done / next / decisions we need from you.</p>
+          </div>
+          <div class="process-step" data-animate="up">
+            <p class="step-number">03</p>
+            <h3>Sign-off</h3>
+            <p>We demo the result against the contract criteria. Two revision rounds are included in the price.</p>
+          </div>
+          <div class="process-step" data-animate="up">
+            <p class="step-number">04</p>
+            <h3>Launch &amp; warranty</h3>
+            <p>We hand off the result, train your team, and stay on call through the warranty window.</p>
+          </div>
+        </div>
+        <p class="mobile-duration">Total timeline — <span data-nk-text="projectDuration" data-nk-fallback="6–8 weeks"></span>.</p>
+      </div>
+    </section>
+
+    <!-- Slide 5 — Terms -->
+    <section class="shell" data-nk-slide="terms">
+      <div class="wrap content-wrap">
+        <header class="slide-head" data-animate="up">
+          <span>04</span>
+          <h2>Terms</h2>
+        </header>
+
+        <div class="terms-grid">
+          <div>
+            <p class="eyebrow">Working terms</p>
+            <div id="conditions-list" class="conditions-list"></div>
+            <div id="terms-valid-until" class="terms-valid" hidden data-animate="up" data-delay="0.5">
+              <p>This proposal is valid through <span></span></p>
+            </div>
+          </div>
+
+          <div class="prepared" data-animate="up" data-delay="0.25">
+            <p class="eyebrow">Prepared by</p>
+            <p class="prepared-name">Northmark Consulting</p>
+            <p class="prepared-tagline">revenue systems &amp; automation</p>
+
+            <div class="prepared-contacts">
+              <p class="manager-name" data-nk-text="managerName" data-nk-hide-empty="managerName"></p>
+              <p data-nk-text="managerContact" data-nk-hide-empty="managerContact"></p>
+              <p>sales@northmark.co</p>
+              <p>(415) 555-0132</p>
+            </div>
+
+            <div class="prepared-note">
+              <p>
+                Happy to walk through the details and tune the estimate to your budget.
+                Reply to the email or message your account owner — a call takes 20 minutes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="naimi-kit/kit.js" defer></script>
+  <script src="deck.js" defer></script>
+</body>
+</html>

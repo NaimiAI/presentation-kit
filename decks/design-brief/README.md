@@ -7,8 +7,8 @@ two self-fill questionnaires can look.
 
 What it demonstrates:
 
-- free-text self-fill through an "underlined paper" field (`UnderlineField`,
-  serif italic input bound to `useDemoField`);
+- free-text self-fill through an "underlined paper" field (a serif italic input
+  bound with `data-nk-field`);
 - a **moodboard multi-select**: six image cards (one photo per direction) as
   boolean `collectFromClient` fields, with a Klein-blue ring + check over the
   selected image;
@@ -19,4 +19,6 @@ What it demonstrates:
 The studio name lives in slide copy (Slide01/05) — adjust when adapting. The
 six moodboard photos live in `assets/mood-*.webp`.
 
-Build: `node scripts/build-deck.mjs design-brief` from the kit root.
+To build on this deck, copy `decks/design-brief/` into your working folder and add
+`template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent
+which deck you want to start from).

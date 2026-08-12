@@ -1,0 +1,250 @@
+/*
+ * Styles of the starter deck: the theme (design tokens) + the slide layout.
+ * The player shell and its nav chrome are styled by the runtime
+ * (naimi-kit/kit.css) — leave that alone.
+ *
+ * The theme is picked with the data-theme attribute on <html> in index.html.
+ * Below are three ready presets (naimi-light by default, naimi-dark, editorial)
+ * and an example of your own: edit tokens rather than colours inside the slide
+ * rules, and the whole deck restyles from a single line.
+ */
+
+/* ---------------------------------------------------------------- themes -- */
+
+/* Naimi light — the product's own look: slate + a sky/violet/pink gradient. */
+:root[data-theme='naimi-light'] {
+  --nk-font-display: 'Inter', system-ui, sans-serif;
+
+  --nk-surface: #f8fafc;          /* page background */
+  --nk-card: #ffffff;             /* card background */
+  --nk-ink: #0f172a;              /* body text */
+  --nk-ink-soft: #475569;         /* secondary text */
+  --nk-ink-faint: #64748b;        /* captions and labels */
+  --nk-edge: #e2e8f0;             /* borders */
+  --nk-accent: #0ea5e9;
+  --nk-accent-ink: #0369a1;
+  --nk-accent-soft: rgba(14, 165, 233, 0.1);
+  --nk-accent-edge: rgba(14, 165, 233, 0.2);
+  --nk-positive: #059669;
+  --nk-positive-ink: #047857;
+  --nk-positive-soft: rgba(16, 185, 129, 0.1);
+  --nk-positive-edge: rgba(16, 185, 129, 0.25);
+  --nk-critical: #dc2626;
+  --nk-critical-soft: rgba(220, 38, 38, 0.08);
+  --nk-critical-edge: rgba(220, 38, 38, 0.2);
+
+  --nk-gradient: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 50%, #ec4899 100%);
+  --nk-orb-1: rgba(14, 165, 233, 0.1);
+  --nk-orb-2: rgba(139, 92, 246, 0.1);
+
+  /* Player nav chrome (arrows, dots, counter, thumbnail panel). */
+  --nk-nav-fade: rgba(241, 245, 249, 0.9);
+  --nk-nav-button: rgba(255, 255, 255, 0.7);
+  --nk-nav-button-hover: #ffffff;
+  --nk-nav-chip: rgba(255, 255, 255, 0.8);
+  --nk-nav-border: rgba(226, 232, 240, 0.8);
+  --nk-nav-icon: #0f172a;
+  --nk-nav-dot: rgba(148, 163, 184, 0.4);
+  --nk-nav-dot-hover: rgba(148, 163, 184, 0.6);
+  --nk-nav-dot-active: #38bdf8;
+}
+
+/* Naimi dark — the dark studio theme. */
+:root[data-theme='naimi-dark'] {
+  --nk-font-display: 'Inter', system-ui, sans-serif;
+
+  --nk-surface: #0f172a;
+  --nk-card: rgba(255, 255, 255, 0.05);
+  --nk-ink: #f8fafc;
+  --nk-ink-soft: #cbd5e1;
+  --nk-ink-faint: #94a3b8;
+  --nk-edge: rgba(255, 255, 255, 0.1);
+  --nk-accent: #38bdf8;
+  --nk-accent-ink: #7dd3fc;
+  --nk-accent-soft: rgba(56, 189, 248, 0.12);
+  --nk-accent-edge: rgba(56, 189, 248, 0.3);
+  --nk-positive: #34d399;
+  --nk-positive-ink: #6ee7b7;
+  --nk-positive-soft: rgba(52, 211, 153, 0.12);
+  --nk-positive-edge: rgba(52, 211, 153, 0.35);
+  --nk-critical: #f87171;
+  --nk-critical-soft: rgba(248, 113, 113, 0.12);
+  --nk-critical-edge: rgba(248, 113, 113, 0.3);
+
+  --nk-gradient: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 50%, #ec4899 100%);
+  --nk-orb-1: rgba(56, 189, 248, 0.12);
+  --nk-orb-2: rgba(139, 92, 246, 0.14);
+
+  --nk-nav-fade: rgba(15, 23, 42, 0.9);
+  --nk-nav-button: rgba(255, 255, 255, 0.08);
+  --nk-nav-button-hover: rgba(255, 255, 255, 0.16);
+  --nk-nav-chip: rgba(255, 255, 255, 0.1);
+  --nk-nav-border: rgba(255, 255, 255, 0.15);
+  --nk-nav-icon: #f8fafc;
+  --nk-nav-dot: rgba(148, 163, 184, 0.4);
+  --nk-nav-dot-hover: rgba(148, 163, 184, 0.6);
+  --nk-nav-dot-active: #38bdf8;
+}
+
+/* Editorial — a warm "paper" theme with serif headings. */
+:root[data-theme='editorial'] {
+  --nk-font-display: Georgia, 'Times New Roman', serif;
+
+  --nk-surface: #faf7f2;
+  --nk-card: #ffffff;
+  --nk-ink: #1c1917;
+  --nk-ink-soft: #57534e;
+  --nk-ink-faint: #78716c;
+  --nk-edge: #e7e0d6;
+  --nk-accent: #c2410c;
+  --nk-accent-ink: #9a3412;
+  --nk-accent-soft: rgba(194, 65, 12, 0.08);
+  --nk-accent-edge: rgba(194, 65, 12, 0.2);
+  --nk-positive: #15803d;
+  --nk-positive-ink: #166534;
+  --nk-positive-soft: rgba(21, 128, 61, 0.08);
+  --nk-positive-edge: rgba(21, 128, 61, 0.25);
+  --nk-critical: #b91c1c;
+  --nk-critical-soft: rgba(185, 28, 28, 0.07);
+  --nk-critical-edge: rgba(185, 28, 28, 0.2);
+
+  --nk-gradient: linear-gradient(135deg, #c2410c 0%, #b45309 50%, #0f766e 100%);
+  --nk-orb-1: rgba(194, 65, 12, 0.07);
+  --nk-orb-2: rgba(15, 118, 110, 0.07);
+
+  --nk-nav-fade: rgba(245, 240, 232, 0.9);
+  --nk-nav-button: rgba(255, 255, 255, 0.7);
+  --nk-nav-button-hover: #ffffff;
+  --nk-nav-chip: rgba(255, 255, 255, 0.8);
+  --nk-nav-border: rgba(231, 224, 214, 0.9);
+  --nk-nav-icon: #1c1917;
+  --nk-nav-dot: rgba(168, 162, 158, 0.4);
+  --nk-nav-dot-hover: rgba(168, 162, 158, 0.6);
+  --nk-nav-dot-active: #c2410c;
+}
+
+/* An example of your own preset: list only what differs — every other token
+   falls back to the runtime defaults. Enabled with data-theme="mint-studio". */
+:root[data-theme='mint-studio'] {
+  --nk-surface: #f2fbf7;
+  --nk-ink: #052e2b;
+  --nk-ink-soft: #2f6f66;
+  --nk-accent: #0d9488;
+  --nk-accent-ink: #0f766e;
+  --nk-accent-soft: rgba(13, 148, 136, 0.1);
+  --nk-accent-edge: rgba(13, 148, 136, 0.22);
+  --nk-gradient: linear-gradient(135deg, #2dd4bf 0%, #22d3ee 50%, #6366f1 100%);
+  --nk-orb-1: rgba(45, 212, 191, 0.14);
+  --nk-orb-2: rgba(99, 102, 241, 0.1);
+  --nk-nav-dot-active: #0d9488;
+}
+
+/* ------------------------------------------------------------ slide shell -- */
+/* Section = page: one unit of the show, one PDF page, one future PPTX slide.
+   Don't emulate "pages" inside a section — export cuts along sections. */
+section {
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: var(--nk-surface);
+  padding-bottom: 96px; /* room for the player nav chrome at the bottom */
+}
+.shell { display: flex; }
+/* margin: auto is the safe vertical centring: content taller than the screen
+   scrolls instead of being clipped at the top (unlike align-items: center). */
+.shell > .wrap { margin: auto; }
+.hero { display: flex; align-items: center; justify-content: center; }
+
+.wrap { position: relative; z-index: 10; margin: 0 auto; width: 100%; max-width: 72rem; padding: 40px 32px; }
+.wrap-narrow { max-width: 56rem; }
+.wrap-wide { max-width: 72rem; }
+.center { text-align: center; padding-top: 48px; padding-bottom: 48px; }
+
+/* Icons are inline SVG with this class (the stroke preset lives here). */
+.ico { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Decorative orbs on the title slide. */
+.orbs { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.orb { position: absolute; width: 384px; height: 384px; border-radius: 999px; filter: blur(64px); }
+.orb-1 { top: 20%; left: 18%; background: var(--nk-orb-1); }
+.orb-2 { bottom: 18%; right: 18%; background: var(--nk-orb-2); }
+/* Keep looping animation ONLY behind this media query: in static mode
+   (export, reduced-motion) the deck must stand still. */
+@media (prefers-reduced-motion: no-preference) {
+  .orb { animation: orb-pulse 6s ease-in-out infinite; }
+  .orb-2 { animation-delay: 3s; }
+  @keyframes orb-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
+}
+
+/* ------------------------------------------------------------ typography -- */
+h1 { margin-top: 32px; font-family: var(--nk-font-display); font-size: 68px; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; }
+h2 { font-family: var(--nk-font-display); font-size: 40px; font-weight: 700; line-height: 1.15; }
+.lead { margin: 24px auto 0; max-width: 42rem; font-size: 20px; line-height: 1.5; color: var(--nk-ink-soft); }
+.kicker { margin-bottom: 12px; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--nk-accent-ink); }
+.slide-head { margin-bottom: 40px; }
+.slide-head .sub { margin-top: 8px; color: var(--nk-ink-soft); }
+.hint { margin-top: 48px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--nk-ink-faint); }
+.hint .ico { width: 16px; height: 16px; }
+
+.badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  border-radius: 999px; border: 1px solid var(--nk-accent-edge);
+  background: var(--nk-accent-soft); color: var(--nk-accent-ink);
+  font-weight: 500;
+}
+.badge-sm { padding: 6px 12px; font-size: 12px; }
+.badge-sm .ico { width: 14px; height: 14px; }
+
+/* ---------------------------------------------------------------- slide 2 -- */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.card {
+  border-radius: 16px; border: 1px solid var(--nk-edge);
+  background: var(--nk-card); padding: 24px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+.card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.card-head .ico { color: var(--nk-accent); }
+.card-head h3 { font-size: 18px; font-weight: 600; }
+.card > p { font-size: 14px; line-height: 1.6; color: var(--nk-ink-soft); }
+
+/* ---------------------------------------------------------------- slide 3 -- */
+.calc-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 24px; align-items: start; }
+.calc { display: grid; gap: 24px; }
+.range-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 8px; gap: 12px; }
+.range-head label { font-size: 14px; font-weight: 500; color: var(--nk-ink-soft); }
+.range-value { font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.range-row.is-accent .range-value { color: var(--nk-accent-ink); }
+.range-row input[type='range'] {
+  width: 100%; height: 8px; cursor: pointer; appearance: none;
+  border-radius: 999px; background: var(--nk-edge); accent-color: var(--nk-accent);
+}
+.range-row input[type='range']::-webkit-slider-thumb {
+  appearance: none; width: 18px; height: 18px; border-radius: 999px;
+  background: var(--nk-accent); border: 2px solid var(--nk-card);
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.25);
+}
+
+.result {
+  display: flex; flex-direction: column; gap: 20px;
+  border-radius: 16px; border: 1px solid var(--nk-positive-edge);
+  background: var(--nk-positive-soft); padding: 24px;
+}
+.result-head { display: flex; align-items: center; gap: 8px; color: var(--nk-positive-ink); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+.result-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--nk-ink-faint); }
+.result-now { margin-top: 4px; font-size: 24px; font-weight: 600; color: var(--nk-ink-soft); font-variant-numeric: tabular-nums; }
+.result-next { margin-top: 4px; font-size: 34px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.result-gain { border-radius: 12px; border: 1px solid var(--nk-positive-edge); background: var(--nk-card); padding: 16px; }
+.result-gain-month { margin-top: 4px; font-size: 26px; font-weight: 700; color: var(--nk-positive-ink); font-variant-numeric: tabular-nums; }
+.result-gain-year { margin-top: 2px; font-size: 14px; color: var(--nk-ink-faint); font-variant-numeric: tabular-nums; }
+.result-note { font-size: 12px; line-height: 1.5; color: var(--nk-ink-faint); }
+
+/* --------------------------------------------------------------- responsive */
+@media (max-width: 900px) {
+  h1 { font-size: 42px; }
+  h2 { font-size: 28px; }
+  .lead { font-size: 17px; }
+  .wrap { padding: 32px 20px; }
+  .cards, .calc-grid { grid-template-columns: 1fr; }
+  .result-next { font-size: 30px; }
+}

@@ -32,12 +32,57 @@
   "demoData": {
     "namespace": "serviceConfig",
     "fields": [
-      { "key": "svcAudit", "label": "SEO audit", "type": "boolean", "defaultValue": true },
-      { "key": "svcBrand", "label": "Analytics dashboard", "type": "boolean", "defaultValue": false },
-      { "key": "svcSite", "label": "Landing page", "type": "boolean", "defaultValue": true },
-      { "key": "svcSeo", "label": "Email flows", "type": "boolean", "defaultValue": false },
-      { "key": "svcContent", "label": "Content engine", "type": "boolean", "defaultValue": false },
-      { "key": "svcAds", "label": "Paid ads management", "type": "boolean", "defaultValue": true }
+      {
+        "key": "svcAudit",
+        "label": "SEO audit",
+        "type": "boolean",
+        "defaultValue": true
+      },
+      {
+        "key": "svcBrand",
+        "label": "Analytics dashboard",
+        "type": "boolean",
+        "defaultValue": false
+      },
+      {
+        "key": "svcSite",
+        "label": "Landing page",
+        "type": "boolean",
+        "defaultValue": true
+      },
+      {
+        "key": "svcSeo",
+        "label": "Email flows",
+        "type": "boolean",
+        "defaultValue": false
+      },
+      {
+        "key": "svcContent",
+        "label": "Content engine",
+        "type": "boolean",
+        "defaultValue": false
+      },
+      {
+        "key": "svcAds",
+        "label": "Paid ads management",
+        "type": "boolean",
+        "defaultValue": true
+      }
     ]
-  }
+  },
+  "engine": "nk/0.9.0",
+  "slides": [
+    {
+      "id": "offer",
+      "title": "Interactive offer"
+    },
+    {
+      "id": "configurator",
+      "title": "Service configurator"
+    },
+    {
+      "id": "summary",
+      "title": "Estimate summary"
+    }
+  ]
 }

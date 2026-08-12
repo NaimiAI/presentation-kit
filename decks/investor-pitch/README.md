@@ -15,7 +15,12 @@ What it demonstrates:
 - a hand-drawn SVG line chart (no chart libraries) driven by a data array;
 - a team slide with founder headshots bundled in `assets/`.
 
-Startup facts (name, one-liner, round size, MRR series) are constants in
-`slides/content.ts` — replace them once when adapting the template.
+Startup facts (name, one-liner, MRR series) live in the slide markup in
+`index.html`, and the round size in the `ROUND_TARGET` / `POST_MONEY` constants
+at the top of `deck.js` — replace them once when adapting the template.
 
-Build: `node scripts/build-deck.mjs investor-pitch` from the kit root.
+Compose and validate from the repository root:
+
+To build on this deck, copy `decks/investor-pitch/` into your working folder and add
+`template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent
+which deck you want to start from).

@@ -8,8 +8,8 @@ company — `companyName` is labeled "Client name(s)".
 What it demonstrates:
 
 - a full product **configurator**: a linear-feet slider + cabinet-line/countertop
-  pickers + a hardware toggle, priced live from a price list in
-  `slides/content.ts`, with a financing line under the total; every choice
+  pickers + a hardware toggle, priced live from the price list at the top of
+  `deck.js`, with a financing line under the total; every choice
   persists on the presentation and promotes to the client card;
 - **client self-fill** (`collectFromClient: true`) on two questions — budget-range
   chips and timeline chips: the anonymous client answers right in the page and the
@@ -18,7 +18,9 @@ What it demonstrates:
   material context on the configurator and closing slides, plus the designer's
   headshot on the closing slide (`designer-olivia.webp` — swap in your own).
 
-Studio name, showroom address and the configurator price list are constants in
-`slides/content.ts` — adjust them when adapting.
+Studio name and showroom address live in `index.html`, the configurator price
+list in `deck.js` — adjust them when adapting.
 
-Build: `node scripts/build-deck.mjs kitchen-remodel` from the kit root.
+To build on this deck, copy `decks/kitchen-remodel/` into your working folder and add
+`template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent
+which deck you want to start from).

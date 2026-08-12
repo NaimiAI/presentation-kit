@@ -1,0 +1,224 @@
+/*
+ * The "noir-lime" theme — a poster look: near-black surface with an acid lime
+ * accent. Activated by the data-theme attribute on <html> in index.html.
+ */
+/* :root[…] outranks the default :root block in kit.css. */
+:root[data-theme='noir-lime'] {
+  --nk-font-display: 'Inter', system-ui, sans-serif;
+
+  --nk-surface: #0c0c0a;
+  --nk-card: rgba(255, 255, 255, 0.05);
+  --nk-ink: #f7f7f2;
+  --nk-ink-soft: #c6c6bb;
+  --nk-ink-faint: #8b8b80;
+  --nk-edge: rgba(255, 255, 255, 0.12);
+  --nk-accent: #a3e635;
+  --nk-accent-ink: #bef264;
+  --nk-accent-soft: rgba(163, 230, 53, 0.12);
+  --nk-accent-edge: rgba(163, 230, 53, 0.35);
+  --nk-positive: #34d399;
+  --nk-positive-ink: #6ee7b7;
+  --nk-positive-soft: rgba(52, 211, 153, 0.12);
+  --nk-positive-edge: rgba(52, 211, 153, 0.35);
+  --nk-critical: #fb7185;
+  --nk-critical-soft: rgba(251, 113, 133, 0.12);
+  --nk-critical-edge: rgba(251, 113, 133, 0.3);
+
+  --nk-gradient: linear-gradient(135deg, #a3e635 0%, #34d399 55%, #22d3ee 100%);
+  --nk-orb-1: rgba(163, 230, 53, 0.1);
+  --nk-orb-2: rgba(34, 211, 238, 0.08);
+
+  --nk-nav-fade: rgba(12, 12, 10, 0.92);
+  --nk-nav-button: rgba(255, 255, 255, 0.07);
+  --nk-nav-button-hover: rgba(255, 255, 255, 0.15);
+  --nk-nav-chip: rgba(255, 255, 255, 0.09);
+  --nk-nav-border: rgba(255, 255, 255, 0.16);
+  --nk-nav-icon: #f7f7f2;
+  --nk-nav-dot: rgba(139, 139, 128, 0.45);
+  --nk-nav-dot-hover: rgba(139, 139, 128, 0.65);
+  --nk-nav-dot-active: #a3e635;
+}
+
+/* ---------------------------------------------------------------- slide shell */
+section {
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: var(--nk-surface);
+  padding-bottom: 96px;
+}
+.shell { display: block; }
+/* Poster centred in the viewport: margin: auto instead of align-items, so content
+   taller than the viewport is not clipped at the top. */
+.poster { display: flex; }
+
+.wrap { position: relative; z-index: 10; margin: 0 auto; width: 100%; max-width: 56rem; padding: 48px 32px; }
+.poster .wrap { margin: auto; max-width: 64rem; padding-top: 40px; padding-bottom: 40px; }
+
+.ico { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Typography */
+.kicker { font-size: 14px; line-height: 20px; text-transform: uppercase; letter-spacing: 0.35em; color: var(--nk-accent-ink); }
+.slide-head { margin-bottom: 40px; }
+.slide-head h2 {
+  margin-top: 16px;
+  font-family: var(--nk-font-display);
+  font-size: 48px; font-weight: 900; line-height: 1;
+  text-transform: uppercase;
+}
+.slide-head .sub { margin-top: 12px; font-size: 16px; line-height: 24px; color: var(--nk-ink-soft); }
+
+/* ------------------------------------------------------- slide 1 — poster */
+.poster-photo,
+.poster-shade {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  pointer-events: none; -webkit-user-select: none; user-select: none;
+}
+.poster-photo { object-fit: cover; opacity: 0.25; }
+.poster-shade {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--nk-surface) 55%, transparent) 0%,
+    color-mix(in srgb, var(--nk-surface) 82%, transparent) 100%
+  );
+}
+.poster-orb {
+  position: absolute; top: -96px; right: -96px;
+  width: 384px; height: 384px; border-radius: 999px;
+  background: var(--nk-gradient); opacity: 0.2; filter: blur(64px);
+}
+.poster-mark {
+  position: absolute; bottom: -24px; left: 0;
+  pointer-events: none; -webkit-user-select: none; user-select: none;
+  white-space: nowrap;
+  font-size: 18vw; font-weight: 900; line-height: 1; text-transform: uppercase;
+  color: var(--nk-ink); opacity: 0.06;
+}
+.poster-title {
+  margin-top: 20px;
+  font-family: var(--nk-font-display);
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: 900; line-height: 0.95; text-transform: uppercase;
+  color: var(--nk-ink);
+}
+.poster-title-stroke { color: transparent; -webkit-text-stroke: 2px var(--nk-accent); }
+.poster-date { display: inline-block; margin-top: 32px; }
+.poster-date-chip {
+  display: inline-block; transform: rotate(-3deg);
+  border-radius: 12px; padding: 12px 24px;
+  background: var(--nk-accent); color: var(--nk-surface);
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.025em;
+}
+.poster-meta {
+  margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center;
+  column-gap: 32px; row-gap: 12px;
+  font-size: 14px; line-height: 20px; color: var(--nk-ink-soft);
+}
+.poster-meta-item { display: inline-flex; align-items: center; gap: 8px; }
+.poster-meta .ico { width: 16px; height: 16px; color: var(--nk-accent-ink); }
+.poster-invite {
+  margin-top: 32px; border-top: 1px solid var(--nk-edge); padding-top: 20px;
+  font-size: 16px; line-height: 24px; color: var(--nk-ink-soft);
+}
+.poster-invite-name { font-weight: 600; color: var(--nk-ink); }
+
+/* -------------------------------------------------- slide 2 — programme */
+.agenda { border-top: 1px solid var(--nk-edge); border-bottom: 1px solid var(--nk-edge); }
+.agenda-row {
+  display: grid; grid-template-columns: 5rem 1fr auto;
+  align-items: baseline; column-gap: 24px; row-gap: 4px; padding: 20px 0;
+}
+.agenda-row + .agenda-row { border-top: 1px solid var(--nk-edge); }
+.agenda-time {
+  font-family: var(--nk-font-display);
+  font-size: 20px; line-height: 28px; font-weight: 900; font-variant-numeric: tabular-nums;
+  color: var(--nk-accent-ink);
+}
+.agenda-topic { font-size: 18px; line-height: 28px; font-weight: 500; color: var(--nk-ink); }
+.agenda-speaker { font-size: 14px; line-height: 20px; text-align: right; color: var(--nk-ink-faint); }
+
+.speakers { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 24px; }
+.speaker { display: flex; align-items: center; gap: 16px; }
+.speaker-avatar {
+  display: flex; width: 48px; height: 48px; flex: none;
+  align-items: center; justify-content: center; border-radius: 999px;
+  background: var(--nk-accent); color: var(--nk-surface); font-weight: 700;
+}
+.speaker-name { font-size: 14px; line-height: 20px; font-weight: 600; color: var(--nk-ink); }
+.speaker-role { font-size: 12px; line-height: 16px; color: var(--nk-ink-faint); }
+
+/* --------------------------------------------------------- slide 3 — RSVP */
+.rsvp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+.rsvp-card {
+  display: flex; flex-direction: column; gap: 24px;
+  border-radius: 16px; border: 1px solid var(--nk-edge);
+  background: var(--nk-card); padding: 24px;
+}
+.rsvp-choice { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.rsvp-btn {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  border-radius: 12px; border: 1px solid var(--nk-edge);
+  background: color-mix(in srgb, var(--nk-surface) 40%, transparent);
+  color: var(--nk-ink-faint);
+  padding: 16px; font-size: 14px; line-height: 20px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.025em;
+  transition: border-color 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.rsvp-btn .ico { width: 16px; height: 16px; }
+.rsvp-btn:hover { border-color: color-mix(in srgb, var(--nk-accent-edge) 60%, transparent); }
+.rsvp-yes[aria-pressed='true'] {
+  border-color: var(--nk-accent-edge);
+  background: var(--nk-accent); color: var(--nk-surface);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+}
+.rsvp-no[aria-pressed='true'] {
+  border-color: var(--nk-accent-edge);
+  background: var(--nk-accent-soft); color: var(--nk-accent-ink);
+}
+
+.range-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 6px; }
+.range-head label { font-size: 14px; line-height: 20px; font-weight: 500; color: var(--nk-ink-soft); }
+.range-value { font-size: 18px; line-height: 28px; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--nk-ink); }
+.range-controls { display: flex; align-items: center; gap: 12px; }
+.range-controls input[type='range'] {
+  flex: 1; height: 8px; cursor: pointer; appearance: none;
+  border-radius: 999px; background: var(--nk-edge); accent-color: var(--nk-accent);
+}
+.range-controls input[type='number'] {
+  width: 112px; border-radius: 8px; border: 1px solid var(--nk-edge);
+  background: var(--nk-card); color: var(--nk-ink);
+  padding: 6px 10px; text-align: right; font: inherit; font-size: 14px; line-height: 20px; font-variant-numeric: tabular-nums;
+}
+.range-controls input[type='number']:focus { border-color: var(--nk-accent); outline: none; }
+
+.rsvp-note { display: flex; align-items: flex-start; gap: 12px; border-top: 1px solid var(--nk-edge); padding-top: 16px; }
+.rsvp-note .ico { width: 16px; height: 16px; margin-top: 2px; color: var(--nk-accent-ink); }
+.rsvp-note p { font-size: 12px; line-height: 1.625; color: var(--nk-ink-faint); }
+
+.rsvp-links { display: flex; flex-direction: column; gap: 12px; }
+.link-card {
+  display: flex; align-items: center; justify-content: space-between;
+  border-radius: 16px; border: 1px solid var(--nk-edge); background: var(--nk-card);
+  padding: 20px 24px; text-decoration: none; color: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.link-card:hover { border-color: var(--nk-accent-edge); }
+.link-card .ico { color: var(--nk-ink-soft); }
+.link-card-accent { border-color: var(--nk-accent-edge); background: var(--nk-accent-soft); }
+.link-card-accent:hover { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4); }
+.link-card-accent .link-title,
+.link-card-accent .ico { color: var(--nk-accent-ink); }
+.link-title { font-size: 14px; line-height: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.025em; color: var(--nk-ink); }
+.link-sub { margin-top: 4px; font-size: 12px; line-height: 16px; color: var(--nk-ink-soft); }
+
+/* --------------------------------------------------------------- responsive */
+@media (max-width: 767px) {
+  .wrap { padding: 48px 24px; }
+  .slide-head h2 { font-size: 30px; line-height: 1.2; }
+  .agenda-row { grid-template-columns: 4.5rem 1fr; }
+  .agenda-topic { font-size: 16px; line-height: 24px; }
+  .agenda-speaker { grid-column: 2; text-align: left; }
+  .rsvp-grid { grid-template-columns: 1fr; }
+}

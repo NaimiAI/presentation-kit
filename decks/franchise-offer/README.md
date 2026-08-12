@@ -9,18 +9,21 @@ investment, royalty + brand fund, and average unit volume (AUV).
 
 What it demonstrates:
 
-- a **payback calculator** on two `useDemoField` sliders (`avgTicket`,
+- a **payback calculator** on two declaratively bound sliders (`avgTicket`,
   `dailyGuests`), both promoted to the client's CRM card: revenue → monthly
-  profit → months to return the investment, computed live from the
-  unit-economics model in `slides/content.ts`;
+  profit → months to return the investment, computed live in `deck.js`;
 - the median location's unit economics drawn as animated expense bars — the
   same model the calculator uses, so the numbers always agree;
 - per-partner personalization: the partner's city in the cover headline, a
   personal note and the franchise director on the terms slide.
 
 The network legend (name, locations, AUV) and the economics model (expense
-shares, rent, investment range) are constants in `slides/content.ts` — replace
-them when adapting. The cover photo (`assets/cafe-interior.webp`) is a generic
+shares, rent, investment range) are represented in `index.html` and `deck.js` —
+replace them together when adapting. The cover photo (`assets/cafe-interior.webp`) is a generic
 café interior — swap in a real location shot when you have one.
 
-Build: `node scripts/build-deck.mjs franchise-offer` from the kit root.
+Check from the repository root:
+
+To build on this deck, copy `decks/franchise-offer/` into your working folder and add
+`template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent
+which deck you want to start from).

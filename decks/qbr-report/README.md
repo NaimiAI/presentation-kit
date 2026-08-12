@@ -20,8 +20,8 @@ emerald for good deltas, amber for attention (never alarm red).
   1–5 quarter rating (`collectFromClient` + `promoteToClientFacts`) and a free-text
   note (`collectFromClient`); answers save automatically to the client card.
 
-## Build
+## Compose and validate
 
-```bash
-node scripts/build-deck.mjs qbr-report
-```
+To build on this deck, copy `decks/qbr-report/` into your working folder and add
+`template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent
+which deck you want to start from).

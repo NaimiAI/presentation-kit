@@ -17,7 +17,8 @@ What it demonstrates:
   (`assets/team-*.webp`); group entries (like the care team) fall back to CSS
   avatars from initials.
 
-Team, links and SLA are constants in `slides/content.ts` and
-`Slide02Team.tsx`; replace them with your own.
+Team, links and SLA are constants in `index.html`; replace them with your own.
 
-Build: `node scripts/build-deck.mjs client-onboarding` from the kit root.
+To build on this deck, copy `decks/client-onboarding/` into your working folder and add
+`template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent
+which deck you want to start from).

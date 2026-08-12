@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en" data-theme="proposal-paper">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studio proposal — paper</title>
+  <link rel="stylesheet" href="naimi-kit/kit.css">
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+  <div id="root"></div>
+
+  <main id="deck" hidden>
+
+    <!-- Slide 1 — Cover -->
+    <section class="cover" data-nk-slide="cover">
+      <div class="cover-frame">
+        <div class="cover-inner-frame" aria-hidden="true"></div>
+        <div class="cover-content">
+          <header class="cover-head" data-animate="up">
+            <p class="studio-name">Fieldnote Studio</p>
+            <p id="proposal-date" class="document-date"></p>
+          </header>
+
+          <div class="cover-main" data-animate="up-lg" data-delay="0.15">
+            <p class="kicker">Proposal</p>
+            <h1 data-nk-text="projectTitle" data-nk-fallback="Marketing site redesign"></h1>
+            <p class="cover-recipient">
+              Prepared for <strong data-nk-text="companyName" data-nk-fallback="your company"></strong><span id="cover-contact" hidden> · attn. <span data-nk-text="contactName"></span></span>
+            </p>
+          </div>
+
+          <footer class="cover-foot" data-animate="up" data-delay="0.3">
+            <div>
+              <p class="studio-tagline">digital products &amp; brand systems</p>
+              <p class="studio-contacts">hello@fieldnote.studio · (415) 555-0148</p>
+            </div>
+            <p id="cover-valid" class="valid-until" hidden>Valid through <span></span></p>
+          </footer>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2 — Our understanding -->
+    <section class="shell" data-nk-slide="brief">
+      <div class="wrap">
+        <header class="section-heading">
+          <div class="section-title"><span>01</span><h2>Our understanding</h2></div>
+        </header>
+
+        <blockquote class="brief-quote" data-animate="up">
+          <p data-nk-text="projectOverview" data-nk-fallback="The current site doesn’t reflect where the company is today and loses inquiries on mobile. The goal is to sharpen the positioning, rebuild the structure, and ship a site that turns traffic into inbound."></p>
+        </blockquote>
+
+        <div class="deliverables" data-stagger="0.1" data-stagger-base="0.15">
+          <article class="deliverable" data-animate="up">
+            <svg class="ico" viewBox="0 0 24 24"><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/><circle cx="12" cy="12" r="10"/></svg>
+            <h3>Strategy</h3>
+            <p>Audit, behavior analytics, a customer-journey map, and the structure of the new site.</p>
+          </article>
+          <article class="deliverable" data-animate="up">
+            <svg class="ico" viewBox="0 0 24 24"><path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z"/><path d="m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18"/><path d="m2.3 2.3 7.286 7.286"/><circle cx="11" cy="11" r="2"/></svg>
+            <h3>Design</h3>
+            <p>A design system and layouts for every key page — from the homepage to the service detail.</p>
+          </article>
+          <article class="deliverable" data-animate="up">
+            <svg class="ico" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+            <h3>Launch</h3>
+            <p>Build, CMS, content migration, and training your team to run the site.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3 — How we work -->
+    <section class="shell" data-nk-slide="process">
+      <div class="wrap">
+        <header class="section-heading">
+          <div class="section-title"><span>02</span><h2>How we work</h2></div>
+          <p>Every stage closes with a demo and a written recap — you always know which week the project is in and what comes next.</p>
+        </header>
+
+        <div class="phases" data-stagger="0.1" data-stagger-base="0.1">
+          <article class="phase" data-animate="left"><span class="phase-number">I</span><div><h3>Discovery</h3><p>Team interviews, an audit of the current site and its metrics, and a competitive review.</p></div><span class="phase-term">weeks 1–2</span></article>
+          <article class="phase" data-animate="left"><span class="phase-number">II</span><div><h3>Concept</h3><p>Structure, prototypes of the key pages, and sign-off on the design direction.</p></div><span class="phase-term">weeks 2–3</span></article>
+          <article class="phase" data-animate="left"><span class="phase-number">III</span><div><h3>Design &amp; build</h3><p>Design system, layouts, responsive build, and CMS integration.</p></div><span class="phase-term">weeks 4–6</span></article>
+          <article class="phase" data-animate="left"><span class="phase-number">IV</span><div><h3>Launch</h3><p>Testing, content migration, team training, and handoff of access.</p></div><span class="phase-term">week 7</span></article>
+        </div>
+
+        <p class="process-note" data-animate="up" data-delay="0.55">
+          What we’ll need from you: a point of contact on the business side, access to
+          your analytics, and two 30-minute calls a week. We handle the rest.
+        </p>
+      </div>
+    </section>
+
+    <!-- Slide 4 — Project estimate -->
+    <section class="shell" data-nk-slide="estimate">
+      <div class="wrap">
+        <header class="section-heading">
+          <div class="section-title"><span>03</span><h2>Project estimate</h2></div>
+        </header>
+
+        <div id="estimate-content" class="estimate-content">
+          <div id="stages-list" class="stages-list"></div>
+          <div class="estimate-total" data-animate="up" data-delay="0.45">
+            <div class="total-line"><p>Total</p><strong id="stages-total">$0</strong></div>
+            <div class="total-notes">
+              <p id="pricing-disclaimer"></p>
+              <p id="estimate-valid" hidden>Price held through <span></span></p>
+            </div>
+          </div>
+        </div>
+        <div id="estimate-empty" class="empty-state" hidden>
+          No stages added yet. Add them in the stages editor when you create the
+          presentation — the table and the total will build automatically.
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 5 — Terms & next step -->
+    <section class="shell" data-nk-slide="terms">
+      <div class="wrap">
+        <header class="section-heading">
+          <div class="section-title"><span>04</span><h2>Terms &amp; next step</h2></div>
+        </header>
+
+        <div class="terms-grid">
+          <div data-animate="up">
+            <h3 class="eyebrow">Working terms</h3>
+            <div id="conditions-list" class="conditions-list"></div>
+          </div>
+          <div data-animate="up" data-delay="0.15">
+            <h3 class="eyebrow">Next step</h3>
+            <ol class="next-steps">
+              <li><span>1</span><p>Confirm the scope and estimate — a reply by email is enough</p></li>
+              <li><span>2</span><p>We prepare the contract and an invoice for the first stage (1 business day)</p></li>
+              <li><span>3</span><p>We start within a week of the deposit clearing</p></li>
+            </ol>
+            <p class="contact-note">
+              Questions on the estimate are easiest on a short call —
+              email hello@fieldnote.studio and we’ll propose a time the same day.
+            </p>
+          </div>
+        </div>
+
+        <div class="signatures" data-animate="up" data-delay="0.35">
+          <div class="signature-party">
+            <p class="signature-label">Prepared by</p>
+            <p class="signature-name">Fieldnote Studio</p>
+            <div class="signature-line"></div>
+            <p class="signature-caption">Authorized signature · Date</p>
+          </div>
+          <button type="button" class="signature-party signature-action" data-nk-action="sign" aria-label="Sign the proposal on behalf of the client">
+            <p class="signature-label">Accepted by</p>
+            <p class="signature-name"><span data-nk-text="companyName" data-nk-fallback="your company"></span><span id="signature-contact" hidden> · <span data-nk-text="contactName"></span></span></p>
+            <div class="signature-line"></div>
+            <p class="signature-caption">Authorized signature · Date</p>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="naimi-kit/kit.js" defer></script>
+  <script src="deck.js" defer></script>
+</body>
+</html>

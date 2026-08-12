@@ -13,7 +13,9 @@ What it demonstrates:
   `slides/index.ts`);
 - document without interactive fields (`demoData.fields: []`).
 
-Sender details (studio name and contacts) are the `STUDIO` constant in
-`slides/content.ts`; replace them with your own data.
+Sender details (studio name and contacts) live in the slide markup in
+`index.html`; replace them with your own data.
 
-Build: `node scripts/build-deck.mjs studio-proposal` from the kit root.
+To build on this deck, copy `decks/studio-proposal/` into your working folder and add
+`template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent
+which deck you want to start from).

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en" data-theme="mint-fresh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Service menu configurator</title>
+  <link rel="stylesheet" href="naimi-kit/kit.css">
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+  <div id="root"></div>
+
+  <main id="deck" hidden>
+
+    <!-- Slide 1 — Interactive offer -->
+    <section class="hero" data-nk-slide="offer">
+      <div class="orbs" aria-hidden="true"><i class="orb orb-1"></i><i class="orb orb-2"></i></div>
+      <div class="wrap wrap-default center">
+        <div class="badge" data-animate="up">
+          <svg class="ico ico-sm" viewBox="0 0 24 24"><path d="M13 5h8"/><path d="M13 12h8"/><path d="M13 19h8"/><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/></svg>
+          <span>Interactive offer</span>
+        </div>
+        <h1 data-animate="up-lg" data-delay="0.1">
+          Build your marketing plan
+          <span class="gradient-text">for <span data-nk-text="companyName" data-nk-fallback="your company"></span></span>
+        </h1>
+        <p class="lead" data-animate="up" data-delay="0.2">
+          No “three fixed plans” — pick only what you actually need and see the
+          bundled price update as you go.
+        </p>
+        <div class="how-grid" data-animate="up" data-delay="0.3">
+          <div class="how-card">
+            <svg class="ico" viewBox="0 0 24 24"><path d="M14 4.1 12 6"/><path d="m5.1 8-2.9-.8"/><path d="m6 12-1.9 2"/><path d="M7.2 2.2 8 5.1"/><path d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z"/></svg>
+            <p>Toggle services on with a tap — right on the call</p>
+          </div>
+          <div class="how-card">
+            <svg class="ico" viewBox="0 0 24 24"><line x1="19" x2="5" y1="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+            <p>Bundle 3 services for 5% off, 5 for a full 10%</p>
+          </div>
+          <div class="how-card">
+            <svg class="ico" viewBox="0 0 24 24"><path d="M13 16H8"/><path d="M14 8H8"/><path d="M16 12H8"/><path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z"/></svg>
+            <p>The estimate builds on the last slide and saves</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2 — Service configurator -->
+    <section class="shell" data-nk-slide="configurator">
+      <div class="wrap wrap-wide">
+        <header class="slide-head" data-animate="up">
+          <p class="kicker">Configurator</p>
+          <h2>Pick the services you need</h2>
+          <p class="sub">Tap a card — the total below recalculates instantly.</p>
+        </header>
+
+        <div class="services-grid" data-stagger="0.06" data-stagger-base="0.08">
+          <button type="button" class="service-card" data-service-key="svcAudit" data-nk-action="service-audit" aria-pressed="true" data-animate="up">
+            <span class="service-mark"><svg class="ico mark-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><svg class="ico mark-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span>
+            <svg class="ico service-icon" viewBox="0 0 24 24"><path d="m8 11 2 2 4-4"/><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <h3>SEO audit</h3>
+            <p>Technical + content audit, keyword gaps, and a prioritized 90-day roadmap.</p>
+            <div class="service-meta"><div><strong>$1,900</strong></div><span>~2 wk</span></div>
+          </button>
+          <button type="button" class="service-card" data-service-key="svcBrand" data-nk-action="service-brand" aria-pressed="false" data-animate="up">
+            <span class="service-mark"><svg class="ico mark-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><svg class="ico mark-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span>
+            <svg class="ico service-icon" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+            <h3>Analytics dashboard</h3>
+            <p>One live dashboard across ads, site, and email — plus a monthly readout.</p>
+            <div class="service-meta"><div><strong>$1,200/mo</strong></div><span>~2 wk</span></div>
+          </button>
+          <button type="button" class="service-card" data-service-key="svcSite" data-nk-action="service-site" aria-pressed="true" data-animate="up">
+            <span class="service-mark"><svg class="ico mark-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><svg class="ico mark-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span>
+            <svg class="ico service-icon" viewBox="0 0 24 24"><path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8"/><path d="M10 19v-3.96 3.15"/><path d="M7 19h5"/><rect width="6" height="10" x="16" y="12" rx="2"/></svg>
+            <h3>Landing page</h3>
+            <p>A conversion-focused landing page: copy, design, build, and A/B setup.</p>
+            <div class="service-meta"><div><strong>$3,200</strong></div><span>~3 wk</span></div>
+          </button>
+          <button type="button" class="service-card" data-service-key="svcSeo" data-nk-action="service-seo" aria-pressed="false" data-animate="up">
+            <span class="service-mark"><svg class="ico mark-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><svg class="ico mark-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span>
+            <svg class="ico service-icon" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+            <h3>Email flows</h3>
+            <p>Welcome, cart, and win-back automations wired into your ESP.</p>
+            <div class="service-meta"><div><strong>$1,500</strong></div><span>~2 wk</span></div>
+          </button>
+          <button type="button" class="service-card" data-service-key="svcContent" data-nk-action="service-content" aria-pressed="false" data-animate="up">
+            <span class="service-mark"><svg class="ico mark-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><svg class="ico mark-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span>
+            <svg class="ico service-icon" viewBox="0 0 24 24"><path d="M13 21h8"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg>
+            <h3>Content engine</h3>
+            <p>Four SEO-driven posts a month — briefs, drafts, edits, and publishing.</p>
+            <div class="service-meta"><div><strong>$2,400/mo</strong></div><span>~4 wk</span></div>
+          </button>
+          <button type="button" class="service-card" data-service-key="svcAds" data-nk-action="service-ads" aria-pressed="true" data-animate="up">
+            <span class="service-mark"><svg class="ico mark-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><svg class="ico mark-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span>
+            <svg class="ico service-icon" viewBox="0 0 24 24"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14"/><path d="M8 6v8"/></svg>
+            <h3>Paid ads management</h3>
+            <p>Google and Meta campaigns, creative testing, and weekly optimization.</p>
+            <div class="service-meta"><div><strong>$1,800/mo</strong><p class="service-note">+ 10% of ad spend</p></div><span>~2 wk</span></div>
+          </button>
+        </div>
+
+        <div class="config-total" data-animate="up" data-delay="0.45">
+          <p>Services selected: <strong id="selected-count">3</strong><span class="discount-chip" id="discount-chip">5% off</span></p>
+          <p><span id="config-total">$6,555</span><span class="total-cadence">first month</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3 — Estimate summary -->
+    <section class="shell" data-nk-slide="summary">
+      <div class="wrap wrap-wide summary-wrap">
+        <header class="slide-head" data-animate="up">
+          <p class="kicker kicker-positive">Summary</p>
+          <h2>Estimate for <span data-nk-text="companyName" data-nk-fallback="your company"></span></h2>
+          <p class="sub" data-nk-hide-empty="contactName">Prepared for <span data-nk-text="contactName"></span></p>
+        </header>
+
+        <div class="summary-grid" id="summary-grid">
+          <div class="estimate-card" data-animate="up" data-delay="0.1">
+            <div class="estimate-title">
+              <svg class="ico ico-sm" viewBox="0 0 24 24"><path d="M13 16H8"/><path d="M14 8H8"/><path d="M16 12H8"/><path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z"/></svg>
+              <span>What's included</span>
+            </div>
+            <div class="estimate-lines" id="estimate-lines">
+              <div class="estimate-line" data-summary-key="svcAudit"><span><svg class="ico" viewBox="0 0 24 24"><path d="m8 11 2 2 4-4"/><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>SEO audit</span><strong>$1,900</strong></div>
+              <div class="estimate-line" data-summary-key="svcBrand"><span><svg class="ico" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>Analytics dashboard</span><strong>$1,200/mo</strong></div>
+              <div class="estimate-line" data-summary-key="svcSite"><span><svg class="ico" viewBox="0 0 24 24"><path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8"/><path d="M10 19v-3.96 3.15"/><path d="M7 19h5"/><rect width="6" height="10" x="16" y="12" rx="2"/></svg>Landing page</span><strong>$3,200</strong></div>
+              <div class="estimate-line" data-summary-key="svcSeo"><span><svg class="ico" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>Email flows</span><strong>$1,500</strong></div>
+              <div class="estimate-line" data-summary-key="svcContent"><span><svg class="ico" viewBox="0 0 24 24"><path d="M13 21h8"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg>Content engine</span><strong>$2,400/mo</strong></div>
+              <div class="estimate-line" data-summary-key="svcAds"><span><svg class="ico" viewBox="0 0 24 24"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14"/><path d="M8 6v8"/></svg>Paid ads management</span><strong>$1,800/mo</strong></div>
+            </div>
+            <div class="estimate-totals">
+              <div><span>Subtotal</span><span id="summary-subtotal">$6,900</span></div>
+              <div class="discount-row" id="summary-discount"><span id="summary-discount-label">Bundle discount (5%)</span><span id="summary-discount-value">−$345</span></div>
+              <div class="grand-total"><span>First-month total</span><span id="summary-total">$6,555</span></div>
+            </div>
+          </div>
+
+          <div class="summary-side">
+            <div class="stat-card stat-accent" data-animate="up" data-delay="0.2">
+              <p>First-month total</p>
+              <strong id="stat-total">$6,555</strong>
+              <span data-nk-text="offerNote" data-nk-fallback="Retainers billed monthly, setup fees one-time"></span>
+            </div>
+            <div class="stat-card" data-animate="up" data-delay="0.3">
+              <p>Time to launch</p>
+              <strong id="stat-weeks">~3 wk</strong>
+              <span>services run in parallel wherever possible</span>
+            </div>
+            <div class="discount-tip" id="discount-tip" data-animate="up" data-delay="0.4">
+              <svg class="ico ico-sm" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
+              <p id="discount-tip-text">Add 2 more services and the discount jumps to 10%.</p>
+            </div>
+            <p class="save-note" data-animate="up" data-delay="0.5">This exact mix is saved on the link — the contract and invoice will match it line for line.</p>
+          </div>
+        </div>
+
+        <div class="empty-state" id="empty-state" hidden>Nothing selected yet — head back a slide and tap the cards you need.</div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="naimi-kit/kit.js" defer></script>
+  <script src="deck.js" defer></script>
+</body>
+</html>

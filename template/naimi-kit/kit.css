@@ -1,0 +1,502 @@
+/* Naimi kit runtime (kit.css) — engine nk/0.9.0. Precompiled platform
+ * artifact: don't read or edit it, it travels into the bundle byte for byte.
+ * Docs for deck authors: ../README.md · MIT License. */
+@font-face {
+  font-family: "Inter";
+  src: url(./fonts/InterVariable.woff2) format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --nk-font-display:
+    "Inter",
+    system-ui,
+    sans-serif;
+  --nk-surface: #f8fafc;
+  --nk-card: #ffffff;
+  --nk-ink: #0f172a;
+  --nk-ink-soft: #475569;
+  --nk-ink-faint: #64748b;
+  --nk-edge: #e2e8f0;
+  --nk-accent: #0ea5e9;
+  --nk-accent-ink: #0369a1;
+  --nk-accent-soft: rgba(14, 165, 233, 0.1);
+  --nk-accent-edge: rgba(14, 165, 233, 0.2);
+  --nk-positive: #059669;
+  --nk-positive-ink: #047857;
+  --nk-positive-soft: rgba(16, 185, 129, 0.1);
+  --nk-positive-edge: rgba(16, 185, 129, 0.25);
+  --nk-critical: #dc2626;
+  --nk-critical-soft: rgba(220, 38, 38, 0.08);
+  --nk-critical-edge: rgba(220, 38, 38, 0.2);
+  --nk-gradient:
+    linear-gradient(
+      135deg,
+      #38bdf8 0%,
+      #8b5cf6 50%,
+      #ec4899 100%);
+  --nk-orb-1: rgba(14, 165, 233, 0.1);
+  --nk-orb-2: rgba(139, 92, 246, 0.1);
+  --nk-nav-fade: rgba(241, 245, 249, 0.9);
+  --nk-nav-button: rgba(255, 255, 255, 0.7);
+  --nk-nav-button-hover: #ffffff;
+  --nk-nav-chip: rgba(255, 255, 255, 0.8);
+  --nk-nav-border: rgba(226, 232, 240, 0.8);
+  --nk-nav-icon: #0f172a;
+  --nk-nav-dot: rgba(148, 163, 184, 0.4);
+  --nk-nav-dot-hover: rgba(148, 163, 184, 0.6);
+  --nk-nav-dot-active: #38bdf8;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  line-height: 1.5;
+}
+html,
+body {
+  height: 100%;
+}
+[hidden] {
+  display: none !important;
+}
+body {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  background: var(--nk-surface);
+  color: var(--nk-ink);
+  -webkit-font-smoothing: antialiased;
+}
+ul,
+ol,
+menu {
+  list-style: none;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+img,
+svg {
+  display: block;
+}
+.absolute {
+  position: absolute;
+}
+.inset-0 {
+  inset: 0;
+}
+.z-40 {
+  z-index: 40;
+}
+.z-50 {
+  z-index: 50;
+}
+.gradient-text {
+  background: var(--nk-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.nk-shell {
+  display: flex;
+  height: 100dvh;
+  width: 100vw;
+  overflow: hidden;
+  background: var(--nk-surface);
+}
+.nk-deck {
+  position: relative;
+  height: 100%;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--nk-surface);
+}
+.nk-stage {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.nk-frame {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.nk-navbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+}
+.nk-navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 32px;
+  background:
+    linear-gradient(
+      to top,
+      var(--nk-nav-fade),
+      transparent);
+}
+.nk-nav-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nk-nav-btn {
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--nk-nav-button);
+  border: 1px solid var(--nk-nav-border);
+  backdrop-filter: blur(4px);
+  transition: background 0.2s, opacity 0.2s;
+}
+.nk-nav-btn:hover:not(:disabled) {
+  background: var(--nk-nav-button-hover);
+}
+.nk-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.nk-ico {
+  width: 20px;
+  height: 20px;
+  color: var(--nk-nav-icon);
+  transition: transform 0.2s;
+}
+.nk-nav-btn:hover:not(:disabled) .nk-ico {
+  transform: scale(1.1);
+}
+.nk-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nk-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--nk-nav-dot);
+  transition: all 0.3s;
+}
+.nk-dot:hover {
+  background: var(--nk-nav-dot-hover);
+}
+.nk-dot.is-active {
+  width: 32px;
+  background: var(--nk-nav-dot-active);
+}
+.nk-counter {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  display: none;
+}
+.nk-counter > div {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--nk-nav-chip);
+  border: 1px solid var(--nk-nav-border);
+  backdrop-filter: blur(4px);
+  color: var(--nk-ink-soft);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+.nk-mobilebar {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+}
+.nk-mobilebar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background:
+    linear-gradient(
+      to top,
+      var(--nk-nav-fade),
+      transparent);
+}
+.nk-mobilebar .nk-nav-btn {
+  padding: 8px;
+  border-radius: 10px;
+  background: var(--nk-nav-chip);
+}
+.nk-counter-chip {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--nk-nav-chip);
+  border: 1px solid var(--nk-nav-border);
+  color: var(--nk-ink-soft);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+.nk-topbar {
+  position: absolute;
+  top: 24px;
+  left: 32px;
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+.nk-mobiletoggle {
+  position: absolute;
+  right: 12px;
+  top: calc(12px + env(safe-area-inset-top));
+}
+.nk-mobiletoggle .nk-nav-btn {
+  padding: 8px;
+  border-radius: 10px;
+  background: var(--nk-nav-chip);
+}
+.nk-scroll {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+}
+.nk-scroll-sec {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: var(--nk-page-height, 100vh);
+  width: 100%;
+  background: var(--nk-surface);
+}
+.nk-scroll-sec + .nk-scroll-sec {
+  border-top: 1px solid var(--nk-nav-border);
+}
+.nk-scroll-sec > * {
+  flex: 1 1 auto;
+}
+.nk-rail {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+}
+.nk-rail-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 8px;
+  border-radius: 999px;
+  background: var(--nk-nav-chip);
+  border: 1px solid var(--nk-nav-border);
+  backdrop-filter: blur(4px);
+}
+.nk-rail .nk-nav-btn {
+  padding: 6px;
+  border-radius: 8px;
+  background: transparent;
+  border: 0;
+  backdrop-filter: none;
+}
+.nk-rail .nk-nav-btn:hover:not(:disabled) {
+  background: var(--nk-nav-button-hover);
+}
+.nk-rail .nk-ico {
+  width: 16px;
+  height: 16px;
+}
+.nk-rail-dots {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.nk-rail .nk-dot.is-active {
+  width: 8px;
+  height: 32px;
+}
+.nk-deck.nk-mode-scroll .nk-navbar {
+  display: none;
+}
+.nk-deck.nk-mode-scroll .nk-swipe-hint {
+  display: none;
+}
+.nk-panel {
+  display: none;
+  flex-shrink: 0;
+  width: 0;
+  overflow: hidden;
+  background: var(--nk-nav-fade);
+  border-right: 1px solid var(--nk-nav-border);
+  backdrop-filter: blur(12px);
+}
+.nk-panel-inner {
+  height: 100%;
+  width: 256px;
+}
+.nk-panel-list {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 24px 16px;
+}
+.nk-thumb {
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+  width: 200px;
+  height: 125px;
+  border-radius: 8px;
+  border: 1px solid var(--nk-nav-border);
+  text-align: left;
+  content-visibility: auto;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.nk-thumb:hover {
+  border-color: var(--nk-nav-dot-hover);
+}
+.nk-thumb.is-active {
+  border-color: var(--nk-nav-dot-active);
+  box-shadow: 0 0 0 2px var(--nk-nav-dot-active);
+}
+.nk-thumb-canvas {
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: top left;
+  width: 1280px;
+  height: 800px;
+  transform: scale(0.15625);
+  background: var(--nk-surface);
+}
+.nk-thumb-num {
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: var(--nk-nav-chip);
+  border: 1px solid var(--nk-nav-border);
+  backdrop-filter: blur(4px);
+  color: var(--nk-ink-soft);
+  font-size: 10px;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  .nk-navbar {
+    display: block;
+  }
+  .nk-counter {
+    display: block;
+  }
+  .nk-mobilebar {
+    display: none;
+  }
+  .nk-swipe-hint {
+    display: none;
+  }
+  .nk-topbar {
+    display: flex;
+  }
+  .nk-panel {
+    display: block;
+  }
+  .nk-mobiletoggle {
+    display: none;
+  }
+  .nk-deck.nk-mode-scroll .nk-rail {
+    display: block;
+  }
+}
+.nk-swipe-hint {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+.nk-swipe-hint.is-visible {
+  opacity: 1;
+}
+.nk-swipe-pill {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  white-space: nowrap;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: var(--nk-nav-chip);
+  border: 1px solid var(--nk-nav-border);
+  backdrop-filter: blur(4px);
+  color: var(--nk-ink-soft);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+.nk-swipe-track {
+  position: relative;
+  width: 80px;
+  height: 2px;
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      var(--nk-nav-dot),
+      transparent);
+}
+.nk-swipe-ball {
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  transform: translateY(-50%);
+  background: var(--nk-nav-button-hover);
+  border: 1px solid var(--nk-nav-border);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .nk-swipe-ball {
+    animation: nk-swipe 1.4s ease-in-out infinite;
+  }
+  @keyframes nk-swipe {
+    0%, 100% {
+      left: 4px;
+    }
+    50% {
+      left: 56px;
+    }
+  }
+}

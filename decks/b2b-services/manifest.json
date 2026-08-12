@@ -58,5 +58,32 @@
         "promoteToClientFacts": true
       }
     ]
-  }
+  },
+  "engine": "nk/0.9.0",
+  "slides": [
+    {
+      "id": "cover",
+      "title": "Cover"
+    },
+    {
+      "id": "context",
+      "title": "Client context"
+    },
+    {
+      "id": "services",
+      "title": "Practices"
+    },
+    {
+      "id": "cases",
+      "title": "Cases"
+    },
+    {
+      "id": "process",
+      "title": "Engagement model"
+    },
+    {
+      "id": "contact",
+      "title": "Next step"
+    }
+  ]
 }

@@ -9,10 +9,12 @@ What it demonstrates:
 
 - a business document that is not a sales pitch: it closes the pilot and opens
   the full-contract deal;
-- metrics as live fields (`useDemoField`): the manager adjusts numbers during
+- metrics as live fields (`data-nk-field`): the manager adjusts numbers during
   the call, while the chart and money calculation recalculate live;
 - `promoteToClientFacts`: final values move to the client profile, so the next
   offer for this client starts with real numbers;
 - a pure SVG chart using theme token colors, with no charting library.
 
-Build: `node scripts/build-deck.mjs pilot-results` from the kit root.
+To build on this deck, copy `decks/pilot-results/` into your working folder and add
+`template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent
+which deck you want to start from).

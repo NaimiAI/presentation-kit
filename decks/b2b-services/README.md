@@ -11,14 +11,16 @@ What it demonstrates:
   elegant numbered "what we heard" list — the deck opens with the client, not
   the vendor;
 - a practice grid where the client (or manager) marks the priority practice —
-  a single-choice string `useDemoField` saved to the presentation and promoted
-  to the client card (`priorityService`);
+  a single-choice interactive field (`data-nk-field`) saved to the presentation
+  and promoted to the client card (`priorityService`);
 - US-flavored mini-cases with dollar outcomes and a priced engagement model
   (Diagnostic → Roadmap sprint → Transformation retainer);
 - a bundled team photo (`assets/team-office.webp`) on the engagement-model
   slide, sat in the palette under a navy gradient overlay.
 
-Firm details and the practice portfolio are the `FIRM` / `SERVICES` constants
-in `slides/content.ts` — edit them once when adapting the template.
+Firm details and the practice portfolio live in the slide markup in
+`index.html` — edit them once when adapting the template.
 
-Build: `node scripts/build-deck.mjs b2b-services` from the kit root.
+To build on this deck, copy `decks/b2b-services/` into your working folder and add
+`template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent
+which deck you want to start from).

@@ -147,5 +147,28 @@
         "promoteToClientFacts": true
       }
     ]
-  }
+  },
+  "engine": "nk/0.9.0",
+  "slides": [
+    {
+      "id": "cover",
+      "title": "Cover"
+    },
+    {
+      "id": "brand-story",
+      "title": "The brand"
+    },
+    {
+      "id": "moodboard",
+      "title": "The mood"
+    },
+    {
+      "id": "scope",
+      "title": "Scope and limits"
+    },
+    {
+      "id": "thanks",
+      "title": "Thank you"
+    }
+  ]
 }

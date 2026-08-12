@@ -35,16 +35,21 @@ claude   # or cursor / codex — the agent picks up AGENTS.md automatically
 > *"Build me a proposal for my design studio — three pricing stages and a
 > signature block. Here's our logo."*
 
-The agent reads the kit skills, scaffolds the project, writes the slides, runs
-the local preview and shows you the result. You never touch npm, React or config
-files — but all of it is here if you want to (see
+The agent reads the kit skills, scaffolds the presentation, writes the slides,
+serves a local preview and shows you the result. You never touch HTML, config or
+a build tool — but all of it is here if you want to (see
 [Manual use](#manual-use-without-an-agent)).
 
-**Requirements:** [Node.js](https://nodejs.org) ≥ 20.19 and an AI coding agent.
+**There is no build step and nothing to install** — a presentation is a folder of
+plain web files: `index.html`, `deck.css`, `deck.js` on top of a precompiled
+runtime. The working folder *is* the publishable bundle.
 
-## Ready-made templates
+**Requirements:** an AI coding agent. (Any static file server for the local
+preview — the one built into Python, Node or your editor will do.)
 
-18 templates in different genres, each with its own design system and
+## Ready-made decks
+
+18 decks in different genres, each with its own design system and
 personalization mechanics. Click any preview to open a **live example** —
 that's a real personalized presentation, exactly what your client would receive.
 
@@ -81,9 +86,9 @@ that's a real personalized presentation, exactly what your client would receive.
   </tr>
 </table>
 
-Every template is a **starting point**, not a locked design: your agent can
-restyle it, rewrite it, or rebuild your existing PDF/PPTX/website into slides
-from scratch.
+Every deck is a **starting point**, not a locked design: your agent can restyle
+it, rewrite it, or rebuild your existing PDF/PPTX/website into slides from
+scratch.
 
 ## How it works
 
@@ -92,10 +97,10 @@ from scratch.
    contact, prices, dates, a full priced estimate…). Start from a ready-made
    deck, from scratch, or from your own materials — the agent reads a PDF, a
    slide deck, screenshots, even a photo of a napkin sketch, and rebuilds it.
-2. **Preview locally.** `npm run dev` renders the deck with mock data — iterate
-   with your agent until it looks right. No account, no upload.
-3. **Publish & personalize** *(free account)*. The agent uploads the template to
-   Naimi, then makes a **presentation per client in seconds**: *"create a
+2. **Preview locally.** The folder is served as-is with mock data — iterate with
+   your agent until it looks right. No account, no upload.
+3. **Publish & personalize** *(free account)*. The agent zips the folder, uploads
+   it to Naimi, then makes a **presentation per client in seconds**: *"create a
    presentation for Acme with a 15% discount until Friday"* → you get back one
    link. It even works from messy input — a call transcript, meeting notes, a
    chat export.
@@ -109,12 +114,12 @@ from scratch.
 | Path | What it is |
 |---|---|
 | `START-HERE.md` | Agent entry point: the product in plain language + routing to the skills |
-| `TEMPLATE-SKILL.md` | Agent skill: build/edit a template locally, preview, themes, images |
-| `PUBLISH-SKILL.md` | Agent skill: validate, package and upload a template to the service |
+| `TEMPLATE-SKILL.md` | Agent skill: build/edit a presentation locally, preview, themes, images |
+| `PUBLISH-SKILL.md` | Agent skill: check, zip and upload a template to the service |
 | `PRESENTATIONS-SKILL.md` | Agent skill: create per-client presentations, stats, deal status, CRM — pure API |
-| `template/` | The starter project (React + Vite + Tailwind + framer-motion) — what every presentation is built from |
-| `decks/<id>/` | 18 ready-made templates as drop-in overlays (slides + manifest + mock data) |
-| `scripts/build-deck.mjs` | Build any ready-made deck into an uploadable ZIP in one command |
+| `template/` | The starter deck — three example slides plus the runtime; what a presentation is built from. `template/README.md` is the full format reference |
+| `template/naimi-kit/` | The runtime: slide navigation, thumbnail panel, slides/scroll view, personalization, PDF-safe static mode. Precompiled — nothing to build, nothing to edit |
+| `decks/<id>/` | 18 ready-made decks (slides + manifest + mock data + cover) |
 
 The skills are written for agents that support instruction files
 (`AGENTS.md`/`CLAUDE.md` are picked up automatically by Claude Code, Cursor,
@@ -123,25 +128,27 @@ four `*-SKILL.md` files and it will pick the right one per request.
 
 ## Manual use (without an agent)
 
-The kit is a normal codebase — you can work with it directly:
+A presentation is plain web files, so you can work with them directly:
 
 ```bash
-cd template
-npm install
-npm run dev        # local preview with mock data; /#gallery shows components & themes
-npm run package    # build + validate → <id>.zip
+cp -R template my-presentation          # or: cp -R decks/saas-pitch my-presentation
+                                        #     cp -R template/naimi-kit my-presentation/naimi-kit
+python3 -m http.server 4173 -d my-presentation     # open http://localhost:4173
 ```
 
-`template/README.md` documents the structure, the manifest contract and the
-slide API. To start from a ready-made deck, overlay `decks/<id>/` onto a copy of
-`template/` (or run `node scripts/build-deck.mjs <id>` to produce an uploadable
-ZIP directly).
+Edit `index.html` (slides), `deck.css` (theme and styles), `deck.js` (any maths),
+`manifest.json` (name and the per-client fields) and `mock/state.json` (preview
+data). `template/README.md` documents the slide grammar, the declarative
+attributes, the runtime API and the manifest contract.
+
+To publish, zip the folder's contents (with `index.html` at the ZIP root) and
+upload it — `PUBLISH-SKILL.md` has the exact `curl` calls.
 
 ## Do I need an account?
 
 | | Without an account | With a free account |
 |---|---|---|
-| Build & edit templates locally | ✅ | ✅ |
+| Build & edit presentations locally | ✅ | ✅ |
 | Preview with mock data | ✅ | ✅ |
 | Publish a template to the service | — | ✅ |
 | Per-client personalized presentations via one link | — | ✅ |
@@ -159,7 +166,7 @@ agent — that's the only setup it needs.
 
 ## License
 
-The kit — starter, ready-made templates and agent skills — is released under the
-[MIT License](LICENSE). Build on it freely, including for commercial client
+The kit — starter, ready-made decks, runtime and agent skills — is released under
+the [MIT License](LICENSE). Build on it freely, including for commercial client
 work. (The Naimi service itself is a separate product and is not part of this
 repository.)
