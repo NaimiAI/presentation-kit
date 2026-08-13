@@ -79,7 +79,26 @@ Both starting points are already in **bundle form** — `index.html`,
 is, publish it as is.
 
 **C) from the user's materials** — same as A, then rebuild their PDF/PPTX/site/
-screenshots/sketch as slides. The service only cares that the final ZIP validates.
+screenshots/sketch as slides. **Extract their images first** — read the source with
+your own eyes for the content, but the pictures have to travel as files:
+
+```bash
+node tools/ingest-source.mjs <their-file.pdf>   # .pptx and images too
+```
+
+It writes web-ready pictures into `assets-src/` with a `manifest.json` and page
+previews (`assets-src/pages/`), handling what is invisible on a rendered page:
+transparency masks (a white logo comes out empty without them), CMYK, the same logo
+repeated on every page, full-page photos that unpack into multi-megabyte files. Then
+**copy** what the deck needs into `assets/` with meaningful names — `cp`/`mv` only,
+never re-create an image by hand. Charts, diagrams and decorative shapes are
+deliberately not extracted: rebuilding those in HTML/CSS is the point of a web deck.
+
+The script needs `poppler` and `ImageMagick`; if they are missing it prints the one
+install command for the platform. Can't install them? Ask the user to send the photos
+and the logo as separate files — never ship a deck full of placeholders in silence.
+
+The service only cares that the final ZIP validates.
 
 When starting from a deck (B), change `id` and `name` in `manifest.json` unless the
 user explicitly wants to update that existing template.
@@ -217,6 +236,9 @@ build on it). Combine freely with `data-nk-field` on the same element.
 
 ## Images
 
+- **Building from the user's PDF/PPTX? Their images are already in it** — run
+  `node tools/ingest-source.mjs <file>` (see "Starting points" C) instead of asking
+  for files they think you already have.
 - The user drops files in; you place them in `assets/` and reference by relative path.
   Same picture for every client → bundle asset; per-client picture → `image`
   personalization field. Never CDN, never `data:`.
@@ -263,6 +285,8 @@ stores the bundle, not your editing convenience; future edits start from these f
 - [ ] slide grammar: marker comment + unique data-nk-slide on every section
 - [ ] texts read personalization (no hardcoded client names); actions marked data-nk-action
 - [ ] images local, lean; no CDN / data: / absolute URLs
+- [ ] built from a client's PDF/PPTX → their own images are in the deck (ingest-source),
+      not placeholders
 - [ ] continuous motion (if any) behind the reduced-motion / naimi.static guard
 - [ ] every slide actually rendered in preview (desktop + narrow), console clean
 - [ ] cover captured from the current first slide (or intentionally skipped)

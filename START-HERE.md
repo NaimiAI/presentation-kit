@@ -59,7 +59,9 @@ what that gives, ask first, don't install unasked.
   genres), from scratch, or **from the user's own materials** — their current PDF/PPTX,
   a website, screenshots, even a photo of a napkin sketch — you read it and rebuild it
   as slides. Full freedom to edit anything afterwards. Real images (logo, product
-  photos) raise quality a lot — actively ask for them.
+  photos) raise quality a lot — actively ask for them. From a PDF or PPTX the kit pulls
+  them out for you (`tools/ingest-source.mjs`, template skill), so the new deck carries
+  the user's own photos and logo instead of placeholders.
 - **Personalization.** The user chooses which parts are unique per client — from the
   company name to a full priced estimate. The fill-in form for those fields is
   generated automatically.
