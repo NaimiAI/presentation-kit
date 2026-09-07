@@ -62,27 +62,27 @@
   "slides": [
     {
       "id": "hero",
-      "title": "Investor pitch (loud: hero plate, bleed)"
+      "title": "Investor pitch"
     },
     {
       "id": "problem-solution",
-      "title": "Problem and solution (quiet: paper)"
+      "title": "Problem and solution"
     },
     {
       "id": "market",
-      "title": "Market (quiet: paper)"
+      "title": "Market"
     },
     {
       "id": "traction",
-      "title": "Traction (mid: stratus band divider)"
+      "title": "Traction"
     },
     {
       "id": "round",
-      "title": "Round (quiet: paper)"
+      "title": "Round"
     },
     {
       "id": "team",
-      "title": "Team and next step (loud: navy field, moon study)"
+      "title": "Team and next step"
     }
   ]
 }

@@ -74,15 +74,15 @@
   "slides": [
     {
       "id": "offer",
-      "title": "Interactive offer (loud: the pack's shelf of clay objects closes the cover)"
+      "title": "Interactive offer"
     },
     {
       "id": "configurator",
-      "title": "Service configurator (quiet: the pack's paper, one clay spot)"
+      "title": "Service configurator"
     },
     {
       "id": "summary",
-      "title": "Estimate summary (loud: the pack's coral field)"
+      "title": "Estimate summary"
     }
   ]
 }

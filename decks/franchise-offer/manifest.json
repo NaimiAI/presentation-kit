@@ -64,23 +64,23 @@
   "slides": [
     {
       "id": "cover",
-      "title": "Cover (loud: hero plate, bleed + scrim)"
+      "title": "Cover"
     },
     {
       "id": "unit-economics",
-      "title": "Unit economics (quiet: paper, typography only)"
+      "title": "Unit economics"
     },
     {
       "id": "payback-calculator",
-      "title": "Payback calculator (quiet paper + one spot: the pointing hand)"
+      "title": "Payback calculator"
     },
     {
       "id": "support",
-      "title": "Network support (mid: the isotype strip)"
+      "title": "Network support"
     },
     {
       "id": "terms",
-      "title": "Terms to sign on (loud: the pack's ink field)"
+      "title": "Terms to sign on"
     }
   ]
 }

@@ -42,19 +42,19 @@
   "slides": [
     {
       "id": "welcome",
-      "title": "Welcome (loud: hero plate, bleed)"
+      "title": "Welcome"
     },
     {
       "id": "team",
-      "title": "Team (quiet: paper, photos pasted into the craft)"
+      "title": "Team"
     },
     {
       "id": "first-month-plan",
-      "title": "First 30 days (mid: the mountain band opens the slide)"
+      "title": "First 30 days"
     },
     {
       "id": "resources",
-      "title": "Resources (loud: terracotta field, the trophy cut-out)"
+      "title": "Resources"
     }
   ]
 }

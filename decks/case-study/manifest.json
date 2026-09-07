@@ -70,23 +70,23 @@
   "slides": [
     {
       "id": "cover",
-      "title": "Cover (loud: hero plate, bleed + scrim)"
+      "title": "Cover"
     },
     {
       "id": "challenge",
-      "title": "Challenge (mid: one spot on the pack's paper)"
+      "title": "Challenge"
     },
     {
       "id": "solution",
-      "title": "Solution (quiet paper; the frieze band divides the two halves)"
+      "title": "Solution"
     },
     {
       "id": "results",
-      "title": "Results (mid: the red diagonal bar behind monumental numerals)"
+      "title": "Results"
     },
     {
       "id": "your-numbers",
-      "title": "Your numbers (loud: the pack's red field)"
+      "title": "Your numbers"
     }
   ]
 }

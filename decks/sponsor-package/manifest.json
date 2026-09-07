@@ -62,23 +62,23 @@
   "slides": [
     {
       "id": "poster",
-      "title": "Poster (loud)"
+      "title": "Poster"
     },
     {
       "id": "audience",
-      "title": "Audience (mid)"
+      "title": "Audience"
     },
     {
       "id": "tiers",
-      "title": "Packages (quiet)"
+      "title": "Packages"
     },
     {
       "id": "benefits",
-      "title": "Benefits matrix (quiet)"
+      "title": "Benefits matrix"
     },
     {
       "id": "booking",
-      "title": "Booking (loud)"
+      "title": "Booking"
     }
   ]
 }
