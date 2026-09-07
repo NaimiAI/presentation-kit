@@ -62,7 +62,7 @@
     "namespace": "studioProposal",
     "fields": []
   },
-  "engine": "nk/0.9.0",
+  "engine": "nk/0.10.0",
   "slides": [
     {
       "id": "cover",

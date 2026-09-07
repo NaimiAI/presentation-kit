@@ -2,7 +2,7 @@
   "schemaVersion": "naimi.presentation.v1",
   "id": "saas-pitch",
   "name": "SaaS product pitch with a pricing calculator",
-  "description": "Product pitch in a dark neon theme: problem/solution, an interface mockup, and an interactive plan + seat-count configurator",
+  "description": "Product pitch on the clay-3d art pack (matte pastel clay): problem/solution, an interface mockup, and an interactive plan + seat-count configurator",
   "entry": "index.html",
   "preview": "preview.webp",
   "personalization": {
@@ -60,11 +60,11 @@
       }
     ]
   },
-  "engine": "nk/0.9.0",
+  "engine": "nk/0.10.0",
   "slides": [
     {
       "id": "hero",
-      "title": "Hero"
+      "title": "Hero (loud: the pack's hero plate under a scrim)"
     },
     {
       "id": "problem-solution",

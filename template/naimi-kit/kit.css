@@ -1,4 +1,4 @@
-/* Naimi kit runtime (kit.css) — engine nk/0.9.0. Precompiled platform
+/* Naimi kit runtime (kit.css) — engine nk/0.10.0. Precompiled platform
  * artifact: don't read or edit it, it travels into the bundle byte for byte.
  * Docs for deck authors: ../README.md · MIT License. */
 @font-face {
@@ -342,6 +342,73 @@ svg {
 }
 .nk-deck.nk-mode-scroll .nk-swipe-hint {
   display: none;
+}
+.nk-deck.nk-mode-document .nk-topbar,
+.nk-deck.nk-mode-document .nk-mobiletoggle {
+  display: none !important;
+}
+.nk-deck.nk-mode-document .nk-scroll {
+  padding: 32px 16px 128px;
+  scroll-padding-top: 32px;
+  background: var(--nk-desk, #d5d9e0);
+}
+.nk-deck.nk-mode-document .nk-scroll-sec {
+  width: min(100%, var(--nk-sheet-width, 794px));
+  min-height: auto;
+  aspect-ratio: var(--nk-page-ratio, 794 / 1123);
+  margin: 0 auto 32px;
+  border-top: 0;
+  background: var(--nk-surface);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.1), 0 14px 36px rgba(15, 23, 42, 0.14);
+}
+@media (max-width: 767px) {
+  .nk-deck.nk-mode-document .nk-scroll {
+    padding: 0 0 96px;
+  }
+  .nk-deck.nk-mode-document .nk-scroll-sec {
+    margin-bottom: 8px;
+    box-shadow: none;
+  }
+}
+@media print {
+  html,
+  body {
+    height: auto;
+  }
+  .nk-shell,
+  .nk-deck,
+  .nk-scroll,
+  .nk-stage {
+    display: block;
+    height: auto;
+    width: auto;
+    overflow: visible;
+  }
+  .nk-panel,
+  .nk-navbar,
+  .nk-counter,
+  .nk-mobilebar,
+  .nk-topbar,
+  .nk-mobiletoggle,
+  .nk-rail,
+  .nk-swipe-hint {
+    display: none !important;
+  }
+  .nk-deck.nk-mode-document .nk-scroll {
+    padding: 0;
+    background: none;
+  }
+  .nk-deck.nk-mode-document .nk-scroll-sec {
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: auto;
+    margin: 0;
+    box-shadow: none;
+    break-before: page;
+  }
+  .nk-deck.nk-mode-document .nk-scroll-sec:first-child {
+    break-before: auto;
+  }
 }
 .nk-panel {
   display: none;

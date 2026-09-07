@@ -1,0 +1,113 @@
+{
+  "id": "clay-3d",
+  "name": "Clay",
+  "tagline": "Matte clay 3D renders — pastel objects, soft studio light",
+  "technique": "Matte clay / plasticine 3D render: soft rounded objects with fingerprint-free matte surfaces, pastel mint, peach and sky with one coral accent, soft studio lighting and gentle ambient occlusion.",
+  "spirit": [
+    "friendly",
+    "modern",
+    "tech"
+  ],
+  "fits": [
+    "SaaS and product pitches",
+    "onboarding and how-it-works decks",
+    "startup and investor updates",
+    "internal and HR presentations"
+  ],
+  "avoid": [
+    "heritage and luxury",
+    "legal and finance that must look sober"
+  ],
+  "palette": {
+    "ink": "#1f2937",
+    "paper": "#f7f5f2",
+    "accent": "#ff6b4a",
+    "accent2": "#3b5bdb",
+    "positive": "#16a34a"
+  },
+  "font": {
+    "family": "Manrope",
+    "role": "rounded geometric sans for headlines",
+    "license": "OFL-1.1",
+    "files": "pack/fonts/"
+  },
+  "rhythm": "bookends",
+  "plates": [
+    {
+      "file": "hero.webp",
+      "role": "hero",
+      "ratio": "16:9",
+      "keying": "none",
+      "accept": "Clay objects on the right, empty left; matte, pastel; no text."
+    },
+    {
+      "file": "plate-a.webp",
+      "role": "plate",
+      "ratio": "4:3",
+      "keying": "none",
+      "accept": "Clay laptop with chart; no text on the screen."
+    },
+    {
+      "file": "plate-b.webp",
+      "role": "plate",
+      "ratio": "4:3",
+      "keying": "none",
+      "accept": "Clay handshake; plausible simplified hands; no text."
+    },
+    {
+      "file": "band.webp",
+      "role": "band",
+      "ratio": "21:9",
+      "keying": "none",
+      "accept": "One row of clay objects; nothing else; no text."
+    },
+    {
+      "file": "paper.webp",
+      "role": "paper",
+      "ratio": "16:9",
+      "keying": "none",
+      "accept": "Empty warm backdrop only."
+    },
+    {
+      "file": "spot-1.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "green",
+      "accept": "One clay envelope on flat pure green; no shadow on the background."
+    },
+    {
+      "file": "spot-2.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "green",
+      "accept": "One clay rocket on flat pure green."
+    },
+    {
+      "file": "spot-3.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "green",
+      "accept": "One clay bar chart on flat pure green."
+    }
+  ],
+  "generate": {
+    "base": "A matte clay 3D render of {subject}: soft rounded plasticine surfaces, pastel mint, peach and sky colors with one coral accent, soft studio lighting, gentle ambient occlusion. No faces.",
+    "spot": "A matte clay 3D render of {subject} as a single chunky toy-like object in pastel peach, mint and sky with one coral accent, soft rounded plasticine surfaces, soft studio lighting, floating with no floor and no cast shadow.",
+    "rules": "No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+    "spotBackground": "green",
+    "references": [
+      "hero.webp",
+      "spot-1.webp"
+    ],
+    "prompts": {
+      "hero.webp": "A matte clay 3D render on a warm off-white seamless studio backdrop: an oversized pastel-peach envelope opening with a mint paper sheet sliding out, a small coral rocket taking off beside it, a bar chart made of three rising clay blocks in sky blue and mint, and a stack of two clay coins, all arranged in the right half of the frame; the left half is empty backdrop. Soft rounded plasticine surfaces, soft studio lighting, gentle ambient occlusion, faint contact shadows. No faces, no people. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "plate-a.webp": "A matte clay 3D render on a warm off-white seamless studio backdrop: a pastel sky-blue clay laptop, open, with a tiny clay bar chart of three coral and mint blocks rising out of its screen, soft rounded plasticine surfaces, soft studio lighting, gentle ambient occlusion. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "plate-b.webp": "A matte clay 3D render on a warm off-white seamless studio backdrop: two chunky, stylized plasticine hands in different pastel colors (peach and mint) meeting in a handshake — simplified toy-like hands with four rounded fingers and a thumb each, no fingernails, no skin texture, no wrinkles, clearly modeled from matte modeling clay with soft rounded edges, slightly uneven hand-sculpted surfaces; short cylindrical clay sleeves in sky blue and coral; soft studio lighting, gentle ambient occlusion, faint contact shadow. Not photographic, not realistic skin. No faces, no people. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "band.webp": "A panoramic matte clay 3D render: a single horizontal row of pastel clay objects standing on a warm off-white shelf against a warm off-white backdrop, evenly spaced — envelope, calendar page, magnifying glass, bar chart, coin stack, checkmark badge, rocket — soft plasticine surfaces, soft studio lighting, lots of empty backdrop above. No faces. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "paper.webp": "An empty warm off-white matte seamless studio backdrop, evenly lit with a very soft vignette toward the corners, no objects, no horizon line, edge to edge. An extreme close-up texture study of the paper surface itself, filling the whole frame edge to edge — no sheet edges, no corners, no vignette. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-1.webp": "A matte clay 3D render of a single pastel-peach envelope with a coral wax seal, soft rounded plasticine surfaces, soft studio lighting, floating with no floor and no cast shadow. The object is isolated and centered on a perfectly flat, uniform, pure green chroma-key background (#00FF00) that fills the entire frame edge to edge; nothing else in the frame, no floor, no cast shadow on the background, no gradients. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-2.webp": "A matte clay 3D render of a single small coral-and-cream rocket with a mint window, soft rounded plasticine surfaces, soft studio lighting, floating with no floor and no cast shadow. The object is isolated and centered on a perfectly flat, uniform, pure green chroma-key background (#00FF00) that fills the entire frame edge to edge; nothing else in the frame, no floor, no cast shadow on the background, no gradients. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-3.webp": "A matte clay 3D render of a single bar chart made of three rising clay blocks in sky blue, mint and coral on a small clay base, soft rounded plasticine surfaces, soft studio lighting, floating with no floor and no cast shadow. The object is isolated and centered on a perfectly flat, uniform, pure green chroma-key background (#00FF00) that fills the entire frame edge to edge; nothing else in the frame, no floor, no cast shadow on the background, no gradients. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image."
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "agency-pitch",
+  "name": "Agency campaign pitch",
+  "description": "A creative agency pitches a campaign: sticker-pop art pack, package picker with a budget-based reach estimate, launch-week plan and a book-a-call action",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Client brand",
+        "placeholder": "Brand or company name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "contactName",
+        "label": "Contact",
+        "placeholder": "First and last name",
+        "type": "text"
+      },
+      {
+        "key": "campaignName",
+        "label": "Campaign name",
+        "placeholder": "e.g. Summer Loud",
+        "type": "text"
+      },
+      {
+        "key": "campaignGoal",
+        "label": "What we heard",
+        "placeholder": "The client's goal in their own words, 1–2 sentences",
+        "type": "textarea"
+      },
+      {
+        "key": "campaignIdea",
+        "label": "The idea in one paragraph",
+        "placeholder": "The creative idea you are pitching",
+        "type": "textarea"
+      },
+      {
+        "key": "launchDate",
+        "label": "Launch date",
+        "type": "date"
+      },
+      {
+        "key": "managerName",
+        "label": "Your name",
+        "placeholder": "Account lead",
+        "type": "text"
+      },
+      {
+        "key": "managerContact",
+        "label": "Your contact",
+        "placeholder": "Email or phone",
+        "type": "text"
+      }
+    ],
+    "showCustomFields": false
+  },
+  "demoData": {
+    "namespace": "agencyPitch",
+    "fields": [
+      {
+        "key": "package",
+        "label": "Package",
+        "type": "string",
+        "defaultValue": "surge",
+        "promoteToClientFacts": true
+      },
+      {
+        "key": "monthlyBudget",
+        "label": "Monthly media budget",
+        "type": "number",
+        "defaultValue": 6000,
+        "collectFromClient": true,
+        "promoteToClientFacts": true
+      }
+    ]
+  },
+  "engine": "nk/0.10.0",
+  "slides": [
+    {
+      "id": "cover",
+      "title": "Cover"
+    },
+    {
+      "id": "why-now",
+      "title": "Why now"
+    },
+    {
+      "id": "idea",
+      "title": "The idea"
+    },
+    {
+      "id": "packages",
+      "title": "Packages"
+    },
+    {
+      "id": "plan",
+      "title": "Plan"
+    },
+    {
+      "id": "close",
+      "title": "Let's talk"
+    }
+  ]
+}

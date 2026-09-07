@@ -1,263 +1,155 @@
-/* Theme "sunrise-warm": peach surface, pink accent, orange→pink→amber gradient. */
-:root[data-theme='sunrise-warm'] {
-  --nk-font-display: 'Inter', system-ui, sans-serif;
+/* job-offer — a candidate offer dressed in the "riso" art pack (Pressroom).
+   Tokens, placement classes (.art-cover / .art-paper / .art-field / .art-plate / .art-band /
+   .art-spot) and devices (.art-display / .art-mark / .art-chip / .art-num) come from
+   assets/art/theme.css; this file only lays out the deck's own blocks and recolors them
+   through the pack's tokens. Byte-identical in the EN and RU copies — the two decks differ
+   in markup only (the RU one has fewer benefit cards, hence the .cols-3 modifier).
+   Rhythm: loud cover (the take-off plate, half sheet) · quiet role · mid compensation (one spot) ·
+   quiet benefits · mid 90-day plan (the isotype band) · loud answer on the pack's ink field. */
 
-  --nk-surface: #fff6f0;
-  --nk-card: #ffffff;
-  --nk-ink: #402a24;
-  --nk-ink-soft: #7a5a50;
-  --nk-ink-faint: #a8887c;
-  --nk-edge: #f3ddd0;
-  --nk-accent: #db2777;
-  --nk-accent-ink: #be185d;
-  --nk-accent-soft: rgba(219, 39, 119, 0.08);
-  --nk-accent-edge: rgba(219, 39, 119, 0.22);
-  --nk-positive: #059669;
-  --nk-positive-ink: #047857;
-  --nk-positive-soft: rgba(5, 150, 105, 0.09);
-  --nk-positive-edge: rgba(5, 150, 105, 0.25);
-  --nk-critical: #dc2626;
-  --nk-critical-soft: rgba(220, 38, 38, 0.07);
-  --nk-critical-edge: rgba(220, 38, 38, 0.2);
+* { box-sizing: border-box; }
+section { position: relative; min-height: 100%; width: 100%; overflow: hidden; background: var(--nk-surface); color: var(--nk-ink); padding-bottom: 96px; }
+p, h1, h2, h3, ul { margin: 0; }
+ul { padding: 0; list-style: none; }
+button { font: inherit; color: inherit; cursor: pointer; }
 
-  --nk-gradient: linear-gradient(135deg, #f97316 0%, #db2777 50%, #f59e0b 100%);
-  --nk-orb-1: rgba(249, 115, 22, 0.14);
-  --nk-orb-2: rgba(219, 39, 119, 0.12);
-
-  --nk-nav-fade: rgba(255, 241, 232, 0.92);
-  --nk-nav-button: rgba(255, 255, 255, 0.75);
-  --nk-nav-button-hover: #ffffff;
-  --nk-nav-chip: rgba(255, 255, 255, 0.85);
-  --nk-nav-border: rgba(243, 221, 208, 0.95);
-  --nk-nav-icon: #402a24;
-  --nk-nav-dot: rgba(168, 136, 124, 0.4);
-  --nk-nav-dot-hover: rgba(168, 136, 124, 0.6);
-  --nk-nav-dot-active: #db2777;
-}
-
-section {
-  position: relative;
-  min-height: 100%;
-  width: 100%;
-  overflow: hidden;
-  background: var(--nk-surface);
-  padding-bottom: 96px;
-}
-.shell { display: block; }
-.cover { display: flex; }
-
-.wrap { position: relative; z-index: 10; margin: 0 auto; width: 100%; padding: 48px 32px; }
-.wrap-3xl { max-width: 48rem; }
-.wrap-4xl { max-width: 56rem; }
-.wrap-5xl { max-width: 64rem; }
-.cover .wrap { min-height: calc(100vh - 6rem); margin: auto; display: flex; flex-direction: column; justify-content: center; }
-.answer .wrap { padding-top: 40px; padding-bottom: 40px; }
-
-.orbs { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
-.orb { position: absolute; width: 384px; height: 384px; border-radius: 999px; filter: blur(64px); }
-.orb-1 { top: 25%; left: 25%; background: var(--nk-orb-1); }
-.orb-2 { bottom: 25%; right: 25%; background: var(--nk-orb-2); }
-@media (prefers-reduced-motion: no-preference) {
-  .orb { animation: orb-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-  @keyframes orb-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-}
+.wrap { position: relative; z-index: 2; width: 100%; max-width: 1000px; margin: 0 auto; padding: 40px 40px 0; }
+.wrap-narrow { max-width: 840px; }
+.wrap-wide { max-width: 1120px; }
+/* Quiet slides breathe: the block sits in the middle of the frame when it is shorter than
+   the slide, and simply grows downward when it is not (min-height never clips). */
+.shell .wrap { display: flex; min-height: calc(100vh - 96px); flex-direction: column; justify-content: center; padding-bottom: 24px; }
 
 .ico { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.strong { font-weight: 700; }
+.strong-ink { font-weight: 700; color: var(--art-ink); }
 
-.kicker {
-  margin-bottom: 12px;
-  font-size: 14px; line-height: 20px; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.05em;
-  color: var(--nk-accent-ink);
-}
-.slide-title {
-  font-family: var(--nk-font-display);
-  font-size: 48px; line-height: 1; font-weight: 800; letter-spacing: -0.025em;
-  color: var(--nk-ink);
-}
-.strong { font-weight: 600; }
-.strong-ink { font-weight: 600; color: var(--nk-ink); }
+/* Chips stay compact inside grid and flex heads. */
+.art-chip { align-self: flex-start; justify-self: start; }
+.slide-head { display: grid; gap: 14px; max-width: 880px; }
+.slide-head h2 { font-size: clamp(28px, min(4vw, 5.8vh), 50px); }
 
-.badge {
-  display: inline-flex; align-items: center; align-self: flex-start; gap: 8px;
-  border-radius: 999px; border: 1px solid var(--nk-accent-edge);
-  background: var(--nk-accent-soft); color: var(--nk-accent-ink);
-  padding: 8px 16px;
-  font-size: 14px; line-height: 20px; font-weight: 500;
-}
-.badge .ico { width: 16px; height: 16px; }
+/* The deck's card: cream stock, squared corners, a hairline plate edge. */
+.card { border: 2px solid var(--nk-edge); border-radius: 6px; background: var(--nk-card); padding: 20px 22px; }
+.card-lg { padding: 22px 24px; }
+.card-title { margin-top: 14px; font-family: var(--nk-font-display); font-size: 17px; font-weight: 800; line-height: 23px; letter-spacing: -0.01em; color: var(--art-ink); }
+.card-text { margin-top: 7px; color: var(--nk-ink-soft); font-size: 14px; line-height: 1.55; }
+/* The icon plate: the pack's sunflower ink with a misregistered green edge. */
+.tile { display: flex; width: 40px; height: 40px; align-items: center; justify-content: center; border-radius: 4px; background: var(--art-accent); color: var(--art-ink); box-shadow: 3px 3px 0 color-mix(in srgb, var(--art-accent-2) 55%, transparent); }
+.tile .ico { width: 19px; height: 19px; }
 
-.card {
-  border-radius: 24px; border: 1px solid var(--nk-edge);
-  background: var(--nk-card); padding: 24px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-}
-.card-lg { padding: 28px; }
-.card-accent { border-color: var(--nk-accent-edge); }
+/* Footnote: the pack's green ink, read on cream so 13px text stays legible. */
+.note { display: flex; align-items: flex-start; gap: 11px; margin-top: 16px; border: 2px solid var(--art-accent-2); border-radius: 6px; background: var(--nk-card); padding: 13px 16px; }
+.note .ico { margin-top: 2px; width: 18px; height: 18px; color: var(--art-accent-2); }
+.note p { color: var(--art-ink); font-size: 13px; line-height: 1.55; }
 
-.tile {
-  display: flex; width: 44px; height: 44px;
-  align-items: center; justify-content: center;
-  border-radius: 16px; background: var(--nk-accent-soft);
-}
-.tile .ico { color: var(--nk-accent-ink); }
+/* ---- Slide 1: cover (loud) --------------------------------------------- */
+/* One printed sheet, split down the middle: the take-off plate holds the left half, the
+   headline is set on the bare cream of the right half. The plate is `contain`, not `cover`
+   — its own stock is the same cream as the slide, so the picture floats on the page and no
+   scrim is needed (nothing prints under the type). */
+.cover { min-height: 100vh; padding-bottom: 0; }
+.cover-plate { width: 50%; padding: 0 24px 6vh; object-fit: contain; }
+.cover-wrap { display: flex; flex-direction: column; justify-content: space-between; gap: 24px; min-height: 100vh; width: 50%; margin-left: 50%; padding: 34px 48px 112px 24px; }
+/* The right column ends under the slide counter — the top padding drops the chip below it. */
+.cover-top { display: flex; flex-wrap: wrap; gap: 8px 12px; padding: 44px 72px 0 0; }
+.cover-main { max-width: 720px; }
+/* Display size follows both axes and the half-width column, so a long candidate name keeps
+   to two lines and never runs under the navbar. */
+.cover-title { font-size: clamp(34px, min(3.4vw, 6.2vh), 54px); }
+.cover-role { margin-top: 20px; color: var(--nk-ink-soft); font-size: clamp(15px, 1.3vw, 19px); line-height: 1.5; }
+/* The dotted rule closes the headline block and gives the tall right column an anchor. */
+.cover-rule { max-width: 320px; margin-top: 26px; }
+/* The welcome note is the printed slip pasted on the cover: second ink offset behind it. */
+.cover-note { max-width: 560px; border: 2px solid var(--art-ink); border-radius: 6px; background: var(--nk-card); padding: 18px 22px; box-shadow: 7px 7px 0 var(--art-accent); }
+.cover-note-text { color: var(--art-ink); font-size: clamp(14px, 1.15vw, 16px); line-height: 1.55; }
+.cover-note-sign { margin-top: 10px; color: var(--nk-ink-faint); font-size: 11px; font-weight: 700; line-height: 15px; text-transform: uppercase; letter-spacing: 0.1em; }
 
-.card-title {
-  margin-top: 16px;
-  font-family: var(--nk-font-display);
-  font-size: 18px; line-height: 28px; font-weight: 700;
-  color: var(--nk-ink);
-}
-.card-text { margin-top: 8px; font-size: 14px; line-height: 1.625; color: var(--nk-ink-soft); }
+/* ---- Slide 2: role (quiet) --------------------------------------------- */
+.role-grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: 18px; margin-top: 26px; }
+.role-points { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.manager { display: flex; flex-direction: column; justify-content: center; border-color: var(--art-ink); text-align: center; }
+.manager-avatar { display: flex; width: 52px; height: 52px; margin: 0 auto; align-items: center; justify-content: center; border-radius: 999px; background: var(--art-accent-2); color: var(--art-paper); box-shadow: 3px 3px 0 var(--art-accent); font-family: var(--nk-font-display); font-size: 19px; font-weight: 800; line-height: 26px; }
+.manager-name { margin-top: 12px; font-family: var(--nk-font-display); font-size: 17px; font-weight: 800; line-height: 23px; color: var(--art-ink); }
+.manager-role { color: var(--nk-ink-faint); font-size: 11px; line-height: 16px; text-transform: uppercase; letter-spacing: 0.08em; }
+.manager-quote { margin-top: 13px; border-radius: 4px; background: var(--art-paper); padding: 10px 14px; color: var(--nk-ink-soft); font-size: 13px; line-height: 1.5; }
+.manager-format { margin-top: 14px; border-top: 3px dotted var(--art-ink); padding-top: 13px; color: var(--nk-ink-soft); font-size: 13px; line-height: 1.5; }
 
-.note {
-  margin-top: 16px;
-  display: flex; align-items: flex-start; gap: 12px;
-  border-radius: 24px; border: 1px solid var(--nk-positive-edge);
-  background: var(--nk-positive-soft); padding: 16px 20px;
-}
-.note .ico { margin-top: 2px; color: var(--nk-positive-ink); }
-.note p { font-size: 14px; line-height: 1.625; color: var(--nk-positive-ink); }
-
-/* Slide 1 — cover. */
-.cover-title {
-  margin-top: 24px;
-  font-family: var(--nk-font-display);
-  font-size: 60px; line-height: 1.25; font-weight: 800; letter-spacing: -0.025em;
-  color: var(--nk-ink);
-}
-.cover-role { margin-top: 24px; font-size: 20px; line-height: 28px; color: var(--nk-ink-soft); }
-.cover-photo {
-  /* content-box: the image sets the height and the border sits on top of it. */
-  box-sizing: content-box;
-  margin-top: 32px; height: 256px; overflow: hidden;
-  border-radius: 24px; border: 1px solid var(--nk-edge);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-}
-.cover-photo img { width: 100%; height: 100%; object-fit: cover; }
-.cover-note {
-  margin-top: 24px;
-  border-radius: 24px; border: 1px solid var(--nk-accent-edge);
-  background: var(--nk-card); padding: 28px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-}
-.cover-note-text { font-size: 16px; line-height: 1.625; color: var(--nk-ink-soft); }
-.cover-note-sign { margin-top: 16px; font-size: 14px; line-height: 20px; font-weight: 500; color: var(--nk-accent-ink); }
-
-/* Slide 2 — role. */
-.role-grid { margin-top: 40px; display: grid; gap: 24px; grid-template-columns: 1.5fr 1fr; }
-.role-points { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.manager { display: flex; flex-direction: column; justify-content: center; padding: 28px; text-align: center; }
-.manager-avatar {
-  display: flex; margin: 0 auto; width: 64px; height: 64px;
-  align-items: center; justify-content: center; border-radius: 999px;
-  background: var(--nk-gradient); color: var(--nk-card);
-  font-family: var(--nk-font-display); font-size: 20px; line-height: 28px; font-weight: 700;
-}
-.manager-name {
-  margin-top: 16px;
-  font-family: var(--nk-font-display); font-size: 20px; line-height: 28px; font-weight: 700;
-  color: var(--nk-ink);
-}
-.manager-role { font-size: 14px; line-height: 20px; color: var(--nk-ink-faint); }
-.manager-quote {
-  margin-top: 16px; border-radius: 16px; background: var(--nk-surface);
-  padding: 12px 16px; font-size: 14px; line-height: 1.625; color: var(--nk-ink-soft);
-}
-.manager-format { margin-top: 24px; border-top: 1px solid var(--nk-edge); padding-top: 20px; font-size: 14px; line-height: 20px; color: var(--nk-ink-soft); }
-
-/* Slide 3 — compensation. */
-.comp-grid { margin-top: 40px; display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+/* ---- Slide 3: compensation (mid — one spot: the offer envelope) -------- */
+/* The offer envelope sits low and right, clear of the slide counter and the navbar. */
+.spot-offer { right: 5%; bottom: 15%; width: clamp(92px, 11vw, 180px); }
+.comp-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 26px; }
 .comp-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .comp-grid.cols-1 { grid-template-columns: 1fr; }
-.comp-label {
-  margin-top: 16px;
-  font-size: 12px; line-height: 16px; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.05em;
-  color: var(--nk-ink-faint);
-}
-.comp-value {
-  margin-top: 8px;
-  font-family: var(--nk-font-display); font-size: 24px; line-height: 1.375; font-weight: 700;
-  color: var(--nk-ink);
-}
-.start-date-card { margin-top: 16px; display: flex; align-items: center; gap: 16px; }
+.comp-label { margin-top: 13px; color: var(--nk-ink-faint); font-size: 11px; font-weight: 700; line-height: 15px; text-transform: uppercase; letter-spacing: 0.1em; }
+.comp-value { margin-top: 6px; font-family: var(--nk-font-display); font-size: clamp(18px, 1.8vw, 23px); font-weight: 800; line-height: 1.3; letter-spacing: -0.02em; color: var(--art-ink); }
+.start-date-card { display: flex; align-items: center; gap: 14px; margin-top: 14px; }
 .comp-label-inline { margin-top: 0; }
-.start-date { margin-top: 4px; font-family: var(--nk-font-display); font-size: 20px; line-height: 28px; font-weight: 700; color: var(--nk-ink); }
+.start-date { margin-top: 4px; font-family: var(--nk-font-display); font-size: 20px; font-weight: 800; line-height: 26px; letter-spacing: -0.02em; color: var(--art-ink); }
 
-/* Slide 4 — benefits. */
-.benefits-grid { margin-top: 40px; display: grid; gap: 16px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.benefits-title { font-size: 16px; line-height: 24px; }
+/* ---- Slide 4: benefits (quiet) ----------------------------------------- */
+.benefits-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 13px; margin-top: 26px; }
+/* The RU copy carries six cards instead of eight — three columns read better there. */
+.benefits-grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.benefits-title { font-size: 15px; line-height: 21px; }
 
-/* Slide 5 — first 90 days. */
-.plan-grid { margin-top: 40px; display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.phase-head { display: flex; align-items: center; gap: 12px; }
-.phase-days {
-  display: flex; width: 48px; height: 48px;
-  align-items: center; justify-content: center; border-radius: 16px;
-  background: var(--nk-gradient); color: var(--nk-card);
-  font-family: var(--nk-font-display); font-size: 18px; line-height: 28px; font-weight: 800;
-}
-.phase-unit {
-  font-size: 12px; line-height: 16px; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.05em;
-  color: var(--nk-ink-faint);
-}
-.phase-points { margin-top: 12px; }
-.phase-points li { display: flex; gap: 10px; font-size: 14px; line-height: 1.625; color: var(--nk-ink-soft); }
-.phase-points li + li { margin-top: 10px; }
-.dot { margin-top: 8px; width: 6px; height: 6px; flex: none; border-radius: 999px; background: var(--nk-accent); }
+/* ---- Slide 5: first 90 days (mid — the isotype band) ------------------- */
+/* The strip is 21:9: a shallow box crops it top and bottom, so all seven marks stay in. */
+.plan-band { height: clamp(104px, 18vh, 168px); margin-top: 22px; }
+.plan-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+.phase-head { display: flex; align-items: baseline; gap: 10px; }
+.phase-head .art-num { font-size: clamp(34px, 3.6vw, 50px); }
+.phase-unit { color: var(--nk-ink-faint); font-size: 11px; font-weight: 700; line-height: 16px; text-transform: uppercase; letter-spacing: 0.1em; }
+.plan-grid .card-title { margin-top: 10px; }
+.phase-points { margin-top: 10px; }
+.phase-points li { display: flex; gap: 9px; color: var(--nk-ink-soft); font-size: 13px; line-height: 1.5; }
+.phase-points li + li { margin-top: 8px; }
+.dot { margin-top: 7px; width: 6px; height: 6px; flex: none; border-radius: 999px; background: var(--art-accent-2); }
 
-/* Slide 6 — candidate answer. */
-.answer-card { margin-top: 32px; }
-.answer-card-next { margin-top: 20px; line-height: 1.5; }
-/* The note sits 1.5rem below on the reply slide and 1rem below on the comp slide. */
-.answer-card-next + .note { margin-top: 24px; }
-.card-head {
-  font-family: var(--nk-font-display); font-size: 18px; line-height: 28px; font-weight: 700;
-  color: var(--nk-ink);
-}
-.card-hint { margin-top: 4px; font-size: 12px; line-height: 16px; color: var(--nk-ink-faint); }
-.card-hint-gap { margin-bottom: 16px; }
-.chips { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 12px; }
-.chip {
-  border-radius: 999px; border: 1px solid var(--nk-edge);
-  background: var(--nk-card); color: var(--nk-ink-soft);
-  padding: 12px 24px; font-size: 14px; line-height: 20px; font-weight: 600;
-  transition: border-color 0.15s, background 0.15s, color 0.15s, box-shadow 0.15s;
-}
-.chip:hover { border-color: var(--nk-accent-edge); }
-.chip[aria-pressed='true'] {
-  border-color: var(--nk-accent); background: var(--nk-accent); color: var(--nk-card);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-}
-.question-box {
-  width: 100%; resize: none;
-  border-radius: 24px; border: 1px solid var(--nk-edge);
-  background: var(--nk-card); color: var(--nk-ink);
-  padding: 16px 20px; font: inherit; font-size: 14px; line-height: 1.625;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  outline: none; transition: border-color 0.15s;
-}
+/* ---- Slide 6: candidate answer (loud — the pack's ink field) ----------- */
+.answer { background: var(--art-field); color: var(--art-field-ink); }
+.answer .art-display { color: var(--art-field-ink); }
+.answer .art-mark { color: var(--art-ink); }
+.answer .art-chip { background: var(--art-accent); color: var(--art-ink); }
+.answer-title { font-size: clamp(32px, min(4.8vw, 7vh), 62px); }
+/* Cards sit on cream stock over the ink field — the interface never turns glossy. */
+.answer-card { margin-top: 20px; border-radius: 6px; background: var(--art-paper); color: var(--art-ink); padding: 18px 20px; }
+.answer-card-next { margin-top: 14px; }
+.card-head { font-family: var(--nk-font-display); font-size: 16px; font-weight: 800; line-height: 22px; }
+.card-hint { margin-top: 4px; color: var(--nk-ink-faint); font-size: 12px; line-height: 17px; }
+.card-hint-gap { margin-bottom: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+.chip { border: 2px solid var(--art-ink); border-radius: 999px; background: transparent; color: var(--art-ink); padding: 9px 20px; font-size: 14px; font-weight: 700; line-height: 20px; transition: background 0.15s, color 0.15s, box-shadow 0.15s; }
+.chip:hover { box-shadow: 3px 3px 0 var(--art-accent); }
+.chip[aria-pressed='true'] { background: var(--art-ink); color: var(--art-paper); box-shadow: 3px 3px 0 var(--art-accent); }
+.question-box { width: 100%; resize: none; border: 2px solid var(--nk-edge); border-radius: 6px; background: var(--nk-card); color: var(--art-ink); padding: 12px 15px; font: inherit; font-size: 13px; line-height: 1.55; outline: none; transition: border-color 0.15s; }
 .question-box::placeholder { color: var(--nk-ink-faint); }
-.question-box:focus { border-color: var(--nk-accent); }
+.question-box:focus { border-color: var(--art-accent-2); }
+.answer .note { margin-top: 16px; background: var(--art-paper); }
 
+/* ---- Responsive -------------------------------------------------------- */
 @media (max-width: 1023px) {
   .role-grid { grid-template-columns: 1fr; }
-  .benefits-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 767px) {
-  .wrap { padding-left: 24px; padding-right: 24px; }
-  .cover-title { font-size: 36px; }
-  .slide-title { font-size: 30px; line-height: 1.2; }
-  .cover-role { font-size: 18px; }
-  .cover-photo { height: 208px; }
-  .cover-note { padding: 24px; }
-  .comp-grid, .comp-grid.cols-2 { grid-template-columns: 1fr; }
-  .comp-value { font-size: 20px; }
+  .benefits-grid, .benefits-grid.cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .plan-grid { grid-template-columns: 1fr; }
 }
-@media (max-width: 639px) {
+@media (max-width: 767px) {
+  .wrap { padding: 32px 22px 0; }
+  /* The engine draws the swipe hint at top: 80px — the cover chips stay above it. */
+  .cover-wrap { width: 100%; margin-left: 0; gap: 18px; padding: 22px 22px calc(36vh + 16px); }
+  .cover-top { padding: 0 56px 0 0; }
+  .cover-top .art-chip { padding: 0.3em 0.75em; font-size: 11px; line-height: 15px; }
+  /* Portrait: the plate drops to the foot of the sheet instead of stacking above the text,
+     so the chip keeps the top of the frame and the swipe hint lands on nothing. */
+  .cover-plate { position: absolute; top: auto; right: 0; bottom: 0; left: 0; width: 100%; height: 36vh; padding: 0 18px 56px; object-position: bottom; }
+  .cover-rule { max-width: 200px; margin-top: 18px; }
+  /* Clear the swipe hint the engine floats at top: 80px — the headline starts below it. */
+  .cover-main { margin-top: 26px; }
   .role-points { grid-template-columns: 1fr; }
-  .benefits-grid { grid-template-columns: 1fr; }
+  .comp-grid, .comp-grid.cols-2 { grid-template-columns: 1fr; }
+  .benefits-grid, .benefits-grid.cols-3 { grid-template-columns: 1fr; }
+  /* On a phone the slide scrolls, so the spot is pinned near the head instead of the
+     bottom edge, where the navbar would clip it — it prints onto the first card. */
+  .spot-offer { top: 104px; right: 10px; bottom: auto; width: 88px; }
+  .shell .wrap { min-height: 0; }
 }

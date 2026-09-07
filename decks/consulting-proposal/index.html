@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en" data-theme="cyanotype">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consulting proposal</title>
+  <link rel="stylesheet" href="naimi-kit/kit.css">
+  <link rel="stylesheet" href="assets/art/theme.css">
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+  <div id="root"></div>
+
+  <main id="deck" hidden>
+
+    <!-- Slide 1 — Cover -->
+    <section class="art-cover cover" data-nk-slide="cover">
+      <img class="art-plate art-plate--bleed" src="assets/art/plates/hero.webp" alt="" style="--art-focus: right" data-animate="scale">
+      <div class="art-scrim" aria-hidden="true"></div>
+      <div class="art-content cover-wrap">
+        <div class="cover-top" data-animate="up">
+          <span class="art-chip">Northmark Advisory</span>
+          <span class="art-chip">Proposal · <span id="proposal-date">2026</span></span>
+        </div>
+        <div class="cover-main">
+          <h1 class="art-display" data-animate="up-lg" data-delay="0.1">
+            A blueprint for<br><em data-nk-text="companyName" data-nk-fallback="your company"></em>
+          </h1>
+          <p class="lead" data-animate="up" data-delay="0.25">
+            One operating picture, a plan the team can execute, and a partner who stays until it works.
+          </p>
+        </div>
+        <div class="cover-meta" data-animate="up" data-delay="0.4">
+          <span>Prepared for <strong data-nk-text="contactName" data-nk-fallback="you"></strong></span>
+          <span>Valid through <strong id="valid-until-cover">the end of the month</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2 — What we heard -->
+    <section class="art-paper quiet" data-nk-slide="context">
+      <img class="art-spot art-sticker spot-envelope" src="assets/art/plates/spot-2.webp" alt="" style="--art-rotate: 5deg" data-animate="scale" data-delay="0.5">
+      <div class="wrap">
+        <header class="slide-head" data-animate="up">
+          <p class="art-chip">01 · what we heard</p>
+          <h2 class="art-display">The problem, in <em>your</em> words</h2>
+        </header>
+        <blockquote class="quote" data-animate="up" data-delay="0.15">
+          <p data-nk-text="engagementGoal" data-nk-fallback="Growth outran the way we work: every team has its own numbers, decisions wait for a meeting that waits for a report, and nobody owns the hand-offs. We need one operating picture and a plan we can actually run."></p>
+          <footer>— <span data-nk-text="contactName" data-nk-fallback="the leadership team"></span>, <span data-nk-text="companyName" data-nk-fallback="your company"></span></footer>
+        </blockquote>
+        <div class="under" data-stagger="0.1" data-stagger-base="0.35">
+          <p class="under-label" data-animate="up">And underneath it, what we usually find</p>
+          <ul class="under-list">
+            <li data-animate="up"><strong>Three versions of the truth</strong> — finance, sales and operations each report a different quarter.</li>
+            <li data-animate="up"><strong>Decisions without owners</strong> — the calendar runs the company, not the plan.</li>
+            <li data-animate="up"><strong>Fixes that don't stick</strong> — every improvement lives with the person who made it.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3 — Approach -->
+    <section class="art-paper quiet" data-nk-slide="approach">
+      <div class="wrap">
+        <header class="slide-head" data-animate="up">
+          <p class="art-chip">02 · how we work</p>
+          <h2 class="art-display">Three exposures, one print</h2>
+        </header>
+        <div class="phases" data-stagger="0.12" data-stagger-base="0.2">
+          <article class="phase" data-animate="up">
+            <p class="art-num">01</p>
+            <h3>Discover</h3>
+            <p>Interviews, data pull, a walk through the real process — not the org chart. Output: the operating picture on one page.</p>
+          </article>
+          <article class="phase" data-animate="up">
+            <p class="art-num">02</p>
+            <h3>Design</h3>
+            <p>The target model: who decides what, which numbers matter, how work moves between teams. Output: the plan with owners and dates.</p>
+          </article>
+          <article class="phase" data-animate="up">
+            <p class="art-num">03</p>
+            <h3>Deliver</h3>
+            <p>We run the first cycle with your team, then hand it over with the rituals that keep it alive. Output: a cadence that works without us.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4 — Team -->
+    <section class="art-paper quiet" data-nk-slide="team">
+      <div class="wrap">
+        <header class="slide-head" data-animate="up">
+          <p class="art-chip">03 · who</p>
+          <h2 class="art-display">Two people, in the room</h2>
+        </header>
+        <div class="team" data-stagger="0.12" data-stagger-base="0.2">
+          <article class="person" data-animate="up">
+            <span class="initials">EC</span>
+            <div>
+              <h3>Emily Carter</h3>
+              <p class="role">Engagement lead · 14 years in operations</p>
+              <p>Ran the operating model rebuild at two mid-market manufacturers before founding Northmark.</p>
+            </div>
+          </article>
+          <article class="person" data-animate="up">
+            <span class="initials">DO</span>
+            <div>
+              <h3>Daniel Osei</h3>
+              <p class="role">Analyst · data and process</p>
+              <p>Builds the operating picture: the numbers, the maps, the dashboards your team keeps after we leave.</p>
+            </div>
+          </article>
+        </div>
+        <ul class="principles" data-stagger="0.1" data-stagger-base="0.5">
+          <li data-animate="up"><strong>Your team does the work</strong> — we bring the method and the pace.</li>
+          <li data-animate="up"><strong>Weekly, in writing</strong> — done, next, and the decisions we need from you.</li>
+          <li data-animate="up"><strong>No deck without a date</strong> — every recommendation has an owner and a week.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 5 — What changes -->
+    <section class="art-paper mid results" data-nk-slide="results">
+      <img class="art-band" src="assets/art/plates/band.webp" alt="" data-animate="up">
+      <div class="wrap">
+        <header class="slide-head" data-animate="up" data-delay="0.1">
+          <p class="art-chip">04 · what changes in 90 days</p>
+          <h2 class="art-display">What <em data-nk-text="companyName" data-nk-fallback="your company"></em> gets</h2>
+        </header>
+        <div class="outcomes" data-stagger="0.12" data-stagger-base="0.25">
+          <div class="outcome" data-animate="up">
+            <p class="art-num">1</p>
+            <p class="outcome-text"><strong>operating picture</strong> — one page every leader reads on Monday</p>
+          </div>
+          <div class="outcome" data-animate="up">
+            <p class="art-num">−30%</p>
+            <p class="outcome-text"><strong>decision cycle</strong> — from question to owner in days, not weeks</p>
+          </div>
+          <div class="outcome" data-animate="up">
+            <p class="art-num">12</p>
+            <p class="outcome-text"><strong>weekly cycles</strong> — the cadence your team runs after we leave</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 6 — Timeline -->
+    <section class="art-paper quiet" data-nk-slide="timeline">
+      <div class="wrap">
+        <header class="slide-head" data-animate="up">
+          <p class="art-chip">05 · twelve weeks</p>
+          <h2 class="art-display">From <strong id="start-date">kick-off</strong> to hand-over</h2>
+        </header>
+        <ol class="timeline" data-stagger="0.12" data-stagger-base="0.2">
+          <li data-animate="up">
+            <span class="tl-when" id="tl-1">Weeks 1–3</span>
+            <div><strong>Discover</strong><p>Interviews, data pull, process walk; the operating picture, v1.</p></div>
+          </li>
+          <li data-animate="up">
+            <span class="tl-when" id="tl-2">Weeks 4–9</span>
+            <div><strong>Design</strong><p>Target model, owners and numbers; two review rounds with leadership.</p></div>
+          </li>
+          <li data-animate="up">
+            <span class="tl-when" id="tl-3">Weeks 10–12</span>
+            <div><strong>Deliver</strong><p>First cycles run together; hand-over with the rituals and the dashboard.</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 7 — Investment -->
+    <section class="art-paper quiet investment" data-nk-slide="investment">
+      <div class="wrap">
+        <header class="slide-head" data-animate="up">
+          <p class="art-chip">06 · investment</p>
+          <h2 class="art-display">Priced by stage, <em>fixed</em> up front</h2>
+        </header>
+        <div id="estimate-content" data-animate="up" data-delay="0.15">
+          <div id="stages-list" class="stages-list"></div>
+          <div class="estimate-total">
+            <span>Project total</span>
+            <strong id="stages-total">$0</strong>
+          </div>
+        </div>
+        <p id="estimate-empty" class="estimate-empty" data-animate="up" data-delay="0.15" hidden>
+          Stages and prices appear here from the stages editor when the presentation is created.
+        </p>
+        <div class="retainer" data-animate="up" data-delay="0.35">
+          <p class="retainer-label">After the project — pick how we stay</p>
+          <div class="retainer-grid">
+            <button type="button" class="tier" data-nk-field="retainer" data-nk-value="advisory" data-nk-action="retainer-select">
+              <span class="tier-name">Advisory</span><span class="tier-price">$2,500<small>/month</small></span><span class="tier-note">Monthly review of the numbers and one working session</span>
+            </button>
+            <button type="button" class="tier" data-nk-field="retainer" data-nk-value="embedded" data-nk-action="retainer-select">
+              <span class="tier-name">Embedded</span><span class="tier-price">$6,000<small>/month</small></span><span class="tier-note">A day a week in the room with your leadership team</span>
+            </button>
+            <button type="button" class="tier" data-nk-field="retainer" data-nk-value="full" data-nk-action="retainer-select">
+              <span class="tier-name">Full</span><span class="tier-price">$12,000<small>/month</small></span><span class="tier-note">We run the cadence for you for the first two quarters</span>
+            </button>
+          </div>
+          <p class="retainer-summary">Selected: <strong id="retainer-summary">Embedded — $6,000 a month</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 8 — Next steps -->
+    <section class="art-paper quiet next" data-nk-slide="next-steps">
+      <img class="art-spot art-spot--sm art-sticker spot-key" src="assets/art/plates/spot-1.webp" alt="" style="--art-rotate: -6deg" data-animate="scale" data-delay="0.5">
+      <div class="wrap">
+        <header class="slide-head" data-animate="up">
+          <p class="art-chip">07 · next steps</p>
+          <h2 class="art-display">Three steps to the first Monday</h2>
+        </header>
+        <ol class="steps" data-stagger="0.12" data-stagger-base="0.2">
+          <li data-animate="up"><span class="art-num">1</span><div><strong>Accept the proposal</strong><p>One click below — we send the agreement the same day.</p></div></li>
+          <li data-animate="up"><span class="art-num">2</span><div><strong>Name a sponsor</strong><p>One executive who owns the outcome and the calendar.</p></div></li>
+          <li data-animate="up"><span class="art-num">3</span><div><strong>Kick-off on <span id="kickoff-date">the agreed date</span></strong><p>Half a day with the leadership team; discovery starts the same week.</p></div></li>
+        </ol>
+        <div class="actions" data-animate="up" data-delay="0.55">
+          <button type="button" class="btn-primary" data-nk-action="accept">Accept the proposal</button>
+          <button type="button" class="btn-ghost" data-nk-action="questions">I have questions</button>
+          <span class="validity">Valid through <strong id="valid-until">the end of the month</strong></span>
+        </div>
+        <label class="ask" data-animate="up" data-delay="0.65">
+          <span>Anything we should know before we start? <em>(saved for your consultant)</em></span>
+          <textarea rows="2" data-nk-textarea="clientQuestions" placeholder="Constraints, dates to avoid, people to involve…"></textarea>
+        </label>
+      </div>
+    </section>
+
+    <!-- Slide 9 — Close -->
+    <section class="art-field loud close" data-nk-slide="close">
+      <img class="art-spot art-spot--lg art-sticker spot-hand" src="assets/art/plates/spot-3.webp" alt="" style="--art-rotate: 4deg" data-animate="scale" data-delay="0.3">
+      <div class="wrap close-wrap">
+        <p class="art-chip" data-animate="up">Northmark Advisory</p>
+        <h2 class="art-display close-title" data-animate="up-lg" data-delay="0.1">Thank you,<br><em data-nk-text="contactName" data-nk-fallback="and see you soon"></em></h2>
+        <p class="close-text" data-animate="up" data-delay="0.3">The print is yours to keep — the questions are ours to answer, any day this week.</p>
+        <div class="close-contact" data-animate="up" data-delay="0.45">
+          <strong data-nk-text="managerName" data-nk-fallback="Emily Carter"></strong>
+          <span data-nk-text="managerContact" data-nk-fallback="emily@northmark.example"></span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="naimi-kit/kit.js" defer></script>
+  <script src="deck.js" defer></script>
+</body>
+</html>

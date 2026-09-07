@@ -1,0 +1,114 @@
+{
+  "id": "constructivist",
+  "name": "Constructor",
+  "tagline": "1920s constructivist photomontage — red, black and cream, diagonals",
+  "technique": "Constructivist poster lithography and photomontage (Rodchenko, Lissitzky, Stenberg brothers): halftone photo fragments clipped into wedges and circles, red and black diagonal bars on cream paper, lithographic grain.",
+  "spirit": [
+    "bold",
+    "industrial",
+    "dynamic"
+  ],
+  "fits": [
+    "manufacturing, logistics, construction",
+    "industrial supply offers",
+    "tech with a hardware side",
+    "anything that wants momentum without being playful"
+  ],
+  "avoid": [
+    "soft B2C",
+    "luxury",
+    "wellness"
+  ],
+  "palette": {
+    "ink": "#151515",
+    "paper": "#f2e9d8",
+    "accent": "#d7261e",
+    "accent2": "#151515",
+    "positive": "#16a34a"
+  },
+  "font": {
+    "family": "Unbounded",
+    "role": "wide geometric display for headlines",
+    "license": "OFL-1.1",
+    "files": "pack/fonts/"
+  },
+  "rhythm": "pulse",
+  "plates": [
+    {
+      "file": "hero.webp",
+      "role": "hero",
+      "ratio": "16:9",
+      "keying": "none",
+      "accept": "Red bar + black circle + halftone industrial wedge; upper-left empty; no text."
+    },
+    {
+      "file": "plate-a.webp",
+      "role": "plate",
+      "ratio": "4:3",
+      "keying": "none",
+      "accept": "Halftone hand-with-wrench wedge + red bar; no faces; no text."
+    },
+    {
+      "file": "plate-b.webp",
+      "role": "plate",
+      "ratio": "4:3",
+      "keying": "none",
+      "accept": "Geometric red/black composition with a small halftone gear fragment; no text."
+    },
+    {
+      "file": "band.webp",
+      "role": "band",
+      "ratio": "21:9",
+      "keying": "none",
+      "accept": "One row of red/black geometric elements; nothing else."
+    },
+    {
+      "file": "paper.webp",
+      "role": "paper",
+      "ratio": "16:9",
+      "keying": "none",
+      "accept": "Blank aged cream paper only."
+    },
+    {
+      "file": "spot-1.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "One red wedge on pure white."
+    },
+    {
+      "file": "spot-2.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "One black circle with a red segment on pure white."
+    },
+    {
+      "file": "spot-3.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "One halftone photo circle on pure white; no faces."
+    }
+  ],
+  "generate": {
+    "base": "A 1920s constructivist photomontage of {subject}: coarse halftone black-and-white photo fragments clipped into wedges and circles, thick red and black diagonal bars on cream paper, lithographic grain and slight misregistration. No people's faces.",
+    "spot": "A single lithographed constructivist element depicting {subject}: bold flat shapes in red and black, a coarse halftone dot edge on one side and slight ink misregistration, poster cut-out only.",
+    "rules": "No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+    "spotBackground": "white",
+    "references": [
+      "hero.webp",
+      "spot-3.webp"
+    ],
+    "prompts": {
+      "hero.webp": "A 1920s constructivist photomontage lithograph on cream paper: a thick red diagonal bar running from the lower left to the upper right, a large black circle overlapping it, and a coarse halftone black-and-white photograph fragment of an industrial crane, factory chimneys and steel trusses clipped into a sharp wedge shape in the lower right, two small red arrows, thin black rules, lithographic grain and slight ink misregistration. The upper left quarter of the cream paper stays empty. No people, no faces. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "plate-a.webp": "A 1920s constructivist photomontage on cream paper: a coarse halftone black-and-white photo fragment of a worker's hand gripping a large wrench, clipped into a sharp triangle, a thick red diagonal bar behind it, a small black circle, lithographic grain, slight misregistration. No faces. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "plate-b.webp": "A 1920s constructivist lithograph on cream paper: a geometric composition of black rectangles, one large red circle, thin black rules meeting at angles, and a small coarse halftone photo fragment of interlocking gears inside a square, lithographic grain, slight misregistration. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "band.webp": "A panoramic constructivist frieze on cream paper: a rhythmic horizontal row of red and black wedges, circles, short bars and arrows, alternating, evenly spaced, lithographic grain, lots of cream above and below. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "paper.webp": "A flat scan of a blank sheet of aged cream poster paper, seen from directly above, evenly lit, slightly yellowed with faint foxing spots and fiber, nothing printed, no objects, edge to edge. An extreme close-up texture study of the paper surface itself, filling the whole frame edge to edge — no sheet edges, no corners, no vignette. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-1.webp": "A single lithographed constructivist element: a bold red wedge shaped like an arrowhead pointing up-right, with a coarse halftone dot edge on one side and slight ink misregistration. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-2.webp": "A single lithographed constructivist element: a solid black circle with a red quarter segment cut into it, lithographic grain, slight misregistration. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-3.webp": "A single lithographed constructivist element: a coarse halftone black-and-white photograph fragment of a factory chimney and a steel truss, clipped into a perfect circle, lithographic grain. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image."
+    }
+  }
+}

@@ -2,7 +2,7 @@
   "schemaVersion": "naimi.presentation.v1",
   "id": "investor-pitch",
   "name": "Investor pitch deck",
-  "description": "Seed pitch in a light glass theme: problem and solution, market, traction with a chart, round terms with a ticket calculator, and the team",
+  "description": "Seed pitch on the sky-oil art pack (oil cloud studies): problem and solution, market, traction with a chart, round terms with a ticket calculator, and the team",
   "entry": "index.html",
   "preview": "preview.webp",
   "personalization": {
@@ -58,31 +58,31 @@
       }
     ]
   },
-  "engine": "nk/0.9.0",
+  "engine": "nk/0.10.0",
   "slides": [
     {
       "id": "hero",
-      "title": "Investor pitch"
+      "title": "Investor pitch (loud: hero plate, bleed)"
     },
     {
       "id": "problem-solution",
-      "title": "Problem and solution"
+      "title": "Problem and solution (quiet: paper)"
     },
     {
       "id": "market",
-      "title": "Market"
+      "title": "Market (quiet: paper)"
     },
     {
       "id": "traction",
-      "title": "Traction"
+      "title": "Traction (mid: stratus band divider)"
     },
     {
       "id": "round",
-      "title": "Round"
+      "title": "Round (quiet: paper)"
     },
     {
       "id": "team",
-      "title": "Team and next step"
+      "title": "Team and next step (loud: navy field, moon study)"
     }
   ]
 }

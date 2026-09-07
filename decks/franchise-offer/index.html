@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="en" data-theme="growth-green">
+<html lang="en" data-theme="riso">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Franchise offer — Daybreak Coffee</title>
   <link rel="stylesheet" href="naimi-kit/kit.css">
+  <link rel="stylesheet" href="assets/art/theme.css">
   <link rel="stylesheet" href="deck.css">
 </head>
 <body>
@@ -12,39 +13,36 @@
 
   <main id="deck" hidden>
 
-    <!-- Slide 1 — Cover -->
-    <section class="slide cover" data-nk-slide="cover">
-      <div class="orbs" aria-hidden="true"><i class="orb orb-one"></i><i class="orb orb-two"></i></div>
-      <div class="wrap wrap-cover">
-        <div class="cover-copy-column">
-          <div class="badge" data-animate="up">
-            <svg class="ico ico-sm" viewBox="0 0 24 24"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></svg>
-            <span>Franchise · neighborhood coffee shop, 1,200–1,800 sq ft</span>
-          </div>
-          <h1 data-animate="up-lg" data-delay="0.12">A Daybreak Coffee franchise<br><span class="gradient-text" id="city-headline">in your city</span></h1>
+    <!-- Slide 1 — Cover (loud: hero plate, bleed + scrim) -->
+    <section class="art-cover cover" data-nk-slide="cover">
+      <img class="art-plate art-plate--bleed" src="assets/art/plates/hero.webp" alt="" style="--art-focus: right" data-animate="scale">
+      <div class="art-scrim" aria-hidden="true"></div>
+      <div class="art-content cover-wrap">
+        <div class="cover-top" data-animate="up">
+          <span class="art-chip">Franchise · neighborhood coffee shop, 1,200–1,800 sq ft</span>
+        </div>
+        <div class="cover-main">
+          <h1 class="art-display" data-animate="up-lg" data-delay="0.12">A Daybreak Coffee franchise<br><span class="art-mark" id="city-headline">in your city</span></h1>
           <p class="cover-copy" data-animate="up" data-delay="0.26">
-            A personal offer for <span data-nk-text="companyName" data-nk-fallback="Partner"></span>. A coffee shop that earns from its first quarter — run the
+            A personal offer for <strong data-nk-text="companyName" data-nk-fallback="Partner"></strong>. A coffee shop that earns from its first quarter — run the
             numbers for your own location on slide three.
           </p>
-          <div class="stats-grid" data-animate="up" data-delay="0.42">
-            <article class="stat-card"><p class="stat-label">Locations</p><p class="stat-value">42</p><p class="stat-sub">across the Pacific Northwest</p></article>
-            <article class="stat-card"><p class="stat-label">Average unit volume</p><p class="stat-value">$685k/yr</p><p class="stat-sub">gross sales per location</p></article>
-            <article class="stat-card"><p class="stat-label">In business</p><p class="stat-value">9 yrs</p><p class="stat-sub">own roastery and standards</p></article>
-          </div>
         </div>
-        <figure class="cover-photo" data-animate="scale" data-delay="0.3">
-          <img src="assets/cafe-interior.webp" alt="Inside a Daybreak Coffee location">
-          <div aria-hidden="true"></div>
-          <figcaption>Daybreak Coffee · a neighborhood location in the Pacific Northwest</figcaption>
-        </figure>
+        <div class="cover-figures" data-animate="up" data-delay="0.42">
+          <article class="fig"><p class="fig-label">Locations</p><p class="fig-value">42</p><p class="fig-sub">across the Pacific Northwest</p></article>
+          <article class="fig"><p class="fig-label">Average unit volume</p><p class="fig-value">$685k/yr</p><p class="fig-sub">gross sales per location</p></article>
+          <article class="fig"><p class="fig-label">In business</p><p class="fig-value">9 yrs</p><p class="fig-sub">own roastery and standards</p></article>
+        </div>
       </div>
     </section>
 
-    <!-- Slide 2 — Unit economics -->
-    <section class="slide shell" data-nk-slide="unit-economics">
+    <!-- Slide 2 — Unit economics (quiet: paper, typography only) -->
+    <section class="art-paper quiet" data-nk-slide="unit-economics">
       <div class="wrap wrap-medium">
-        <p class="kicker">Unit economics</p>
-        <h2 data-animate="up">Where a location's sales go</h2>
+        <header class="slide-head" data-animate="up">
+          <p class="art-chip">Unit economics</p>
+          <h2 class="art-display">Where a location's <span class="art-mark">sales</span> go</h2>
+        </header>
         <article class="economics-card" data-animate="up" data-delay="0.15">
           <div class="economics-revenue"><p>Monthly gross sales, median location</p><strong>$57,000</strong></div>
           <div class="bar-track bar-revenue"><i data-animate="left" data-delay="0.3"></i></div>
@@ -86,11 +84,14 @@
       </div>
     </section>
 
-    <!-- Slide 3 — Payback calculator -->
-    <section class="slide shell" data-nk-slide="payback-calculator">
+    <!-- Slide 3 — Payback calculator (quiet paper + one spot: the pointing hand) -->
+    <section class="art-paper quiet calculator" data-nk-slide="payback-calculator">
+      <img class="art-spot spot-hand" src="assets/art/plates/spot-2.webp" alt="" style="--art-rotate: 8deg" data-animate="scale" data-delay="0.5">
       <div class="wrap wrap-wide">
-        <p class="kicker">Calculator</p>
-        <h2 data-animate="up">Run the numbers on your location</h2>
+        <header class="slide-head" data-animate="up">
+          <p class="art-chip">Calculator</p>
+          <h2 class="art-display">Run the numbers on <span class="art-mark">your location</span></h2>
+        </header>
         <div class="calculator-grid">
           <div class="calculator-fields">
             <article class="range-card" data-animate="up" data-delay="0.15">
@@ -134,11 +135,14 @@
       </div>
     </section>
 
-    <!-- Slide 4 — Network support -->
-    <section class="slide shell" data-nk-slide="support">
+    <!-- Slide 4 — Network support (mid: the isotype strip) -->
+    <section class="art-paper support" data-nk-slide="support">
       <div class="wrap wrap-wide">
-        <p class="kicker">Network support</p>
-        <h2 data-animate="up">You're not alone: 42 locations have done this</h2>
+        <header class="slide-head" data-animate="up">
+          <p class="art-chip">Network support</p>
+          <h2 class="art-display">You're not alone: <span class="art-mark">42 locations</span> have done this</h2>
+        </header>
+        <img class="art-band support-band" src="assets/art/plates/band.webp" alt="" data-animate="up" data-delay="0.1">
         <div class="support-grid" data-stagger="0.08" data-stagger-base="0.15">
           <article class="support-card" data-animate="up">
             <div class="icon-box"><svg class="ico" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></div>
@@ -168,11 +172,13 @@
       </div>
     </section>
 
-    <!-- Slide 5 — Terms to sign on -->
-    <section class="slide shell" data-nk-slide="terms">
+    <!-- Slide 5 — Terms to sign on (loud: the pack's ink field) -->
+    <section class="art-field terms" data-nk-slide="terms">
       <div class="wrap wrap-wide terms-wrap">
-        <p class="kicker">Terms to sign on</p>
-        <h2 data-animate="up">Clear terms — no hidden fees</h2>
+        <header class="slide-head" data-animate="up">
+          <p class="art-chip">Terms to sign on</p>
+          <h2 class="art-display">Clear terms — no hidden fees</h2>
+        </header>
         <div class="stats-grid terms-stats" data-animate="up" data-delay="0.15">
           <article class="stat-card"><p class="stat-label">Franchise fee</p><p class="stat-value">$45,000</p><p class="stat-sub">brand, standards, training</p></article>
           <article class="stat-card"><p class="stat-label">Royalty + brand fund</p><p class="stat-value">6% + 2%</p><p class="stat-sub">of gross sales</p></article>
@@ -191,11 +197,11 @@
         <div class="steps-block" data-animate="up" data-delay="0.35">
           <p class="section-label">Five steps to opening</p>
           <div class="steps-grid">
-            <article class="step"><span>1</span><div><h3>Discovery call</h3><p>30 minutes on you and the numbers</p></div></article>
-            <article class="step"><span>2</span><div><h3>FDD review</h3><p>the disclosure document, no obligation</p></div></article>
-            <article class="step"><span>3</span><div><h3>Discovery day</h3><p>visit HQ, meet the team, tour a location</p></div></article>
-            <article class="step"><span>4</span><div><h3>Signing</h3><p>agreement, fee and a protected territory</p></div></article>
-            <article class="step"><span>5</span><div><h3>Open in 90 days</h3><p>site, buildout, training and opening</p></div></article>
+            <article class="step"><span class="art-num">1</span><div><h3>Discovery call</h3><p>30 minutes on you and the numbers</p></div></article>
+            <article class="step"><span class="art-num">2</span><div><h3>FDD review</h3><p>the disclosure document, no obligation</p></div></article>
+            <article class="step"><span class="art-num">3</span><div><h3>Discovery day</h3><p>visit HQ, meet the team, tour a location</p></div></article>
+            <article class="step"><span class="art-num">4</span><div><h3>Signing</h3><p>agreement, fee and a protected territory</p></div></article>
+            <article class="step"><span class="art-num">5</span><div><h3>Open in 90 days</h3><p>site, buildout, training and opening</p></div></article>
           </div>
         </div>
         <article class="territory-note" data-animate="up" data-delay="0.42">

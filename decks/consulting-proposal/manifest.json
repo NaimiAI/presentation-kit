@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "consulting-proposal",
+  "name": "Consulting engagement proposal",
+  "description": "An advisory firm proposes a 12-week engagement: cyanotype art pack with a calm rhythm, priced stages from the stages editor, retainer picker, accept action and a client question box",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Client",
+        "placeholder": "Client company name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "contactName",
+        "label": "Contact",
+        "placeholder": "First and last name",
+        "type": "text"
+      },
+      {
+        "key": "proposalDate",
+        "label": "Proposal date",
+        "type": "date"
+      },
+      {
+        "key": "engagementGoal",
+        "label": "The problem in the client's words",
+        "placeholder": "2–3 sentences, as they said it on the call",
+        "type": "textarea"
+      },
+      {
+        "key": "startDate",
+        "label": "Kick-off date",
+        "type": "date"
+      },
+      {
+        "key": "validUntil",
+        "label": "Valid through",
+        "type": "date"
+      },
+      {
+        "key": "managerName",
+        "label": "Your name",
+        "placeholder": "Engagement lead",
+        "type": "text"
+      },
+      {
+        "key": "managerContact",
+        "label": "Your contact",
+        "placeholder": "Email or phone",
+        "type": "text"
+      }
+    ],
+    "showCustomFields": false,
+    "showStagesEditor": true
+  },
+  "demoData": {
+    "namespace": "consultingProposal",
+    "fields": [
+      {
+        "key": "retainer",
+        "label": "Retainer after the project",
+        "type": "string",
+        "defaultValue": "embedded",
+        "promoteToClientFacts": true
+      },
+      {
+        "key": "clientQuestions",
+        "label": "Client's notes before the start",
+        "type": "string",
+        "defaultValue": "",
+        "collectFromClient": true,
+        "promoteToClientFacts": true
+      }
+    ]
+  },
+  "engine": "nk/0.10.0",
+  "slides": [
+    {
+      "id": "cover",
+      "title": "Cover"
+    },
+    {
+      "id": "context",
+      "title": "What we heard"
+    },
+    {
+      "id": "approach",
+      "title": "Approach"
+    },
+    {
+      "id": "team",
+      "title": "Team"
+    },
+    {
+      "id": "results",
+      "title": "What changes"
+    },
+    {
+      "id": "timeline",
+      "title": "Timeline"
+    },
+    {
+      "id": "investment",
+      "title": "Investment"
+    },
+    {
+      "id": "next-steps",
+      "title": "Next steps"
+    },
+    {
+      "id": "close",
+      "title": "Close"
+    }
+  ]
+}

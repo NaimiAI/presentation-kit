@@ -90,6 +90,21 @@ Every deck is a **starting point**, not a locked design: your agent can restyle
 it, rewrite it, or rebuild your existing PDF/PPTX/website into slides from
 scratch.
 
+### Documents — offers, quotes and estimates as portrait pages
+
+Not everything a sales team sends is a slide deck. Three **document templates** build
+the things you used to make in Word — Letter-size pages read by scrolling, still
+personalized and interactive, and the PDF prints exactly like the document they replace:
+
+| Deck | What it is |
+|---|---|
+| `decks/renovation-estimate/` | a remodel estimate: labor and materials tables from text fields, summary with discount, payment schedule, client approval right in the document |
+| `decks/service-quote/` | a monthly managed-services quote: service blocks, two SLA tiers the client picks, onboarding plan |
+| `decks/price-quote/` | a supplier's price quote as a cover letter on letterhead: itemized pricing with sales tax and the amount in words, product cards, terms |
+
+Ask your agent for "a quote / an estimate / a commercial offer as a document" — it starts
+from one of these (`TEMPLATE-SKILL.md` → "Document format").
+
 ## How it works
 
 1. **Build a template once.** A template is a reusable presentation blueprint —
@@ -119,7 +134,7 @@ scratch.
 | `PRESENTATIONS-SKILL.md` | Agent skill: create per-client presentations, stats, deal status, CRM — pure API |
 | `template/` | The starter deck — three example slides plus the runtime; what a presentation is built from. `template/README.md` is the full format reference |
 | `template/naimi-kit/` | The runtime: slide navigation, thumbnail panel, slides/scroll view, personalization, PDF-safe static mode. Precompiled — nothing to build, nothing to edit |
-| `decks/<id>/` | 18 ready-made decks (slides + manifest + mock data + cover) |
+| `decks/<id>/` | Ready-made decks (slides + manifest + mock data + cover), including three document templates |
 
 The skills are written for agents that support instruction files
 (`AGENTS.md`/`CLAUDE.md` are picked up automatically by Claude Code, Cursor,

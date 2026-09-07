@@ -1,0 +1,113 @@
+{
+  "id": "engraving",
+  "name": "Atlas",
+  "tagline": "Copperplate engraving — indigo ink on laid paper",
+  "technique": "Copperplate engraving as in the Encyclopédie (1751–72) and natural-history plates: burin lines and cross-hatching for tone, one exploded or cutaway object per plate, indigo ink on cream laid paper.",
+  "spirit": [
+    "editorial",
+    "explanatory",
+    "heritage"
+  ],
+  "fits": [
+    "product and capability walkthroughs",
+    "proposals that explain a method",
+    "professional services",
+    "heritage brands, finance, law"
+  ],
+  "avoid": [
+    "decks read mostly on phones (hatching dies at small sizes)",
+    "youth marketing"
+  ],
+  "palette": {
+    "ink": "#1d2b5c",
+    "paper": "#f4efe3",
+    "accent": "#1d2b5c",
+    "accent2": "#c9963a",
+    "positive": "#16a34a"
+  },
+  "font": {
+    "family": "Prata",
+    "role": "Didone display for headlines",
+    "license": "OFL-1.1",
+    "files": "pack/fonts/"
+  },
+  "rhythm": "editorial",
+  "plates": [
+    {
+      "file": "hero.webp",
+      "role": "hero",
+      "ratio": "16:9",
+      "keying": "none",
+      "accept": "Exploded object in true hatching, indigo on cream; left third empty; no text or numbers."
+    },
+    {
+      "file": "plate-a.webp",
+      "role": "plate",
+      "ratio": "4:3",
+      "keying": "none",
+      "accept": "Botanical subject in true engraving; no text or numbers."
+    },
+    {
+      "file": "plate-b.webp",
+      "role": "plate",
+      "ratio": "4:3",
+      "keying": "none",
+      "accept": "Mechanical cutaway in true engraving; no text or numbers."
+    },
+    {
+      "file": "band.webp",
+      "role": "band",
+      "ratio": "21:9",
+      "keying": "none",
+      "accept": "A single symmetric horizontal ornament; nothing else."
+    },
+    {
+      "file": "paper.webp",
+      "role": "paper",
+      "ratio": "16:9",
+      "keying": "none",
+      "accept": "Blank laid paper only."
+    },
+    {
+      "file": "spot-1.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "Ink-only engraving of an eye on pure white; no text."
+    },
+    {
+      "file": "spot-2.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "Ink-only engraving of a hand with quill on pure white; no text."
+    },
+    {
+      "file": "spot-3.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "Ink-only engraving of a key on pure white; no text."
+    }
+  ],
+  "generate": {
+    "base": "A copperplate engraving of {subject}, printed in indigo ink on cream laid paper: fine burin lines, cross-hatching and stipple for tone, one exploded or cutaway object as in an 18th-century encyclopedia plate. No cartouche, no numbers, no labels, no faces.",
+    "spot": "A single copperplate engraving of {subject}, printed in indigo ink: fine burin lines, cross-hatching and stipple for tone, crisp 18th-century style, ink lines only.",
+    "rules": "No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+    "spotBackground": "white",
+    "references": [
+      "hero.webp",
+      "spot-2.webp"
+    ],
+    "prompts": {
+      "hero.webp": "A copperplate engraving printed in indigo ink on cream laid paper: an antique brass letter balance (postal scale) shown as an exploded diagram — the beam, the two pans, the chains, the pillar and the weights floating apart from each other in an orderly way — rendered with fine burin lines, cross-hatching and stipple for tone, crisp and precise like an 18th-century encyclopedia plate. The object fills the right two thirds; the left third of the paper is empty. Visible laid-paper chain lines. No cartouche, no numbers, no labels, no faces. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "plate-a.webp": "A copperplate engraving printed in indigo ink on cream laid paper: a botanical plate of a flowering branch with its roots exposed, plus one detached flower and one seed shown separately, fine burin lines and cross-hatching, crisp like an 18th-century natural-history plate, visible laid-paper texture. No cartouche, no numbers, no labels. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "plate-b.webp": "A copperplate engraving printed in indigo ink on cream laid paper: a mechanical plate of a set of interlocking gears with a coiled spring and an escapement, partly shown in cutaway, fine burin lines and cross-hatching for tone, crisp like an 18th-century encyclopedia plate, visible laid-paper texture. No cartouche, no numbers, no labels. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "band.webp": "A panoramic engraved ornamental border printed in indigo ink on cream laid paper: a horizontal frieze of acanthus scrolls, thin double rules and small rosettes, perfectly symmetric, fine burin lines, crisp, lots of cream paper above and below. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "paper.webp": "A flat scan of a blank sheet of cream laid paper, seen from directly above, evenly lit, faint horizontal chain lines and fibers visible, slightly warm cream, no ink, no objects, no shadows, edge to edge. An extreme close-up texture study of the paper surface itself, filling the whole frame edge to edge — no sheet edges, no corners, no vignette. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-1.webp": "A single copperplate engraving of a human eye with its brow, printed in indigo ink: fine burin lines, cross-hatching and stipple for tone, crisp 18th-century style, ink lines only. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-2.webp": "A single copperplate engraving of a hand holding a quill pen, printed in indigo ink: fine burin lines and cross-hatching for tone, crisp 18th-century style, ink lines only. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-3.webp": "A single copperplate engraving of an ornate old key, printed in indigo ink: fine burin lines and cross-hatching for tone, crisp 18th-century style, ink lines only. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image."
+    }
+  }
+}

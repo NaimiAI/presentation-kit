@@ -1,0 +1,109 @@
+{
+  "id": "riso",
+  "name": "Pressroom",
+  "tagline": "Risograph stencil prints — three spot inks on cream stock",
+  "technique": "Risograph duplicator prints (Riso Kagaku 1986, indie print studios): flat overlapping spot inks, tone only through coarse halftone, slight misregistration, visible grain — no two copies identical.",
+  "spirit": [
+    "warm",
+    "human",
+    "creative"
+  ],
+  "fits": [
+    "agencies and studios",
+    "founders and small teams",
+    "community and education",
+    "onboarding and welcome packs"
+  ],
+  "avoid": [
+    "enterprise procurement",
+    "luxury and premium real estate",
+    "anything that must look corporate"
+  ],
+  "palette": {
+    "ink": "#2f4b8a",
+    "paper": "#f6f1e4",
+    "accent": "#ffd23f",
+    "accent2": "#00a95c",
+    "positive": "#00a95c"
+  },
+  "font": null,
+  "rhythm": "editorial",
+  "plates": [
+    {
+      "file": "hero.webp",
+      "role": "hero",
+      "ratio": "16:9",
+      "keying": "none",
+      "accept": "Three inks only, flat shapes with halftone, misregistration visible; left half empty cream."
+    },
+    {
+      "file": "plate-a.webp",
+      "role": "plate",
+      "ratio": "4:3",
+      "keying": "none",
+      "accept": "Hand + magnifier + chart, three inks, halftone; no text."
+    },
+    {
+      "file": "plate-b.webp",
+      "role": "plate",
+      "ratio": "4:3",
+      "keying": "none",
+      "accept": "Paper stack + airplane, three inks, halftone; no text."
+    },
+    {
+      "file": "band.webp",
+      "role": "band",
+      "ratio": "21:9",
+      "keying": "none",
+      "accept": "One row of same-height pictograms, evenly spaced; nothing else."
+    },
+    {
+      "file": "paper.webp",
+      "role": "paper",
+      "ratio": "16:9",
+      "keying": "none",
+      "accept": "Blank cream stock only, even lighting."
+    },
+    {
+      "file": "spot-1.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "One flat two-ink eye, halftone inside; pure white around it."
+    },
+    {
+      "file": "spot-2.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "One flat two-ink hand; pure white around it."
+    },
+    {
+      "file": "spot-3.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "One flat two-ink envelope with starburst; pure white around it."
+    }
+  ],
+  "generate": {
+    "base": "A risograph print in three spot inks — federal blue, sunflower yellow and bright green — on cream uncoated stock: {subject} drawn as flat overlapping ink shapes, tone only through coarse halftone dots, slight misregistration between the inks, visible print grain. Hands and objects only, never faces; no black outlines, no gradients.",
+    "spot": "A single risograph-printed pictogram of {subject}: flat federal blue shape with sunflower yellow accents, coarse halftone dots inside the shape for shading, slight misregistration between the two inks, soft ink edges, print grain inside the shape only.",
+    "rules": "No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+    "spotBackground": "white",
+    "references": [
+      "hero.webp",
+      "spot-1.webp"
+    ],
+    "prompts": {
+      "hero.webp": "A risograph print in three spot inks — federal blue, sunflower yellow and bright green — on cream uncoated stock: two hands passing a sealed envelope across a table, drawn as flat overlapping ink shapes with tone only through coarse halftone dots, slight misregistration between the inks, visible print grain and paper fiber. The hands and envelope occupy the right half; the left half is empty cream stock. No black outlines, no faces, no gradients. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "plate-a.webp": "A risograph print in federal blue, sunflower yellow and bright green on cream uncoated stock: a hand holding a magnifying glass over a small folded paper chart with a rising line, flat overlapping ink shapes, coarse halftone dots for tone, slight misregistration, print grain. No black outlines, no faces. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "plate-b.webp": "A risograph print in federal blue, sunflower yellow and bright green on cream uncoated stock: a stack of paper sheets with one sheet folded into a paper airplane taking off upward, a few motion lines, flat overlapping ink shapes, coarse halftone dots, slight misregistration, print grain. No black outlines, no faces. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "band.webp": "A panoramic risograph isotype strip on cream uncoated stock: a single horizontal row of simple pictograms, evenly spaced, in this order left to right — sealed envelope, paper airplane, open eye, hand with a pointing finger, speech bubble, checkmark badge, handshake — each a flat two-ink shape (federal blue with sunflower yellow or bright green details), coarse halftone shading, slight misregistration, print grain. Pictograms only, all the same height, lots of cream space around them. No black outlines, no faces. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "paper.webp": "A flat scan of a blank sheet of cream uncoated risograph paper stock, seen from directly above, evenly lit, faint paper fiber and a few tiny stray ink speckles, slightly warm cream, no objects, no printed shapes, edge to edge. An extreme close-up texture study of the paper surface itself, filling the whole frame edge to edge — no sheet edges, no corners, no vignette. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-1.webp": "A single risograph-printed pictogram of an open eye: flat federal blue shape with a sunflower yellow iris, coarse halftone dots inside the shape for shading, slight misregistration between the two inks, soft ink edges, print grain inside the shape only. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-2.webp": "A single risograph-printed pictogram of a hand with the index finger pointing up: flat federal blue shape with bright green cuff, coarse halftone dots inside the shape for shading, slight misregistration between the two inks, soft ink edges. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-3.webp": "A single risograph-printed pictogram of a sealed envelope with a small starburst at its corner: flat federal blue envelope with a sunflower yellow starburst, coarse halftone dots inside the shape, slight misregistration, soft ink edges. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image."
+    }
+  }
+}

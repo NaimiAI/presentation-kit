@@ -224,10 +224,73 @@ function parseImageList(text) {
       width: Number(f[3]),
       height: Number(f[4]),
       color: f[5],
+      enc: f[8],
       object: f[10] === '[inline]' ? `inline-${f[1]}` : f[10],
     })
   }
   return rows
+}
+
+// Which streams may be copied out instead of decoded — the single decision this whole
+// hybrid rests on. `-png` alone rewrites every raster: on an 18-page brochure of full-page
+// 300 dpi photos that is 20 seconds of pure transcoding out of 24. Adding `-j` copies a
+// DCT stream out as the JPEG it already is (0.5 s for the same file, pixel-identical), and
+// everything else still comes out as PNG. The copy stays faithful only while the stream
+// stands on its own: a JPEG in DeviceRGB or DeviceGray does, one in an ICC, CMYK or indexed
+// space does not — that colour transform lives in the PDF, not in the stream, and copying
+// the stream silently drops it. Those objects are re-extracted with plain `-png`, page by
+// page, so decoding is paid for exactly where it changes the picture.
+const NATIVE_JPEG_COLOR = new Set(['rgb', 'gray'])
+function needsDecoding(row) {
+  return row.enc === 'jpeg' && !NATIVE_JPEG_COLOR.has(row.color)
+}
+
+// Consecutive pages collapse into one `-f/-l` range: one poppler start-up instead of one
+// per page, and a document that needs decoding everywhere costs exactly one full pass.
+function pageRanges(pages) {
+  const ranges = []
+  for (const page of pages) {
+    const last = ranges[ranges.length - 1]
+    if (last && page === last[1] + 1) last[1] = page
+    else ranges.push([page, page])
+  }
+  return ranges
+}
+
+// Whole-document run: files are <root>-<page>-<num>.<ext>, and the num column is the
+// reliable key (page padding widens on documents with more than 999 pages). The extension
+// now varies with how the stream was stored, hence the loose character class.
+function indexExtracted(dir) {
+  const files = new Map()
+  for (const entry of fs.existsSync(dir) ? fs.readdirSync(dir) : []) {
+    const m = /^img-\d+-(\d+)\.[a-z0-9]+$/.exec(entry)
+    if (m) files.set(Number(m[1]), path.join(dir, entry))
+  }
+  return files
+}
+
+// A page-restricted run restarts poppler's image counter, so the number in the file name is
+// local to that run and only the page part carries over. Pairing is therefore positional
+// inside a page: `-list` and the extractor walk the same content streams in the same order.
+// A page whose counts disagree is left out entirely rather than paired off by one — the
+// whole-document run already has a usable file for it.
+function indexDecoded(dir, rows) {
+  const byPage = new Map()
+  for (const entry of fs.existsSync(dir) ? fs.readdirSync(dir) : []) {
+    const m = /^img-0*(\d+)-0*(\d+)\.[a-z0-9]+$/.exec(entry)
+    if (!m) continue
+    const page = Number(m[1])
+    if (!byPage.has(page)) byPage.set(page, [])
+    byPage.get(page).push({ order: Number(m[2]), file: path.join(dir, entry) })
+  }
+  const decoded = new Map()
+  for (const [page, entries] of byPage) {
+    const pageRows = rows.filter((row) => row.page === page)
+    if (entries.length !== pageRows.length) continue
+    entries.sort((a, b) => a.order - b.order)
+    entries.forEach((entry, i) => decoded.set(pageRows[i].num, entry.file))
+  }
+  return decoded
 }
 
 function collectFromPdf(file, ctx) {
@@ -249,38 +312,47 @@ function collectFromPdf(file, ctx) {
     if (row.type === 'image') { images.push(row); continue }
     if (row.type !== 'smask' && row.type !== 'mask') continue
     const owner = images.filter((img) => img.object === row.object).pop()
-    if (owner) owner.maskNum = row.num
+    if (owner) owner.mask = row
   }
 
   const dir = fs.mkdtempSync(path.join(ctx.tmpDir, 'pdf-'))
-  const extracted = run('pdfimages', ['-png', '-p', file, path.join(dir, 'img')])
+  const nativeDir = path.join(dir, 'native')
+  fs.mkdirSync(nativeDir)
+  const extracted = run('pdfimages', ['-png', '-j', '-p', file, path.join(nativeDir, 'img')])
   if (extracted.missing) missingTool('pdfimages', 'it comes with poppler')
-  if (!extracted.ok && !fs.readdirSync(dir).length) {
+  const native = indexExtracted(nativeDir)
+  if (!extracted.ok && !native.size) {
     warn(`${path.basename(file)}: pdfimages failed to extract (${extracted.stderr.trim() || 'unknown error'}) — skipped`)
     return []
   }
 
-  // Files come out as <root>-<page>-<num>.png; the num column is the reliable key
-  // (page padding widens on documents with more than 999 pages).
-  const files = new Map()
-  for (const entry of fs.readdirSync(dir)) {
-    const m = /^img-\d+-(\d+)\.[a-z]+$/.exec(entry)
-    if (m) files.set(Number(m[1]), path.join(dir, entry))
+  // Second pass only for the pages that hold a stream the copy would distort (see above).
+  // Most documents need none at all, and the ones that do usually need one page.
+  const decodePages = [...new Set(rows.filter(needsDecoding).map((row) => row.page))].sort((a, b) => a - b)
+  let decoded = new Map()
+  if (decodePages.length) {
+    const decodedDir = path.join(dir, 'decoded')
+    fs.mkdirSync(decodedDir)
+    for (const [first, last] of pageRanges(decodePages)) {
+      run('pdfimages', ['-png', '-p', '-f', String(first), '-l', String(last), file, path.join(decodedDir, 'img')])
+    }
+    decoded = indexDecoded(decodedDir, rows)
   }
+  const bodyOf = (row) => (needsDecoding(row) ? decoded.get(row.num) ?? native.get(row.num) : native.get(row.num))
 
   const slug = slugify(file)
   const candidates = []
   let tooSmall = 0
   for (const row of images) {
-    const body = files.get(row.num)
+    const body = bodyOf(row)
     if (!body) continue
     if (Math.min(row.width, row.height) < ctx.minSide) { tooSmall += 1; continue }
     candidates.push({
       file: body,
-      mask: row.maskNum !== undefined ? files.get(row.maskNum) ?? null : null,
+      mask: row.mask ? bodyOf(row.mask) ?? null : null,
       source: path.basename(file),
       page: row.page,
-      alpha: row.maskNum !== undefined,
+      alpha: Boolean(row.mask),
       width: row.width,
       height: row.height,
       name: `${slug}-p${String(row.page).padStart(2, '0')}-${String(row.num).padStart(2, '0')}`,

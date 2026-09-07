@@ -50,7 +50,7 @@ curl -sf -H "Authorization: Bearer $NAIMI_TOKEN" "$NAIMI_URL/api/auth/me"
 |---|---|
 | List templates | `GET /api/templates` |
 | Personalization schema of one | `GET /api/templates/:templateId` → `manifest.personalization` |
-| How the template opens for clients | `PATCH /api/templates/:templateId` `{ "defaultViewMode": "scroll" \| "slides" }` (scroll = feed; viewers keep the toggle) |
+| How the template opens for clients | `PATCH /api/templates/:templateId` `{ "defaultViewMode": "scroll" \| "slides" }` (scroll = feed; viewers keep the toggle; a **document** template ignores it — it always reads as portrait pages) |
 | Find clients by name | `GET /api/clients?q=<substring>` |
 | Client card + all its presentations | `GET /api/clients/:clientId` |
 | Create / update a client | `POST /api/clients`, `PATCH /api/clients/:clientId` — `companyName`, `contactName`, `email`, `phone`, `notes` |
@@ -61,7 +61,7 @@ curl -sf -H "Authorization: Bearer $NAIMI_TOKEN" "$NAIMI_URL/api/auth/me"
 | Deal status | `PATCH /api/presentations/:presentationId/status` `{ "status": "in_progress" \| "successful" \| "lost" }` |
 | Pre-seed interactive values | `PATCH /api/presentations/:presentationId/data` `{ "data": { "<key>": <value> } }` |
 | Upload a picture for an `image` field | `POST /api/personalization-images` (multipart, field `image`) → `{ url }` |
-| Export as PDF | `GET /api/presentations/:presentationId/export.pdf` — vector, one page per slide; slow (~0.5–2 min), save the binary as `<slug>.pdf`; `402` = monthly export quota; `503` = no Chromium on the install |
+| Export as PDF | `GET /api/presentations/:presentationId/export.pdf` — vector, one page per slide (a **document** template prints portrait A4 / Letter pages, a long page continues on the next); slow (~0.5–2 min), save the binary as `<slug>.pdf`; `402` = monthly export quota; `503` = no Chromium on the install |
 | Client's own answers (self-fill) | `presentation.clientResponses` — `{ value, updatedAt }` per key |
 | Plan, limits, usage (cloud) | `GET /api/billing/subscription` |
 

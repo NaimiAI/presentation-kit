@@ -1,0 +1,119 @@
+/* Naimi art pack: Blueprint (cyanotype) — Cyanotype photograms — Prussian blue on watercolor paper.
+ * Copy the whole pack folder to <deck>/assets/art/, link this file before deck.css and set
+ * data-theme="cyanotype" on <html>. Placement classes are the same in every pack; the
+ * devices (.art-display, .art-mark, .art-sticker, …) change meaning per pack — STYLE.md. */
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('fonts/PlayfairDisplay-italic-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('fonts/PlayfairDisplay-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('fonts/PlayfairDisplay-normal-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('fonts/PlayfairDisplay-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root[data-theme='cyanotype'] {
+  --nk-font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+
+  --nk-surface: #f3efe4;
+  --nk-card: #fbf9f3;
+  --nk-ink: #0f2a52;
+  --nk-ink-soft: #3b4a66;
+  --nk-ink-faint: #6b7690;
+  --nk-edge: #e2dccb;
+  --nk-accent: #1e3a6e;
+  --nk-accent-ink: #1e3a6e;
+  --nk-accent-soft: rgba(30, 58, 110, 0.1);
+  --nk-accent-edge: rgba(30, 58, 110, 0.25);
+  --nk-positive: #16a34a;
+  --nk-positive-ink: #16a34a;
+  --nk-positive-soft: rgba(22, 163, 74, 0.1);
+  --nk-positive-edge: rgba(22, 163, 74, 0.25);
+  --nk-critical: #b91c1c;
+  --nk-critical-soft: rgba(185, 28, 28, 0.07);
+  --nk-critical-edge: rgba(185, 28, 28, 0.2);
+
+  --nk-gradient: linear-gradient(135deg, #0f2a52 0%, #1e3a6e 60%, #8a6a3d 100%);
+  --nk-orb-1: rgba(30, 58, 110, 0.08);
+  --nk-orb-2: rgba(138, 106, 61, 0.06);
+
+  --nk-nav-fade: rgba(243, 239, 228, 0.92);
+  --nk-nav-button: rgba(255, 255, 255, 0.75);
+  --nk-nav-button-hover: #ffffff;
+  --nk-nav-chip: rgba(255, 255, 255, 0.85);
+  --nk-nav-border: rgba(226, 220, 203, 0.9);
+  --nk-nav-icon: #0f2a52;
+  --nk-nav-dot: rgba(107, 118, 144, 0.35);
+  --nk-nav-dot-hover: rgba(107, 118, 144, 0.55);
+  --nk-nav-dot-active: #1e3a6e;
+
+  /* pack extras */
+  --art-paper: #f3efe4;
+  --art-ink: #0f2a52;
+  --art-accent: #1e3a6e;
+  --art-accent-2: #8a6a3d;
+  --art-field: #0f2a52;
+  --art-field-ink: #f3efe4;
+  --art-scrim: rgba(15, 42, 82, 0.55);
+  --art-scrim-strong: rgba(15, 42, 82, 0.92);
+}
+
+/* ---- placement (identical in every pack) ---- */
+.art-cover { position: relative; overflow: hidden; background: var(--art-paper); }
+.art-content { position: relative; z-index: 2; }
+.art-plate { display: block; max-width: 100%; height: auto; }
+.art-plate--bleed { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--art-focus, center); }
+.art-plate--half { position: absolute; top: 0; bottom: 0; right: 0; z-index: 0; width: 50%; height: 100%; object-fit: cover; object-position: var(--art-focus, center); }
+.art-plate--half.is-left { right: auto; left: 0; }
+.art-scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, var(--art-scrim-strong) 0%, var(--art-scrim) 42%, transparent 68%); }
+.art-scrim.is-right { background: linear-gradient(270deg, var(--art-scrim-strong) 0%, var(--art-scrim) 42%, transparent 68%); }
+.art-scrim.is-bottom { background: linear-gradient(180deg, transparent 30%, var(--art-scrim-strong) 100%); }
+.art-band { display: block; width: 100%; height: clamp(120px, 20vh, 220px); object-fit: cover; }
+.art-spot { position: absolute; z-index: 1; width: clamp(96px, 14vw, 220px); height: auto; pointer-events: none; transform: rotate(var(--art-rotate, 0deg)); }
+.art-spot--sm { width: clamp(64px, 8vw, 128px); }
+.art-spot--lg { width: clamp(160px, 24vw, 360px); }
+.art-paper { background-color: var(--art-paper); background-image: url('plates/paper.webp'); background-size: cover; background-position: center; }
+.art-field { background: var(--art-field); color: var(--art-field-ink); }
+@media (max-width: 767px) {
+  .art-plate--half { position: relative; width: 100%; height: 40vh; }
+  .art-band { height: 96px; }
+  .art-spot { width: clamp(64px, 18vw, 120px); }
+  .art-spot--lg { width: clamp(120px, 34vw, 200px); }
+}
+
+/* ---- devices: Blueprint ---- */
+.art-display { font-family: var(--nk-font-display); font-weight: 400; letter-spacing: -0.02em; line-height: 1.02; }
+.art-display em { font-style: italic; color: var(--art-accent-2); }
+.art-cover .art-content { color: var(--art-paper); }
+.art-cover .art-content .art-mark { color: #d9c39a; }
+.art-mark { color: var(--art-accent-2); }                     /* Van Dyke brown — the sibling process */
+.art-spot { filter: drop-shadow(0 6px 14px rgba(15, 42, 82, 0.28)); }
+.art-sticker { background: #fff; padding: 6px; box-shadow: 0 1px 0 rgba(15, 42, 82, 0.08), 0 10px 28px rgba(15, 42, 82, 0.2); }
+.art-duotone { filter: grayscale(1) sepia(1) hue-rotate(185deg) saturate(2.6) brightness(0.9) contrast(1.05); }
+.art-chip { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 11px; line-height: 16px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--nk-ink-faint); }
+.art-rule { border: 0; border-top: 1px solid var(--nk-edge); margin: 0; }
+.art-num { font-family: var(--nk-font-display); font-style: italic; font-weight: 400; font-size: clamp(56px, 9vw, 128px); line-height: 0.9; color: var(--art-accent); }

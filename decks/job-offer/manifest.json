@@ -89,31 +89,31 @@
       }
     ]
   },
-  "engine": "nk/0.9.0",
+  "engine": "nk/0.10.0",
   "slides": [
     {
       "id": "cover",
-      "title": "Cover"
+      "title": "Cover (loud: the take-off plate on the left half, headline set on cream)"
     },
     {
       "id": "role",
-      "title": "Role"
+      "title": "Role (quiet: the pack's paper, typography only)"
     },
     {
       "id": "compensation",
-      "title": "Total compensation"
+      "title": "Total compensation (mid: paper with the offer spot)"
     },
     {
       "id": "benefits",
-      "title": "Benefits"
+      "title": "Benefits (quiet: paper, the grid carries it)"
     },
     {
       "id": "first-90-days",
-      "title": "First 90 days"
+      "title": "First 90 days (mid: the pack's isotype strip)"
     },
     {
       "id": "answer",
-      "title": "Candidate answer"
+      "title": "Candidate answer (loud: the pack's ink field)"
     }
   ]
 }

@@ -1,0 +1,19 @@
+{
+  "personalization": {
+    "companyName": "Pulse Energy",
+    "contactName": "Maya Chen",
+    "campaignName": "Summer Loud",
+    "campaignGoal": "Get Pulse in front of 16–24s on the platforms they actually open, without turning the brand into a meme — and show the board a number by the end of the quarter.",
+    "campaignIdea": "\"Pulse Check\": a weekly creator drop where one guest has 60 seconds to do something they've been putting off — with a can in hand. Same format every week, a new face every time, so the audience learns the rhythm and comes back for the next one.",
+    "launchDate": "2026-10-05",
+    "managerName": "Leo Park",
+    "managerContact": "leo@loudandco.example",
+    "customFields": []
+  },
+  "clientFacts": {},
+  "demoData": {
+    "package": "surge",
+    "monthlyBudget": 6000
+  },
+  "canPersist": true
+}

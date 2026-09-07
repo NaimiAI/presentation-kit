@@ -1,0 +1,114 @@
+{
+  "id": "cyanotype",
+  "name": "Blueprint",
+  "tagline": "Cyanotype photograms — Prussian blue on watercolor paper",
+  "technique": "Cyanotype contact prints (Herschel 1842, Anna Atkins 1843–53): real flat objects laid on sensitized paper and exposed to light leave pale silhouettes on a Prussian-blue ground.",
+  "spirit": [
+    "calm",
+    "premium",
+    "trustworthy"
+  ],
+  "fits": [
+    "consulting and B2B proposals",
+    "partnership offers",
+    "reports and reviews",
+    "anything sent to a serious buyer"
+  ],
+  "avoid": [
+    "youth marketing",
+    "launches that need energy",
+    "decks where every slide must be loud"
+  ],
+  "palette": {
+    "ink": "#0f2a52",
+    "paper": "#f3efe4",
+    "accent": "#1e3a6e",
+    "accent2": "#8a6a3d",
+    "positive": "#16a34a"
+  },
+  "font": {
+    "family": "Playfair Display",
+    "role": "display serif for headlines",
+    "license": "OFL-1.1",
+    "files": "pack/fonts/"
+  },
+  "rhythm": "pulse",
+  "plates": [
+    {
+      "file": "hero.webp",
+      "role": "hero",
+      "ratio": "16:9",
+      "keying": "none",
+      "accept": "Reads as a real contact print: flat, seen from above, brushed emulsion edges visible; upper-left third is quiet blue with no objects."
+    },
+    {
+      "file": "plate-a.webp",
+      "role": "plate",
+      "ratio": "4:3",
+      "keying": "none",
+      "accept": "One botanical subject; left third quiet; no text."
+    },
+    {
+      "file": "plate-b.webp",
+      "role": "plate",
+      "ratio": "4:3",
+      "keying": "none",
+      "accept": "Mechanical objects only, clearly separated; no text."
+    },
+    {
+      "file": "band.webp",
+      "role": "band",
+      "ratio": "21:9",
+      "keying": "none",
+      "accept": "A single horizontal row, evenly spaced, edges brushed; nothing else."
+    },
+    {
+      "file": "paper.webp",
+      "role": "paper",
+      "ratio": "16:9",
+      "keying": "none",
+      "accept": "Blank cream paper only, even lighting, no vignette."
+    },
+    {
+      "file": "spot-1.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "A single blue print with brushed edges on pure white; the key silhouette fully inside the blue."
+    },
+    {
+      "file": "spot-2.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "A single blue print with brushed edges on pure white; envelope silhouette fully inside the blue."
+    },
+    {
+      "file": "spot-3.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "A single blue print with brushed edges on pure white; the hand silhouette fully inside the blue."
+    }
+  ],
+  "generate": {
+    "base": "A cyanotype photogram of {subject}: real flat objects laid on sensitized watercolor paper and exposed to light, pale white-blue silhouettes on a deep Prussian blue ground, soft halo bleed at the edges, visible brush-coated emulsion edges, watercolor paper texture. Flat contact print seen from directly above; no scene, no perspective, no people, no faces.",
+    "spot": "A small cyanotype print of {subject}, pasted as an object: the print is a rough rectangle of deep Prussian blue with irregular brush-coated edges, {subject} appears as a pale white-blue silhouette with soft halo bleed, faint paper texture inside the blue.",
+    "rules": "No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+    "spotBackground": "white",
+    "references": [
+      "hero.webp",
+      "spot-1.webp"
+    ],
+    "prompts": {
+      "hero.webp": "A cyanotype photogram, made by laying real flat objects on sensitized watercolor paper and exposing it to sunlight: a sheet of folded paper, an envelope, an old key and two fern fronds, arranged loosely across the frame with generous empty space in the upper left third. Every object — including the key — appears ONLY as a pale white-blue silhouette where it blocked the light; no object shows its real color or material, nothing is brass, metallic or photographic. Deep Prussian blue ground; soft halo bleed around the edges of each object; visible brush-coated edges of the emulsion at the borders of the sheet; faint watercolor paper texture and a few uneven tonal blotches. No people, no faces, no scene, no perspective — strictly a flat contact print seen from directly above. Wide composition for a 16:9 presentation cover. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "plate-a.webp": "A cyanotype photogram of a single large fern frond and three small seed pods, laid on sensitized watercolor paper and exposed to light: pale white-blue silhouettes on a deep Prussian blue ground, soft halo bleed, brush-coated emulsion edges, watercolor paper texture. The frond sits in the right two thirds; the left third is quiet blue. Flat contact print seen from directly above, no scene, no perspective. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "plate-b.webp": "A cyanotype photogram of drafting tools laid flat on sensitized watercolor paper: a pair of compasses, a short ruler, two washers and a coil of string, spaced apart; pale white-blue silhouettes on a deep Prussian blue ground, soft halo bleed, brush-coated emulsion edges, paper texture. Flat contact print seen from directly above, no scene, no perspective. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "band.webp": "A panoramic cyanotype herbarium row: seven different pressed plant specimens (grasses, a fern, a leafy twig, a seed head, a flower stem) laid in one evenly spaced horizontal line on sensitized watercolor paper and exposed to light, pale white-blue silhouettes on a deep Prussian blue ground, soft halo bleed, brush-coated emulsion edges at the top and bottom. Flat contact print seen from directly above. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "paper.webp": "A flat scan of a blank sheet of cream cold-pressed watercolor paper, seen from directly above, evenly lit, subtle grain and a few faint fibers, slightly warm cream color, no objects, no marks, no emulsion, no shadows, edge to edge. An extreme close-up texture study of the paper surface itself, filling the whole frame edge to edge — no sheet edges, no corners, no vignette. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-1.webp": "A small cyanotype print of a single old brass key, pasted as an object: the print is a rough rectangle of deep Prussian blue with irregular brush-coated edges, the key appears as a pale white-blue silhouette with soft halo bleed, faint paper texture inside the blue. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-2.webp": "A small cyanotype print of a single sealed envelope, pasted as an object: the print is a rough rectangle of deep Prussian blue with irregular brush-coated edges, the envelope appears as a pale white-blue silhouette with soft halo bleed, faint paper texture inside the blue. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-3.webp": "A small cyanotype print of a single open human hand, palm facing up, pasted as an object: the print is a rough rectangle of deep Prussian blue with irregular brush-coated edges, the hand appears as a pale white-blue silhouette with soft halo bleed, faint paper texture inside the blue. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image."
+    }
+  }
+}

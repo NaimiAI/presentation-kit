@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="en" data-theme="orbit-night">
+<html lang="en" data-theme="clay-3d">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SaaS product pitch — Relay</title>
   <link rel="stylesheet" href="naimi-kit/kit.css">
+  <link rel="stylesheet" href="assets/art/theme.css">
   <link rel="stylesheet" href="deck.css">
 </head>
 <body>
@@ -12,20 +13,24 @@
 
   <main id="deck" hidden>
 
-    <!-- Slide 1 — Hero -->
-    <section class="hero" data-nk-slide="hero">
-      <div class="orbs" aria-hidden="true"><i class="orb orb-1"></i><i class="orb orb-2"></i></div>
-      <div class="hero-glow" aria-hidden="true"></div>
-      <div class="wrap wrap-narrow center">
-        <div class="badge badge-sm" data-animate="up">
+    <!-- Slide 1 — Hero (loud: the pack's hero plate under a scrim) -->
+    <section class="art-cover cover" data-nk-slide="hero">
+      <img class="art-plate art-plate--bleed" src="assets/art/plates/hero.webp" alt="" style="--art-focus: right" data-animate="scale">
+      <div class="art-scrim" aria-hidden="true"></div>
+      <div class="art-content cover-wrap">
+        <div class="cover-top" data-animate="up">
+          <span class="art-chip">
           <svg class="ico" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
           <span>Prepared for <span data-nk-text="companyName" data-nk-fallback="your team"></span></span>
+          </span>
         </div>
-        <h1 data-animate="up-lg" data-delay="0.1">Every customer conversation,<br><span class="gradient-text">in one place</span></h1>
-        <p class="lead" data-animate="up" data-delay="0.2">
-          Relay is the customer-communications platform: one shared inbox, a full
-          history for every account, and AI that flags churn before it happens.
-        </p>
+        <div class="cover-main">
+          <h1 class="art-display" data-animate="up-lg" data-delay="0.1">Every customer conversation,<br><span class="art-mark">in one place</span></h1>
+          <p class="lead" data-animate="up" data-delay="0.2">
+            Relay is the customer-communications platform: one shared inbox, a full
+            history for every account, and AI that flags churn before it happens.
+          </p>
+        </div>
         <div class="metrics" data-animate="up" data-delay="0.3">
           <div class="metric"><p class="metric-value">1,200+</p><p class="metric-label">teams on the platform</p></div>
           <div class="metric"><p class="metric-value">4.8 / 5</p><p class="metric-label">support rating</p></div>
@@ -35,11 +40,11 @@
     </section>
 
     <!-- Slide 2 — Problem → solution -->
-    <section class="shell" data-nk-slide="problem-solution">
-      <div class="wrap wrap-wide">
+    <section class="art-paper" data-nk-slide="problem-solution">
+      <div class="wrap">
         <header class="slide-head" data-animate="up">
-          <p class="kicker">Problem → solution for <span data-nk-text="companyName" data-nk-fallback="your team"></span></p>
-          <h2>What hurts today — and how Relay fixes it</h2>
+          <p class="art-chip">Problem → solution for <span data-nk-text="companyName" data-nk-fallback="your team"></span></p>
+          <h2 class="art-display">What hurts today — and how <span class="art-mark">Relay fixes it</span></h2>
         </header>
         <div class="ps-grid">
           <div class="col" data-stagger="0.1" data-stagger-base="0.1">
@@ -78,11 +83,12 @@
     </section>
 
     <!-- Slide 3 — Product (CSS dashboard mockup) -->
-    <section class="shell" data-nk-slide="product">
-      <div class="wrap wrap-wide">
-        <header class="slide-head product-head" data-animate="up">
-          <p class="kicker">Product</p>
-          <h2>One screen instead of five exports</h2>
+    <section class="art-paper" data-nk-slide="product">
+      <img class="art-spot spot-chart" src="assets/art/plates/spot-3.webp" alt="" style="--art-rotate: -6deg" data-animate="scale" data-delay="0.5">
+      <div class="wrap">
+        <header class="slide-head" data-animate="up">
+          <p class="art-chip">Product</p>
+          <h2 class="art-display">One screen instead of <span class="art-mark">five exports</span></h2>
         </header>
         <div class="product-grid">
           <div class="mockup" data-animate="up-lg" data-delay="0.15">
@@ -130,11 +136,11 @@
     </section>
 
     <!-- Slide 4 — Interactive pricing -->
-    <section class="shell" data-nk-slide="pricing">
-      <div class="wrap wrap-wide pricing-wrap">
-        <header class="slide-head pricing-head" data-animate="up">
-          <p class="kicker">Pricing</p>
-          <h2>Build a plan for <span data-nk-text="companyName" data-nk-fallback="your team"></span></h2>
+    <section class="art-paper" data-nk-slide="pricing">
+      <div class="wrap">
+        <header class="slide-head" data-animate="up">
+          <p class="art-chip">Pricing</p>
+          <h2 class="art-display">Build a plan for <span class="art-mark" data-nk-text="companyName" data-nk-fallback="your team"></span></h2>
           <p class="sub">Your choice is saved to the demo — we'll draft the order from these same numbers.</p>
         </header>
 
@@ -198,7 +204,7 @@
               <p class="total-monthly" id="total-monthly">$1,224</p>
               <p class="total-yearly" id="total-yearly">$14,691 / year</p>
             </div>
-            <span class="badge badge-positive badge-sm" id="savings">Save $3,009 a year</span>
+            <span class="art-chip savings" id="savings">Save $3,009 a year</span>
             <p class="total-hint" id="savings-hint" hidden>Switch to annual billing to see the savings.</p>
             <p class="total-hint" id="custom-hint" hidden>We'll scope SSO, security review, and SLA together — book a call below.</p>
           </div>
@@ -207,13 +213,13 @@
     </section>
 
     <!-- Slide 5 — CTA -->
-    <section class="hero" data-nk-slide="cta">
-      <div class="orbs" aria-hidden="true"><i class="orb orb-1"></i><i class="orb orb-2"></i></div>
-      <div class="wrap wrap-narrow center">
-        <div class="badge badge-positive badge-sm" data-animate="up">Free 14-day pilot</div>
-        <h2 class="cta-title" data-animate="up-lg" data-delay="0.1">
+    <section class="art-field close" data-nk-slide="cta">
+      <img class="art-spot art-spot--lg spot-rocket" src="assets/art/plates/spot-2.webp" alt="" style="--art-rotate: 8deg" data-animate="scale" data-delay="0.35">
+      <div class="wrap">
+        <p class="art-chip" data-animate="up">Free 14-day pilot</p>
+        <h2 class="art-display cta-title" data-animate="up-lg" data-delay="0.1">
           We'll get <span data-nk-text="companyName" data-nk-fallback="your team"></span> live on Relay
-          <span class="gradient-text">in two weeks</span>
+          <span class="art-mark">in two weeks</span>
         </h2>
         <div class="steps" data-stagger="0.1" data-stagger-base="0.2">
           <div class="step" data-animate="up">

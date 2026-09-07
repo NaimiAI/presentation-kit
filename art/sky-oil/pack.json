@@ -1,0 +1,113 @@
+{
+  "id": "sky-oil",
+  "name": "Sky studies",
+  "tagline": "Oil-on-paper cloud studies — painted skies, visible brushwork",
+  "technique": "Romantic sky painting as in Constable's 1821–22 oil sketches: quick studies of clouds on paper with visible impasto brushwork — a sky that is painted, not photographed.",
+  "spirit": [
+    "calm",
+    "airy",
+    "spacious"
+  ],
+  "fits": [
+    "investor and vision decks",
+    "strategy and roadmap presentations",
+    "wellness, travel, education",
+    "a quiet cover for almost any genre"
+  ],
+  "avoid": [
+    "decks that need a strong physical metaphor",
+    "anything that must feel handmade in a rough way"
+  ],
+  "palette": {
+    "ink": "#1b2b55",
+    "paper": "#faf9f6",
+    "accent": "#e9b45a",
+    "accent2": "#1b2b55",
+    "positive": "#16a34a"
+  },
+  "font": {
+    "family": "Playfair Display",
+    "role": "display serif for headlines",
+    "license": "OFL-1.1",
+    "files": "pack/fonts/"
+  },
+  "rhythm": "bookends",
+  "plates": [
+    {
+      "file": "hero.webp",
+      "role": "hero",
+      "ratio": "16:9",
+      "keying": "none",
+      "accept": "Painted (not photographic) clouds, visible brushwork, upper-left quiet; no horizon."
+    },
+    {
+      "file": "plate-a.webp",
+      "role": "plate",
+      "ratio": "4:3",
+      "keying": "none",
+      "accept": "Dusk sky bands, brushwork visible; no horizon."
+    },
+    {
+      "file": "plate-b.webp",
+      "role": "plate",
+      "ratio": "4:3",
+      "keying": "none",
+      "accept": "Bright sky, one cloud, one faint moon; no horizon."
+    },
+    {
+      "file": "band.webp",
+      "role": "band",
+      "ratio": "21:9",
+      "keying": "none",
+      "accept": "Horizontal stratus bands only."
+    },
+    {
+      "file": "paper.webp",
+      "role": "paper",
+      "ratio": "16:9",
+      "keying": "none",
+      "accept": "Blank cream paper with faint brush texture only."
+    },
+    {
+      "file": "spot-1.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "One painted patch with rough edges on pure white."
+    },
+    {
+      "file": "spot-2.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "One painted dusk patch with a crescent moon on pure white."
+    },
+    {
+      "file": "spot-3.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "One painted patch with rough edges on pure white."
+    }
+  ],
+  "generate": {
+    "base": "An oil-on-paper sky study of {subject}: visible impasto brushwork, painted not photographed, no horizon, no land, no people; at most one moon, no stars, no lens effects.",
+    "spot": "A small oil-on-paper study of {subject}: a rough square patch of painted sky blue with thick impasto brushwork and rough unpainted edges where the brush stopped, {subject} painted in its center, painted not photographed.",
+    "rules": "No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+    "spotBackground": "white",
+    "references": [
+      "hero.webp",
+      "plate-a.webp"
+    ],
+    "prompts": {
+      "hero.webp": "An oil-on-paper sky study: large cumulus clouds with warm sunlit tops and soft grey undersides against a clear mid-blue sky, thick visible impasto brushwork and palette-knife marks, painted quickly like an early-19th-century cloud study; no horizon, no land, no birds, no sun disc; the upper left quarter is quiet open blue sky with almost no cloud. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "plate-a.webp": "An oil-on-paper sky study at dusk: soft horizontal stratus bands blending from deep navy at the top through violet to a warm peach glow at the bottom, visible impasto brushwork, painted not photographed; no horizon, no land, no sun disc, no stars. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "plate-b.webp": "An oil-on-paper sky study of a bright morning: a pale blue sky with one small soft cumulus cloud and a faint pale crescent moon, visible brushwork, painted not photographed; no horizon, no land, no stars, no birds. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "band.webp": "A panoramic oil-on-paper study of low stratus cloud bands stretched horizontally across a pale blue sky, low contrast, thick visible brushwork, painted not photographed; no horizon, no land. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "paper.webp": "A flat scan of a blank sheet of warm cream oil-sketch paper with a faint pale wash of thinned white paint showing brush texture, seen from directly above, evenly lit, no objects, edge to edge. An extreme close-up texture study of the paper surface itself, filling the whole frame edge to edge — no sheet edges, no corners, no vignette. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-1.webp": "A small oil-on-paper study of a single cumulus cloud: a rough square patch of painted blue sky with thick impasto brushwork and rough unpainted edges where the brush stopped, the white cloud in its center, painted not photographed. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-2.webp": "A small oil-on-paper study of a pale crescent moon in a patch of dusk sky: a rough square patch of painted navy-to-violet sky with thick brushwork and rough unpainted edges, the thin moon in its upper part, no stars, painted not photographed. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-3.webp": "A small oil-on-paper study of a sunlit cloud edge: a rough square patch of painted blue sky with thick impasto brushwork and rough unpainted edges, a bright warm-white cloud edge catching the light, painted not photographed. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image."
+    }
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "price-quote",
+  "name": "Price quote — letterhead",
+  "description": "Letter-size document: a supplier's price quote as a cover letter on letterhead — salutation, itemized pricing with discount, sales tax and the amount in words, product descriptions with pictures, delivery terms and the client's response",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "format": "document",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Company",
+        "placeholder": "Client company name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "contactName",
+        "label": "Contact",
+        "placeholder": "First and last name",
+        "type": "text"
+      },
+      {
+        "key": "contactTitle",
+        "label": "Contact's title",
+        "placeholder": "e.g. Head of Marketing",
+        "type": "text"
+      },
+      {
+        "key": "salutation",
+        "label": "Salutation (without the comma)",
+        "placeholder": "e.g. Dear Ms. Alvarez",
+        "type": "text"
+      },
+      {
+        "key": "offerNumber",
+        "label": "Quote number",
+        "placeholder": "e.g. PQ-2026-041",
+        "type": "text"
+      },
+      {
+        "key": "offerDate",
+        "label": "Quote date",
+        "type": "date"
+      },
+      {
+        "key": "validUntil",
+        "label": "Valid through",
+        "type": "date"
+      },
+      {
+        "key": "occasion",
+        "label": "Occasion (inserted into the letter)",
+        "placeholder": "e.g. for the holiday season",
+        "type": "text"
+      },
+      {
+        "key": "offerNote",
+        "label": "Extra paragraph in the letter",
+        "placeholder": "e.g. As requested, we added a wooden box option",
+        "type": "textarea"
+      },
+      {
+        "key": "leadTime",
+        "label": "Lead time",
+        "placeholder": "e.g. 14 business days",
+        "type": "text"
+      },
+      {
+        "key": "specification",
+        "label": "Line items (one per line: \"Description | SKU | Unit | Qty | Unit price\")",
+        "placeholder": "\"Master\" fountain pen, engraved | PEN-114 | pcs | 120 | 24.50",
+        "type": "textarea"
+      },
+      {
+        "key": "discountPercent",
+        "label": "Discount, %",
+        "placeholder": "e.g. 7",
+        "type": "text"
+      },
+      {
+        "key": "taxRate",
+        "label": "Sales tax rate, % (leave empty if not taxable)",
+        "placeholder": "e.g. 6.25",
+        "type": "text"
+      },
+      {
+        "key": "deliveryTerms",
+        "label": "Shipping terms",
+        "placeholder": "Free ground shipping to one address",
+        "type": "textarea"
+      },
+      {
+        "key": "paymentTerms",
+        "label": "Payment terms",
+        "placeholder": "50% deposit, balance net 15",
+        "type": "textarea"
+      },
+      {
+        "key": "managerName",
+        "label": "Sales contact",
+        "placeholder": "Who runs the deal",
+        "type": "text"
+      },
+      {
+        "key": "managerContact",
+        "label": "Sales contact's phone / email",
+        "placeholder": "Phone / email",
+        "type": "text"
+      }
+    ],
+    "showCustomFields": false
+  },
+  "demoData": {
+    "namespace": "priceQuote",
+    "fields": [
+      {
+        "key": "offerDecision",
+        "label": "Client's response to the quote",
+        "type": "string",
+        "defaultValue": "",
+        "collectFromClient": true,
+        "promoteToClientFacts": true
+      }
+    ]
+  },
+  "engine": "nk/0.10.0",
+  "slides": [
+    {
+      "id": "letter",
+      "title": "Cover letter"
+    },
+    {
+      "id": "specification",
+      "title": "Itemized quote"
+    },
+    {
+      "id": "products",
+      "title": "Products"
+    },
+    {
+      "id": "terms",
+      "title": "Terms and acceptance"
+    }
+  ]
+}

@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en" data-theme="estimate-graph">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Remodel estimate — document</title>
+  <link rel="stylesheet" href="naimi-kit/kit.css">
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Document format: data-nk-format="document" — a section is a Letter sheet on the
+       viewer's "desk", read by scrolling; the PDF prints portrait pages with native
+       pagination (a long table simply continues on the next page). -->
+  <main id="deck" hidden data-nk-format="document" data-nk-page="letter">
+
+    <!-- Page 1 — Cover -->
+    <section class="sheet cover" data-nk-slide="cover">
+      <header class="letterhead" data-animate="up">
+        <div class="brand">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 36 12v16L20 37 4 28V12z"/><path d="M12 22h16M12 17h16M12 27h9"/></svg>
+          <div>
+            <p class="brand-name">Northline Builders</p>
+            <p class="brand-tagline">residential remodeling · licensed &amp; insured since 2011</p>
+          </div>
+        </div>
+        <div class="doc-id">
+          <p class="doc-kind">Estimate</p>
+          <p class="doc-number">No. <span data-nk-text="estimateNumber" data-nk-fallback="EST-2026-001"></span></p>
+          <p class="doc-date">dated <span id="estimate-date"></span></p>
+        </div>
+      </header>
+
+      <div class="cover-title" data-animate="up" data-delay="0.1">
+        <p class="kicker">Preliminary estimate</p>
+        <h1 data-nk-text="projectTitle" data-nk-fallback="Full home remodel"></h1>
+        <dl class="cover-facts">
+          <div><dt>Property</dt><dd data-nk-text="objectAddress" data-nk-fallback="address to be confirmed"></dd></div>
+          <div><dt>Area</dt><dd><span data-nk-text="objectArea" data-nk-fallback="—"></span> sq ft</dd></div>
+          <div><dt>Prepared for</dt><dd><span data-nk-text="companyName" data-nk-fallback="Client"></span><span data-nk-hide-empty="contactName">, <span data-nk-text="contactName"></span></span></dd></div>
+          <div><dt>Timeline</dt><dd data-nk-text="projectDuration" data-nk-fallback="8–10 weeks"></dd></div>
+        </dl>
+      </div>
+
+      <div class="cover-grid">
+        <aside class="summary" data-animate="up" data-delay="0.2">
+          <p class="summary-label">Estimate total</p>
+          <p class="summary-total" id="cover-total">$0</p>
+          <dl class="summary-split">
+            <div><dt>Labor</dt><dd id="cover-works">$0</dd></div>
+            <div><dt>Materials</dt><dd id="cover-materials">$0</dd></div>
+            <div id="cover-discount-row" hidden><dt>Discount</dt><dd id="cover-discount">$0</dd></div>
+          </dl>
+          <p class="summary-note">Sales tax on materials included; permits billed at cost. Pricing valid through <span id="cover-valid">the end of the month</span></p>
+        </aside>
+        <figure class="cover-figure" data-animate="up" data-delay="0.3">
+          <!-- The property photo is a per-client image field; until it is set, a plan sketch stands in. -->
+          <img id="object-photo" class="cover-photo" alt="Property" hidden>
+          <img id="floor-plan" class="cover-photo" src="assets/floor-plan.webp" alt="Floor plan">
+          <figcaption id="cover-caption">Floor plan — confirmed at the site visit</figcaption>
+        </figure>
+      </div>
+
+      <p class="cover-lead" data-animate="up" data-delay="0.35">
+        Below: the scope of work by section, materials, the payment schedule and terms. Every
+        line is priced per unit, so if quantities change after the site measurement, the
+        total is recalculated at the same unit rates.
+      </p>
+
+      <footer class="sheet-foot">
+        <span>Northline Builders · 412 Harbor St, Portland, OR · (503) 555-0142 · estimates@northlinebuilders.com</span>
+        <span>cover</span>
+      </footer>
+    </section>
+
+    <!-- Page 2 — Scope of work -->
+    <section class="sheet" data-nk-slide="works">
+      <header class="page-head" data-animate="up">
+        <span class="page-num">1</span>
+        <div>
+          <h2>Scope of work</h2>
+          <p>Rates are per unit of measure; a section total is the sum of its lines.</p>
+        </div>
+      </header>
+
+      <div id="works-table" class="table-wrap" data-animate="up" data-delay="0.1"></div>
+      <div id="works-empty" class="empty-state" hidden>
+        No labor lines yet. Fill the "Estimate: labor" field when creating the presentation —
+        one line per item, sections start with "#".
+      </div>
+
+      <div class="total-line" data-animate="up" data-delay="0.2">
+        <span>Labor total</span>
+        <strong id="works-total">$0</strong>
+      </div>
+
+      <footer class="sheet-foot">
+        <span>Estimate <span data-nk-text="estimateNumber" data-nk-fallback="EST-2026-001"></span> · <span data-nk-text="companyName" data-nk-fallback="Client"></span></span>
+        <span>scope of work</span>
+      </footer>
+    </section>
+
+    <!-- Page 3 — Materials and summary -->
+    <section class="sheet" data-nk-slide="materials">
+      <header class="page-head" data-animate="up">
+        <span class="page-num">2</span>
+        <div>
+          <h2>Materials</h2>
+          <p>Rough and mechanical materials are purchased by us against an approved list; finish materials (tile, flooring, fixtures) are selected by you and are outside this estimate.</p>
+        </div>
+      </header>
+
+      <div id="materials-table" class="table-wrap" data-animate="up" data-delay="0.1"></div>
+      <div id="materials-empty" class="empty-state" hidden>
+        No material lines yet. Fill the "Estimate: materials" field — same format as labor.
+      </div>
+
+      <div class="total-line" data-animate="up" data-delay="0.2">
+        <span>Materials total</span>
+        <strong id="materials-total">$0</strong>
+      </div>
+
+      <div class="grand" data-animate="up" data-delay="0.3">
+        <h3>Summary</h3>
+        <dl class="grand-rows">
+          <div><dt>Labor</dt><dd id="grand-works">$0</dd></div>
+          <div><dt>Materials</dt><dd id="grand-materials">$0</dd></div>
+          <div id="grand-discount-row" hidden><dt>Discount <span id="grand-discount-pct"></span></dt><dd id="grand-discount">− $0</dd></div>
+          <div class="grand-total"><dt>Estimate total</dt><dd id="grand-total">$0</dd></div>
+        </dl>
+        <p class="grand-note" id="estimate-notes" data-nk-text="estimateNotes" data-nk-fallback="Not included: finish materials, furniture and appliances, debris hauling beyond two dumpsters, permit fees and engineering."></p>
+      </div>
+
+      <footer class="sheet-foot">
+        <span>Estimate <span data-nk-text="estimateNumber" data-nk-fallback="EST-2026-001"></span> · <span data-nk-text="companyName" data-nk-fallback="Client"></span></span>
+        <span>materials and summary</span>
+      </footer>
+    </section>
+
+    <!-- Page 4 — Schedule and payment -->
+    <section class="sheet" data-nk-slide="terms">
+      <header class="page-head" data-animate="up">
+        <span class="page-num">3</span>
+        <div>
+          <h2>Schedule and payment</h2>
+          <p>Overall timeline — <strong data-nk-text="projectDuration" data-nk-fallback="8–10 weeks"></strong> from contract signing and the initial deposit.</p>
+        </div>
+      </header>
+
+      <ol class="timeline" data-stagger="0.08" data-stagger-base="0.1">
+        <li data-animate="left"><span class="tl-week">week 1</span><div><h3>Site visit and contract</h3><p>Confirm quantities, lock the estimate and schedule. Deposit for materials.</p></div></li>
+        <li data-animate="left"><span class="tl-week">weeks 1–3</span><div><h3>Demolition and rough-in</h3><p>Demo, subfloor, drywall, electrical and plumbing rough-in.</p></div></li>
+        <li data-animate="left"><span class="tl-week">weeks 4–7</span><div><h3>Finishes</h3><p>Tile, drywall finish and paint, flooring, ceilings, interior doors.</p></div></li>
+        <li data-animate="left"><span class="tl-week">weeks 8–10</span><div><h3>Fixtures and handover</h3><p>Plumbing fixtures, electrical trim, final clean, walkthrough, 2-year workmanship warranty.</p></div></li>
+      </ol>
+
+      <h3 class="sub-head" data-animate="up" data-delay="0.3">Payment schedule</h3>
+      <table class="pay-table" data-animate="up" data-delay="0.35">
+        <thead><tr><th>Milestone</th><th>When</th><th class="num">Share</th><th class="num">Amount</th></tr></thead>
+        <tbody>
+          <tr><td>Deposit</td><td>at contract signing</td><td class="num">30%</td><td class="num" id="pay-1">$0</td></tr>
+          <tr><td>Progress payment</td><td>on completion of rough-in</td><td class="num">40%</td><td class="num" id="pay-2">$0</td></tr>
+          <tr><td>Final payment</td><td>after the final walkthrough</td><td class="num">30%</td><td class="num" id="pay-3">$0</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub-head" data-animate="up" data-delay="0.4">Terms</h3>
+      <ul id="conditions-list" class="conditions"></ul>
+
+      <footer class="sheet-foot">
+        <span>Estimate <span data-nk-text="estimateNumber" data-nk-fallback="EST-2026-001"></span> · <span data-nk-text="companyName" data-nk-fallback="Client"></span></span>
+        <span>schedule and payment</span>
+      </footer>
+    </section>
+
+    <!-- Page 5 — Approval -->
+    <section class="sheet" data-nk-slide="approval">
+      <header class="page-head" data-animate="up">
+        <span class="page-num">4</span>
+        <div>
+          <h2>Estimate approval</h2>
+          <p>This estimate is preliminary: the final figure is fixed in the contract after the site visit. You can reply right here — we get notified instantly.</p>
+        </div>
+      </header>
+
+      <div class="approve" data-animate="up" data-delay="0.1">
+        <div class="approve-actions" data-nk-block="decision">
+          <button type="button" class="btn btn-primary" data-nk-field="estimateDecision" data-nk-value="accepted" data-nk-action="accept">Approve estimate</button>
+          <button type="button" class="btn" data-nk-field="estimateDecision" data-nk-value="questions" data-nk-action="questions">I have questions</button>
+        </div>
+        <p class="approve-state" id="approve-state">No decision yet.</p>
+        <label class="approve-note">
+          <span>Your comments</span>
+          <textarea rows="4" data-nk-textarea="clientComment" placeholder="Anything to adjust: quantities, materials, timeline…"></textarea>
+        </label>
+      </div>
+
+      <div class="signatures" data-animate="up" data-delay="0.2">
+        <div class="sign">
+          <p class="sign-role">Contractor</p>
+          <p class="sign-name">Northline Builders LLC, Alex Carter, principal</p>
+          <div class="sign-line"><span>signature</span><span>date</span></div>
+        </div>
+        <div class="sign">
+          <p class="sign-role">Client</p>
+          <p class="sign-name"><span data-nk-text="companyName" data-nk-fallback="Client"></span><span data-nk-hide-empty="contactName">, <span data-nk-text="contactName"></span></span></p>
+          <div class="sign-line"><span>signature</span><span>date</span></div>
+        </div>
+      </div>
+
+      <div class="manager" data-animate="up" data-delay="0.3">
+        <p class="eyebrow">Your project manager</p>
+        <p class="manager-name" data-nk-text="managerName" data-nk-fallback="Project manager"></p>
+        <p class="manager-contact" data-nk-text="managerContact" data-nk-fallback="(503) 555-0142 · estimates@northlinebuilders.com"></p>
+      </div>
+
+      <footer class="sheet-foot">
+        <span>Estimate <span data-nk-text="estimateNumber" data-nk-fallback="EST-2026-001"></span> · <span data-nk-text="companyName" data-nk-fallback="Client"></span></span>
+        <span>approval</span>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="naimi-kit/kit.js" defer></script>
+  <script src="deck.js" defer></script>
+</body>
+</html>

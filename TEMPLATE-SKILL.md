@@ -24,20 +24,25 @@ chain with an ROI calculator"); you do everything else and show results (screens
 or a URL). Never ask them to run commands or edit files. **Reply in their language.**
 If something technical fails, fix it silently or explain the impact in one sentence.
 
-Before writing slides, agree three things:
+Before writing slides, agree three things (and a fourth when the look matters):
 
 1. **Which fields are personalized per client** (company, contact, prices, dates, a
    priced estimate, a special-offer line…) and in what form — these become
    `manifest.json → personalization`.
 2. **Whether they have images** (logo, product photos). Real images raise quality far
    more than UI alone — actively ask. See "Images".
-3. **How it opens for the client**: as **slides** (default) or as a **scrolling
-   feed** — all sections in one vertical page, read like a document. The viewer always
-   keeps a toggle between both; this only picks the start mode. Genre hint: pitches
-   and offers with hero slides → slides; briefs, reports, document-like content →
-   feed. It changes nothing about how you build (a section is a section either way) —
-   it's a template *setting*, not part of the bundle, applied by **naimi-publish**
-   after upload.
+3. **Slides or a document, and how it opens.** A deck opens as **slides** (default) or
+   as a **scrolling feed** — all sections in one vertical page. The viewer always keeps a
+   toggle between both; this only picks the start mode. Genre hint: pitches and offers
+   with hero slides → slides; briefs, reports → feed. It changes nothing about how you
+   build — it's a template *setting*, applied by **naimi-publish** after upload. But an
+   offer, quote, estimate or letter that must print like a Word document is a
+   **document** — portrait pages, no toggle at all: see "Document format" below.
+4. **The look** — only when the user asks for one ("bolder", "warmer", "more
+   premium", "like a poster") or the genre calls for it (marketing and agency pitches,
+   launches, invitations, welcome packs): pick an **art pack** — see "Art direction"
+   below. Otherwise the deck's own theme is the right answer; don't push art on a sober
+   enterprise proposal that never asked for it.
 
 ## The kit
 
@@ -128,6 +133,9 @@ showing a genre and a style of personalization (details in each deck's `README.m
 | `job-offer` | job offer to a candidate (warm "sunrise"; the client is the candidate) | total comp (base / equity / benefits); the candidate answers right in the offer: accept/questions chips + a question box (`collectFromClient`) |
 | `listing-presentation` | real-estate listing presentation (estate linen: hunter green + brass, serif) | comps table from a text field; pricing-strategy picker + net-proceeds calculator promoted to the client card; seller self-fill timeline |
 | `photography-package` | wedding photography packages (fine-art gallery ivory) | portfolio-led; the couple picks the package and add-ons themselves (client self-fill), live total with tier include-logic |
+| `renovation-estimate` | **document** (Letter): remodel estimate, engineering form | labor and materials tables from text fields with sections, summary with discount, payment schedule, client approval + comment |
+| `service-quote` | **document** (Letter): managed services quote, corporate | service blocks from the stages editor, two SLA tiers the client picks in the document, onboarding plan |
+| `price-quote` | **document** (Letter): supplier's quote as a letter on letterhead | salutation and letter body from fields, itemized quote with discount, sales tax and the amount in words, product cards with pictures, terms |
 
 The offer-style decks (`proposal-mono`, `studio-proposal`) set
 `personalization.showStagesEditor: true`, which makes the presentation form show a
@@ -167,6 +175,41 @@ you must apply from the start:
   reads them). Icons are inline SVG.
 - **No CDNs, no absolute URLs, no `data:` images** — fonts and images are files inside
   the folder (strict viewer CSP; enforced at publish).
+
+## Document format — portrait pages
+
+Some things a sales team sends were never slides: a commercial offer with a priced
+estimate, a quote, a cost breakdown, a cover letter with attachments — the PDFs they used
+to make in Word. For those build a **document**, not a deck: portrait pages on a sheet,
+read by scrolling, exported as A4 / Letter pages. Everything else stays the same —
+personalization, interactive fields, client actions, publishing.
+
+**Choose it when** the user says "offer / quote / estimate / calculation / letter", when
+the content is mostly text and tables, or when the result must print like a Word document.
+Pitches, product stories and anything with hero screens stay slides.
+
+**How it differs from a deck** (the full reference is in `template/README.md`):
+
+- `<main id="deck" data-nk-format="document" data-nk-page="a4">` (`letter` for the US);
+  markers read `<!-- Page N — Title -->` and a section is a **page**: it starts a new
+  printed page and may run onto the next one — a long table just continues. There is no
+  slides/feed toggle and no thumbnails panel; the reader scrolls a stack of sheets.
+- The sheet has a **fixed width** (794 px for A4, 816 px for Letter) — design for that width,
+  not for the screen; give the section its own padding (the margins) and a footer; the
+  only breakpoint you need is a phone one (`max-width: 767px`).
+- Tables and blocks are print-aware: `thead { display: table-header-group }` repeats the
+  header on every page, `tr, .card { break-inside: avoid }` keeps rows whole. Don't print
+  page numbers in the footer — a page can span two printed pages; name the section instead.
+- Long tables come from **text fields**: one line per row, columns separated by `|`
+  (`Item | unit | qty | price`), a `# Section` line opens a group; `deck.js` parses and
+  totals them. The stages editor (`showStagesEditor`) works too when blocks have a price.
+- Screenshots: `?nk-static=1` shows the sheets on the desk; the PDF prints the same sheets
+  as pages. The template cover is a 1280×720 screenshot of that desk view.
+
+**Start from a document deck**, not from the slide starter: `renovation-estimate` (a
+priced estimate with sectioned tables), `service-quote` (a monthly service with two tiers the
+client picks), `price-quote` (a cover letter on letterhead with an itemized quote).
+Copy one and rewrite the content — the print rules and the table parsers are already there.
 
 ## manifest.json contract
 
@@ -247,6 +290,39 @@ build on it). Combine freely with `data-nk-field` on the same element.
   also counts against the **plan storage allowance** (tight on free): oversized images
   are the usual cause of a later `402 limit_exceeded`.
 
+## Art direction — the art packs
+
+`art/` is a library of ten **art packs**: ready-made art directions any deck can
+wear regardless of its genre — a palette and display face, CSS/SVG devices, a roster of
+picture plates in one physical technique (cyanotype photograms, risograph prints,
+copperplate engraving, sticker collage, Swiss poster, constructivist montage, clay
+renders, paper-cut, charcoal sketches, painted skies) and the recipe to make more in
+that style. Read **`art/README.md`** once — the packs table, the shared class
+interface, the rhythm rules, the apply recipe — then only the chosen pack's
+`art/<id>/STYLE.md`. Don't browse the other packs.
+
+Match the pack to the **spirit** of the deck (`STYLE.md` → Fits / Avoid): the loud packs
+(`sticker-pop`, `poster-swiss`, `constructivist`) suit short marketing pitches; the
+calm ones (`cyanotype`, `engraving`, `charcoal`, `sky-oil`) suit proposals a serious
+buyer reads; `riso`, `clay-3d`, `papercut` sit in between. Offer the user two
+candidates in plain words ("a calm blueprint look, or a warm printed-poster look?") —
+never the catalog.
+
+Apply it as the README says: `cp -R art/<id>/pack my-presentation/assets/art`, link `assets/art/theme.css` **before**
+`deck.css`, set `data-theme="<id>"` on `<html>`, then compose the deck's **rhythm** — a
+loud cover on the hero plate, quiet paper slides, one or two accents (a band, a half
+plate, a spot), a loud close. Never two loud slides in a row; plates never carry text
+(headlines and numbers stay HTML on top); the user's own photos join through
+`.art-duotone` / `.art-sticker`; delete the plates the deck doesn't use before
+publishing. Then check every slide in the static render (`?nk-static=1`): a plate hiding text or a headline wrapping under a scrim are the usual defects.
+
+A subject the pack's plates don't cover (the client's product, their warehouse) can be
+made in the pack's style with `node tools/art-generate.mjs --pack <id> --subject "a
+delivery van"` — it needs an image model (`GEMINI_API_KEY`, or `GOOGLE_CLOUD_PROJECT` for
+Vertex AI), builds the prompt from the pack's recipe, cuts a spot out and writes the
+WebP into `assets/art/plates/`; see `art/README.md` → "Generate more in this style". One
+or two per deck, a concrete object, never text in the picture.
+
 ## Preview
 
 Serve the folder with any static server (from file:// the mock won't load):
@@ -285,10 +361,15 @@ stores the bundle, not your editing convenience; future edits start from these f
 - [ ] slide grammar: marker comment + unique data-nk-slide on every section
 - [ ] texts read personalization (no hardcoded client names); actions marked data-nk-action
 - [ ] images local, lean; no CDN / data: / absolute URLs
+- [ ] art pack (if used): scrim over every bleed plate, no two loud slides in a row, unused plates deleted
 - [ ] built from a client's PDF/PPTX → their own images are in the deck (ingest-source),
       not placeholders
 - [ ] continuous motion (if any) behind the reduced-motion / naimi.static guard
 - [ ] every slide actually rendered in preview (desktop + narrow), console clean
+- [ ] every slide fits the desktop frame (1600×900) with nothing under the engine's bottom
+      bar and no frame scroll — size giant display type from the height too (`min(vw, vh)`)
 - [ ] cover captured from the current first slide (or intentionally skipped)
-- [ ] start mode agreed (slides / scrolling feed) — naimi-publish applies it
+- [ ] start mode agreed (slides / scrolling feed) — naimi-publish applies it; not for documents
+- [ ] document: every page reviewed in the static render, long tables continue cleanly,
+      footers carry no page numbers, breakpoints only below 768px
 ```

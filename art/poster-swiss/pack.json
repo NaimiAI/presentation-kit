@@ -1,0 +1,113 @@
+{
+  "id": "poster-swiss",
+  "name": "Poster",
+  "tagline": "Swiss poster — white paper, one electric blue, giant type, brush marks",
+  "technique": "International-style poster photography meets kinetic brutalism: high-contrast black-and-white studio photos on white, one electric blue as the only color, hand-painted brush marks crossing things out, dot grids and thin arrows; the headline is the image.",
+  "spirit": [
+    "bold",
+    "confident",
+    "sharp"
+  ],
+  "fits": [
+    "product and campaign launches",
+    "marketing and media proposals",
+    "manifesto-style pitches",
+    "event and conference decks"
+  ],
+  "avoid": [
+    "gentle B2C (weddings, family, wellness)",
+    "dense reports"
+  ],
+  "palette": {
+    "ink": "#111111",
+    "paper": "#ffffff",
+    "accent": "#1a3cff",
+    "accent2": "#111111",
+    "positive": "#16a34a"
+  },
+  "font": {
+    "family": "Oswald",
+    "role": "condensed uppercase display for the giant headline",
+    "license": "OFL-1.1",
+    "files": "pack/fonts/"
+  },
+  "rhythm": "poster",
+  "plates": [
+    {
+      "file": "hero.webp",
+      "role": "hero",
+      "ratio": "16:9",
+      "keying": "none",
+      "accept": "B/W photo with only the sunglasses in blue; right-half figure; left half empty white; natural face and hands; no text."
+    },
+    {
+      "file": "plate-a.webp",
+      "role": "plate",
+      "ratio": "4:3",
+      "keying": "none",
+      "accept": "B/W hand + phone with a blue painted X; no text on the screen."
+    },
+    {
+      "file": "plate-b.webp",
+      "role": "plate",
+      "ratio": "4:3",
+      "keying": "none",
+      "accept": "B/W paper stack + flying sheet with a blue brush circle; no text."
+    },
+    {
+      "file": "band.webp",
+      "role": "band",
+      "ratio": "21:9",
+      "keying": "none",
+      "accept": "Blue brush marks scattered on white, not a baseline row that reads as letters; nothing else."
+    },
+    {
+      "file": "paper.webp",
+      "role": "paper",
+      "ratio": "16:9",
+      "keying": "none",
+      "accept": "Blank white paper only."
+    },
+    {
+      "file": "spot-1.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "One blue brush X on pure white."
+    },
+    {
+      "file": "spot-2.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "One blue brush circle on pure white."
+    },
+    {
+      "file": "spot-3.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "One blue brush arrow on pure white."
+    }
+  ],
+  "generate": {
+    "base": "A high-contrast black-and-white studio photograph of {subject} on pure white, hard flash, with one thick hand-painted electric cobalt blue brush mark over it; blue is the only color. Nothing else in the frame.",
+    "spot": "A single thick hand-painted brush-stroke pictogram of {subject} in vivid electric cobalt blue, a few confident strokes of a wide flat brush, dry bristle edges and a few small splatters.",
+    "rules": "No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+    "spotBackground": "white",
+    "references": [
+      "plate-a.webp",
+      "spot-1.webp"
+    ],
+    "prompts": {
+      "hero.webp": "A high-key black-and-white studio photograph: a person in a white turtleneck and white blazer, half-body, chin lifted, looking off past the camera, wearing oversized rectangular sunglasses whose lenses and frames are the only colored thing in the image — a vivid electric cobalt blue — hard flash, pure white seamless background, positioned in the right half of the frame; the left half is empty white. Natural proportions. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "plate-a.webp": "A high-contrast black-and-white studio photograph on pure white of a hand holding a smartphone upright, with a thick hand-painted electric cobalt blue brush-stroke X painted right across the phone screen, dry brush edges, hard flash. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "plate-b.webp": "A high-contrast black-and-white studio photograph on pure white of a neat stack of paper sheets with one sheet caught mid-air above it, hard flash, and a thick hand-painted electric cobalt blue brush circle drawn around the flying sheet, dry brush edges. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "band.webp": "A panoramic composition of thick hand-painted electric cobalt blue brush marks on pure white paper, painted with a wide flat brush with dry bristle edges and a few small paint splatters: a large cross X, a bold check mark, a short arrow pointing right, an open ring, a fat single dot, a splatter blob and a short thick underline — scattered loosely across the strip at different sizes and tilts, NOT lined up on a shared baseline and never arranged like a row of letters; lots of white above, below and between them. No zigzags, no letter-like shapes. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "paper.webp": "A flat scan of a blank sheet of bright white smooth coated poster paper, seen from directly above, evenly lit, an almost invisible fine texture, no objects, no marks, edge to edge. An extreme close-up texture study of the paper surface itself, filling the whole frame edge to edge — no sheet edges, no corners, no vignette. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-1.webp": "A single thick hand-painted brush-stroke X in vivid electric cobalt blue, two confident strokes crossing, painted with a wide flat brush, dry bristle edges and a few small splatters. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-2.webp": "A single thick hand-painted open circle in vivid electric cobalt blue, one confident loop that does not quite close, painted with a wide flat brush, dry bristle edges. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-3.webp": "A single thick hand-painted arrow pointing to the right in vivid electric cobalt blue, one long confident stroke with a short arrowhead, painted with a wide flat brush, dry bristle edges. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image."
+    }
+  }
+}

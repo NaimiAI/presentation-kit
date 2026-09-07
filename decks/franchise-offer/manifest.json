@@ -60,27 +60,27 @@
       }
     ]
   },
-  "engine": "nk/0.9.0",
+  "engine": "nk/0.10.0",
   "slides": [
     {
       "id": "cover",
-      "title": "Cover"
+      "title": "Cover (loud: hero plate, bleed + scrim)"
     },
     {
       "id": "unit-economics",
-      "title": "Unit economics"
+      "title": "Unit economics (quiet: paper, typography only)"
     },
     {
       "id": "payback-calculator",
-      "title": "Payback calculator"
+      "title": "Payback calculator (quiet paper + one spot: the pointing hand)"
     },
     {
       "id": "support",
-      "title": "Network support"
+      "title": "Network support (mid: the isotype strip)"
     },
     {
       "id": "terms",
-      "title": "Terms to sign on"
+      "title": "Terms to sign on (loud: the pack's ink field)"
     }
   ]
 }

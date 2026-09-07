@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="en" data-theme="sunrise">
+<html lang="en" data-theme="papercut">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>New-client welcome pack</title>
   <link rel="stylesheet" href="naimi-kit/kit.css">
+  <link rel="stylesheet" href="assets/art/theme.css">
   <link rel="stylesheet" href="deck.css">
 </head>
 <body>
@@ -12,73 +13,63 @@
 
   <main id="deck" hidden>
 
-    <!-- Slide 1 — Welcome -->
-    <section class="hero" data-nk-slide="welcome">
-      <div class="orbs" aria-hidden="true">
-        <i class="orb orb-1"></i>
-        <i class="orb orb-2"></i>
-      </div>
-      <div class="confetti" aria-hidden="true">
-        <i class="confetti-dot confetti-1"></i>
-        <i class="confetti-dot confetti-2"></i>
-        <i class="confetti-dot confetti-3"></i>
-        <i class="confetti-dot confetti-4"></i>
-        <i class="confetti-dot confetti-5"></i>
-        <i class="confetti-dot confetti-6"></i>
-        <i class="confetti-dot confetti-7"></i>
-      </div>
-      <div class="wrap wrap-narrow center">
-        <div class="badge" data-animate="up">
-          <svg class="ico badge-ico" viewBox="0 0 24 24"><path d="M5.8 11.3 2 22l10.7-3.79"/><path d="M4 3h.01"/><path d="M22 8h.01"/><path d="M15 2h.01"/><path d="M22 20h.01"/><path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10"/><path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17"/><path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7"/><path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z"/></svg>
-          <span>Contract signed</span>
+    <!-- Slide 1 — Welcome (loud: hero plate, bleed) -->
+    <section class="art-cover cover" data-nk-slide="welcome">
+      <img class="art-plate art-plate--bleed" src="assets/art/plates/hero.webp" alt="" style="--art-focus: right" data-animate="scale">
+      <div class="art-scrim" aria-hidden="true"></div>
+      <div class="art-content cover-wrap">
+        <div class="cover-top" data-animate="up">
+          <span class="art-chip">Contract signed</span>
         </div>
-        <h1 data-animate="up-lg" data-delay="0.1">
-          <span data-nk-text="companyName" data-nk-fallback="New client"></span>,
-          <span class="gradient-text">welcome aboard!</span>
-        </h1>
-        <p class="welcome-copy" data-animate="up" data-delay="0.25">
-          I'm <span data-nk-text="managerName" data-nk-fallback="your account manager"></span>, and I'll be running your project. This pack has
-          everything you need for a smooth start: your team, the first-month plan,
-          and the resources to lean on.
-        </p>
-        <div class="start-card" data-animate="up" data-delay="0.4">
-          <span>Kickoff</span>
-          <strong id="welcome-start-date">—</strong>
+        <div class="cover-main">
+          <h1 class="art-display" data-animate="up-lg" data-delay="0.1">
+            <span data-nk-text="companyName" data-nk-fallback="New client"></span>,<br>
+            <span class="art-mark">welcome aboard!</span>
+          </h1>
+          <p class="lead" data-animate="up" data-delay="0.25">
+            I'm <span data-nk-text="managerName" data-nk-fallback="your account manager"></span>, and I'll be running your project. This pack has
+            everything you need for a smooth start: your team, the first-month plan,
+            and the resources to lean on.
+          </p>
+          <div class="start-card" data-animate="up" data-delay="0.4">
+            <span>Kickoff</span>
+            <strong id="welcome-start-date">—</strong>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Slide 2 — Team -->
-    <section class="shell" data-nk-slide="team">
+    <!-- Slide 2 — Team (quiet: paper, photos pasted into the craft) -->
+    <section class="art-paper quiet" data-nk-slide="team">
       <div class="wrap wrap-wide">
         <header class="slide-head" data-animate="up">
-          <p class="kicker">Your team</p>
-          <h2>The people accountable for your results</h2>
+          <p class="art-chip">Your team</p>
+          <h2 class="art-display">The people accountable for<br><span class="art-mark">your results</span></h2>
         </header>
         <div class="team-grid" data-stagger="0.08" data-stagger-base="0.1">
           <article class="person person-lead" data-animate="up">
-            <img id="manager-photo" class="avatar-photo" src="assets/team-account-manager.webp" alt="Account manager">
+            <img id="manager-photo" class="avatar-photo art-sticker art-duotone" src="assets/team-account-manager.webp" alt="Account manager">
             <h3 data-nk-text="managerName" data-nk-fallback="Your manager"></h3>
             <p class="role">Account manager</p>
             <p class="scope">Your single point of contact: project status, timelines, anything logistical</p>
             <p class="contact" data-nk-text="managerContact" data-nk-fallback="—"></p>
           </article>
           <article class="person" data-animate="up">
-            <img class="avatar-photo" src="assets/team-implementation.webp" alt="David Park">
+            <img class="avatar-photo art-sticker art-duotone" src="assets/team-implementation.webp" alt="David Park">
             <h3>David Park</h3>
             <p class="role">Implementation lead</p>
             <p class="scope">Setup, integrations with your systems, and data migration</p>
             <p class="contact">david@northmark.co</p>
           </article>
           <article class="person" data-animate="up">
-            <img class="avatar-photo" src="assets/team-technical.webp" alt="Priya Shah">
+            <img class="avatar-photo art-sticker art-duotone" src="assets/team-technical.webp" alt="Priya Shah">
             <h3>Priya Shah</h3>
             <p class="role">Technical specialist</p>
             <p class="scope">Access, security, and the "why isn't this working" questions</p>
             <p class="contact">priya@northmark.co</p>
           </article>
           <article class="person" data-animate="up">
-            <div class="avatar">CT</div>
+            <div class="avatar art-sticker">CT</div>
             <h3>Care team</h3>
             <p class="role">24/7 support</p>
             <p class="scope">Any question, any time — answered by a real person</p>
@@ -88,12 +79,13 @@
       </div>
     </section>
 
-    <!-- Slide 3 — First 30 days -->
-    <section class="shell" data-nk-slide="first-month-plan">
+    <!-- Slide 3 — First 30 days (mid: the mountain band opens the slide) -->
+    <section class="art-paper mid plan" data-nk-slide="first-month-plan">
+      <img class="art-band" src="assets/art/plates/band.webp" alt="" data-animate="up">
       <div class="wrap wrap-default">
-        <header class="slide-head slide-head-compact" data-animate="up">
-          <p class="kicker">First 30 days</p>
-          <h2>Your first month, mapped out</h2>
+        <header class="slide-head slide-head-compact" data-animate="up" data-delay="0.1">
+          <p class="art-chip">First 30 days</p>
+          <h2 class="art-display">Your first month, <span class="art-mark">mapped out</span></h2>
           <p class="slide-subtitle">Dates are already counted from kickoff — drop them straight into your calendar.</p>
         </header>
         <div class="timeline">
@@ -130,12 +122,13 @@
       </div>
     </section>
 
-    <!-- Slide 4 — Resources -->
-    <section class="shell" data-nk-slide="resources">
+    <!-- Slide 4 — Resources (loud: terracotta field, the trophy cut-out) -->
+    <section class="art-field loud resources" data-nk-slide="resources">
+      <img class="art-spot spot-trophy" src="assets/art/plates/spot-3.webp" alt="" style="--art-rotate: -5deg" data-animate="scale" data-delay="0.35">
       <div class="wrap wrap-wide">
         <header class="slide-head" data-animate="up">
-          <p class="kicker">Resources</p>
-          <h2>Everything you'll reach for in month one</h2>
+          <p class="art-chip">Resources</p>
+          <h2 class="art-display">Everything you'll reach for<br><span class="art-mark">in month one</span></h2>
         </header>
         <div class="materials-grid" data-stagger="0.08" data-stagger-base="0.1">
           <a class="material" href="https://example.com/northmark/shared-drive" target="_blank" rel="noreferrer" data-nk-action="open-shared-drive" data-animate="up">

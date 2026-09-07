@@ -1,39 +1,8 @@
-/* The "sunrise" theme — warm and friendly: a cream surface with an orange accent. */
-:root[data-theme='sunrise'] {
-  --nk-font-display: 'Inter', system-ui, sans-serif;
-  --nk-surface: #fff8f0;
-  --nk-card: #ffffff;
-  --nk-ink: #3b2415;
-  --nk-ink-soft: #6f513c;
-  --nk-ink-faint: #9a7d66;
-  --nk-edge: #f3e2d0;
-  --nk-accent: #ea580c;
-  --nk-accent-ink: #c2410c;
-  --nk-accent-soft: rgba(234, 88, 12, 0.09);
-  --nk-accent-edge: rgba(234, 88, 12, 0.25);
-  --nk-positive: #16a34a;
-  --nk-positive-ink: #15803d;
-  --nk-positive-soft: rgba(22, 163, 74, 0.09);
-  --nk-positive-edge: rgba(22, 163, 74, 0.25);
-  --nk-critical: #dc2626;
-  --nk-critical-soft: rgba(220, 38, 38, 0.07);
-  --nk-critical-edge: rgba(220, 38, 38, 0.2);
-  --nk-gradient: linear-gradient(135deg, #fb923c 0%, #ea580c 50%, #e11d48 100%);
-  --nk-orb-1: rgba(251, 146, 60, 0.16);
-  --nk-orb-2: rgba(225, 29, 72, 0.08);
-  --nk-nav-fade: rgba(255, 244, 230, 0.92);
-  --nk-nav-button: rgba(255, 255, 255, 0.75);
-  --nk-nav-button-hover: #ffffff;
-  --nk-nav-chip: rgba(255, 255, 255, 0.85);
-  --nk-nav-border: rgba(243, 226, 208, 0.9);
-  --nk-nav-icon: #3b2415;
-  --nk-nav-dot: rgba(154, 125, 102, 0.4);
-  --nk-nav-dot-hover: rgba(154, 125, 102, 0.6);
-  --nk-nav-dot-active: #ea580c;
-  --nk-avatar-ink: #ffffff;
-  --nk-shadow-sm: rgba(59, 36, 21, 0.05);
-  --nk-shadow-md: rgba(59, 36, 21, 0.1);
-}
+/* client-onboarding — a new-client welcome pack dressed in the "papercut" art pack.
+   Tokens, placement classes and devices come from assets/art/theme.css; this file only
+   lays out the deck's own blocks and recolors them through the pack's tokens.
+   Rhythm `bookends`: loud cover (hero plate) · quiet team on paper · mid plan (band) ·
+   loud close on the terracotta field. */
 
 section {
   position: relative;
@@ -41,112 +10,119 @@ section {
   width: 100%;
   overflow: hidden;
   background: var(--nk-surface);
+  color: var(--nk-ink);
   padding-bottom: 96px;
 }
-.shell { display: block; }
-.hero { display: flex; align-items: center; justify-content: center; }
-.wrap { position: relative; z-index: 10; width: 100%; margin: 0 auto; padding: 40px 32px; }
-.wrap-narrow { max-width: 768px; }
+.wrap { position: relative; z-index: 2; width: 100%; margin: 0 auto; padding: 40px 32px 0; }
 .wrap-default { max-width: 1024px; }
 .wrap-wide { max-width: 1152px; }
-.center { padding-top: 48px; padding-bottom: 48px; text-align: center; }
 
 .ico { display: block; width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-h1, h2, h3 { font-family: var(--nk-font-display); }
-h1 { margin-top: 32px; font-size: 60px; line-height: 1.25; font-weight: 700; }
-h2 { font-size: 36px; line-height: 40px; font-weight: 700; }
-.slide-head { margin-bottom: 40px; }
-.slide-head-compact { margin-bottom: 24px; }
-.kicker { margin-bottom: 12px; color: var(--nk-accent-ink); font-size: 14px; line-height: 20px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
-.slide-subtitle { margin-top: 8px; color: var(--nk-ink-soft); font-size: 16px; line-height: 24px; }
+h3 { font-family: var(--nk-font-display); }
+/* Cut-paper tags stay tag-sized inside grid and flex heads. */
+.art-chip { align-self: flex-start; justify-self: start; }
 
-/* Welcome */
-.orbs, .confetti { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
-.orb { position: absolute; width: 384px; height: 384px; border-radius: 999px; filter: blur(64px); }
-.orb-1 { top: 25%; left: 25%; background: var(--nk-orb-1); }
-.orb-2 { right: 25%; bottom: 25%; background: var(--nk-orb-2); }
-.confetti-dot { position: absolute; border-radius: 999px; opacity: 0.35; }
-.confetti-1 { left: 12%; top: 18%; width: 10px; height: 10px; background: var(--nk-accent); }
-.confetti-2 { left: 85%; top: 14%; width: 8px; height: 8px; background: var(--nk-positive); }
-.confetti-3 { left: 74%; top: 70%; width: 12px; height: 12px; background: var(--nk-accent); }
-.confetti-4 { left: 20%; top: 74%; width: 7px; height: 7px; background: var(--nk-positive); }
-.confetti-5 { left: 50%; top: 8%; width: 9px; height: 9px; background: var(--nk-accent); }
-.confetti-6 { left: 92%; top: 46%; width: 7px; height: 7px; background: var(--nk-positive); }
-.confetti-7 { left: 6%; top: 48%; width: 11px; height: 11px; background: var(--nk-accent); }
-@media (prefers-reduced-motion: no-preference) {
-  .orb { animation: orb-pulse 2s ease-in-out infinite; }
-  .confetti-dot { animation: confetti-float 3.2s ease-in-out infinite; }
-  .confetti-2 { animation-delay: 0.4s; }
-  .confetti-3 { animation-delay: 0.8s; }
-  .confetti-4 { animation-delay: 1.2s; }
-  .confetti-5 { animation-delay: 1.6s; }
-  .confetti-6 { animation-delay: 2s; }
-  .confetti-7 { animation-delay: 2.4s; }
-  @keyframes orb-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-  @keyframes confetti-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+.slide-head { display: grid; gap: 14px; max-width: 780px; margin-bottom: 36px; }
+.slide-head h2 { font-size: clamp(30px, min(3.6vw, 6vh), 48px); }
+.slide-head-compact { gap: 10px; margin-bottom: 18px; }
+.slide-subtitle { color: var(--nk-ink-soft); font-size: 16px; line-height: 24px; }
+
+/* The paper-cut card: a sheet lifted off the surface by its own shadow, no borders. */
+.person, .milestone-card, .material, .start-card {
+  border-radius: 3px;
+  background: var(--nk-card);
+  box-shadow: 0 3px 0 rgba(43, 36, 33, 0.08), 0 12px 22px rgba(43, 36, 33, 0.12);
 }
-.badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--nk-accent-edge); border-radius: 999px; background: var(--nk-accent-soft); padding: 6px 12px; color: var(--nk-accent-ink); font-size: 12px; line-height: 16px; font-weight: 500; }
-.badge-ico { width: 14px; height: 14px; }
-.welcome-copy { max-width: 576px; margin: 24px auto 0; color: var(--nk-ink-soft); font-size: 18px; line-height: 29.25px; }
-.start-card { display: inline-flex; align-items: baseline; gap: 12px; margin-top: 40px; border: 1px solid var(--nk-accent-edge); border-radius: 16px; background: var(--nk-accent-soft); padding: 20px 32px; }
+
+/* ---- Slide 1: welcome (loud) ------------------------------------------- */
+.cover { padding-bottom: 0; }
+/* The hero's quiet sky is upper-left; hold the scrim there so the house and the sun stay. */
+.cover .art-scrim { background: linear-gradient(100deg, var(--art-scrim-strong) 0%, var(--art-scrim-strong) 38%, var(--art-scrim) 60%, transparent 84%); }
+.cover-wrap { display: flex; min-height: 100vh; max-width: 1200px; flex-direction: column; margin: 0 auto; padding: 32px 44px 118px; }
+/* Chip at the top edge, the whole welcome block centred under it. */
+.cover-main { max-width: 660px; margin: auto 0; padding: 24px 0; }
+.cover h1 { font-size: clamp(40px, min(6.2vw, 10vh), 84px); }
+.lead { max-width: 520px; margin-top: 26px; color: var(--nk-ink-soft); font-size: 18px; line-height: 28px; }
+.start-card { display: inline-flex; align-items: baseline; gap: 14px; margin-top: 34px; border-top: 4px solid var(--art-accent-2); padding: 16px 26px; }
 .start-card span { color: var(--nk-ink-soft); font-size: 14px; line-height: 20px; }
-.start-card strong { color: var(--nk-accent-ink); font-size: 24px; line-height: 32px; font-weight: 700; }
+.start-card strong { font-family: var(--nk-font-display); color: var(--art-accent); font-size: 26px; line-height: 32px; font-weight: 800; }
 
-/* Team */
-.team-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-.person { border: 1px solid var(--nk-edge); border-radius: 16px; background: var(--nk-card); padding: 20px; box-shadow: 0 1px 2px var(--nk-shadow-sm); }
-.person-lead { border-color: var(--nk-accent-edge); background: var(--nk-accent-soft); }
-.avatar, .avatar-photo { display: flex; width: 56px; height: 56px; margin-bottom: 16px; border-radius: 999px; }
-.avatar { align-items: center; justify-content: center; background: var(--nk-gradient); color: var(--nk-avatar-ink); font-size: 18px; line-height: 28px; font-weight: 700; }
-.avatar-photo { object-fit: cover; box-shadow: 0 0 0 1px var(--nk-edge); }
-.person h3 { font-size: 16px; line-height: 24px; font-weight: 600; }
-.role { margin-top: 2px; color: var(--nk-accent-ink); font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.025em; text-transform: uppercase; }
-.scope { margin-top: 12px; color: var(--nk-ink-soft); font-size: 14px; line-height: 22.75px; }
-.contact { margin-top: 12px; border-top: 1px solid var(--nk-edge); padding-top: 12px; color: var(--nk-ink-faint); font-size: 12px; line-height: 16px; font-weight: 500; overflow-wrap: anywhere; }
+/* ---- Slide 2: team (quiet) --------------------------------------------- */
+/* Short slides: the block is centred on the sheet instead of hanging from the top. */
+.quiet, .resources { display: grid; align-items: center; }
+.team-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.person { padding: 22px; }
+/* The lead card carries a strip of terracotta paper along its top edge. */
+.person-lead { box-shadow: inset 0 5px 0 var(--art-accent), 0 3px 0 rgba(43, 36, 33, 0.08), 0 12px 22px rgba(43, 36, 33, 0.12); }
+.avatar, .avatar-photo { display: block; width: 92px; height: 92px; margin-bottom: 18px; }
+/* Photos are pasted into the craft: paper mat from .art-sticker, tone from .art-duotone. */
+.avatar-photo { object-fit: cover; }
+.avatar { display: grid; place-items: center; background: var(--art-accent-2); color: var(--art-paper); font-family: var(--nk-font-display); font-size: 22px; font-weight: 800; }
+.avatar.art-sticker { background-clip: padding-box; }
+.person h3 { font-size: 17px; line-height: 24px; font-weight: 800; }
+.role { margin-top: 3px; color: var(--art-accent); font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.scope { margin-top: 12px; color: var(--nk-ink-soft); font-size: 14px; line-height: 22px; }
+.contact { margin-top: 14px; border-top: 2px solid var(--nk-edge); padding-top: 12px; color: var(--nk-ink-faint); font-size: 12px; line-height: 17px; font-weight: 600; overflow-wrap: anywhere; }
 
-/* First 30 days */
-.timeline { position: relative; display: grid; gap: 8px; }
-/* The margin-bottom is not decoration: it also applies to the absolutely positioned
-   line, where with top+bottom set it is subtracted from the height (8px shorter tail). */
-.timeline-line { position: absolute; top: 24px; bottom: 24px; left: 22.4px; width: 1px; margin-bottom: 8px; background: var(--nk-edge); }
-.milestone { position: relative; display: flex; gap: 20px; padding: 8px 0; }
-.milestone-icon { position: relative; z-index: 10; display: flex; width: 48px; height: 48px; flex: none; align-items: center; justify-content: center; border: 1px solid var(--nk-accent-edge); border-radius: 999px; background: var(--nk-card); color: var(--nk-accent-ink); box-shadow: 0 1px 2px var(--nk-shadow-sm); }
-.milestone-card { flex: 1; border: 1px solid var(--nk-edge); border-radius: 16px; background: var(--nk-card); padding: 16px 20px; box-shadow: 0 1px 2px var(--nk-shadow-sm); }
-.milestone-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
-.milestone-head h3 { font-size: 16px; line-height: 24px; font-weight: 600; }
-.date-chip { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--nk-accent-edge); border-radius: 999px; background: var(--nk-accent-soft); padding: 4px 12px; color: var(--nk-accent-ink); font-size: 12px; line-height: 16px; font-weight: 600; }
+/* ---- Slide 3: first 30 days (mid, opened by the mountain band) ---------- */
+.plan { display: grid; grid-template-rows: auto 1fr; align-items: center; }
+.plan .art-band { height: clamp(88px, 13vh, 168px); }
+.plan .wrap { padding-top: 28px; }
+.timeline { position: relative; display: grid; gap: 4px; }
+/* The rail is a strip of teal paper; the bottom margin keeps it short of the last card. */
+.timeline-line { position: absolute; top: 23px; bottom: 23px; left: 22px; width: 3px; margin-bottom: 8px; background: var(--art-accent-2); }
+.milestone { position: relative; display: flex; gap: 20px; padding: 4px 0; }
+.milestone-icon { position: relative; z-index: 2; display: grid; width: 47px; height: 47px; flex: none; place-items: center; border-radius: 999px; background: var(--art-accent); color: var(--art-paper); box-shadow: 0 3px 0 rgba(43, 36, 33, 0.1); }
+.milestone-card { flex: 1; padding: 15px 20px; }
+.milestone-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 5px; }
+.milestone-head h3 { font-size: 17px; line-height: 24px; font-weight: 800; }
+.date-chip { display: inline-flex; align-items: center; gap: 6px; background: var(--art-accent-2); padding: 4px 12px 4px 10px; color: var(--art-paper); font-size: 12px; line-height: 16px; font-weight: 700; clip-path: polygon(0 0, 100% 0, 94% 50%, 100% 100%, 0 100%); }
 .date-chip .ico { width: 14px; height: 14px; }
-.milestone-card > p { color: var(--nk-ink-soft); font-size: 14px; line-height: 22.75px; }
+.milestone-card > p { color: var(--nk-ink-soft); font-size: 14px; line-height: 22px; }
 
-/* Resources */
-.materials-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.material { display: flex; flex-direction: column; border: 1px solid var(--nk-edge); border-radius: 16px; background: var(--nk-card); padding: 24px; color: inherit; text-decoration: none; box-shadow: 0 1px 2px var(--nk-shadow-sm); transition: border-color 0.2s, box-shadow 0.2s; }
-.material:hover { border-color: var(--nk-accent-edge); box-shadow: 0 4px 6px -1px var(--nk-shadow-md); }
-.material-ico { width: 28px; height: 28px; margin-bottom: 16px; color: var(--nk-accent-ink); }
-.material h3 { font-size: 16px; line-height: 24px; font-weight: 600; }
-.material > p { flex: 1; margin-top: 8px; color: var(--nk-ink-soft); font-size: 14px; line-height: 22.75px; }
-.material-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; color: var(--nk-accent-ink); font-size: 14px; line-height: 20px; font-weight: 600; }
+/* ---- Slide 4: resources (loud, terracotta field) ----------------------- */
+/* On the terracotta sheet the pack's teal devices lose contrast: ink takes over. */
+.resources .art-chip { background: var(--art-ink); color: var(--art-paper); }
+.resources .art-mark { color: var(--art-ink); }
+/* The cut-out lives in the right margin: clear of the page counter and of the cards. */
+.spot-trophy { top: 88px; right: 34px; width: clamp(92px, 10vw, 156px); }
+.materials-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.material { display: flex; flex-direction: column; padding: 22px; color: var(--nk-ink); text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; }
+.material:hover { transform: translateY(-2px); box-shadow: 0 5px 0 rgba(43, 36, 33, 0.1), 0 18px 28px rgba(43, 36, 33, 0.16); }
+.material-ico { width: 28px; height: 28px; margin-bottom: 16px; color: var(--art-accent); }
+.material h3 { font-size: 17px; line-height: 24px; font-weight: 800; }
+.material > p { flex: 1; margin-top: 8px; color: var(--nk-ink-soft); font-size: 14px; line-height: 22px; }
+.material-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; color: var(--art-accent-2); font-size: 14px; line-height: 20px; font-weight: 800; }
 .external-ico { width: 14px; height: 14px; transition: transform 0.2s; }
 .material:hover .external-ico { transform: translateX(2px); }
-.sla { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 32px; border: 1px solid var(--nk-positive-edge); border-radius: 16px; background: var(--nk-positive-soft); padding: 20px 24px; }
+.sla { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; margin-top: 26px; border-radius: 3px; background: var(--art-accent-2); padding: 18px 24px; color: var(--art-paper); box-shadow: 0 3px 0 rgba(43, 36, 33, 0.12); }
 .sla-copy { display: flex; align-items: flex-start; gap: 12px; }
-.timer-ico { width: 20px; height: 20px; margin-top: 2px; color: var(--nk-positive-ink); }
-.sla-copy p { max-width: 576px; font-size: 14px; line-height: 22.75px; }
-.sla-manager { color: var(--nk-ink-soft); font-size: 14px; line-height: 20px; }
-.sla-manager strong { color: var(--nk-ink); font-weight: 600; }
+.timer-ico { width: 20px; height: 20px; margin-top: 2px; }
+.sla-copy p { max-width: 620px; font-size: 14px; line-height: 22px; }
+.sla-manager { font-size: 14px; line-height: 20px; }
+.sla-manager strong { font-weight: 700; }
 
-@media (max-width: 767px) {
-  .wrap { padding: 36px 24px 84px; }
-  h1 { font-size: 36px; line-height: 1.25; }
-  h2 { font-size: 30px; line-height: 36px; }
-  .team-grid { grid-template-columns: 1fr; }
+@media (max-width: 1023px) {
+  .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .materials-grid { grid-template-columns: 1fr; }
-  .milestone { gap: 12px; }
-  .milestone-card { padding: 16px; }
-  .timeline-line { left: 22.4px; }
-  .start-card { padding: 16px 20px; }
 }
 
-@media (min-width: 640px) and (max-width: 1023px) {
-  .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 767px) {
+  .wrap { padding: 32px 20px 0; }
+  /* Portrait crop of the hero keeps too little quiet paper: the scrim goes vertical. */
+  .cover .art-scrim { background: linear-gradient(180deg, var(--art-scrim-strong) 0%, var(--art-scrim-strong) 46%, var(--art-scrim) 68%, transparent 92%); }
+  /* The engine draws its swipe hint at top: 80px — the chip stays above it, clear of the panel button. */
+  .cover-wrap { min-height: 100vh; padding: 18px 20px 96px; }
+  .cover-top { padding-right: 76px; }
+  .cover-main { padding: 24px 0; }
+  .cover h1 { font-size: clamp(34px, 10vw, 54px); }
+  .lead { font-size: 16px; line-height: 25px; }
+  .slide-head h2 { font-size: clamp(26px, 7.4vw, 34px); }
+  .team-grid, .materials-grid { grid-template-columns: 1fr; }
+  .milestone { gap: 12px; }
+  .milestone-card { padding: 14px 16px; }
+  .timeline-line { left: 22px; }
+  /* On the phone it is pasted over the top corner of the first card. */
+  .spot-trophy { z-index: 3; top: 104px; right: -6px; width: clamp(76px, 24vw, 104px); }
+  .sla { padding: 16px 18px; }
 }

@@ -1,0 +1,22 @@
+{
+  "personalization": {
+    "companyName": "Granite Peak Dental",
+    "contactName": "Dr. Maya Lindqvist",
+    "quoteNumber": "Q-2026-118",
+    "quoteDate": "2026-07-08",
+    "validUntil": "2026-08-08",
+    "workstations": "38",
+    "servers": "2 servers, Microsoft 365, practice software",
+    "sites": "2",
+    "currentSetup": "A break-fix technician comes in twice a week; between visits problems pile up: the practice software freezes, printers drop offline, and there are no verified backups. A second clinic opens in September and the current setup doesn't scale to it.",
+    "setupFee": "1,800",
+    "stagesJson": "[{\"title\":\"Help desk and workstations\",\"costRub\":1520,\"rows\":\"Help desk | phone, email and chat; every request is ticketed\\nWorkstations | setup, updates and endpoint protection on 38 PCs\\nPrinters and peripherals | printers, scanners, supplies on request\"},{\"title\":\"Servers and network\",\"costRub\":980,\"rows\":\"Server administration | Windows Server, practice software, file storage\\nNetwork and internet | routers, Wi-Fi, site-to-site VPN\\nMonitoring | service uptime and disk capacity\"},{\"title\":\"Security and backups\",\"costRub\":640,\"rows\":\"Backups | daily, stored off-site\\nAccounts and access | user accounts, permissions, offboarding within 1 hour\\nSecurity patching | weekly maintenance window\"}]",
+    "workConditions": "The monthly fee is invoiced on the 1st and due within 10 days\nWork outside the service scope is billed at $145/hour after approval\nHardware and licenses are purchased by the client from our specification\n12-month agreement, cancel with 30 days' notice and no early-termination fee\nOnboarding of the second clinic is included in the onboarding fee",
+    "managerName": "Jordan Reyes",
+    "managerContact": "(206) 555-0177 · jordan@beaconit.co",
+    "customFields": []
+  },
+  "clientFacts": {},
+  "demoData": {},
+  "canPersist": true
+}

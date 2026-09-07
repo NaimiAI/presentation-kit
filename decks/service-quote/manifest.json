@@ -1,0 +1,136 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "service-quote",
+  "name": "Managed services quote — document",
+  "description": "Letter-size document: a preliminary quote for a monthly service — service blocks from the stages editor, two SLA tiers the client picks right in the document, onboarding plan, terms and confirmation",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "format": "document",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Company",
+        "placeholder": "Client company name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "contactName",
+        "label": "Contact",
+        "placeholder": "First and last name",
+        "type": "text"
+      },
+      {
+        "key": "quoteNumber",
+        "label": "Quote number",
+        "placeholder": "e.g. Q-2026-041",
+        "type": "text"
+      },
+      {
+        "key": "quoteDate",
+        "label": "Quote date",
+        "type": "date"
+      },
+      {
+        "key": "validUntil",
+        "label": "Valid through",
+        "type": "date"
+      },
+      {
+        "key": "workstations",
+        "label": "Workstations",
+        "placeholder": "e.g. 38",
+        "type": "text"
+      },
+      {
+        "key": "servers",
+        "label": "Servers and services",
+        "placeholder": "e.g. 2 servers, Microsoft 365, practice software",
+        "type": "text"
+      },
+      {
+        "key": "sites",
+        "label": "Locations",
+        "placeholder": "e.g. 2",
+        "type": "text"
+      },
+      {
+        "key": "currentSetup",
+        "label": "Where things stand today",
+        "placeholder": "Who supports them, what breaks, what is missing — 2–3 sentences",
+        "type": "textarea"
+      },
+      {
+        "key": "setupFee",
+        "label": "Onboarding fee, $ (one-time)",
+        "placeholder": "e.g. 1,800",
+        "type": "text"
+      },
+      {
+        "key": "workConditions",
+        "label": "Terms (one line per item)",
+        "placeholder": "The monthly fee is invoiced on the 1st",
+        "type": "textarea"
+      },
+      {
+        "key": "managerName",
+        "label": "Account manager",
+        "placeholder": "Who runs the deal",
+        "type": "text"
+      },
+      {
+        "key": "managerContact",
+        "label": "Manager's contact",
+        "placeholder": "Phone / email",
+        "type": "text"
+      }
+    ],
+    "showCustomFields": false,
+    "showStagesEditor": true
+  },
+  "demoData": {
+    "namespace": "serviceQuote",
+    "fields": [
+      {
+        "key": "serviceLevel",
+        "label": "Selected support tier",
+        "type": "string",
+        "defaultValue": "basic",
+        "collectFromClient": true,
+        "promoteToClientFacts": true
+      },
+      {
+        "key": "quoteDecision",
+        "label": "Client's decision on the quote",
+        "type": "string",
+        "defaultValue": "",
+        "collectFromClient": true,
+        "promoteToClientFacts": true
+      }
+    ]
+  },
+  "engine": "nk/0.10.0",
+  "slides": [
+    {
+      "id": "cover",
+      "title": "Quote and parameters"
+    },
+    {
+      "id": "services",
+      "title": "Service scope"
+    },
+    {
+      "id": "levels",
+      "title": "Support tiers"
+    },
+    {
+      "id": "terms",
+      "title": "Onboarding and terms"
+    },
+    {
+      "id": "approval",
+      "title": "Next step"
+    }
+  ]
+}

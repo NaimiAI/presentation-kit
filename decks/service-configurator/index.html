@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="en" data-theme="mint-fresh">
+<html lang="en" data-theme="clay-3d">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Service menu configurator</title>
   <link rel="stylesheet" href="naimi-kit/kit.css">
+  <link rel="stylesheet" href="assets/art/theme.css">
   <link rel="stylesheet" href="deck.css">
 </head>
 <body>
@@ -12,22 +13,25 @@
 
   <main id="deck" hidden>
 
-    <!-- Slide 1 — Interactive offer -->
-    <section class="hero" data-nk-slide="offer">
-      <div class="orbs" aria-hidden="true"><i class="orb orb-1"></i><i class="orb orb-2"></i></div>
-      <div class="wrap wrap-default center">
-        <div class="badge" data-animate="up">
-          <svg class="ico ico-sm" viewBox="0 0 24 24"><path d="M13 5h8"/><path d="M13 12h8"/><path d="M13 19h8"/><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/></svg>
-          <span>Interactive offer</span>
+    <!-- Slide 1 — Interactive offer (loud: the pack's shelf of clay objects closes the cover) -->
+    <section class="art-cover art-paper cover" data-nk-slide="offer">
+      <div class="art-content cover-wrap">
+        <div class="cover-top" data-animate="up">
+          <span class="art-chip">
+            <svg class="ico" viewBox="0 0 24 24"><path d="M13 5h8"/><path d="M13 12h8"/><path d="M13 19h8"/><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/></svg>
+            <span>Interactive offer</span>
+          </span>
         </div>
-        <h1 data-animate="up-lg" data-delay="0.1">
-          Build your marketing plan
-          <span class="gradient-text">for <span data-nk-text="companyName" data-nk-fallback="your company"></span></span>
-        </h1>
-        <p class="lead" data-animate="up" data-delay="0.2">
-          No “three fixed plans” — pick only what you actually need and see the
-          bundled price update as you go.
-        </p>
+        <div class="cover-main">
+          <h1 class="art-display" data-animate="up-lg" data-delay="0.1">
+            Build your marketing plan
+            <span class="art-mark">for <span data-nk-text="companyName" data-nk-fallback="your company"></span></span>
+          </h1>
+          <p class="lead" data-animate="up" data-delay="0.2">
+            No “three fixed plans” — pick only what you actually need and see the
+            bundled price update as you go.
+          </p>
+        </div>
         <div class="how-grid" data-animate="up" data-delay="0.3">
           <div class="how-card">
             <svg class="ico" viewBox="0 0 24 24"><path d="M14 4.1 12 6"/><path d="m5.1 8-2.9-.8"/><path d="m6 12-1.9 2"/><path d="M7.2 2.2 8 5.1"/><path d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z"/></svg>
@@ -43,14 +47,16 @@
           </div>
         </div>
       </div>
+      <img class="art-plate cover-shelf" src="assets/art/plates/band.webp" alt="" data-animate="up" data-delay="0.4">
     </section>
 
-    <!-- Slide 2 — Service configurator -->
-    <section class="shell" data-nk-slide="configurator">
-      <div class="wrap wrap-wide">
+    <!-- Slide 2 — Service configurator (quiet: the pack's paper, one clay spot) -->
+    <section class="art-paper config" data-nk-slide="configurator">
+      <img class="art-spot spot-chart" src="assets/art/plates/spot-3.webp" alt="" style="--art-rotate: -5deg" data-animate="scale" data-delay="0.5">
+      <div class="wrap">
         <header class="slide-head" data-animate="up">
-          <p class="kicker">Configurator</p>
-          <h2>Pick the services you need</h2>
+          <p class="art-chip">Configurator</p>
+          <h2 class="art-display">Pick the services <span class="art-mark">you need</span></h2>
           <p class="sub">Tap a card — the total below recalculates instantly.</p>
         </header>
 
@@ -106,12 +112,13 @@
       </div>
     </section>
 
-    <!-- Slide 3 — Estimate summary -->
-    <section class="shell" data-nk-slide="summary">
-      <div class="wrap wrap-wide summary-wrap">
+    <!-- Slide 3 — Estimate summary (loud: the pack's coral field) -->
+    <section class="art-field summary" data-nk-slide="summary">
+      <img class="art-spot spot-rocket" src="assets/art/plates/spot-2.webp" alt="" style="--art-rotate: 10deg" data-animate="scale" data-delay="0.6">
+      <div class="wrap">
         <header class="slide-head" data-animate="up">
-          <p class="kicker kicker-positive">Summary</p>
-          <h2>Estimate for <span data-nk-text="companyName" data-nk-fallback="your company"></span></h2>
+          <p class="art-chip">Summary</p>
+          <h2 class="art-display">Estimate for <span class="art-mark" data-nk-text="companyName" data-nk-fallback="your company"></span></h2>
           <p class="sub" data-nk-hide-empty="contactName">Prepared for <span data-nk-text="contactName"></span></p>
         </header>
 

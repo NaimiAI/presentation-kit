@@ -1,0 +1,25 @@
+{
+  "personalization": {
+    "companyName": "Northwind Credit Union",
+    "contactName": "Sofia Alvarez",
+    "contactTitle": "Head of Marketing",
+    "salutation": "Dear Ms. Alvarez",
+    "offerNumber": "PQ-2026-087",
+    "offerDate": "2026-10-14",
+    "validUntil": "2026-11-15",
+    "occasion": "for the holiday season",
+    "offerNote": "As requested, we added a wooden gift box with laser engraving — line 4 of the quote; at 300 sets or more its price drops to $8.90.",
+    "leadTime": "18 business days",
+    "specification": "\"Master\" fountain pen with engraved logo | PEN-114 | pcs | 250 | 24.50\n\"Morning\" mug with two-color decal | CUP-052 | pcs | 250 | 8.40\n\"Key\" keychain with laser-engraved logo | KEY-021 | pcs | 250 | 6.80\nWooden gift box with laser engraving | BOX-207 | pcs | 250 | 10.20\nGreeting card insert, premium stock | CARD-011 | pcs | 250 | 1.25\nKitting and shrink-wrap packaging | SRV-001 | set | 250 | 1.60",
+    "discountPercent": "5",
+    "taxRate": "6.25",
+    "deliveryTerms": "Free ground shipping to one address in Massachusetts within 2 business days of completion; branch drop-shipments by carrier at cost",
+    "paymentTerms": "50% deposit on order confirmation, 50% net 15 from the shipping notification",
+    "managerName": "Priya Nair",
+    "managerContact": "(617) 555-0138 · priya@harbormerch.co",
+    "customFields": []
+  },
+  "clientFacts": {},
+  "demoData": {},
+  "canPersist": true
+}

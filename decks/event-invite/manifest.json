@@ -63,19 +63,19 @@
       }
     ]
   },
-  "engine": "nk/0.9.0",
+  "engine": "nk/0.10.0",
   "slides": [
     {
       "id": "poster",
-      "title": "Poster"
+      "title": "Poster (loud)"
     },
     {
       "id": "agenda",
-      "title": "Program"
+      "title": "Program (quiet)"
     },
     {
       "id": "rsvp",
-      "title": "RSVP"
+      "title": "RSVP (loud)"
     }
   ]
 }

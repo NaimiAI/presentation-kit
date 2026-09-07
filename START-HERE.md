@@ -62,6 +62,14 @@ what that gives, ask first, don't install unasked.
   photos) raise quality a lot — actively ask for them. From a PDF or PPTX the kit pulls
   them out for you (`tools/ingest-source.mjs`, template skill), so the new deck carries
   the user's own photos and logo instead of placeholders.
+- **Ten ready art directions** — "art packs" (cyanotype blueprints, risograph prints,
+  engraving, sticker collage, Swiss poster, constructivist montage, clay renders,
+  paper-cut, charcoal sketches, painted skies): any deck can wear one, with real picture
+  plates and a display face, no image generation needed.
+- **Documents, not only slides.** A commercial offer, a quote, an estimate, a letter with
+  attachments — the things a sales team used to make in Word — are built as **portrait
+  documents**: A4 / Letter pages read by scrolling, still personalized and interactive, and
+  the PDF prints exactly like the Word document they replace.
 - **Personalization.** The user chooses which parts are unique per client — from the
   company name to a full priced estimate. The fill-in form for those fields is
   generated automatically.
@@ -137,12 +145,15 @@ usually publishing (**naimi-publish**) and then the first client presentation.
 | **Publish** a finished template, or push an edit | **naimi-publish** (`PUBLISH-SKILL.md`) |
 | Make/edit a **presentation** for a client; stats, deal status, **what the client answered**; manage clients | **naimi-client-presentations** (`PRESENTATIONS-SKILL.md`) |
 | **Service & account** — notifications, team, plan/billing, badge, custom domain, how presentations open (slides vs feed) | **naimi-client-presentations** (`PRESENTATIONS-SKILL.md`) |
+| Wants a particular **look** — bolder, warmer, more premium, "like a poster" — or a restyle of an existing deck | **naimi-template** (`TEMPLATE-SKILL.md` → "Art direction": ten ready art packs) |
+| A **commercial offer, quote, estimate or letter** that should read and print like a Word document — portrait pages, tables | **naimi-template** (`TEMPLATE-SKILL.md` → "Document format": start from a document deck) |
 | Just **see examples** first | The kit's `README.md` links a **live example for every ready-made deck** — hand those out, no account needed. Connected users can also fetch `GET /api/template-gallery` (Bearer auth) or browse `<URL>/app/authoring`. Ready-made decks can also be previewed locally (template skill). |
 
 When the user is building a template, settle three things before writing slides:
 **which fields are personalized per client** (and in what form — text, date, priced
-estimate…), **whether they have images**, and **how it opens for the client** (slides
-or a scrolling feed). Then hand off to the template skill.
+estimate…), **whether they have images**, and **slides or a document, and how it opens**
+(slides, a scrolling feed, or a portrait document for offers and estimates). Then hand
+off to the template skill.
 
 Read the skill the table routes to **in full** before acting, and use it as your own
 working instructions — don't lecture the user from it.

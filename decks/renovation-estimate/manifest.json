@@ -1,0 +1,157 @@
+{
+  "schemaVersion": "naimi.presentation.v1",
+  "id": "renovation-estimate",
+  "name": "Remodel estimate — document",
+  "description": "Letter-size document: a preliminary remodel estimate — scope of work and materials as sectioned tables, a summary with discount, the payment schedule, terms and the client's approval right in the document",
+  "entry": "index.html",
+  "preview": "preview.webp",
+  "format": "document",
+  "personalization": {
+    "fields": [
+      {
+        "key": "companyName",
+        "label": "Client",
+        "placeholder": "Household or company name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "contactName",
+        "label": "Contact",
+        "placeholder": "First and last name",
+        "type": "text"
+      },
+      {
+        "key": "estimateNumber",
+        "label": "Estimate number",
+        "placeholder": "e.g. EST-2026-041",
+        "type": "text"
+      },
+      {
+        "key": "estimateDate",
+        "label": "Estimate date",
+        "type": "date"
+      },
+      {
+        "key": "validUntil",
+        "label": "Pricing valid through",
+        "type": "date"
+      },
+      {
+        "key": "projectTitle",
+        "label": "Project title",
+        "placeholder": "e.g. Kitchen and bath remodel",
+        "type": "text"
+      },
+      {
+        "key": "objectAddress",
+        "label": "Property address",
+        "placeholder": "Street, city, state",
+        "type": "text"
+      },
+      {
+        "key": "objectArea",
+        "label": "Area, sq ft",
+        "placeholder": "e.g. 1,450",
+        "type": "text"
+      },
+      {
+        "key": "objectPhoto",
+        "label": "Property photo",
+        "type": "image"
+      },
+      {
+        "key": "projectDuration",
+        "label": "Timeline",
+        "placeholder": "e.g. 8–10 weeks",
+        "type": "text"
+      },
+      {
+        "key": "worksEstimate",
+        "label": "Estimate: labor (one line per item \"Description | unit | qty | rate\"; a section is a \"# Name\" line)",
+        "placeholder": "# Demolition\nRemove drywall partitions | SF | 240 | 3.50",
+        "type": "textarea"
+      },
+      {
+        "key": "materialsEstimate",
+        "label": "Estimate: materials (same format)",
+        "placeholder": "# Rough materials\nSelf-leveling underlayment, 50 lb | bag | 40 | 38",
+        "type": "textarea"
+      },
+      {
+        "key": "discountPercent",
+        "label": "Discount, %",
+        "placeholder": "e.g. 5",
+        "type": "text"
+      },
+      {
+        "key": "estimateNotes",
+        "label": "What is not included",
+        "placeholder": "Finish materials, furniture and appliances…",
+        "type": "textarea"
+      },
+      {
+        "key": "workConditions",
+        "label": "Terms (one line per item)",
+        "placeholder": "2-year workmanship warranty",
+        "type": "textarea"
+      },
+      {
+        "key": "managerName",
+        "label": "Project manager",
+        "placeholder": "Who runs the project",
+        "type": "text"
+      },
+      {
+        "key": "managerContact",
+        "label": "Manager's contact",
+        "placeholder": "Phone / email",
+        "type": "text"
+      }
+    ],
+    "showCustomFields": false
+  },
+  "demoData": {
+    "namespace": "renovationEstimate",
+    "fields": [
+      {
+        "key": "estimateDecision",
+        "label": "Client's decision on the estimate",
+        "type": "string",
+        "defaultValue": "",
+        "collectFromClient": true,
+        "promoteToClientFacts": true
+      },
+      {
+        "key": "clientComment",
+        "label": "Client's comments on the estimate",
+        "type": "string",
+        "defaultValue": "",
+        "collectFromClient": true
+      }
+    ]
+  },
+  "engine": "nk/0.10.0",
+  "slides": [
+    {
+      "id": "cover",
+      "title": "Cover"
+    },
+    {
+      "id": "works",
+      "title": "Scope of work"
+    },
+    {
+      "id": "materials",
+      "title": "Materials and summary"
+    },
+    {
+      "id": "terms",
+      "title": "Schedule and payment"
+    },
+    {
+      "id": "approval",
+      "title": "Approval"
+    }
+  ]
+}

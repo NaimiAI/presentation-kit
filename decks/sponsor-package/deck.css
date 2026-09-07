@@ -1,310 +1,230 @@
-/* "velvet-night" — an evening poster: deep aubergine, amber glow, fuchsia gradient. */
-:root[data-theme='velvet-night'] {
-  --nk-font-display: 'Inter', system-ui, sans-serif;
+/* sponsor-package — an event sponsorship offer dressed in the "poster-swiss" art pack.
+   Tokens, placement classes (.art-cover / .art-paper / .art-field / .art-band)
+   and the devices (.art-display / .art-mark / .art-chip / .art-num / .art-rule) come from
+   assets/art/theme.css; this file only lays out the deck's own blocks and colours them
+   through the pack's tokens.
+   Rhythm `pulse` over five slides: loud type-only cover (giant name on white paper, the
+   sponsor's name on a full-height blue field, the brush arrow between them) · mid audience
+   (four display numerals, the brush band as a divider) · quiet
+   packages · quiet benefits matrix · loud booking (the brush arrow into a blue action bar). */
 
-  --nk-surface: #171029;
-  --nk-card: rgba(255, 255, 255, 0.05);
-  --nk-ink: #f7f3ff;
-  --nk-ink-soft: #cfc4e8;
-  --nk-ink-faint: #9c90b8;
-  --nk-edge: rgba(247, 243, 255, 0.13);
-  --nk-accent: #f59e0b;
-  --nk-accent-ink: #fbbf24;
-  --nk-accent-soft: rgba(245, 158, 11, 0.13);
-  --nk-accent-edge: rgba(245, 158, 11, 0.4);
-  --nk-positive: #34d399;
-  --nk-positive-ink: #6ee7b7;
-  --nk-positive-soft: rgba(52, 211, 153, 0.13);
-  --nk-positive-edge: rgba(52, 211, 153, 0.35);
-  --nk-critical: #fb7185;
-  --nk-critical-soft: rgba(251, 113, 133, 0.13);
-  --nk-critical-edge: rgba(251, 113, 133, 0.35);
-
-  --nk-gradient: linear-gradient(120deg, #f59e0b 0%, #e879f9 55%, #8b5cf6 100%);
-  --nk-orb-1: rgba(245, 158, 11, 0.13);
-  --nk-orb-2: rgba(217, 70, 239, 0.16);
-  --nk-poster-overlay: linear-gradient(180deg, rgba(23, 16, 41, 0.72) 0%, rgba(23, 16, 41, 0.86) 55%, rgba(23, 16, 41, 0.97) 100%);
-  --nk-audience-wash: linear-gradient(90deg, rgba(23, 16, 41, 0.55) 0%, rgba(23, 16, 41, 0.15) 45%, rgba(23, 16, 41, 0.55) 100%);
-  --nk-selection-shadow: rgba(245, 158, 11, 0.18);
-
-  --nk-nav-fade: rgba(23, 16, 41, 0.92);
-  --nk-nav-button: rgba(247, 243, 255, 0.08);
-  --nk-nav-button-hover: rgba(247, 243, 255, 0.16);
-  --nk-nav-chip: rgba(247, 243, 255, 0.1);
-  --nk-nav-border: rgba(247, 243, 255, 0.16);
-  --nk-nav-icon: #f7f3ff;
-  --nk-nav-dot: rgba(156, 144, 184, 0.45);
-  --nk-nav-dot-hover: rgba(156, 144, 184, 0.7);
-  --nk-nav-dot-active: #f59e0b;
-}
-
-/* Slide shell. */
 section {
   position: relative;
   min-height: 100%;
   width: 100%;
   overflow: hidden;
   background: var(--nk-surface);
+  color: var(--nk-ink);
   padding-bottom: 96px;
 }
-.shell { display: block; }
-.poster, .booking { display: flex; }
-
-.wrap { position: relative; z-index: 10; margin: 0 auto; width: 100%; padding: 56px 32px; }
-.wrap-4xl { max-width: 56rem; }
-.wrap-5xl { max-width: 64rem; }
-.poster .wrap,
-.booking .wrap { margin: auto; padding-top: 48px; padding-bottom: 48px; }
-.poster .wrap { display: flex; flex-direction: column; align-items: center; }
-.center { text-align: center; }
-
+.wrap { position: relative; z-index: 2; width: 100%; max-width: 1120px; margin: 0 auto; padding: 38px 40px 0; }
 .ico { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.ico-accent { color: var(--nk-accent-ink); }
-.ico-positive { color: var(--nk-positive-ink); }
-
-/* Full-bleed stage image and the two guarded background orbs. */
-.poster-photo {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; opacity: 0.25; pointer-events: none;
-}
-.poster-overlay { position: absolute; inset: 0; background: var(--nk-poster-overlay); pointer-events: none; }
-.orbs { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
-.orb { position: absolute; width: 384px; height: 384px; border-radius: 999px; filter: blur(64px); }
-.orb-1 { top: 25%; left: 25%; background: var(--nk-orb-1); }
-.orb-2 { bottom: 25%; right: 25%; background: var(--nk-orb-2); }
-@media (prefers-reduced-motion: no-preference) {
-  .orb { animation: orb-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-  @keyframes orb-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+.ico-accent { color: var(--art-accent); }
+.mark { display: block; pointer-events: none; }
+/* Chips stay compact both in grid heads and in flex columns. */
+.art-chip { align-self: flex-start; justify-self: start; }
+/* Mono caps — the pack's grammar for every small label in the deck. */
+.cover-facts, .cover-for-label, .tiers-hint, .tier-seats, .profile-head,
+.booking-tier, .booking-label, .matrix th.matrix-feature {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
-/* Typography shared by content slides. */
-.kicker {
-  font-size: 12px; line-height: 16px; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.4em;
-  color: var(--nk-accent-ink);
-}
-.slide-title {
-  margin-top: 16px;
-  font-family: var(--nk-font-display);
-  font-size: 48px; line-height: 1.25; font-weight: 800;
-  color: var(--nk-ink);
-}
-.slide-title-narrow { max-width: 42rem; }
+/* Cyrillic letters with a breve or diaeresis (I-kratkoye, Yo) carry their marks above the cap height: at the pack's 0.88 leading they
+   run into the line above, so the deck's headlines are set a touch looser. */
+.art-display { line-height: 0.97; }
 
-/* Slide 1 — poster. */
-.poster-glow {
-  position: absolute; top: -128px; left: 50%; transform: translateX(-50%);
-  width: 42rem; height: 384px; border-radius: 999px;
-  background: color-mix(in srgb, var(--nk-accent) 10%, transparent);
-  filter: blur(64px); pointer-events: none;
-}
-.poster-kind {
-  font-size: 12px; line-height: 16px; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.5em;
-  color: var(--nk-ink-faint);
-}
-.poster-title {
-  margin-top: 24px;
-  font-family: var(--nk-font-display);
-  font-size: 96px; line-height: 0.9; font-weight: 900;
-  text-transform: uppercase; letter-spacing: -0.025em;
-  color: var(--nk-ink);
-}
-.poster-title-2 { display: block; }
-.poster-facts {
-  margin-top: 32px; display: flex; flex-wrap: wrap;
-  align-items: center; justify-content: center; gap: 12px;
-  font-size: 14px; line-height: 20px; font-weight: 500;
-  color: var(--nk-ink-soft);
-}
-.fact {
-  border-radius: 999px; border: 1px solid var(--nk-edge);
-  background: var(--nk-card); padding: 8px 16px; backdrop-filter: blur(4px);
-}
-.poster-for {
-  margin-top: 56px;
-  border: 1px solid var(--nk-accent-edge); background: var(--nk-accent-soft);
-  padding: 20px 32px; backdrop-filter: blur(4px);
-}
-.poster-for-label {
-  font-size: 11px; line-height: 1.5; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.35em;
-  color: var(--nk-accent-ink);
-}
-.poster-for-company {
-  margin-top: 8px;
-  font-family: var(--nk-font-display);
-  font-size: 30px; line-height: 36px; font-weight: 700;
-  color: var(--nk-ink);
-}
-.poster-note {
-  margin-top: 40px; max-width: 28rem;
-  font-size: 14px; line-height: 1.625;
-  color: var(--nk-ink-faint);
-}
+.slide-head { display: grid; gap: 10px; max-width: 900px; }
+/* The display size follows both axes, so a long headline still clears the navbar. */
+.slide-title { font-size: clamp(30px, min(4.6vw, 6.6vh), 60px); }
 
-/* Slide 2 — audience. */
-.stats { margin-top: 48px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-.stat {
-  border-radius: 16px; border: 1px solid var(--nk-edge);
-  background: var(--nk-card); padding: 24px; backdrop-filter: blur(4px);
+/* ---- Slide 1: cover (loud) --------------------------------------------- */
+/* A type-only poster: no photography at all, so the deck cannot be mistaken for the other
+   deck on this pack. White paper carries the giant event name; the blue field is a full-
+   height column on the right holding the one personalised line — the sponsor's own name. */
+.cover { --cover-field: 41%; min-height: 100vh; padding-bottom: 0; }
+/* The name sits at the top, the whole information block at the foot: the air between them
+   is the poster's, not a hole left over. Top padding clears the engine's panel buttons. */
+.cover-wrap {
+  display: flex; flex-direction: column; justify-content: space-between; gap: 26px;
+  min-height: 100vh;
+  padding: 84px calc(var(--cover-field) + 54px) 104px 56px;
 }
-.stat-value {
-  font-family: var(--nk-font-display);
-  font-size: 36px; line-height: 40px; font-weight: 900;
-  font-variant-numeric: tabular-nums;
+.cover-title { margin-top: 22px; font-size: clamp(40px, min(16vw, 22vh), 200px); }
+.cover-rule { border-top: 4px solid var(--art-ink); }
+.cover-facts {
+  margin-top: 14px; display: flex; flex-wrap: wrap; column-gap: 26px; row-gap: 6px;
+  font-size: 12px; line-height: 18px; color: var(--nk-ink-soft);
 }
-.stat-label { margin-top: 8px; font-size: 14px; line-height: 20px; font-weight: 600; color: var(--nk-ink); }
-.stat-note { margin-top: 4px; font-size: 12px; line-height: 1.625; color: var(--nk-ink-faint); }
+/* The brush arrow points off the paper into the blue field — "this one is yours". */
+.cover-foot-row { margin-top: 24px; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+.cover-note { max-width: 30rem; font-size: 15px; line-height: 24px; color: var(--nk-ink-soft); }
+.cover-arrow { width: clamp(64px, 7.5vw, 124px); height: auto; flex: none; }
+/* The blue field is the poster's second colour block: the sponsor's own name, set big. */
+.cover-for {
+  position: absolute; top: 0; right: 0; bottom: 0; z-index: 1;
+  width: var(--cover-field);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 40px 44px 128px;
+}
+.cover-for-label {
+  border-top: 3px solid rgba(255, 255, 255, 0.9); padding-top: 12px;
+  font-size: 11px; line-height: 16px; color: rgba(255, 255, 255, 0.85);
+}
+.cover-for-company { margin-top: 14px; font-size: clamp(26px, min(5.4vw, 7.4vh), 84px); }
 
-.audience-photo {
-  position: relative; margin-top: 40px; overflow: hidden;
-  border-radius: 16px; border: 1px solid var(--nk-edge); aspect-ratio: 16 / 6;
-  /* The border WRAPS the aspect box; with border-box it would eat 1.25px of height. */
-  box-sizing: content-box; width: calc(100% - 2px);
-}
-.audience-photo img { width: 100%; height: 100%; object-fit: cover; }
-.audience-photo-wash { position: absolute; inset: 0; background: var(--nk-audience-wash); }
+/* Quiet slides hold their block in the middle of the paper. Auto margins, not
+   justify-content: center — with content taller than the slide they collapse to 0
+   instead of cutting the top off. */
+.tiers-slide, .benefits { display: flex; flex-direction: column; }
+.tiers-slide > .wrap, .benefits > .wrap { margin-top: auto; margin-bottom: auto; }
 
-.profile { margin-top: 32px; }
-.profile-head {
-  font-size: 12px; line-height: 16px;
-  text-transform: uppercase; letter-spacing: 0.3em;
-  color: var(--nk-ink-faint);
-}
-.profile-chips { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 12px; }
-.chip {
-  border-radius: 999px; border: 1px solid var(--nk-edge); background: var(--nk-card);
-  padding: 10px 20px; font-size: 14px; line-height: 20px; color: var(--nk-ink-soft);
-}
+/* ---- Slide 2: audience (mid) ------------------------------------------- */
+.audience { display: flex; flex-direction: column; }
+.audience > .wrap { margin-top: auto; }
+.audience > .wrap-foot { margin-top: 0; margin-bottom: auto; }
+.stats { margin-top: 32px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 26px; }
+/* Each number is a column of its own under a heavy rule — a poster table, not cards. */
+.stat { border-top: 3px solid var(--art-ink); padding-top: 14px; }
+.stat-value { font-size: clamp(34px, min(4.4vw, 6.6vh), 72px); font-variant-numeric: tabular-nums; }
+.stat-label { margin-top: 10px; font-size: 15px; line-height: 20px; font-weight: 700; }
+.stat-note { margin-top: 4px; font-size: 13px; line-height: 18px; color: var(--nk-ink-faint); }
+.audience .art-band { margin-top: 34px; height: clamp(84px, 12.5vh, 140px); }
+.wrap-foot { padding-top: 26px; }
+.profile-head { font-size: 11px; line-height: 16px; color: var(--nk-ink-faint); }
+.profile-chips { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 10px; }
+.chip { border: 2px solid var(--art-ink); padding: 8px 14px; font-size: 14px; line-height: 20px; }
 
-/* Slide 3 — packages. */
-.tiers-head { margin-top: 16px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; }
-.tiers-head .slide-title { margin-top: 0; }
-.tiers-hint { font-size: 14px; line-height: 20px; color: var(--nk-ink-faint); }
-
-.tiers { margin-top: 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+/* ---- Slide 3: packages (quiet) ----------------------------------------- */
+.tiers-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; max-width: none; }
+.tiers-head .slide-title { margin-top: 8px; }
+.tiers-hint { font-size: 11px; line-height: 16px; color: var(--nk-ink-faint); }
+.tiers { margin-top: 34px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .tier {
-  position: relative; display: flex; flex-direction: column;
-  border-radius: 16px; border: 1px solid var(--nk-edge);
-  background: var(--nk-card); padding: 28px; text-align: left;
-  backdrop-filter: blur(4px);
-  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  position: relative; display: flex; flex-direction: column; text-align: left;
+  border: 3px solid var(--art-ink); background: var(--art-paper); color: var(--art-ink);
+  padding: 26px 22px 20px;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
-.tier:hover { border-color: var(--nk-accent-edge); }
-.tier[aria-pressed='true'] {
-  border-color: var(--nk-accent); background: var(--nk-accent-soft);
-  box-shadow: 0 0 45px var(--nk-selection-shadow);
-}
+.tier:hover { border-color: var(--art-accent); }
+/* Selected package: the card becomes the blue field itself. */
+.tier[aria-pressed='true'] { border-color: var(--art-accent); background: var(--art-accent); color: var(--art-field-ink); }
 .tier-flagship {
-  position: absolute; top: -12px; left: 24px;
-  border-radius: 999px; background: var(--nk-gradient); padding: 4px 12px;
-  font-size: 10px; line-height: 1.5; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.1em;
-  color: var(--nk-surface);
+  position: absolute; top: -13px; left: 18px;
+  background: var(--art-accent); color: #fff; padding: 4px 12px 5px;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 10px; line-height: 16px; letter-spacing: 0.14em; text-transform: uppercase;
 }
+.tier[aria-pressed='true'] .tier-flagship { background: var(--art-ink); }
 .tier-label {
-  font-size: 14px; line-height: 20px; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.05em;
-  color: var(--nk-ink-soft);
+  font-family: var(--nk-font-display); font-weight: 600;
+  font-size: clamp(18px, 2vw, 24px); line-height: 1.1;
+  text-transform: uppercase; letter-spacing: 0.02em;
 }
 .tier-price {
-  margin-top: 16px;
-  font-family: var(--nk-font-display);
-  font-size: 30px; line-height: 36px; font-weight: 900;
-  font-variant-numeric: tabular-nums;
-  color: var(--nk-ink);
+  margin-top: 10px;
+  font-family: var(--nk-font-display); font-weight: 700;
+  font-size: clamp(28px, min(3.4vw, 5vh), 46px); line-height: 1;
+  font-variant-numeric: tabular-nums; color: var(--art-accent);
 }
-.tier[aria-pressed='true'] .tier-price { color: var(--nk-accent-ink); }
-.tier-seats { margin-top: 4px; font-size: 12px; line-height: 16px; color: var(--nk-ink-faint); }
-.tier-vibe { margin-top: 20px; font-size: 14px; line-height: 1.625; color: var(--nk-ink-soft); }
+.tier[aria-pressed='true'] .tier-price { color: var(--art-field-ink); }
+.tier-seats { margin-top: 8px; font-size: 10px; line-height: 16px; color: var(--nk-ink-faint); }
+.tier[aria-pressed='true'] .tier-seats { color: rgba(255, 255, 255, 0.78); }
+.tier-vibe { flex: 1; margin-top: 16px; font-size: 14px; line-height: 22px; color: var(--nk-ink-soft); }
+.tier[aria-pressed='true'] .tier-vibe { color: rgba(255, 255, 255, 0.92); }
 .tier-state {
-  margin-top: 24px; display: inline-flex; align-items: center; gap: 8px;
-  font-size: 12px; line-height: 16px; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.1em;
-  color: var(--nk-ink-faint);
+  margin-top: 20px; border-top: 2px solid currentColor; padding-top: 10px;
+  font-family: var(--nk-font-display); font-weight: 600;
+  font-size: 15px; line-height: 20px; text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--art-accent);
 }
-.tier[aria-pressed='true'] .tier-state { color: var(--nk-accent-ink); }
+.tier[aria-pressed='true'] .tier-state { color: var(--art-field-ink); }
 .tier-state-on { display: none; }
 .tier[aria-pressed='true'] .tier-state-off { display: none; }
 .tier[aria-pressed='true'] .tier-state-on { display: inline; }
+.tiers-note { margin-top: 30px; max-width: 60rem; font-size: 14px; line-height: 22px; color: var(--nk-ink-faint); }
 
-.tiers-note { margin-top: 32px; font-size: 14px; line-height: 1.625; color: var(--nk-ink-faint); }
-
-/* Slide 4 — benefits matrix. */
-.matrix-scroll { margin-top: 40px; overflow-x: auto; }
-.matrix { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 14px; line-height: 20px; }
+/* ---- Slide 4: benefits matrix (quiet) ---------------------------------- */
+.head-underline { width: clamp(180px, 26vw, 340px); margin-top: -2px; }
+.matrix-scroll { margin-top: 28px; overflow-x: auto; }
+.matrix { width: 100%; min-width: 680px; border-collapse: collapse; font-size: 14px; line-height: 20px; }
 .matrix th {
-  padding-bottom: 12px; border-bottom: 1px solid var(--nk-edge);
-  font-size: 12px; line-height: 16px; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.2em; text-align: center;
-  color: var(--nk-ink-faint);
+  padding: 0 10px 12px; border-bottom: 3px solid var(--art-ink); text-align: center;
+  font-family: var(--nk-font-display); font-weight: 600;
+  font-size: 19px; line-height: 24px; text-transform: uppercase; letter-spacing: 0.02em;
 }
-.matrix th.matrix-feature { width: 38%; text-align: left; }
-.matrix th.is-active { border-bottom-color: var(--nk-accent); color: var(--nk-accent-ink); }
+.matrix th.matrix-feature { width: 40%; padding-left: 0; text-align: left; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-weight: 400; font-size: 11px; line-height: 16px; color: var(--nk-ink-faint); }
+/* The package chosen on the previous slide owns its column. */
+.matrix th.is-active { border-bottom-color: var(--art-accent); color: var(--art-accent); }
 .th-check { display: none; margin-left: 6px; }
 .matrix th.is-active .th-check { display: inline; }
+.matrix td { padding: 13px 10px; border-bottom: 1px solid var(--nk-edge); text-align: center; font-weight: 600; }
+.matrix td.matrix-feature { padding-left: 0; padding-right: 20px; text-align: left; font-weight: 400; line-height: 22px; color: var(--nk-ink-soft); }
+.matrix td.is-active { border-bottom-color: var(--art-accent); background: var(--nk-accent-soft); }
+.yes { font-weight: 700; color: var(--art-accent); }
+.dash { color: color-mix(in srgb, var(--nk-ink-faint) 55%, transparent); }
+.matrix-note { margin-top: 22px; font-size: 13px; line-height: 20px; color: var(--nk-ink-faint); }
 
-.matrix td {
-  padding-top: 14px; padding-bottom: 14px;
-  border-bottom: 1px solid var(--nk-edge);
-  text-align: center; font-weight: 500; color: var(--nk-ink);
-}
-.matrix td.matrix-feature {
-  padding-right: 16px; text-align: left; font-weight: 400;
-  line-height: 1.625; color: var(--nk-ink-soft);
-}
-.matrix td.is-active { border-bottom-color: var(--nk-accent-edge); background: var(--nk-accent-soft); }
-.yes { color: var(--nk-positive-ink); }
-.dash { color: color-mix(in srgb, var(--nk-ink-faint) 50%, transparent); }
-
-.matrix-note { margin-top: 24px; font-size: 12px; line-height: 16px; color: var(--nk-ink-faint); }
-
-/* Slide 5 — booking. */
-.booking-tier { margin-top: 12px; font-size: 14px; line-height: 20px; color: var(--nk-ink-soft); }
-.booking-grid { margin-top: 40px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.booking-card {
-  border-radius: 16px; border: 1px solid var(--nk-edge);
-  background: var(--nk-card); padding: 24px; backdrop-filter: blur(4px);
-}
-.booking-card-accent {
-  grid-column: span 2;
-  border-color: var(--nk-accent-edge); background: var(--nk-accent-soft);
-}
+/* ---- Slide 5: booking (loud) ------------------------------------------- */
+.booking { display: flex; flex-direction: column; }
+.booking-body { flex: 1; display: flex; flex-direction: column; padding-bottom: 34px; }
+.booking-body > .art-chip { margin-top: auto; }
+.booking-grid { margin-bottom: auto; }
+.booking-title { margin-top: 16px; max-width: 20ch; font-size: clamp(32px, min(5.4vw, 7.6vh), 78px); }
+.booking-tier { margin-top: 14px; font-size: 11px; line-height: 16px; color: var(--art-accent); }
+.booking-grid { margin-top: 28px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.booking-card { border: 3px solid var(--art-ink); background: var(--art-paper); padding: 20px 22px; }
+.booking-card-accent { grid-column: span 2; border-color: var(--art-accent); background: var(--nk-accent-soft); }
 .booking-special { display: flex; align-items: flex-start; gap: 12px; }
-.booking-special .ico { margin-top: 2px; color: var(--nk-accent-ink); }
-.booking-label {
-  margin-top: 12px;
-  font-size: 12px; line-height: 16px; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.25em;
-  color: var(--nk-ink-faint);
-}
-.booking-label-accent { margin-top: 0; color: var(--nk-accent-ink); }
-.booking-terms { margin-top: 8px; font-size: 14px; line-height: 1.625; color: var(--nk-ink); }
-.booking-hint { margin-top: 8px; font-size: 12px; line-height: 1.625; color: var(--nk-ink-faint); }
+.booking-special .ico { margin-top: 2px; }
+.booking-label { margin-top: 12px; font-size: 11px; line-height: 16px; color: var(--nk-ink-faint); }
+.booking-label-accent { margin-top: 0; color: var(--art-accent); }
+.booking-terms { margin-top: 8px; font-size: 15px; line-height: 24px; }
 .booking-value {
   margin-top: 8px;
-  font-family: var(--nk-font-display);
-  font-size: 20px; line-height: 28px; font-weight: 700;
-  color: var(--nk-ink);
+  font-family: var(--nk-font-display); font-weight: 600;
+  font-size: 24px; line-height: 28px; text-transform: uppercase; letter-spacing: 0.02em;
 }
 .booking-contact { margin-top: 4px; font-size: 14px; line-height: 20px; color: var(--nk-ink-soft); }
-.booking-org { margin-top: 8px; font-size: 12px; line-height: 16px; color: var(--nk-ink-faint); }
-.booking-next { margin-top: 32px; font-size: 14px; line-height: 1.625; color: var(--nk-ink-faint); }
+.booking-hint { margin-top: 8px; font-size: 13px; line-height: 20px; color: var(--nk-ink-faint); }
+.booking-org { margin-top: 8px; font-size: 13px; line-height: 18px; color: var(--nk-ink-faint); }
+/* The brush arrow points into the blue bar that bleeds off the right edge — the close. */
+.booking-close { display: flex; align-items: center; gap: 18px; padding-left: 40px; }
+.booking-arrow { width: clamp(86px, 10vw, 148px); height: auto; flex: none; }
+.booking-next-bar { flex: 1; padding: 22px 40px; }
+.booking-next { max-width: 46rem; font-size: 15px; line-height: 24px; }
 
-/* Responsive layout: long slides stay vertically readable in the engine scroll area. */
+/* --------------------------------------------------------------- responsive */
 @media (max-width: 1023px) {
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 767px) {
-  .wrap { padding-left: 24px; padding-right: 24px; }
-  .poster-title { font-size: 60px; }
-  .poster-for-company { font-size: 24px; line-height: 32px; }
-  .slide-title { font-size: 30px; line-height: 1.25; }
   .tiers { grid-template-columns: 1fr; }
 }
+@media (max-width: 767px) {
+  .wrap { padding: 32px 22px 0; }
+  /* Portrait: the poster stacks — paper on top, the blue field a band that bleeds off the
+     bottom edge; the kicker keeps its corner (clear of the engine's panel button) and stays
+     above the swipe hint at top: 80px. */
+  .cover { display: flex; flex-direction: column; }
+  /* Top padding clears the engine's swipe hint (top: 80px); the blue field takes whatever
+     height is left, so the poster reads as a white half over a blue half. */
+  .cover-wrap { min-height: 0; flex: none; justify-content: flex-start; gap: 0; padding: 148px 22px 30px; }
+  .cover-kicker { position: absolute; top: 24px; left: 22px; right: 68px; }
+  .cover-title { margin-top: 0; font-size: clamp(34px, 14vw, 72px); }
+  .cover-foot { margin-top: 30px; }
+  .cover-note { max-width: none; }
+  .cover-arrow { display: none; }
+  .cover-for { position: static; flex: 1; width: auto; padding: 26px 22px 112px; }
+  .cover-for-company { font-size: clamp(24px, 8.5vw, 46px); }
+  .slide-title { font-size: 28px; }
+  .booking-title { font-size: 30px; }
+  .stat-value { font-size: 40px; }
+  .booking-close { gap: 12px; padding-left: 22px; }
+  .booking-arrow { width: 64px; }
+  .booking-next-bar { padding: 18px 22px; }
+}
 @media (max-width: 639px) {
-  .stats { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr; gap: 20px; }
   .booking-grid { grid-template-columns: 1fr; }
   .booking-card-accent { grid-column: auto; }
 }

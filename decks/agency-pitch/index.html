@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en" data-theme="sticker-pop">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agency campaign pitch</title>
+  <link rel="stylesheet" href="naimi-kit/kit.css">
+  <link rel="stylesheet" href="assets/art/theme.css">
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+  <div id="root"></div>
+
+  <main id="deck" hidden>
+
+    <!-- Slide 1 — Cover -->
+    <section class="art-cover cover" data-nk-slide="cover">
+      <img class="art-plate art-plate--bleed" src="assets/art/plates/hero.webp" alt="" style="--art-focus: right">
+      <div class="art-scrim" aria-hidden="true"></div>
+      <img class="art-spot cover-figure" src="assets/art/plates/figure.webp" alt="" data-animate="up-lg" data-delay="0.25">
+      <div class="art-content cover-wrap">
+        <div class="cover-top" data-animate="up">
+          <span class="art-chip"><i class="rec" aria-hidden="true"></i> pitch · 6 slides</span>
+          <span class="art-chip">Now playing: <strong data-nk-text="campaignName" data-nk-fallback="your next campaign"></strong></span>
+        </div>
+        <div class="cover-main">
+          <h1 class="art-display" data-animate="up-lg" data-delay="0.1">
+            Make noise<br>for <span class="art-mark" data-nk-text="companyName" data-nk-fallback="your brand"></span>
+          </h1>
+          <img class="mark mark-scribble" src="assets/art/marks/scribble.svg" alt="" data-animate="scale" data-delay="0.35">
+          <p class="lead" data-animate="up" data-delay="0.3">
+            A campaign built for the feed, not the boardroom: one idea, every channel, measured every week.
+          </p>
+        </div>
+        <div class="cover-meta" data-animate="up" data-delay="0.45">
+          <span>Prepared for <strong data-nk-text="contactName" data-nk-fallback="you"></strong></span>
+          <span>Loud &amp; Co. — creative agency</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2 — Why now -->
+    <section class="art-paper quiet" data-nk-slide="why-now">
+      <img class="art-spot art-spot--sm spot-bolt" src="assets/art/plates/spot-3.webp" alt="" style="--art-rotate: 12deg" data-animate="scale" data-delay="0.4">
+      <div class="wrap">
+        <header class="slide-head" data-animate="up">
+          <p class="art-chip">01 · why now</p>
+          <h2 class="art-display">The old playbook stalls <span class="art-mark">in the feed</span></h2>
+        </header>
+        <div class="stats" data-stagger="0.1" data-stagger-base="0.15">
+          <div class="stat" data-animate="up">
+            <p class="art-num">8 s</p>
+            <p class="stat-label">of attention before the thumb moves on</p>
+          </div>
+          <div class="stat" data-animate="up">
+            <p class="art-num">1/20</p>
+            <p class="stat-label">ads a person can recall the next day</p>
+          </div>
+          <div class="stat" data-animate="up">
+            <p class="art-num">70%</p>
+            <p class="stat-label">of brand discovery now starts in short video</p>
+          </div>
+        </div>
+        <div class="heard" data-animate="up" data-delay="0.45">
+          <img class="mark mark-arrow" src="assets/art/marks/arrow.svg" alt="">
+          <div>
+            <p class="heard-label">What we heard from <span data-nk-text="companyName" data-nk-fallback="you"></span></p>
+            <p class="heard-text" data-nk-text="campaignGoal" data-nk-fallback="Reach a younger audience without losing the brand's voice — and prove it with numbers, not vibes."></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3 — The idea -->
+    <section class="art-field loud idea" data-nk-slide="idea">
+      <img class="art-spot art-spot--lg spot-megaphone" src="assets/art/plates/spot-2.webp" alt="" style="--art-rotate: -10deg" data-animate="scale" data-delay="0.3">
+      <img class="mark mark-sparkle" src="assets/art/marks/sparkle.svg" alt="" data-animate="scale" data-delay="0.5">
+      <div class="wrap">
+        <p class="art-chip" data-animate="up">02 · the idea</p>
+        <h2 class="art-display idea-title" data-animate="up-lg" data-delay="0.1">One idea.<br>Every channel.</h2>
+        <img class="mark mark-underline" src="assets/art/marks/underline.svg" alt="" data-animate="scale" data-delay="0.3">
+        <p class="idea-text" data-nk-text="campaignIdea" data-nk-fallback="A weekly drop of creator-made clips built around one repeatable format — the same joke, a new guest every time — so the audience learns the rhythm and comes back for the next one." data-animate="up" data-delay="0.35"></p>
+      </div>
+    </section>
+
+    <!-- Slide 4 — Packages -->
+    <section class="art-paper quiet packages" data-nk-slide="packages">
+      <div class="wrap">
+        <header class="slide-head" data-animate="up">
+          <p class="art-chip">03 · pick your volume</p>
+          <h2 class="art-display">Pick your <span class="art-mark">volume</span></h2>
+        </header>
+        <div class="pkg-grid" data-stagger="0.1" data-stagger-base="0.15">
+          <button type="button" class="pkg" data-nk-field="package" data-nk-value="spark" data-nk-action="package-select" data-animate="up">
+            <span class="pkg-name">Spark</span>
+            <span class="pkg-price">$3,000<small>/month</small></span>
+            <ul class="pkg-list">
+              <li>2 channels, 4 clips a week</li>
+              <li>One creator, one format</li>
+              <li>Monthly report</li>
+            </ul>
+          </button>
+          <button type="button" class="pkg" data-nk-field="package" data-nk-value="surge" data-nk-action="package-select" data-animate="up">
+            <span class="pkg-tag">most picked</span>
+            <span class="pkg-name">Surge</span>
+            <span class="pkg-price">$6,000<small>/month</small></span>
+            <ul class="pkg-list">
+              <li>4 channels, 8 clips a week</li>
+              <li>Three creators, two formats</li>
+              <li>Weekly report + paid boost</li>
+            </ul>
+          </button>
+          <button type="button" class="pkg" data-nk-field="package" data-nk-value="supernova" data-nk-action="package-select" data-animate="up">
+            <span class="pkg-name">Supernova</span>
+            <span class="pkg-price">$12,000<small>/month</small></span>
+            <ul class="pkg-list">
+              <li>6 channels, daily clips</li>
+              <li>Creator squad + live events</li>
+              <li>Live dashboard + paid boost</li>
+            </ul>
+          </button>
+        </div>
+        <div class="budget-row" data-animate="up" data-delay="0.5">
+          <p class="budget-label">Your monthly media budget on top:</p>
+          <div class="budget-chips">
+            <button type="button" class="art-chip budget" data-nk-field="monthlyBudget" data-nk-value="3000" data-nk-type="number">$3k</button>
+            <button type="button" class="art-chip budget" data-nk-field="monthlyBudget" data-nk-value="6000" data-nk-type="number">$6k</button>
+            <button type="button" class="art-chip budget" data-nk-field="monthlyBudget" data-nk-value="12000" data-nk-type="number">$12k</button>
+            <button type="button" class="art-chip budget" data-nk-field="monthlyBudget" data-nk-value="25000" data-nk-type="number">$25k</button>
+          </div>
+          <p class="reach">Estimated views a month with <strong id="reach-package">Surge</strong>: <strong class="reach-value" id="reach-value">840,000</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 5 — Plan -->
+    <section class="art-paper mid plan" data-nk-slide="plan">
+      <img class="art-band" src="assets/art/plates/band.webp" alt="" data-animate="up">
+      <div class="wrap">
+        <header class="slide-head" data-animate="up" data-delay="0.1">
+          <p class="art-chip">04 · the first month</p>
+          <h2 class="art-display">Four weeks to the <span class="art-mark">first drop</span></h2>
+        </header>
+        <ol class="weeks" data-stagger="0.1" data-stagger-base="0.2">
+          <li data-animate="up"><span class="week-date" id="week-1-date">Week 1</span><strong>Kick-off &amp; casting</strong><p>Brand brief, creator shortlist, the format locked on paper.</p></li>
+          <li data-animate="up"><span class="week-date" id="week-2-date">Week 2</span><strong>Shoot week</strong><p>Two production days, all clips for the month in the can.</p></li>
+          <li data-animate="up"><span class="week-date" id="week-3-date">Week 3</span><strong>Soft launch</strong><p>Organic posts only — we watch what the audience does, not what we hoped.</p></li>
+          <li data-animate="up"><span class="week-date" id="week-4-date">Week 4</span><strong>Turn it up</strong><p>Paid boost on the clips that already work; first weekly report lands.</p></li>
+        </ol>
+        <p class="plan-note" data-animate="up" data-delay="0.6">Launch date: <strong id="launch-date">to be agreed</strong>. Everything before it is on us.</p>
+      </div>
+    </section>
+
+    <!-- Slide 6 — Let's talk -->
+    <section class="art-field loud close" data-nk-slide="close">
+      <img class="art-spot spot-phone" src="assets/art/plates/spot-1.webp" alt="" style="--art-rotate: 8deg" data-animate="scale" data-delay="0.3">
+      <img class="mark mark-sparkle-2" src="assets/art/marks/sparkle.svg" alt="" data-animate="scale" data-delay="0.5">
+      <div class="wrap">
+        <p class="art-chip" data-animate="up">05 · next step</p>
+        <h2 class="art-display close-title" data-animate="up-lg" data-delay="0.1">Let's make<br>some noise.</h2>
+        <img class="mark mark-circle" src="assets/art/marks/circle.svg" alt="" data-animate="scale" data-delay="0.3">
+        <p class="close-text" data-animate="up" data-delay="0.3">Twenty minutes on a call and you'll have a creator list, a launch week and a number to say yes to.</p>
+        <div class="close-actions" data-animate="up" data-delay="0.45">
+          <button type="button" class="art-cta" data-nk-action="book-call">
+            <svg class="ico" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Book a 20-minute call
+          </button>
+          <div class="close-contact">
+            <strong data-nk-text="managerName" data-nk-fallback="Leo Park"></strong>
+            <span data-nk-text="managerContact" data-nk-fallback="leo@loudandco.example"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="naimi-kit/kit.js" defer></script>
+  <script src="deck.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+/* Naimi art pack: Pressroom (riso) — Risograph stencil prints — three spot inks on cream stock.
+ * Copy the whole pack folder to <deck>/assets/art/, link this file before deck.css and set
+ * data-theme="riso" on <html>. Placement classes are the same in every pack; the
+ * devices (.art-display, .art-mark, .art-sticker, …) change meaning per pack — STYLE.md. */
+
+:root[data-theme='riso'] {
+  --nk-font-display: 'Inter', system-ui, sans-serif;
+
+  --nk-surface: #f6f1e4;
+  --nk-card: #fdfaf1;
+  --nk-ink: #2f4b8a;
+  --nk-ink-soft: #3f5288;
+  --nk-ink-faint: #6c78a0;
+  --nk-edge: #e6dfcb;
+  --nk-accent: #ffd23f;
+  --nk-accent-ink: #ffd23f;
+  --nk-accent-soft: rgba(255, 210, 63, 0.1);
+  --nk-accent-edge: rgba(255, 210, 63, 0.25);
+  --nk-positive: #00a95c;
+  --nk-positive-ink: #00a95c;
+  --nk-positive-soft: rgba(0, 169, 92, 0.1);
+  --nk-positive-edge: rgba(0, 169, 92, 0.25);
+  --nk-critical: #b91c1c;
+  --nk-critical-soft: rgba(185, 28, 28, 0.07);
+  --nk-critical-edge: rgba(185, 28, 28, 0.2);
+
+  --nk-gradient: linear-gradient(135deg, #2f4b8a 0%, #00a95c 60%, #ffd23f 100%);
+  --nk-orb-1: rgba(255, 210, 63, 0.08);
+  --nk-orb-2: rgba(0, 169, 92, 0.06);
+
+  --nk-nav-fade: rgba(246, 241, 228, 0.92);
+  --nk-nav-button: rgba(255, 255, 255, 0.75);
+  --nk-nav-button-hover: #ffffff;
+  --nk-nav-chip: rgba(255, 255, 255, 0.85);
+  --nk-nav-border: rgba(230, 223, 203, 0.9);
+  --nk-nav-icon: #2f4b8a;
+  --nk-nav-dot: rgba(108, 120, 160, 0.35);
+  --nk-nav-dot-hover: rgba(108, 120, 160, 0.55);
+  --nk-nav-dot-active: #ffd23f;
+
+  /* pack extras */
+  --art-paper: #f6f1e4;
+  --art-ink: #2f4b8a;
+  --art-accent: #ffd23f;
+  --art-accent-2: #00a95c;
+  --art-field: #2f4b8a;
+  --art-field-ink: #f6f1e4;
+  --art-scrim: rgba(246, 241, 228, 0.7);
+  --art-scrim-strong: rgba(246, 241, 228, 0.96);
+}
+
+/* ---- placement (identical in every pack) ---- */
+.art-cover { position: relative; overflow: hidden; background: var(--art-paper); }
+.art-content { position: relative; z-index: 2; }
+.art-plate { display: block; max-width: 100%; height: auto; }
+.art-plate--bleed { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--art-focus, center); }
+.art-plate--half { position: absolute; top: 0; bottom: 0; right: 0; z-index: 0; width: 50%; height: 100%; object-fit: cover; object-position: var(--art-focus, center); }
+.art-plate--half.is-left { right: auto; left: 0; }
+.art-scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, var(--art-scrim-strong) 0%, var(--art-scrim) 42%, transparent 68%); }
+.art-scrim.is-right { background: linear-gradient(270deg, var(--art-scrim-strong) 0%, var(--art-scrim) 42%, transparent 68%); }
+.art-scrim.is-bottom { background: linear-gradient(180deg, transparent 30%, var(--art-scrim-strong) 100%); }
+.art-band { display: block; width: 100%; height: clamp(120px, 20vh, 220px); object-fit: cover; }
+.art-spot { position: absolute; z-index: 1; width: clamp(96px, 14vw, 220px); height: auto; pointer-events: none; transform: rotate(var(--art-rotate, 0deg)); }
+.art-spot--sm { width: clamp(64px, 8vw, 128px); }
+.art-spot--lg { width: clamp(160px, 24vw, 360px); }
+.art-paper { background-color: var(--art-paper); background-image: url('plates/paper.webp'); background-size: cover; background-position: center; }
+.art-field { background: var(--art-field); color: var(--art-field-ink); }
+@media (max-width: 767px) {
+  .art-plate--half { position: relative; width: 100%; height: 40vh; }
+  .art-band { height: 96px; }
+  .art-spot { width: clamp(64px, 18vw, 120px); }
+  .art-spot--lg { width: clamp(120px, 34vw, 200px); }
+}
+
+/* ---- devices: Pressroom ---- */
+.art-display { font-weight: 800; letter-spacing: -0.03em; line-height: 0.98; color: var(--art-ink); }
+.art-mark { background: linear-gradient(transparent 55%, var(--art-accent) 55%, var(--art-accent) 92%, transparent 92%); padding: 0 0.1em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.art-spot { mix-blend-mode: multiply; }
+.art-sticker { filter: drop-shadow(4px 4px 0 var(--art-accent)); }   /* misregistered second ink */
+.art-duotone { filter: grayscale(1) contrast(1.35) sepia(0.2) hue-rotate(190deg) saturate(2); mix-blend-mode: multiply; }
+.art-chip { display: inline-block; border-radius: 999px; background: var(--art-ink); color: var(--art-paper); padding: 0.35em 0.9em; font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 0.04em; }
+.art-rule { border: 0; border-top: 3px dotted var(--art-ink); margin: 0; opacity: 0.6; }
+.art-num { font-weight: 900; font-size: clamp(64px, 10vw, 144px); line-height: 0.9; letter-spacing: -0.04em; color: var(--art-accent-2); text-shadow: 4px 4px 0 var(--art-accent); }

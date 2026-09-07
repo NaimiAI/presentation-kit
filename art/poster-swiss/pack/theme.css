@@ -1,0 +1,103 @@
+/* Naimi art pack: Poster (poster-swiss) — Swiss poster — white paper, one electric blue, giant type, brush marks.
+ * Copy the whole pack folder to <deck>/assets/art/, link this file before deck.css and set
+ * data-theme="poster-swiss" on <html>. Placement classes are the same in every pack; the
+ * devices (.art-display, .art-mark, .art-sticker, …) change meaning per pack — STYLE.md. */
+
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url('fonts/Oswald-normal-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url('fonts/Oswald-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root[data-theme='poster-swiss'] {
+  --nk-font-display: 'Oswald', 'Arial Narrow', Impact, sans-serif;
+
+  --nk-surface: #ffffff;
+  --nk-card: #ffffff;
+  --nk-ink: #111111;
+  --nk-ink-soft: #2b2b2b;
+  --nk-ink-faint: #6b6b6b;
+  --nk-edge: #e6e6e6;
+  --nk-accent: #1a3cff;
+  --nk-accent-ink: #1a3cff;
+  --nk-accent-soft: rgba(26, 60, 255, 0.1);
+  --nk-accent-edge: rgba(26, 60, 255, 0.25);
+  --nk-positive: #16a34a;
+  --nk-positive-ink: #16a34a;
+  --nk-positive-soft: rgba(22, 163, 74, 0.1);
+  --nk-positive-edge: rgba(22, 163, 74, 0.25);
+  --nk-critical: #b91c1c;
+  --nk-critical-soft: rgba(185, 28, 28, 0.07);
+  --nk-critical-edge: rgba(185, 28, 28, 0.2);
+
+  --nk-gradient: linear-gradient(135deg, #1a3cff 0%, #111111 100%);
+  --nk-orb-1: rgba(26, 60, 255, 0.08);
+  --nk-orb-2: rgba(17, 17, 17, 0.06);
+
+  --nk-nav-fade: rgba(255, 255, 255, 0.92);
+  --nk-nav-button: rgba(255, 255, 255, 0.75);
+  --nk-nav-button-hover: #ffffff;
+  --nk-nav-chip: rgba(255, 255, 255, 0.85);
+  --nk-nav-border: rgba(230, 230, 230, 0.9);
+  --nk-nav-icon: #111111;
+  --nk-nav-dot: rgba(107, 107, 107, 0.35);
+  --nk-nav-dot-hover: rgba(107, 107, 107, 0.55);
+  --nk-nav-dot-active: #1a3cff;
+
+  /* pack extras */
+  --art-paper: #ffffff;
+  --art-ink: #111111;
+  --art-accent: #1a3cff;
+  --art-accent-2: #111111;
+  --art-field: #1a3cff;
+  --art-field-ink: #ffffff;
+  --art-scrim: rgba(255, 255, 255, 0.7);
+  --art-scrim-strong: rgba(255, 255, 255, 0.96);
+}
+
+/* ---- placement (identical in every pack) ---- */
+.art-cover { position: relative; overflow: hidden; background: var(--art-paper); }
+.art-content { position: relative; z-index: 2; }
+.art-plate { display: block; max-width: 100%; height: auto; }
+.art-plate--bleed { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--art-focus, center); }
+.art-plate--half { position: absolute; top: 0; bottom: 0; right: 0; z-index: 0; width: 50%; height: 100%; object-fit: cover; object-position: var(--art-focus, center); }
+.art-plate--half.is-left { right: auto; left: 0; }
+.art-scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, var(--art-scrim-strong) 0%, var(--art-scrim) 42%, transparent 68%); }
+.art-scrim.is-right { background: linear-gradient(270deg, var(--art-scrim-strong) 0%, var(--art-scrim) 42%, transparent 68%); }
+.art-scrim.is-bottom { background: linear-gradient(180deg, transparent 30%, var(--art-scrim-strong) 100%); }
+.art-band { display: block; width: 100%; height: clamp(120px, 20vh, 220px); object-fit: cover; }
+.art-spot { position: absolute; z-index: 1; width: clamp(96px, 14vw, 220px); height: auto; pointer-events: none; transform: rotate(var(--art-rotate, 0deg)); }
+.art-spot--sm { width: clamp(64px, 8vw, 128px); }
+.art-spot--lg { width: clamp(160px, 24vw, 360px); }
+.art-paper { background-color: var(--art-paper); background-image: url('plates/paper.webp'); background-size: cover; background-position: center; }
+.art-field { background: var(--art-field); color: var(--art-field-ink); }
+@media (max-width: 767px) {
+  .art-plate--half { position: relative; width: 100%; height: 40vh; }
+  .art-band { height: 96px; }
+  .art-spot { width: clamp(64px, 18vw, 120px); }
+  .art-spot--lg { width: clamp(120px, 34vw, 200px); }
+}
+
+/* ---- devices: Poster ---- */
+.art-display { font-family: var(--nk-font-display); font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.88; }
+.art-mark { color: var(--art-accent); }
+.art-ghost { position: absolute; z-index: 0; font-family: var(--nk-font-display); font-weight: 700; text-transform: uppercase; font-size: clamp(120px, 30vw, 560px); line-height: 0.8; letter-spacing: -0.04em; color: var(--art-accent); user-select: none; pointer-events: none; }
+.art-spot { filter: none; }
+.art-sticker { outline: 3px solid var(--art-ink); outline-offset: -3px; }
+.art-duotone { filter: grayscale(1) contrast(1.35); }
+.art-chip { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 11px; line-height: 16px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--art-accent); }
+.art-cta { display: inline-flex; align-items: center; gap: 0.6em; background: var(--art-accent); color: #fff; padding: 0.8em 1.6em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 14px; line-height: 20px; }
+.art-rule { border: 0; border-top: 2px solid var(--art-accent); margin: 0; }
+.art-num { font-family: var(--nk-font-display); font-weight: 700; font-size: clamp(72px, 12vw, 176px); line-height: 0.85; color: var(--art-accent); }
+.art-dots { background-image: radial-gradient(var(--art-accent) 1.4px, transparent 1.5px); background-size: 14px 14px; }

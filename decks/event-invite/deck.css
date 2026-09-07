@@ -1,224 +1,176 @@
-/*
- * The "noir-lime" theme — a poster look: near-black surface with an acid lime
- * accent. Activated by the data-theme attribute on <html> in index.html.
- */
-/* :root[…] outranks the default :root block in kit.css. */
-:root[data-theme='noir-lime'] {
-  --nk-font-display: 'Inter', system-ui, sans-serif;
+/* event-invite — a private-event invitation dressed in the "poster-swiss" art pack.
+   Tokens, placement classes (.art-cover / .art-paper / .art-field / .art-plate) and the
+   devices (.art-display / .art-mark / .art-chip) come from assets/art/theme.css; this file
+   only lays out the deck's own blocks and colours them through the pack's tokens.
+   Rhythm `poster`: loud cover · quiet programme · loud RSVP. */
 
-  --nk-surface: #0c0c0a;
-  --nk-card: rgba(255, 255, 255, 0.05);
-  --nk-ink: #f7f7f2;
-  --nk-ink-soft: #c6c6bb;
-  --nk-ink-faint: #8b8b80;
-  --nk-edge: rgba(255, 255, 255, 0.12);
-  --nk-accent: #a3e635;
-  --nk-accent-ink: #bef264;
-  --nk-accent-soft: rgba(163, 230, 53, 0.12);
-  --nk-accent-edge: rgba(163, 230, 53, 0.35);
-  --nk-positive: #34d399;
-  --nk-positive-ink: #6ee7b7;
-  --nk-positive-soft: rgba(52, 211, 153, 0.12);
-  --nk-positive-edge: rgba(52, 211, 153, 0.35);
-  --nk-critical: #fb7185;
-  --nk-critical-soft: rgba(251, 113, 133, 0.12);
-  --nk-critical-edge: rgba(251, 113, 133, 0.3);
-
-  --nk-gradient: linear-gradient(135deg, #a3e635 0%, #34d399 55%, #22d3ee 100%);
-  --nk-orb-1: rgba(163, 230, 53, 0.1);
-  --nk-orb-2: rgba(34, 211, 238, 0.08);
-
-  --nk-nav-fade: rgba(12, 12, 10, 0.92);
-  --nk-nav-button: rgba(255, 255, 255, 0.07);
-  --nk-nav-button-hover: rgba(255, 255, 255, 0.15);
-  --nk-nav-chip: rgba(255, 255, 255, 0.09);
-  --nk-nav-border: rgba(255, 255, 255, 0.16);
-  --nk-nav-icon: #f7f7f2;
-  --nk-nav-dot: rgba(139, 139, 128, 0.45);
-  --nk-nav-dot-hover: rgba(139, 139, 128, 0.65);
-  --nk-nav-dot-active: #a3e635;
-}
-
-/* ---------------------------------------------------------------- slide shell */
 section {
   position: relative;
   min-height: 100%;
   width: 100%;
   overflow: hidden;
   background: var(--nk-surface);
+  color: var(--nk-ink);
   padding-bottom: 96px;
 }
-.shell { display: block; }
-/* Poster centred in the viewport: margin: auto instead of align-items, so content
-   taller than the viewport is not clipped at the top. */
-.poster { display: flex; }
-
-.wrap { position: relative; z-index: 10; margin: 0 auto; width: 100%; max-width: 56rem; padding: 48px 32px; }
-.poster .wrap { margin: auto; max-width: 64rem; padding-top: 40px; padding-bottom: 40px; }
-
+.wrap { position: relative; z-index: 2; width: 100%; max-width: 1080px; margin: 0 auto; padding: 40px 40px 0; }
 .ico { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mark { display: block; pointer-events: none; }
+/* Chips stay compact both in grid heads and in flex columns. */
+.art-chip { align-self: flex-start; justify-self: start; }
 
-/* Typography */
-.kicker { font-size: 14px; line-height: 20px; text-transform: uppercase; letter-spacing: 0.35em; color: var(--nk-accent-ink); }
-.slide-head { margin-bottom: 40px; }
-.slide-head h2 {
-  margin-top: 16px;
-  font-family: var(--nk-font-display);
-  font-size: 48px; font-weight: 900; line-height: 1;
-  text-transform: uppercase;
-}
-.slide-head .sub { margin-top: 12px; font-size: 16px; line-height: 24px; color: var(--nk-ink-soft); }
+.slide-head { display: grid; gap: 10px; max-width: 860px; }
+.slide-head h2 { font-size: clamp(32px, min(4.8vw, 7vh), 64px); }
 
-/* ------------------------------------------------------- slide 1 — poster */
-.poster-photo,
-.poster-shade {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  pointer-events: none; -webkit-user-select: none; user-select: none;
+/* ---- Slide 1: cover (loud) --------------------------------------------- */
+.cover { min-height: 100vh; padding-bottom: 0; }
+/* The headline overlaps the photo, so the paper-coloured scrim reaches further right
+   than the pack default — the personalised event name always sits on white. */
+.cover .art-scrim {
+  background: linear-gradient(90deg, var(--art-scrim-strong) 0%, var(--art-scrim-strong) 38%, var(--art-scrim) 50%, transparent 62%);
 }
-.poster-photo { object-fit: cover; opacity: 0.25; }
-.poster-shade {
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--nk-surface) 55%, transparent) 0%,
-    color-mix(in srgb, var(--nk-surface) 82%, transparent) 100%
-  );
+.cover-wrap {
+  display: flex; flex-direction: column; justify-content: space-between; gap: 24px;
+  min-height: 100vh; max-width: 1180px; margin: 0 auto; padding: 30px 40px 104px;
 }
-.poster-orb {
-  position: absolute; top: -96px; right: -96px;
-  width: 384px; height: 384px; border-radius: 999px;
-  background: var(--nk-gradient); opacity: 0.2; filter: blur(64px);
+.cover-main { max-width: 740px; }
+/* The display size follows both axes: a four-line event name still clears the navbar. */
+.cover-title { font-size: clamp(38px, min(8.2vw, 11.5vh), 124px); }
+.cover-date { margin-top: 26px; }
+.cover-date-chip {
+  display: inline-block; background: var(--art-accent); color: #fff;
+  padding: 10px 20px 12px;
+  font-family: var(--nk-font-display); font-weight: 600;
+  font-size: clamp(18px, min(2.4vw, 3.4vh), 32px); line-height: 1;
+  text-transform: uppercase; letter-spacing: 0.02em;
 }
-.poster-mark {
-  position: absolute; bottom: -24px; left: 0;
-  pointer-events: none; -webkit-user-select: none; user-select: none;
-  white-space: nowrap;
-  font-size: 18vw; font-weight: 900; line-height: 1; text-transform: uppercase;
-  color: var(--nk-ink); opacity: 0.06;
-}
-.poster-title {
-  margin-top: 20px;
-  font-family: var(--nk-font-display);
-  font-size: clamp(2.5rem, 7vw, 5.5rem);
-  font-weight: 900; line-height: 0.95; text-transform: uppercase;
-  color: var(--nk-ink);
-}
-.poster-title-stroke { color: transparent; -webkit-text-stroke: 2px var(--nk-accent); }
-.poster-date { display: inline-block; margin-top: 32px; }
-.poster-date-chip {
-  display: inline-block; transform: rotate(-3deg);
-  border-radius: 12px; padding: 12px 24px;
-  background: var(--nk-accent); color: var(--nk-surface);
-  font-weight: 700; text-transform: uppercase; letter-spacing: 0.025em;
-}
-.poster-meta {
-  margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center;
-  column-gap: 32px; row-gap: 12px;
-  font-size: 14px; line-height: 20px; color: var(--nk-ink-soft);
-}
-.poster-meta-item { display: inline-flex; align-items: center; gap: 8px; }
-.poster-meta .ico { width: 16px; height: 16px; color: var(--nk-accent-ink); }
-.poster-invite {
-  margin-top: 32px; border-top: 1px solid var(--nk-edge); padding-top: 20px;
-  font-size: 16px; line-height: 24px; color: var(--nk-ink-soft);
-}
-.poster-invite-name { font-weight: 600; color: var(--nk-ink); }
+.cover-foot { max-width: 640px; }
+.cover-meta { display: flex; flex-wrap: wrap; column-gap: 28px; row-gap: 8px; font-size: 14px; line-height: 20px; color: var(--nk-ink-soft); }
+.cover-meta-item { display: inline-flex; align-items: center; gap: 8px; }
+.cover-meta .ico { width: 16px; height: 16px; color: var(--art-accent); }
+.cover-invite { margin-top: 16px; border-top: 2px solid var(--art-ink); padding-top: 14px; font-size: 16px; line-height: 24px; color: var(--nk-ink-soft); }
+.cover-invite-name { font-weight: 700; color: var(--art-ink); }
 
-/* -------------------------------------------------- slide 2 — programme */
-.agenda { border-top: 1px solid var(--nk-edge); border-bottom: 1px solid var(--nk-edge); }
+/* ---- Slide 2: programme (quiet) ---------------------------------------- */
+.head-underline { width: clamp(180px, 26vw, 340px); margin-top: -2px; }
+.agenda { margin-top: 32px; border-top: 3px solid var(--art-ink); border-bottom: 3px solid var(--art-ink); }
 .agenda-row {
-  display: grid; grid-template-columns: 5rem 1fr auto;
-  align-items: baseline; column-gap: 24px; row-gap: 4px; padding: 20px 0;
+  display: grid; grid-template-columns: 6.5rem 1fr auto;
+  align-items: baseline; column-gap: 24px; row-gap: 4px; padding: 18px 0;
 }
 .agenda-row + .agenda-row { border-top: 1px solid var(--nk-edge); }
 .agenda-time {
-  font-family: var(--nk-font-display);
-  font-size: 20px; line-height: 28px; font-weight: 900; font-variant-numeric: tabular-nums;
-  color: var(--nk-accent-ink);
+  font-family: var(--nk-font-display); font-weight: 600;
+  font-size: clamp(22px, 2.2vw, 30px); line-height: 1.1;
+  font-variant-numeric: tabular-nums; color: var(--art-accent);
 }
-.agenda-topic { font-size: 18px; line-height: 28px; font-weight: 500; color: var(--nk-ink); }
-.agenda-speaker { font-size: 14px; line-height: 20px; text-align: right; color: var(--nk-ink-faint); }
+.agenda-topic { font-size: 18px; line-height: 26px; font-weight: 500; }
+.agenda-speaker {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 11px; line-height: 16px; letter-spacing: 0.12em; text-transform: uppercase;
+  text-align: right; color: var(--nk-ink-faint);
+}
 
-.speakers { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 24px; }
-.speaker { display: flex; align-items: center; gap: 16px; }
+.speakers { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 16px 32px; }
+.speaker { display: flex; align-items: center; gap: 14px; }
 .speaker-avatar {
-  display: flex; width: 48px; height: 48px; flex: none;
-  align-items: center; justify-content: center; border-radius: 999px;
-  background: var(--nk-accent); color: var(--nk-surface); font-weight: 700;
+  display: flex; width: 52px; height: 52px; flex: none;
+  align-items: center; justify-content: center;
+  background: var(--art-accent); color: #fff;
+  font-family: var(--nk-font-display); font-weight: 600; font-size: 20px; letter-spacing: 0.02em;
 }
-.speaker-name { font-size: 14px; line-height: 20px; font-weight: 600; color: var(--nk-ink); }
-.speaker-role { font-size: 12px; line-height: 16px; color: var(--nk-ink-faint); }
+.speaker-name { font-size: 15px; line-height: 20px; font-weight: 700; }
+.speaker-role { margin-top: 2px; font-size: 13px; line-height: 18px; color: var(--nk-ink-faint); }
 
-/* --------------------------------------------------------- slide 3 — RSVP */
-.rsvp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+/* ---- Slide 3: RSVP (loud) ---------------------------------------------- */
+/* The blue field is the poster; the controls below it sit centred in what is left. */
+.rsvp { display: flex; flex-direction: column; min-height: 100vh; }
+.rsvp-head { flex: none; padding: 40px 0 44px; }
+.rsvp-head .wrap { display: grid; gap: 14px; padding-top: 0; padding-bottom: 0; }
+.rsvp-head .art-chip { color: var(--art-field-ink); }
+.rsvp-head h2 { font-size: clamp(34px, min(5.6vw, 8.4vh), 78px); }
+.rsvp-head .sub { max-width: 660px; font-size: 16px; line-height: 24px; color: rgba(255, 255, 255, 0.88); }
+.rsvp-body { flex: 1; display: flex; align-items: center; padding-top: 40px; padding-bottom: 24px; }
+.rsvp-grid { display: grid; width: 100%; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
 
-.rsvp-card {
-  display: flex; flex-direction: column; gap: 24px;
-  border-radius: 16px; border: 1px solid var(--nk-edge);
-  background: var(--nk-card); padding: 24px;
-}
+.rsvp-card { display: flex; flex-direction: column; gap: 24px; border: 3px solid var(--art-ink); background: #fff; padding: 26px; }
 .rsvp-choice { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .rsvp-btn {
   display: flex; align-items: center; justify-content: center; gap: 8px;
-  border-radius: 12px; border: 1px solid var(--nk-edge);
-  background: color-mix(in srgb, var(--nk-surface) 40%, transparent);
-  color: var(--nk-ink-faint);
-  padding: 16px; font-size: 14px; line-height: 20px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.025em;
-  transition: border-color 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
+  border: 2px solid var(--art-ink); background: #fff; color: var(--art-ink);
+  padding: 18px 10px; text-align: center;
+  font-family: var(--nk-font-display); font-weight: 500;
+  font-size: 17px; line-height: 22px; text-transform: uppercase; letter-spacing: 0.02em;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 .rsvp-btn .ico { width: 16px; height: 16px; }
-.rsvp-btn:hover { border-color: color-mix(in srgb, var(--nk-accent-edge) 60%, transparent); }
-.rsvp-yes[aria-pressed='true'] {
-  border-color: var(--nk-accent-edge);
-  background: var(--nk-accent); color: var(--nk-surface);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
-}
-.rsvp-no[aria-pressed='true'] {
-  border-color: var(--nk-accent-edge);
-  background: var(--nk-accent-soft); color: var(--nk-accent-ink);
-}
+.rsvp-btn:hover { border-color: var(--art-accent); color: var(--art-accent); }
+.rsvp-yes[aria-pressed='true'] { background: var(--art-accent); border-color: var(--art-accent); color: #fff; }
+.rsvp-no[aria-pressed='true'] { background: var(--art-ink); border-color: var(--art-ink); color: #fff; }
 
-.range-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 6px; }
-.range-head label { font-size: 14px; line-height: 20px; font-weight: 500; color: var(--nk-ink-soft); }
-.range-value { font-size: 18px; line-height: 28px; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--nk-ink); }
+.range-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 8px; }
+.range-head label { font-size: 14px; line-height: 20px; color: var(--nk-ink-soft); }
+.range-value { font-family: var(--nk-font-display); font-weight: 600; font-size: 26px; line-height: 1; font-variant-numeric: tabular-nums; color: var(--art-accent); }
 .range-controls { display: flex; align-items: center; gap: 12px; }
 .range-controls input[type='range'] {
-  flex: 1; height: 8px; cursor: pointer; appearance: none;
-  border-radius: 999px; background: var(--nk-edge); accent-color: var(--nk-accent);
+  flex: 1; height: 4px; cursor: pointer; appearance: none;
+  background: var(--art-ink); accent-color: var(--art-accent);
+}
+.range-controls input[type='range']::-webkit-slider-thumb {
+  appearance: none; width: 16px; height: 16px; background: var(--art-accent);
 }
 .range-controls input[type='number'] {
-  width: 112px; border-radius: 8px; border: 1px solid var(--nk-edge);
-  background: var(--nk-card); color: var(--nk-ink);
+  width: 96px; border: 2px solid var(--art-ink); background: #fff; color: var(--art-ink);
   padding: 6px 10px; text-align: right; font: inherit; font-size: 14px; line-height: 20px; font-variant-numeric: tabular-nums;
 }
-.range-controls input[type='number']:focus { border-color: var(--nk-accent); outline: none; }
+.range-controls input[type='number']:focus { border-color: var(--art-accent); outline: none; }
 
-.rsvp-note { display: flex; align-items: flex-start; gap: 12px; border-top: 1px solid var(--nk-edge); padding-top: 16px; }
-.rsvp-note .ico { width: 16px; height: 16px; margin-top: 2px; color: var(--nk-accent-ink); }
-.rsvp-note p { font-size: 12px; line-height: 1.625; color: var(--nk-ink-faint); }
-
-.rsvp-links { display: flex; flex-direction: column; gap: 12px; }
-.link-card {
-  display: flex; align-items: center; justify-content: space-between;
-  border-radius: 16px; border: 1px solid var(--nk-edge); background: var(--nk-card);
-  padding: 20px 24px; text-decoration: none; color: inherit;
-  transition: border-color 0.2s, box-shadow 0.2s;
+.rsvp-note { display: flex; align-items: center; gap: 14px; border-top: 3px solid var(--art-ink); padding-top: 22px; }
+.rsvp-note .ico { width: 18px; height: 18px; color: var(--art-accent); }
+.rsvp-note p { font-size: 14px; line-height: 2; color: var(--nk-ink-soft); }
+/* The brush circle from the pack rings the seat count — a mark that means "this number". */
+.seat-num {
+  position: relative; display: inline-block; padding: 0 26px;
+  font-family: var(--nk-font-display); font-weight: 600; font-size: 28px;
+  /* The tall inline box keeps the brush ring clear of the neighbouring lines. */
+  line-height: 3;
+  color: var(--art-accent);
 }
-.link-card:hover { border-color: var(--nk-accent-edge); }
-.link-card .ico { color: var(--nk-ink-soft); }
-.link-card-accent { border-color: var(--nk-accent-edge); background: var(--nk-accent-soft); }
-.link-card-accent:hover { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4); }
-.link-card-accent .link-title,
-.link-card-accent .ico { color: var(--nk-accent-ink); }
-.link-title { font-size: 14px; line-height: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.025em; color: var(--nk-ink); }
-.link-sub { margin-top: 4px; font-size: 12px; line-height: 16px; color: var(--nk-ink-soft); }
+.seat-circle { position: absolute; left: 50%; top: 50%; width: 82px; transform: translate(-50%, -50%); }
+
+.rsvp-links { display: flex; flex-direction: column; gap: 16px; }
+.link-card {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  border: 2px solid var(--art-ink); background: #fff;
+  padding: 22px 24px; text-decoration: none; color: inherit;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.link-card:hover { border-color: var(--art-accent); color: var(--art-accent); }
+.link-card .ico { color: var(--nk-ink-faint); }
+.link-card-accent { background: var(--art-accent); border-color: var(--art-accent); color: #fff; }
+.link-card-accent .link-sub, .link-card-accent .ico { color: rgba(255, 255, 255, 0.85); }
+.link-card-accent:hover { background: var(--art-ink); border-color: var(--art-ink); color: #fff; }
+.link-title { font-family: var(--nk-font-display); font-weight: 500; font-size: 20px; line-height: 24px; text-transform: uppercase; letter-spacing: 0.02em; }
+.link-sub { margin-top: 3px; font-size: 13px; line-height: 18px; color: var(--nk-ink-faint); }
 
 /* --------------------------------------------------------------- responsive */
 @media (max-width: 767px) {
-  .wrap { padding: 48px 24px; }
-  .slide-head h2 { font-size: 30px; line-height: 1.2; }
-  .agenda-row { grid-template-columns: 4.5rem 1fr; }
-  .agenda-topic { font-size: 16px; line-height: 24px; }
+  .wrap { padding: 32px 22px 0; }
+  .cover-wrap { padding: 24px 22px 92px; }
+  /* Portrait: the plate becomes the whole slide and the scrim turns vertical, so the
+     content keeps its place under the engine's swipe hint. */
+  .cover .art-plate--bleed { object-position: 76% 6%; }
+  .cover .art-scrim {
+    background: linear-gradient(180deg, transparent 0%, var(--art-scrim) 13%, var(--art-scrim-strong) 25%,
+      var(--art-scrim-strong) 56%, var(--art-scrim) 72%, transparent 90%);
+  }
+  .cover-main { max-width: none; }
+  .cover-title { font-size: clamp(34px, 11vw, 60px); }
+  .slide-head h2 { font-size: 30px; }
+  .rsvp-head h2 { font-size: 30px; }
+  .agenda-row { grid-template-columns: 4.4rem 1fr; }
+  .agenda-time { font-size: 22px; }
   .agenda-speaker { grid-column: 2; text-align: left; }
   .rsvp-grid { grid-template-columns: 1fr; }
+  .rsvp-choice { grid-template-columns: 1fr; }
 }

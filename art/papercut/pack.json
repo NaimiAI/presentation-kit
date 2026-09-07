@@ -1,0 +1,113 @@
+{
+  "id": "papercut",
+  "name": "Papercut",
+  "tagline": "Layered cut-paper craft — warm sand, terracotta, teal",
+  "technique": "Layered paper-cut illustration: stacked sheets of colored craft paper with crisp cut edges, soft shadows between the layers and visible paper fiber — a warm, handmade depth.",
+  "spirit": [
+    "warm",
+    "handmade",
+    "welcoming"
+  ],
+  "fits": [
+    "B2C offers (home, family, education)",
+    "events and invitations",
+    "welcome packs and onboarding",
+    "nonprofits and community"
+  ],
+  "avoid": [
+    "enterprise procurement",
+    "tech that wants to look sharp"
+  ],
+  "palette": {
+    "ink": "#2b2421",
+    "paper": "#f1e6d2",
+    "accent": "#d9744a",
+    "accent2": "#2a7f7a",
+    "positive": "#2a7f7a"
+  },
+  "font": {
+    "family": "Nunito",
+    "role": "rounded sans for headlines",
+    "license": "OFL-1.1",
+    "files": "pack/fonts/"
+  },
+  "rhythm": "bookends",
+  "plates": [
+    {
+      "file": "hero.webp",
+      "role": "hero",
+      "ratio": "16:9",
+      "keying": "none",
+      "accept": "Layered hills + road + house + sun; upper-left plain; no text."
+    },
+    {
+      "file": "plate-a.webp",
+      "role": "plate",
+      "ratio": "4:3",
+      "keying": "none",
+      "accept": "Paper-cut envelope with letter and heart; no text on the letter."
+    },
+    {
+      "file": "plate-b.webp",
+      "role": "plate",
+      "ratio": "4:3",
+      "keying": "none",
+      "accept": "Paper-cut tree on coins; no text."
+    },
+    {
+      "file": "band.webp",
+      "role": "band",
+      "ratio": "21:9",
+      "keying": "none",
+      "accept": "Layered mountain strips only; nothing else."
+    },
+    {
+      "file": "paper.webp",
+      "role": "paper",
+      "ratio": "16:9",
+      "keying": "none",
+      "accept": "Blank sand craft paper only."
+    },
+    {
+      "file": "spot-1.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "magenta",
+      "accept": "One paper-cut lightbulb on flat pure magenta; no shadow on the background."
+    },
+    {
+      "file": "spot-2.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "magenta",
+      "accept": "One paper-cut calendar on flat pure magenta; no digits."
+    },
+    {
+      "file": "spot-3.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "magenta",
+      "accept": "One paper-cut trophy on flat pure magenta."
+    }
+  ],
+  "generate": {
+    "base": "A layered paper-cut illustration of {subject}: stacked sheets of colored craft paper in sand, terracotta, mustard and teal, crisp cut edges, soft shadows between the layers, visible paper fiber. No faces.",
+    "spot": "A layered paper-cut illustration of {subject}: mustard, terracotta and teal paper, stacked layers with crisp cut edges and soft shadows between the layers, visible paper fiber, floating with no background sheet.",
+    "rules": "No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+    "spotBackground": "magenta",
+    "references": [
+      "hero.webp",
+      "spot-1.webp"
+    ],
+    "prompts": {
+      "hero.webp": "A layered paper-cut illustration made of stacked sheets of colored craft paper: rolling hills in sand, terracotta, mustard and teal stepping back in layers, a small paper house on the far hill with a winding paper road leading up to it, a paper sun with cut rays in the upper right; crisp cut edges, soft shadows between the layers, visible paper fiber. The sky area in the upper left stays plain sand-colored paper with nothing on it. No people, no faces. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "plate-a.webp": "A layered paper-cut illustration: an open envelope made of terracotta craft paper with a mustard letter and a teal paper heart popping out of it, stacked layers with crisp cut edges and soft shadows between them, on a plain sand-colored paper background, visible paper fiber. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "plate-b.webp": "A layered paper-cut illustration: a tree whose canopy is made of many individual teal and mustard paper leaves stacked in layers, growing out of a small stack of terracotta paper coins, crisp cut edges, soft shadows between layers, on a plain sand-colored paper background, visible paper fiber. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "band.webp": "A panoramic layered paper-cut mountain range: five overlapping strips of craft paper in sand, mustard, terracotta, teal and dark teal, each a jagged mountain silhouette stepping back in layers, crisp cut edges, soft shadows between the strips, plain sand-colored paper sky above. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "paper.webp": "A flat scan of a blank sheet of sand-colored textured craft paper, seen from directly above, evenly lit, visible fiber and a soft tooth, no objects, no cuts, edge to edge. An extreme close-up texture study of the paper surface itself, filling the whole frame edge to edge — no sheet edges, no corners, no vignette. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-1.webp": "A layered paper-cut illustration of a single lightbulb: mustard paper bulb with a terracotta base and a few short teal paper rays, stacked layers with crisp cut edges and soft shadows between the layers, visible paper fiber, floating with no background sheet. The object is isolated and centered on a perfectly flat, uniform, pure magenta chroma-key background (#FF00FF) that fills the entire frame edge to edge; nothing else in the frame, no floor, no cast shadow on the background, no gradients. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-2.webp": "A layered paper-cut illustration of a single calendar page: terracotta paper header, sand paper body with a small teal paper circle marking one day, two paper rings at the top, stacked layers with crisp cut edges and soft shadows, floating with no background sheet. The object is isolated and centered on a perfectly flat, uniform, pure magenta chroma-key background (#FF00FF) that fills the entire frame edge to edge; nothing else in the frame, no floor, no cast shadow on the background, no gradients. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-3.webp": "A layered paper-cut illustration of a single trophy cup: mustard paper cup with terracotta handles and a teal paper base and a small paper star above it, stacked layers with crisp cut edges and soft shadows, floating with no background sheet. The object is isolated and centered on a perfectly flat, uniform, pure magenta chroma-key background (#FF00FF) that fills the entire frame edge to edge; nothing else in the frame, no floor, no cast shadow on the background, no gradients. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image."
+    }
+  }
+}

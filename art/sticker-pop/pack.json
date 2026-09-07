@@ -1,0 +1,123 @@
+{
+  "id": "sticker-pop",
+  "name": "Sticker pop",
+  "tagline": "Zine sticker collage — acid yellow field, die-cut stickers, marker scribbles",
+  "technique": "Zine and sticker-sheet collage of the 2000s revival: flat acid color field, die-cut vinyl stickers with thick white borders, cut-out photos, black marker scribbles and arrows, pill-shaped chips.",
+  "spirit": [
+    "loud",
+    "young",
+    "playful"
+  ],
+  "fits": [
+    "creative and marketing agencies",
+    "youth brands and events",
+    "social media and influencer offers",
+    "short pitches (4–8 slides)"
+  ],
+  "avoid": [
+    "enterprise and finance",
+    "long proposals (12+ slides all loud)",
+    "anything the reader prints"
+  ],
+  "palette": {
+    "ink": "#111111",
+    "paper": "#ffffff",
+    "accent": "#e8ff3a",
+    "accent2": "#c9b8ff",
+    "positive": "#16a34a"
+  },
+  "font": {
+    "family": "Oswald",
+    "role": "condensed uppercase display for headlines",
+    "license": "OFL-1.1",
+    "files": "pack/fonts/"
+  },
+  "rhythm": "poster",
+  "plates": [
+    {
+      "file": "hero.webp",
+      "role": "hero",
+      "ratio": "16:9",
+      "keying": "none",
+      "accept": "Acid-yellow field, stickers and scribbles only on the right; left half empty; no text."
+    },
+    {
+      "file": "plate-a.webp",
+      "role": "plate",
+      "ratio": "4:3",
+      "keying": "none",
+      "accept": "Sticker cluster on lilac; no text inside the bubble; no faces."
+    },
+    {
+      "file": "plate-b.webp",
+      "role": "plate",
+      "ratio": "4:3",
+      "keying": "none",
+      "accept": "Three torn paper layers with a marker circle; no text."
+    },
+    {
+      "file": "band.webp",
+      "role": "band",
+      "ratio": "21:9",
+      "keying": "none",
+      "accept": "One even row of stickers on white; nothing else."
+    },
+    {
+      "file": "paper.webp",
+      "role": "paper",
+      "ratio": "16:9",
+      "keying": "none",
+      "accept": "Blank crumpled white paper only."
+    },
+    {
+      "file": "figure.webp",
+      "role": "figure",
+      "ratio": "3:4",
+      "keying": "green",
+      "accept": "Natural anatomy (five fingers, plausible limbs), eyes hidden by sunglasses, thick white sticker border, flat pure-green background all around; no text."
+    },
+    {
+      "file": "spot-1.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "green",
+      "accept": "One sticker with white border on flat pure green; no text."
+    },
+    {
+      "file": "spot-2.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "green",
+      "accept": "One sticker with white border on flat pure green; no text."
+    },
+    {
+      "file": "spot-3.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "green",
+      "accept": "One sticker with white border on flat pure green; no text."
+    }
+  ],
+  "generate": {
+    "base": "A single die-cut vinyl sticker of {subject} in a flat zine-collage style: bold black outlines, flat fills in acid yellow, lilac, black and white, slightly wobbly hand-cut shapes, a thick white sticker border around the whole silhouette. No faces unless hidden by sunglasses.",
+    "spot": "A single die-cut vinyl sticker of {subject}, drawn in a flat zine-collage style: bold black outlines, flat lilac and yellow fills, slightly wobbly hand-cut shapes, a thick white sticker border around the whole silhouette.",
+    "figure": "A full-body photograph of {subject}, shot with a hard on-camera flash like a fashion editorial, sharp focus, natural proportions and hands, dark round sunglasses that hide the eyes, no face recognisable. The whole figure is presented as a die-cut sticker with a thick white border around the silhouette.",
+    "rules": "No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+    "spotBackground": "green",
+    "references": [
+      "spot-1.webp",
+      "spot-2.webp"
+    ],
+    "prompts": {
+      "hero.webp": "A flat-lay collage photographed from directly above: a sheet of acid-yellow (#e8ff3a) poster paper covering the whole frame, with a torn strip of white paper laid diagonally across the lower right, several glossy die-cut vinyl stickers with thick white borders scattered on the right half (a pixel-art smiley, two lightning bolts, a four-point sparkle, a cassette tape, a lilac star), hand-drawn black marker scribbles and one big marker arrow. The left half of the yellow sheet stays empty. Flat, hard even lighting, no perspective. No faces, no people. Every sticker and shape is filled only with acid yellow, lilac, black and white — no other colors, flat zine artwork with bold black outlines, no gloss, no gradients, no shading. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "plate-a.webp": "A flat-lay collage photographed from directly above on lilac (#c9b8ff) paper: a cluster of glossy die-cut vinyl stickers with thick white borders — a megaphone, a five-point star, an empty speech bubble, a thumbs-up hand, a lightning bolt — slightly overlapping, with a few black marker scribbles around them. Flat even lighting. No faces. Every sticker and shape is filled only with acid yellow, lilac, black and white — no other colors, flat zine artwork with bold black outlines, no gloss, no gradients, no shading. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "plate-b.webp": "A flat-lay of torn paper layers photographed from directly above: a sheet of acid-yellow poster paper torn to reveal lilac paper beneath, torn again to reveal white paper, with rough fibrous torn edges, one big hand-drawn black marker circle in the center and a small marker arrow. Flat even lighting. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "band.webp": "A panoramic flat-lay photographed from directly above on white paper: a single horizontal row of glossy die-cut vinyl stickers with thick white borders, evenly spaced — lightning bolt, pixel smiley, star, heart, sparkle, arrow, cassette, flip phone — all about the same size, lots of white paper above and below, flat even lighting. No faces. Every sticker and shape is filled only with acid yellow, lilac, black and white — no other colors, flat zine artwork with bold black outlines, no gloss, no gradients, no shading. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "paper.webp": "A flat scan of a blank sheet of white poster paper that was slightly crumpled and flattened again, seen from directly above, even lighting, subtle creases, no objects, no marks, edge to edge. An extreme close-up texture study of the paper surface itself, filling the whole frame edge to edge — no sheet edges, no corners, no vignette. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "figure.webp": "A full-body photograph of a young adult mid-jump, knees tucked, arms flung out, wearing a lime-green hoodie, wide light-blue jeans, checkerboard sneakers and dark round sunglasses that hide the eyes, joyful open-mouth grin, shot with a hard on-camera flash like a fashion editorial, sharp focus, natural proportions and hands. The whole figure is presented as a die-cut sticker with a thick white border around the silhouette. The object is isolated and centered on a perfectly flat, uniform, pure green chroma-key background (#00FF00) that fills the entire frame edge to edge; nothing else in the frame, no floor, no cast shadow on the background, no gradients. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-1.webp": "A single die-cut vinyl sticker of a chunky retro flip phone with a pixel smiley face on its screen, drawn in a flat zine-collage style: bold black outlines, flat lilac and yellow fills, slightly wobbly hand-cut shapes, a thick white sticker border around the whole silhouette. The object is isolated and centered on a perfectly flat, uniform, pure green chroma-key background (#00FF00) that fills the entire frame edge to edge; nothing else in the frame, no floor, no cast shadow on the background, no gradients. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-2.webp": "A single die-cut vinyl sticker of a megaphone with three sound lines coming out, drawn in a flat zine-collage style: bold black outlines, flat acid-yellow and black fills, slightly wobbly hand-cut shapes, a thick white sticker border around the whole silhouette. The object is isolated and centered on a perfectly flat, uniform, pure green chroma-key background (#00FF00) that fills the entire frame edge to edge; nothing else in the frame, no floor, no cast shadow on the background, no gradients. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-3.webp": "A single die-cut vinyl sticker of a jagged lightning bolt, drawn in a flat zine-collage style: bold black outline, flat acid-yellow fill with a lilac inner stripe, slightly wobbly hand-cut shape, a thick white sticker border around the silhouette. The object is isolated and centered on a perfectly flat, uniform, pure green chroma-key background (#00FF00) that fills the entire frame edge to edge; nothing else in the frame, no floor, no cast shadow on the background, no gradients. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image."
+    }
+  }
+}

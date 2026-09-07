@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="en" data-theme="noir-lime">
+<html lang="en" data-theme="poster-swiss">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Event invitation</title>
   <link rel="stylesheet" href="naimi-kit/kit.css">
+  <link rel="stylesheet" href="assets/art/theme.css">
   <link rel="stylesheet" href="deck.css">
 </head>
 <body>
@@ -12,47 +13,50 @@
 
   <main id="deck" hidden>
 
-    <!-- Slide 1 — Poster -->
-    <section class="poster" data-nk-slide="poster">
-      <img class="poster-photo" src="assets/event-hero.webp" alt="" aria-hidden="true">
-      <div class="poster-shade" aria-hidden="true"></div>
-      <div class="poster-orb" aria-hidden="true"></div>
-      <p class="poster-mark" aria-hidden="true">invite · invite · invite</p>
+    <!-- Slide 1 — Poster (loud) -->
+    <section class="art-cover cover" data-nk-slide="poster">
+      <img class="art-plate art-plate--bleed" src="assets/art/plates/hero.webp" alt="" style="--art-focus: right">
+      <div class="art-scrim" aria-hidden="true"></div>
 
-      <div class="wrap">
-        <p class="kicker" data-animate="up">Private event</p>
+      <div class="art-content cover-wrap">
+        <p class="art-chip cover-kicker" data-animate="up">Private event</p>
 
-        <h1 class="poster-title" data-animate="up-lg" data-delay="0.12">
-          <span id="poster-title-1"></span><span id="poster-title-2" hidden><br><span class="poster-title-stroke" id="poster-title-2-text"></span></span>
-        </h1>
+        <div class="cover-main">
+          <h1 class="art-display cover-title" data-animate="up-lg" data-delay="0.12">
+            <span id="poster-title-1"></span><span id="poster-title-2" hidden><br><span class="art-mark" id="poster-title-2-text"></span></span>
+          </h1>
 
-        <div class="poster-date" data-animate="scale" data-delay="0.3">
-          <span class="poster-date-chip" id="poster-date"></span>
+          <div class="cover-date" data-animate="scale" data-delay="0.3">
+            <span class="cover-date-chip" id="poster-date"></span>
+          </div>
         </div>
 
-        <div class="poster-meta" data-animate="up" data-delay="0.45">
-          <span class="poster-meta-item">
-            <svg class="ico" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
-            <span data-nk-text="eventTime" data-nk-fallback="6:00 PM PT · dinner + talks"></span>
-          </span>
-          <span class="poster-meta-item">
-            <svg class="ico" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>The Observatory, San Francisco</span>
-          </span>
-        </div>
+        <div class="cover-foot">
+          <div class="cover-meta" data-animate="up" data-delay="0.45">
+            <span class="cover-meta-item">
+              <svg class="ico" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+              <span data-nk-text="eventTime" data-nk-fallback="6:00 PM PT · dinner + talks"></span>
+            </span>
+            <span class="cover-meta-item">
+              <svg class="ico" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>The Observatory, San Francisco</span>
+            </span>
+          </div>
 
-        <p class="poster-invite" data-animate="up" data-delay="0.6">A personal invitation<span
-          data-nk-hide-empty="contactName"> for <span class="poster-invite-name" data-nk-text="contactName"></span></span><span
-          data-nk-hide-empty="companyName"> · <span data-nk-text="companyName"></span></span></p>
+          <p class="cover-invite" data-animate="up" data-delay="0.6">A personal invitation<span
+            data-nk-hide-empty="contactName"> for <span class="cover-invite-name" data-nk-text="contactName"></span></span><span
+            data-nk-hide-empty="companyName"> · <span data-nk-text="companyName"></span></span></p>
+        </div>
       </div>
     </section>
 
-    <!-- Slide 2 — Program -->
-    <section class="shell" data-nk-slide="agenda">
+    <!-- Slide 2 — Program (quiet) -->
+    <section class="art-paper programme" data-nk-slide="agenda">
       <div class="wrap">
         <header class="slide-head" data-animate="up">
-          <p class="kicker">Program</p>
-          <h2>One evening, real conversations</h2>
+          <p class="art-chip">Program</p>
+          <h2 class="art-display">One evening, <span class="art-mark">real conversations</span></h2>
+          <img class="mark head-underline" src="assets/art/marks/underline.svg" alt="">
         </header>
 
         <div class="agenda" data-stagger="0.08" data-stagger-base="0.1">
@@ -100,16 +104,18 @@
       </div>
     </section>
 
-    <!-- Slide 3 — RSVP -->
-    <section class="shell" data-nk-slide="rsvp">
-      <div class="wrap">
-        <header class="slide-head" data-animate="up">
-          <p class="kicker">RSVP</p>
-          <h2>Let us know you're in</h2>
+    <!-- Slide 3 — RSVP (loud) -->
+    <section class="art-paper rsvp" data-nk-slide="rsvp">
+      <div class="art-field rsvp-head">
+        <div class="wrap" data-animate="up">
+          <p class="art-chip">RSVP</p>
+          <h2 class="art-display">Let us know you're in</h2>
           <p class="sub">Your reply saves right here — we'll hold seats<span
             data-nk-hide-empty="companyName"> for <span data-nk-text="companyName"></span></span>.</p>
-        </header>
+        </div>
+      </div>
 
+      <div class="wrap rsvp-body">
         <div class="rsvp-grid">
           <div class="rsvp-card" data-animate="left" data-delay="0.1">
             <div class="rsvp-choice">
@@ -138,7 +144,7 @@
 
             <div class="rsvp-note">
               <svg class="ico" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>
-              <p>Seating is limited to 60. Priority goes to guests who reply first.</p>
+              <p>Seating is limited to <span class="seat-num">60<img class="seat-circle" src="assets/art/plates/spot-2.webp" alt=""></span>. Priority goes to guests who reply first.</p>
             </div>
           </div>
 

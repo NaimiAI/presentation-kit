@@ -38,23 +38,23 @@
     "namespace": "clientOnboarding",
     "fields": []
   },
-  "engine": "nk/0.9.0",
+  "engine": "nk/0.10.0",
   "slides": [
     {
       "id": "welcome",
-      "title": "Welcome"
+      "title": "Welcome (loud: hero plate, bleed)"
     },
     {
       "id": "team",
-      "title": "Team"
+      "title": "Team (quiet: paper, photos pasted into the craft)"
     },
     {
       "id": "first-month-plan",
-      "title": "First 30 days"
+      "title": "First 30 days (mid: the mountain band opens the slide)"
     },
     {
       "id": "resources",
-      "title": "Resources"
+      "title": "Resources (loud: terracotta field, the trophy cut-out)"
     }
   ]
 }

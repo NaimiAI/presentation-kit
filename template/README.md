@@ -99,6 +99,33 @@ The nav-chrome labels (buttons, counter, swipe hint) come from `<html lang>` —
 keep the attribute honest (`en` / `ru`), or the viewer sees them in the wrong
 language.
 
+## Document format — portrait pages
+
+A commercial offer with an estimate, a quote, a letter with attachments — the things a
+sales team used to make in Word — are built as a **document**, not a deck:
+`<main id="deck" hidden data-nk-format="document" data-nk-page="letter">` (`a4` outside
+the US). Everything else — the section grammar, the attributes, `deck.js`,
+personalization, client actions — works exactly as for slides.
+
+- **A section is a page** (marker `<!-- Page N — Title -->`): on screen it is a sheet on a
+  desk; in the PDF it starts a new page and **may span several** — a long table simply
+  continues. The reader only scrolls: there is no slides/feed toggle and no thumbnails panel.
+- **The sheet width is fixed** — 816 px (Letter) or 794 px (A4); the runtime exposes it as
+  `--nk-sheet-width` / `--nk-sheet-height` and `naimi.page`. Design for that width; the
+  page margins and the footer are the section's own `padding` and `footer`; the only
+  breakpoint you need is a phone one (`max-width: 767px`). On screen the sheet is at least
+  the paper's proportion tall and grows with content — never rely on its height.
+- **Print:** `thead { display: table-header-group }` repeats a table header on every page,
+  `tr, .card { break-inside: avoid }` keeps rows and blocks whole; your own rules go in
+  `@media print` (the export emulates it). Don't put page numbers in the footer — a page
+  can span two printed pages; name the section instead.
+- **Long tables come from text personalization fields**: one line per row, columns
+  separated by `|` (`Item | unit | qty | price`), a `# Section` line opens a group;
+  `deck.js` parses and totals them. The stages editor (`showStagesEditor`) works too when
+  the blocks carry a price.
+- Static mode (`?nk-static=1`) reveals every sheet at once; a document is screenshotted
+  the way the export prints it — the first printed page of each sheet.
+
 ## Themes
 
 A theme is a set of `--nk-*` tokens picked with the `data-theme` attribute on

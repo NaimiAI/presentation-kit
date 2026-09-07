@@ -1,0 +1,19 @@
+{
+  "personalization": {
+    "companyName": "Cobalt Logistics",
+    "contactName": "Priya Raman",
+    "proposalDate": "2026-09-30",
+    "engagementGoal": "We doubled in two years and the way we run the company didn't keep up. Finance, sales and operations each show me a different quarter, decisions wait for a meeting that waits for a report, and nobody owns the hand-offs between teams. I want one operating picture and a plan my team can actually run.",
+    "startDate": "2026-10-12",
+    "validUntil": "2026-10-31",
+    "stagesJson": "[{\"title\":\"Stage 1. Discover\",\"costRub\":18000,\"rows\":\"Leadership interviews | Twelve conversations, one week\\nData pull | Finance, CRM, operations — one dataset\\nProcess walk | Two days on the floor and in the dispatch room\"},{\"title\":\"Stage 2. Design\",\"costRub\":32000,\"rows\":\"Target operating model | Decisions, owners, numbers\\nDashboard | The operating picture your team keeps\\nTwo review rounds | With the leadership team\"},{\"title\":\"Stage 3. Deliver\",\"costRub\":22000,\"rows\":\"First cycles together | Three weekly cycles run with us in the room\\nHand-over | Rituals, templates, the dashboard, the calendar\"}]",
+    "managerName": "Emily Carter",
+    "managerContact": "emily@northmark.example",
+    "customFields": []
+  },
+  "clientFacts": {},
+  "demoData": {
+    "retainer": "embedded"
+  },
+  "canPersist": true
+}

@@ -1,0 +1,168 @@
+/* Theme "estimate-graph": an engineering form — white sheet, dark ink, orange accent,
+   condensed Oswald headings, tabular figures. The viewer's desk is blue-gray. */
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url('assets/fonts/Oswald-normal-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url('assets/fonts/Oswald-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root[data-theme='estimate-graph'] {
+  --nk-font-display: 'Oswald', 'Arial Narrow', sans-serif;
+  --nk-surface: #ffffff;
+  --nk-card: #f6f7f9;
+  --nk-ink: #111827;
+  --nk-ink-soft: #374151;
+  --nk-ink-faint: #6b7280;
+  --nk-edge: #d1d5db;
+  --nk-accent: #e85d04;
+  --nk-accent-ink: #c24d00;
+  --nk-accent-soft: rgba(232, 93, 4, 0.08);
+  --nk-accent-edge: rgba(232, 93, 4, 0.3);
+  --nk-positive: #15803d;
+  --nk-positive-ink: #166534;
+  --nk-positive-soft: rgba(21, 128, 61, 0.08);
+  --nk-positive-edge: rgba(21, 128, 61, 0.25);
+  --nk-critical: #b91c1c;
+  --nk-critical-soft: rgba(185, 28, 28, 0.07);
+  --nk-critical-edge: rgba(185, 28, 28, 0.25);
+  --nk-gradient: linear-gradient(135deg, #111827 0%, #e85d04 100%);
+  --nk-desk: #cfd5df;
+  --nk-nav-fade: rgba(207, 213, 223, 0.9);
+  --nk-nav-button: rgba(255, 255, 255, 0.85);
+  --nk-nav-button-hover: #ffffff;
+  --nk-nav-chip: rgba(255, 255, 255, 0.9);
+  --nk-nav-border: rgba(148, 163, 184, 0.5);
+  --nk-nav-icon: #111827;
+  --nk-nav-dot: rgba(107, 114, 128, 0.4);
+  --nk-nav-dot-hover: rgba(107, 114, 128, 0.7);
+  --nk-nav-dot-active: #e85d04;
+}
+
+/* The sheet: a column with the footer pinned to the bottom; in print the sheet grows with content. */
+.sheet { display: flex; flex-direction: column; gap: 28px; width: 100%; padding: 52px 60px 44px; color: var(--nk-ink); background: var(--nk-surface); font-size: 13px; line-height: 20px; }
+.sheet-foot { display: flex; justify-content: space-between; gap: 16px; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--nk-edge); color: var(--nk-ink-faint); font-size: 10.5px; line-height: 16px; }
+h1, h2, h3 { font-family: var(--nk-font-display); font-weight: 500; text-transform: uppercase; letter-spacing: 0.02em; }
+.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.eyebrow { color: var(--nk-ink-faint); font-size: 10.5px; line-height: 16px; text-transform: uppercase; letter-spacing: 0.2em; }
+
+/* Cover sheet. */
+.letterhead { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; padding-bottom: 16px; border-bottom: 3px solid var(--nk-ink); }
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand-mark { width: 44px; height: 44px; fill: none; stroke: var(--nk-accent); stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+.brand-name { font-family: var(--nk-font-display); font-size: 24px; line-height: 28px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+.brand-tagline { color: var(--nk-ink-faint); font-size: 11px; line-height: 16px; }
+.doc-id { text-align: right; }
+.doc-kind { font-family: var(--nk-font-display); font-size: 14px; line-height: 18px; text-transform: uppercase; letter-spacing: 0.3em; color: var(--nk-accent); }
+.doc-number { margin-top: 2px; font-family: var(--nk-font-display); font-size: 22px; line-height: 26px; font-weight: 500; }
+.doc-date { color: var(--nk-ink-faint); font-size: 12px; line-height: 16px; }
+.kicker { color: var(--nk-accent); font-family: var(--nk-font-display); font-size: 13px; line-height: 18px; text-transform: uppercase; letter-spacing: 0.3em; }
+.cover h1 { margin-top: 6px; font-size: 44px; line-height: 1.05; font-weight: 600; }
+.cover-facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 32px; margin-top: 22px; }
+.cover-facts div { display: grid; grid-template-columns: 96px 1fr; gap: 12px; padding: 8px 0; border-bottom: 1px dashed var(--nk-edge); }
+.cover-facts dt { color: var(--nk-ink-faint); font-size: 11px; line-height: 20px; text-transform: uppercase; letter-spacing: 0.12em; }
+.cover-facts dd { font-weight: 500; }
+.cover-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 24px; }
+.summary { padding: 22px 24px; border: 2px solid var(--nk-ink); background: var(--nk-card); }
+.summary-label { font-family: var(--nk-font-display); font-size: 12px; line-height: 16px; text-transform: uppercase; letter-spacing: 0.25em; color: var(--nk-ink-faint); }
+.summary-total { margin-top: 6px; font-family: var(--nk-font-display); font-size: 40px; line-height: 44px; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--nk-accent); }
+.summary-split { display: grid; gap: 4px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--nk-edge); }
+.summary-split div { display: flex; justify-content: space-between; gap: 12px; }
+.summary-split dt { color: var(--nk-ink-soft); }
+.summary-split dd { font-weight: 600; font-variant-numeric: tabular-nums; }
+.summary-note { margin-top: 12px; color: var(--nk-ink-faint); font-size: 11px; line-height: 16px; }
+.cover-figure { display: flex; flex-direction: column; gap: 8px; }
+.cover-photo { width: 100%; height: 218px; object-fit: cover; border: 1px solid var(--nk-edge); filter: grayscale(0.15); }
+.cover-figure figcaption { color: var(--nk-ink-faint); font-size: 11px; line-height: 16px; }
+.cover-lead { max-width: 600px; color: var(--nk-ink-soft); font-size: 13.5px; line-height: 21px; }
+
+/* Inner pages. */
+.page-head { display: flex; align-items: flex-start; gap: 18px; padding-bottom: 14px; border-bottom: 3px solid var(--nk-ink); }
+.page-num { flex: none; width: 44px; height: 44px; display: grid; place-items: center; background: var(--nk-accent); color: #fff; font-family: var(--nk-font-display); font-size: 24px; line-height: 1; font-weight: 600; }
+.page-head h2 { font-size: 26px; line-height: 30px; }
+.page-head p { margin-top: 4px; max-width: 560px; color: var(--nk-ink-soft); font-size: 12.5px; line-height: 19px; }
+.sub-head { padding-bottom: 6px; border-bottom: 1px solid var(--nk-ink); font-size: 16px; line-height: 22px; }
+
+/* Estimate tables: the header repeats on every printed page, a row never splits. */
+.est-table, .pay-table { width: 100%; border-collapse: collapse; font-size: 12px; line-height: 17px; }
+.est-table th, .pay-table th { padding: 8px 8px; border-bottom: 2px solid var(--nk-ink); text-align: left; font-family: var(--nk-font-display); font-size: 11px; line-height: 16px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--nk-ink-soft); }
+.est-table td, .pay-table td { padding: 7px 8px; border-bottom: 1px solid var(--nk-edge); vertical-align: top; }
+.est-table td.idx { width: 34px; color: var(--nk-ink-faint); font-variant-numeric: tabular-nums; }
+.est-table td.unit { width: 52px; color: var(--nk-ink-soft); white-space: nowrap; }
+.est-table td.qty { width: 60px; }
+.est-table td.price { width: 84px; }
+.est-table td.sum { width: 96px; font-weight: 600; }
+.est-table tr.group td { padding: 12px 8px 6px; background: var(--nk-card); border-bottom: 1px solid var(--nk-ink); font-family: var(--nk-font-display); font-size: 13px; line-height: 18px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; }
+.est-table tr.subtotal td { padding: 6px 8px 12px; color: var(--nk-ink-soft); font-size: 11.5px; }
+.est-table tr.subtotal td.sum { color: var(--nk-ink); }
+.est-table thead { display: table-header-group; }
+.est-table tr, .pay-table tr, .timeline li, .sign, .grand { break-inside: avoid; }
+.total-line { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 12px 0; border-top: 2px solid var(--nk-ink); border-bottom: 2px solid var(--nk-ink); font-family: var(--nk-font-display); text-transform: uppercase; letter-spacing: 0.08em; }
+.total-line span { font-size: 13px; line-height: 20px; }
+.total-line strong { font-size: 24px; line-height: 28px; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--nk-accent); }
+.empty-state { padding: 14px 16px; border: 2px dashed var(--nk-accent-edge); background: var(--nk-accent-soft); color: var(--nk-accent-ink); font-size: 12.5px; line-height: 19px; }
+
+/* Summary. */
+.grand { padding: 20px 24px; border: 2px solid var(--nk-ink); background: var(--nk-card); }
+.grand h3 { font-size: 16px; line-height: 22px; }
+.grand-rows { display: grid; gap: 6px; margin-top: 12px; }
+.grand-rows div { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 6px; border-bottom: 1px dashed var(--nk-edge); }
+.grand-rows dd { font-weight: 600; font-variant-numeric: tabular-nums; }
+.grand-rows .grand-total { padding-top: 6px; border-bottom: 0; font-family: var(--nk-font-display); text-transform: uppercase; letter-spacing: 0.08em; }
+.grand-rows .grand-total dt { font-size: 14px; line-height: 28px; }
+.grand-rows .grand-total dd { font-size: 26px; line-height: 28px; color: var(--nk-accent); }
+.grand-note { margin-top: 12px; color: var(--nk-ink-faint); font-size: 11.5px; line-height: 17px; }
+
+/* Schedule, payment, terms. */
+.timeline { display: grid; gap: 0; counter-reset: step; }
+.timeline li { display: grid; grid-template-columns: 96px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--nk-edge); }
+.tl-week { font-family: var(--nk-font-display); font-size: 14px; line-height: 20px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--nk-accent); }
+.timeline h3 { font-size: 14px; line-height: 20px; }
+.timeline p { color: var(--nk-ink-soft); font-size: 12.5px; line-height: 18px; }
+.pay-table td:first-child { font-weight: 600; }
+.conditions { display: grid; gap: 6px; }
+.conditions li { display: flex; gap: 10px; padding: 6px 0; border-bottom: 1px dashed var(--nk-edge); font-size: 12.5px; line-height: 19px; }
+.conditions li::before { content: '—'; color: var(--nk-accent); font-weight: 700; }
+
+/* Approval. */
+.approve { padding: 20px 24px; border: 2px solid var(--nk-ink); }
+.approve-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { padding: 10px 18px; border: 2px solid var(--nk-ink); background: var(--nk-surface); font-family: var(--nk-font-display); font-size: 13px; line-height: 18px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; transition: background 0.15s, color 0.15s; }
+.btn:hover { background: var(--nk-card); }
+.btn-primary { background: var(--nk-ink); color: #fff; }
+.btn[aria-pressed='true'] { background: var(--nk-accent); border-color: var(--nk-accent); color: #fff; }
+.approve-state { margin-top: 10px; color: var(--nk-ink-soft); font-size: 12.5px; line-height: 18px; }
+.approve-note { display: grid; gap: 6px; margin-top: 14px; }
+.approve-note span { font-size: 11px; line-height: 16px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--nk-ink-faint); }
+.approve-note textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--nk-edge); background: var(--nk-card); font-size: 13px; line-height: 19px; resize: vertical; }
+.approve-note textarea:focus { outline: 2px solid var(--nk-accent-edge); border-color: var(--nk-accent); }
+.signatures { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 8px; }
+.sign-role { font-family: var(--nk-font-display); font-size: 12px; line-height: 16px; text-transform: uppercase; letter-spacing: 0.25em; color: var(--nk-ink-faint); }
+.sign-name { margin-top: 6px; min-height: 40px; font-weight: 500; }
+.sign-line { display: flex; justify-content: space-between; margin-top: 44px; padding-top: 6px; border-top: 1px solid var(--nk-ink); color: var(--nk-ink-faint); font-size: 10.5px; line-height: 14px; text-transform: uppercase; letter-spacing: 0.12em; }
+.manager { padding-top: 14px; border-top: 1px solid var(--nk-edge); }
+.manager-name { margin-top: 4px; font-weight: 600; }
+.manager-contact { color: var(--nk-ink-soft); }
+
+/* Phone: full-width sheet, narrow margins, denser tables. */
+@media (max-width: 767px) {
+  .sheet { padding: 28px 20px 24px; gap: 22px; }
+  .letterhead { flex-direction: column; }
+  .doc-id { text-align: left; }
+  .cover h1 { font-size: 32px; }
+  .cover-facts, .cover-grid, .signatures { grid-template-columns: 1fr; }
+  .cover-photo { height: 180px; }
+  .est-table td.price { width: auto; }
+  .timeline li { grid-template-columns: 72px 1fr; }
+  .sheet-foot { flex-direction: column; gap: 2px; }
+}

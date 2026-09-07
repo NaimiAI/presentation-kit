@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en" data-theme="quote-corporate">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Managed services quote — document</title>
+  <link rel="stylesheet" href="naimi-kit/kit.css">
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Document format: Letter sheets on the desk, read by scrolling, PDF prints portrait pages. -->
+  <main id="deck" hidden data-nk-format="document" data-nk-page="letter">
+
+    <!-- Page 1 — Quote and parameters -->
+    <section class="sheet" data-nk-slide="cover">
+      <header class="letterhead" data-animate="up">
+        <div class="brand">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="16"/><path d="M20 8v12l8 5"/></svg>
+          <div>
+            <p class="brand-name">Beacon IT</p>
+            <p class="brand-tagline">managed IT services for small and mid-size businesses</p>
+          </div>
+        </div>
+        <div class="doc-id">
+          <p class="doc-kind">Service quote</p>
+          <p class="doc-number">No. <span data-nk-text="quoteNumber" data-nk-fallback="Q-2026-001"></span> · <span id="quote-date"></span></p>
+          <p class="doc-valid">valid through <span id="quote-valid">the end of the month</span></p>
+        </div>
+      </header>
+
+      <div class="hero" data-animate="up" data-delay="0.1">
+        <div>
+          <p class="kicker">Preliminary quote</p>
+          <h1>Managed IT services</h1>
+          <p class="hero-for">prepared for <strong data-nk-text="companyName" data-nk-fallback="your company"></strong></p>
+          <p class="lead">
+            <span data-nk-hide-empty="contactName"><span data-nk-text="contactName"></span>, </span>following our call we put
+            together the service scope, two support tiers and the onboarding plan. The quote is
+            preliminary: figures are locked in the agreement after the infrastructure audit.
+          </p>
+        </div>
+        <img class="hero-figure" src="assets/cover-laptop.webp" alt="">
+      </div>
+
+      <dl class="params" data-animate="up" data-delay="0.2">
+        <div><dt>Workstations</dt><dd><span data-nk-text="workstations" data-nk-fallback="—"></span></dd></div>
+        <div><dt>Servers and services</dt><dd><span data-nk-text="servers" data-nk-fallback="—"></span></dd></div>
+        <div><dt>Locations</dt><dd><span data-nk-text="sites" data-nk-fallback="1"></span></dd></div>
+        <div><dt>Support tier</dt><dd id="param-level">Standard</dd></div>
+      </dl>
+
+      <div class="summary" data-animate="up" data-delay="0.3">
+        <div class="summary-main">
+          <p class="summary-label">Monthly fee</p>
+          <p class="summary-total" id="summary-monthly">$0</p>
+          <p class="summary-sub"><span id="summary-level">standard</span> tier · <span id="summary-annual">$0</span> per year</p>
+        </div>
+        <dl class="summary-side">
+          <div><dt>Onboarding (one-time)</dt><dd id="summary-setup">$0</dd></div>
+          <div><dt>Agreement</dt><dd>12 months, no early-termination fee</dd></div>
+          <div><dt>Taxes</dt><dd>services are not subject to sales tax</dd></div>
+        </dl>
+      </div>
+
+      <div class="current" data-animate="up" data-delay="0.35">
+        <p class="eyebrow">Where things stand today</p>
+        <p data-nk-text="currentSetup" data-nk-fallback="Describe the client's current setup: who supports them, what breaks, what is missing."></p>
+      </div>
+
+      <footer class="sheet-foot">
+        <span>Beacon IT · (206) 555-0177 · sales@beaconit.co</span>
+        <span>quote No. <span data-nk-text="quoteNumber" data-nk-fallback="Q-2026-001"></span></span>
+      </footer>
+    </section>
+
+    <!-- Page 2 — Service scope -->
+    <section class="sheet" data-nk-slide="services">
+      <header class="page-head" data-animate="up">
+        <div>
+          <p class="kicker">1</p>
+          <h2>Service scope</h2>
+          <p>What the monthly fee covers. Each block is priced per month at the Standard tier.</p>
+        </div>
+        <img class="page-spot" src="assets/spot-envelope.webp" alt="">
+      </header>
+
+      <div id="services-list" class="services" data-animate="up" data-delay="0.1"></div>
+      <div id="services-empty" class="empty-state" hidden>
+        No service blocks yet. Add them in the stages editor when creating the presentation:
+        block name, monthly price and "what's included | detail" lines.
+      </div>
+
+      <div class="total-line" data-animate="up" data-delay="0.2">
+        <span>Monthly total, Standard tier</span>
+        <strong id="services-total">$0</strong>
+      </div>
+
+      <footer class="sheet-foot">
+        <span>Beacon IT · quote for <span data-nk-text="companyName" data-nk-fallback="the client"></span></span>
+        <span>service scope</span>
+      </footer>
+    </section>
+
+    <!-- Page 3 — Support tiers -->
+    <section class="sheet" data-nk-slide="levels">
+      <header class="page-head" data-animate="up">
+        <div>
+          <p class="kicker">2</p>
+          <h2>Support tiers</h2>
+          <p>Pick a tier right here — the quote on page one recalculates, and we see your choice.</p>
+        </div>
+        <img class="page-spot" src="assets/spot-chart.webp" alt="">
+      </header>
+
+      <div class="levels" data-nk-block="levels" data-animate="up" data-delay="0.1">
+        <button type="button" class="level" data-nk-field="serviceLevel" data-nk-value="basic" data-nk-action="option-select">
+          <span class="level-name">Standard</span>
+          <span class="level-price" id="level-basic-price">$0 / mo</span>
+          <span class="level-note">business hours, 8am–6pm PT</span>
+          <span class="level-check">selected</span>
+        </button>
+        <button type="button" class="level" data-nk-field="serviceLevel" data-nk-value="extended" data-nk-action="option-select">
+          <span class="level-name">Premium</span>
+          <span class="level-price" id="level-extended-price">$0 / mo</span>
+          <span class="level-note">24/7, priority line</span>
+          <span class="level-check">selected</span>
+        </button>
+      </div>
+
+      <table class="sla-table" data-animate="up" data-delay="0.2">
+        <thead><tr><th>Parameter</th><th>Standard</th><th>Premium</th></tr></thead>
+        <tbody>
+          <tr><td>Support hours</td><td>Mon–Fri, 8am–6pm PT</td><td>24/7, every day</td></tr>
+          <tr><td>Incident response</td><td>within 4 hours</td><td>within 1 hour</td></tr>
+          <tr><td>Critical incident (office down)</td><td>within 2 hours</td><td>within 30 minutes</td></tr>
+          <tr><td>On-site visits</td><td>2 per month included</td><td>unlimited</td></tr>
+          <tr><td>Server and network monitoring</td><td>business hours</td><td>24/7 with alerting</td></tr>
+          <tr><td>Backups</td><td>daily, 14-day retention</td><td>daily, 90-day retention, restore drills</td></tr>
+          <tr><td>Reporting</td><td>monthly report</td><td>monthly report + quarterly review</td></tr>
+          <tr><td>Dedicated engineer</td><td>—</td><td>yes</td></tr>
+        </tbody>
+      </table>
+
+      <p class="levels-note" data-animate="up" data-delay="0.3">
+        Premium is priced at 1.35× the Standard block prices. Tiers can be changed from any
+        following month with 10 days' notice.
+      </p>
+
+      <footer class="sheet-foot">
+        <span>Beacon IT · quote for <span data-nk-text="companyName" data-nk-fallback="the client"></span></span>
+        <span>support tiers</span>
+      </footer>
+    </section>
+
+    <!-- Page 4 — Onboarding and terms -->
+    <section class="sheet" data-nk-slide="terms">
+      <header class="page-head" data-animate="up">
+        <div>
+          <p class="kicker">3</p>
+          <h2>Onboarding</h2>
+          <p>From signing to a fully managed environment — three weeks.</p>
+        </div>
+        <img class="page-spot" src="assets/spot-rocket.webp" alt="">
+      </header>
+
+      <ol class="steps" data-stagger="0.08" data-stagger-base="0.1">
+        <li data-animate="left"><span class="step-n">1</span><div><h3>Infrastructure audit</h3><p>Inventory of workstations, servers, licenses and access. A risk report within 5 business days.</p></div><span class="step-when">week 1</span></li>
+        <li data-animate="left"><span class="step-n">2</span><div><h3>Agreement and SLA</h3><p>We lock the service scope, the support tier and the ticketing rules.</p></div><span class="step-when">weeks 1–2</span></li>
+        <li data-animate="left"><span class="step-n">3</span><div><h3>Setup</h3><p>Monitoring, backups, the service catalog and guides for your staff.</p></div><span class="step-when">weeks 2–3</span></li>
+        <li data-animate="left"><span class="step-n">4</span><div><h3>Managed operations</h3><p>Scheduled maintenance, a report at the end of every month, a quarterly review with leadership.</p></div><span class="step-when">from week 4</span></li>
+      </ol>
+
+      <h3 class="sub-head" data-animate="up" data-delay="0.3">Terms</h3>
+      <ul id="conditions-list" class="conditions"></ul>
+
+      <div class="need" data-animate="up" data-delay="0.4">
+        <p class="eyebrow">What we need from you</p>
+        <p>An IT point of contact on your side, access to current systems and vendors, and one hour for the kickoff meeting.</p>
+      </div>
+
+      <footer class="sheet-foot">
+        <span>Beacon IT · quote for <span data-nk-text="companyName" data-nk-fallback="the client"></span></span>
+        <span>onboarding and terms</span>
+      </footer>
+    </section>
+
+    <!-- Page 5 — Next step -->
+    <section class="sheet" data-nk-slide="approval">
+      <header class="page-head" data-animate="up">
+        <div>
+          <p class="kicker">4</p>
+          <h2>Next step</h2>
+          <p>Confirm the quote and we send the agreement with the selected tier — or book a call if anything needs clarifying.</p>
+        </div>
+      </header>
+
+      <div class="approve" data-animate="up" data-delay="0.1">
+        <div class="approve-actions" data-nk-block="decision">
+          <button type="button" class="btn btn-primary" data-nk-field="quoteDecision" data-nk-value="accepted" data-nk-action="accept">Confirm quote</button>
+          <button type="button" class="btn" data-nk-field="quoteDecision" data-nk-value="meeting" data-nk-action="book-call">Book a call</button>
+        </div>
+        <p class="approve-state" id="approve-state">Selected tier: Standard. No decision yet.</p>
+      </div>
+
+      <div class="signatures" data-animate="up" data-delay="0.2">
+        <div class="sign">
+          <p class="sign-role">Provider</p>
+          <p class="sign-name">Beacon IT LLC, Jordan Reyes, CEO</p>
+          <div class="sign-line"><span>signature</span><span>date</span></div>
+        </div>
+        <div class="sign">
+          <p class="sign-role">Client</p>
+          <p class="sign-name"><span data-nk-text="companyName" data-nk-fallback="Client"></span><span data-nk-hide-empty="contactName">, <span data-nk-text="contactName"></span></span></p>
+          <div class="sign-line"><span>signature</span><span>date</span></div>
+        </div>
+      </div>
+
+      <div class="manager" data-animate="up" data-delay="0.3">
+        <p class="eyebrow">Your account manager</p>
+        <p class="manager-name" data-nk-text="managerName" data-nk-fallback="Account manager"></p>
+        <p class="manager-contact" data-nk-text="managerContact" data-nk-fallback="(206) 555-0177 · sales@beaconit.co"></p>
+      </div>
+
+      <footer class="sheet-foot">
+        <span>Beacon IT · quote for <span data-nk-text="companyName" data-nk-fallback="the client"></span></span>
+        <span>next step</span>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="naimi-kit/kit.js" defer></script>
+  <script src="deck.js" defer></script>
+</body>
+</html>

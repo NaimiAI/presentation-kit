@@ -1,0 +1,113 @@
+{
+  "id": "charcoal",
+  "name": "Sketchbook",
+  "tagline": "Charcoal and graphite sketches on toned paper",
+  "technique": "Architectural sketchbook drawing: charcoal and graphite on warm toned paper, confident loose lines, smudged shading, white chalk highlights, one red-pencil accent — the drawing of someone who builds things.",
+  "spirit": [
+    "elegant",
+    "crafted",
+    "premium"
+  ],
+  "fits": [
+    "real estate and listings",
+    "architecture, interiors, renovation",
+    "design studios",
+    "luxury services"
+  ],
+  "avoid": [
+    "loud marketing",
+    "data-heavy dashboards"
+  ],
+  "palette": {
+    "ink": "#2b2b2b",
+    "paper": "#efe6d6",
+    "accent": "#b8552e",
+    "accent2": "#2b2b2b",
+    "positive": "#3f7d4e"
+  },
+  "font": {
+    "family": "Cormorant Garamond",
+    "role": "elegant serif for headlines, italic for emphasis",
+    "license": "OFL-1.1",
+    "files": "pack/fonts/"
+  },
+  "rhythm": "editorial",
+  "plates": [
+    {
+      "file": "hero.webp",
+      "role": "hero",
+      "ratio": "16:9",
+      "keying": "none",
+      "accept": "Charcoal house sketch, left third empty, red pencil accent; no text."
+    },
+    {
+      "file": "plate-a.webp",
+      "role": "plate",
+      "ratio": "4:3",
+      "keying": "none",
+      "accept": "Interior sketch with chalk light; no text."
+    },
+    {
+      "file": "plate-b.webp",
+      "role": "plate",
+      "ratio": "4:3",
+      "keying": "none",
+      "accept": "Floor-plan sketch with tools; no text or dimension numbers."
+    },
+    {
+      "file": "band.webp",
+      "role": "band",
+      "ratio": "21:9",
+      "keying": "none",
+      "accept": "Rooftops skyline sketch; nothing else."
+    },
+    {
+      "file": "paper.webp",
+      "role": "paper",
+      "ratio": "16:9",
+      "keying": "none",
+      "accept": "Blank toned paper only."
+    },
+    {
+      "file": "spot-1.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "Charcoal key on pure white."
+    },
+    {
+      "file": "spot-2.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "Charcoal cup on pure white."
+    },
+    {
+      "file": "spot-3.webp",
+      "role": "spot",
+      "ratio": "1:1",
+      "keying": "white",
+      "accept": "Charcoal pen on pure white."
+    }
+  ],
+  "generate": {
+    "base": "A loose charcoal and graphite sketch of {subject} on warm toned sketchbook paper: confident lines, smudged shading, a few white chalk highlights, one red-pencil accent, unfinished edges. No people's faces.",
+    "spot": "A single loose charcoal and graphite sketch of {subject}, confident lines, smudged shading, one small red-pencil accent, drawing only.",
+    "rules": "No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+    "spotBackground": "white",
+    "references": [
+      "hero.webp",
+      "spot-1.webp"
+    ],
+    "prompts": {
+      "hero.webp": "A loose charcoal and graphite architectural sketch on warm toned sketchbook paper: the facade of a modern two-storey house with a terrace and large windows, drawn in perspective in the right two thirds of the sheet, construction and perspective lines left visible, smudged charcoal shading, a few white chalk highlights on the glass, one red-pencil accent line along the terrace edge; the left third of the paper is empty. No people, no faces. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "plate-a.webp": "A loose charcoal and graphite sketch on warm toned sketchbook paper of an interior corner: an armchair beside a tall window with light suggested by white chalk, a small side table with a cup, smudged shading, confident unfinished lines, one red-pencil accent. No people. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "plate-b.webp": "A flat-lay charcoal and graphite drawing on warm toned sketchbook paper of a floor-plan detail — walls, a door swing, a staircase — with a real drafting compass and a stub of charcoal lying across the drawing, soft shadows under the tools, one red-pencil mark on the plan. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "band.webp": "A panoramic loose charcoal sketch on warm toned sketchbook paper of a row of rooftops and chimneys seen from a distance, light confident lines, smudged shading, one red-pencil accent, lots of empty paper above. No people. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "paper.webp": "A flat scan of a blank sheet of warm toned sketchbook paper, seen from directly above, evenly lit, subtle tooth, one faint charcoal smudge near the lower edge, no drawings, edge to edge. An extreme close-up texture study of the paper surface itself, filling the whole frame edge to edge — no sheet edges, no corners, no vignette. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-1.webp": "A single loose charcoal and graphite sketch of an old door key, confident lines, smudged shading, one small red-pencil accent, drawing only. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-2.webp": "A single loose charcoal and graphite sketch of a coffee cup on a saucer with a wisp of steam, confident lines, smudged shading, one small red-pencil accent, drawing only. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image.",
+      "spot-3.webp": "A single loose charcoal and graphite sketch of a fountain pen lying diagonally, confident lines, smudged shading, one small red-pencil accent, drawing only. The object is isolated and centered on a perfectly flat, uniform, pure white background (#FFFFFF) that fills the entire frame edge to edge; no paper texture outside the object, nothing else in the frame, no cast shadow on the background. No text, no letters, no numbers, no logos, no watermark, no signature anywhere in the image."
+    }
+  }
+}

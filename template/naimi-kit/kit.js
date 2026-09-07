@@ -1,9 +1,9 @@
-/* Naimi kit runtime (kit.js) — engine nk/0.9.0. Precompiled platform
+/* Naimi kit runtime (kit.js) — engine nk/0.10.0. Precompiled platform
  * artifact: don't read or edit it, it travels into the bundle byte for byte.
  * Docs for deck authors: ../README.md · MIT License. */
 (() => {
   "use strict";
-  const ENGINE_VERSION = "0.9.0";
+  const ENGINE_VERSION = "0.10.0";
   const STRINGS = {
     en: {
       first: "First slide (Home)",
@@ -13,6 +13,7 @@
       prevShort: "Previous",
       nextShort: "Next",
       slide: (n) => `Slide ${n}`,
+      page: (n) => `Page ${n}`,
       swipe: "Swipe →",
       panelShow: "Slides",
       panelHide: "Hide slides (Esc)",
@@ -32,6 +33,9 @@
       return false;
     }
   })();
+  const PAGE_SIZES = { a4: [794, 1123], letter: [816, 1056] };
+  let DOC = false;
+  let PAGE = null;
   const EMPTY_STATE = { personalization: { companyName: "" }, clientFacts: {}, demoData: {}, canPersist: false, ui: {} };
   const embedded = window.parent !== window;
   let state = null;
@@ -75,7 +79,7 @@
   function postReady() {
     window.parent.postMessage({
       type: "naimi:ready",
-      payload: { engine: `nk/${ENGINE_VERSION}`, format: "slides", capabilities: ["static", "slideEvents", "panel", "scroll", "defaultMode", "startSlide", "goto", "actions", "inspect"] }
+      payload: { engine: `nk/${ENGINE_VERSION}`, format: DOC ? "document" : "slides", capabilities: ["static", "slideEvents", "panel", "scroll", "defaultMode", "startSlide", "goto", "actions", "inspect", "document"] }
     }, "*");
   }
   const READY_RETRIES_MS = [250, 800, 2e3];
@@ -343,6 +347,16 @@
   function buildPlayer() {
     const source = document.getElementById("deck");
     sections = Array.from(source ? source.querySelectorAll(":scope > section") : []);
+    DOC = source?.dataset.nkFormat === "document";
+    if (DOC) {
+      const [w, h] = PAGE_SIZES[String(source.dataset.nkPage || "a4").toLowerCase()] ?? PAGE_SIZES.a4;
+      PAGE = { width: w, height: h };
+      const rs = document.documentElement.style;
+      rs.setProperty("--nk-sheet-width", `${w}px`);
+      rs.setProperty("--nk-sheet-height", `${h}px`);
+      rs.setProperty("--nk-page-ratio", `${w} / ${h}`);
+    }
+    const nameOf = DOC ? T.page : T.slide;
     source?.remove();
     root = document.getElementById("root") ?? document.body.appendChild(Object.assign(document.createElement("div"), { id: "root" }));
     shell = document.createElement("div");
@@ -379,7 +393,7 @@
       const dot = document.createElement("button");
       dot.type = "button";
       dot.className = "nk-dot";
-      dot.title = T.slide(i + 1);
+      dot.title = nameOf(i + 1);
       dot.addEventListener("click", () => navTo(i));
       dotsBox.appendChild(dot);
     });
@@ -438,7 +452,7 @@
       const dot = document.createElement("button");
       dot.type = "button";
       dot.className = "nk-dot";
-      dot.title = T.slide(i + 1);
+      dot.title = nameOf(i + 1);
       dot.addEventListener("click", () => navTo(i));
       railDotsBox.appendChild(dot);
     });
@@ -457,7 +471,13 @@
       if (el && el.dataset.nkAction) emitAction(el.dataset.nkAction);
     });
     stateListeners.add(scheduleActiveThumbRefresh);
-    mountSlide(current, 0, null);
+    if (DOC) {
+      deckRoot.classList.add("nk-mode-document");
+      modeLockedByUser = true;
+      enterScroll();
+    } else {
+      mountSlide(current, 0, null);
+    }
     updateChrome();
   }
   function isEditableTarget(t) {
@@ -718,7 +738,7 @@
     updateChrome();
     scrollWraps[current].scrollIntoView({ block: "start", behavior: "auto" });
     if (keepReveal) scrollRevealed.add(current);
-    for (const i of [current - 1, current, current + 1]) if (sections[i]) scrollReveal(i);
+    for (const i of STATIC && DOC ? sections.keys() : [current - 1, current, current + 1]) if (sections[i]) scrollReveal(i);
     startScrollObservers();
   }
   function exitScroll() {
@@ -737,6 +757,7 @@
     updateChrome();
   }
   function toggleMode() {
+    if (DOC) return;
     modeLockedByUser = true;
     if (viewMode === "scroll") exitScroll();
     else enterScroll();
@@ -967,7 +988,13 @@
       } else readyCallbacks.push(fn);
     },
     kit,
-    static: STATIC
+    static: STATIC,
+    get format() {
+      return DOC ? "document" : "slides";
+    },
+    get page() {
+      return PAGE;
+    }
   };
   function init() {
     buildPlayer();

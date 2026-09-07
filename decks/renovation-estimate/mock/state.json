@@ -1,0 +1,25 @@
+{
+  "personalization": {
+    "companyName": "The Hendersons",
+    "contactName": "Emily Henderson",
+    "estimateNumber": "EST-2026-041",
+    "estimateDate": "2026-07-03",
+    "validUntil": "2026-08-15",
+    "projectTitle": "Kitchen, bath and living room remodel",
+    "objectAddress": "2418 SE Ankeny St, Portland, OR 97214",
+    "objectArea": "1,450",
+    "objectPhoto": "assets/sample-object.webp",
+    "projectDuration": "9–10 weeks",
+    "worksEstimate": "# Demolition\nRemove drywall partitions | SF | 190 | 3.50\nRemove existing flooring | SF | 620 | 2.25\nRemove wall tile | SF | 280 | 4.00\nRemove plumbing fixtures and supply lines | LS | 1 | 950\nDebris haul-off (20-yd dumpster) | EA | 2 | 780\n# Rough carpentry and drywall\nSubfloor repair and leveling | SF | 620 | 4.75\nFrame new partitions | LF | 46 | 38\nHang and finish drywall, level 4 | SF | 1,890 | 3.10\nDrop ceiling framing and drywall, living room | SF | 240 | 6.50\n# Electrical\nRun new circuits (12/2 and 14/2) | LF | 1,380 | 4.20\nInstall boxes and junctions | EA | 48 | 22\nPanel upgrade, 200 A | EA | 1 | 2,400\nInstall outlets, switches and dimmers | EA | 46 | 34\n# Plumbing\nWater supply rough-in (PEX) | fixture | 8 | 380\nDrain and vent rough-in | fixture | 5 | 320\nSet fixtures (sink, toilet, tub, shower valve) | EA | 6 | 410\nBathroom waterproofing membrane | SF | 130 | 9.50\n# Finishes\nWall tile installation | SF | 280 | 14\nFloor tile installation | SF | 130 | 16\nInterior painting, two coats | SF | 1,890 | 1.85\nCeiling painting | SF | 620 | 2.10\nLuxury vinyl plank flooring with underlayment | SF | 490 | 5.25\nBaseboard installation | LF | 280 | 4.50\nInterior doors, pre-hung | EA | 4 | 380\nEntry door installation | EA | 1 | 650\n# Final\nLight fixture installation | EA | 14 | 85\nFinal clean | SF | 1,450 | 0.65",
+    "materialsEstimate": "# Rough materials\nSelf-leveling underlayment, 50 lb | bag | 40 | 38\nDrywall 1/2\" 4x8 sheet | EA | 62 | 16\nJoint compound, 4.5 gal | bucket | 12 | 21\nPrimer, 5 gal | EA | 6 | 118\nLumber and fasteners for partitions | LS | 1 | 1,450\n# Mechanical\nNM-B 12/2 cable | LF | 900 | 1.05\nNM-B 14/2 cable | LF | 480 | 0.72\nBreakers, 200 A panel and devices | LS | 1 | 2,150\nPEX tubing and fittings | LS | 1 | 1,380\nABS drain pipe and fittings | LS | 1 | 620\nWaterproofing membrane, 5 gal | EA | 2 | 210\n# Consumables\nThin-set mortar, 50 lb | bag | 28 | 24\nEpoxy grout, 9 lb | EA | 6 | 68\nLVP underlayment | SF | 500 | 0.45\nTape, plastic, rollers and sundries | LS | 1 | 380",
+    "discountPercent": "5",
+    "estimateNotes": "Not included: finish materials (tile, flooring, paint colors above the base line, plumbing fixtures, doors), appliances and furniture, permit fees and structural engineering, debris haul-off beyond two dumpsters.",
+    "workConditions": "Preliminary estimate: quantities are confirmed at the site visit, unit rates are fixed in the contract\nRough and mechanical materials are purchased by us against an approved list; receipts attached to invoices\nFinish materials are selected by the client; we coordinate ordering and delivery\nChanges in scope are documented in a change order before the work starts\n2-year workmanship warranty from the final walkthrough",
+    "managerName": "Alex Carter",
+    "managerContact": "(503) 555-0142 · alex@northlinebuilders.com",
+    "customFields": []
+  },
+  "clientFacts": {},
+  "demoData": {},
+  "canPersist": true
+}

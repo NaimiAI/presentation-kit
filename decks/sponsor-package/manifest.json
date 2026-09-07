@@ -2,7 +2,7 @@
   "schemaVersion": "naimi.presentation.v1",
   "id": "sponsor-package",
   "name": "Event sponsorship package",
-  "description": "Dark poster deck for selling sponsorship: the event audience, three selectable tiers, a benefits matrix, and booking terms",
+  "description": "Poster deck on the poster-swiss art pack for selling sponsorship: the event audience, three selectable tiers, a benefits matrix, and booking terms",
   "entry": "index.html",
   "preview": "preview.webp",
   "personalization": {
@@ -58,27 +58,27 @@
       }
     ]
   },
-  "engine": "nk/0.9.0",
+  "engine": "nk/0.10.0",
   "slides": [
     {
       "id": "poster",
-      "title": "Poster"
+      "title": "Poster (loud)"
     },
     {
       "id": "audience",
-      "title": "Audience"
+      "title": "Audience (mid)"
     },
     {
       "id": "tiers",
-      "title": "Packages"
+      "title": "Packages (quiet)"
     },
     {
       "id": "benefits",
-      "title": "Benefits matrix"
+      "title": "Benefits matrix (quiet)"
     },
     {
       "id": "booking",
-      "title": "Booking"
+      "title": "Booking (loud)"
     }
   ]
 }

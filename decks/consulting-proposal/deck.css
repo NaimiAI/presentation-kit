@@ -1,0 +1,146 @@
+/* consulting-proposal — an advisory engagement proposal dressed in the "cyanotype" art pack.
+   Tokens, placement classes and devices come from assets/art/theme.css; this file lays out
+   the deck's own blocks. Rhythm `pulse`: loud cover · quiet ×3 · mid (band) · quiet ×3 · loud. */
+
+* { box-sizing: border-box; }
+section { position: relative; min-height: 100%; width: 100%; overflow: hidden; background: var(--nk-surface); color: var(--nk-ink); padding-bottom: 96px; }
+p, h1, h2, h3, ul, ol, blockquote, figure { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; text-align: left; }
+.wrap { position: relative; z-index: 2; width: 100%; max-width: 980px; margin: 0 auto; padding: 56px 40px 0; }
+
+/* Shared head of the quiet slides. */
+.slide-head { display: grid; gap: 14px; max-width: 760px; }
+.slide-head h2 { font-size: clamp(36px, 4.6vw, 60px); }
+/* Chips stay compact both in grid heads and in flex columns. */
+.art-chip { align-self: flex-start; justify-self: start; }
+.art-num { color: var(--art-accent); }
+
+/* ---- Slide 1: cover ---------------------------------------------------- */
+.cover { min-height: 100vh; padding-bottom: 0; }
+.cover-wrap { display: flex; flex-direction: column; justify-content: space-between; min-height: 100vh; max-width: 1200px; margin: 0 auto; padding: 36px 48px 110px; }
+.cover-top { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+.cover .art-chip { color: rgba(243, 239, 228, 0.8); }
+.cover-main { max-width: 620px; padding: 40px 0; }
+.cover h1 { font-size: clamp(52px, 7.4vw, 104px); }
+.lead { max-width: 480px; margin-top: 24px; font-size: 19px; line-height: 28px; color: rgba(243, 239, 228, 0.86); }
+.cover-meta { display: flex; flex-wrap: wrap; gap: 8px 32px; font-size: 14px; line-height: 20px; color: rgba(243, 239, 228, 0.8); }
+.cover-meta strong { color: var(--art-paper); font-weight: 600; }
+
+/* ---- Slide 2: what we heard -------------------------------------------- */
+.spot-envelope { top: 56px; right: 48px; width: clamp(110px, 13vw, 190px); }
+.quote { max-width: 720px; margin-top: 36px; border-left: 3px solid var(--art-accent); padding-left: 24px; }
+.quote p { font-family: var(--nk-font-display); font-size: clamp(22px, 2.4vw, 30px); line-height: 1.35; white-space: pre-line; }
+.quote footer { margin-top: 14px; font-size: 14px; line-height: 20px; color: var(--nk-ink-faint); }
+.under { margin-top: 36px; }
+.under-label { font-size: 12px; line-height: 16px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--nk-ink-faint); }
+.under-list { display: grid; gap: 10px; margin-top: 12px; max-width: 720px; font-size: 16px; line-height: 24px; color: var(--nk-ink-soft); }
+.under-list strong { color: var(--nk-ink); font-weight: 600; }
+
+/* ---- Slide 3: approach ------------------------------------------------- */
+.phases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin-top: 40px; }
+.phase { border-top: 1px solid var(--nk-edge); padding-top: 18px; }
+.phase .art-num { font-size: 56px; line-height: 1; }
+.phase h3 { margin-top: 10px; font-family: var(--nk-font-display); font-size: 26px; line-height: 32px; font-weight: 400; }
+.phase p:last-child { margin-top: 8px; font-size: 15px; line-height: 22px; color: var(--nk-ink-soft); }
+
+/* ---- Slide 4: team ----------------------------------------------------- */
+.team { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin-top: 36px; }
+.person { display: flex; gap: 18px; }
+.initials { display: grid; place-items: center; flex-shrink: 0; width: 64px; height: 64px; border-radius: 50%; background: var(--art-ink); color: var(--art-paper); font-family: var(--nk-font-display); font-size: 22px; }
+.person h3 { font-family: var(--nk-font-display); font-size: 24px; line-height: 30px; font-weight: 400; }
+.role { margin-top: 2px; font-size: 13px; line-height: 18px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--nk-ink-faint); }
+.person p:last-child { margin-top: 8px; font-size: 15px; line-height: 22px; color: var(--nk-ink-soft); }
+.principles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 40px; border-top: 1px solid var(--nk-edge); padding-top: 20px; font-size: 15px; line-height: 22px; color: var(--nk-ink-soft); }
+.principles strong { display: block; color: var(--nk-ink); font-weight: 600; }
+
+/* ---- Slide 5: results (mid) -------------------------------------------- */
+.results .wrap { padding-top: 36px; }
+.outcomes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin-top: 36px; }
+.outcome .art-num { font-size: clamp(56px, 7vw, 96px); line-height: 1; }
+.outcome-text { margin-top: 10px; font-size: 16px; line-height: 24px; color: var(--nk-ink-soft); }
+.outcome-text strong { color: var(--nk-ink); font-weight: 600; }
+
+/* ---- Slide 6: timeline ------------------------------------------------- */
+.timeline { margin-top: 32px; border-top: 1px solid var(--nk-edge); }
+.timeline li { display: grid; grid-template-columns: 200px 1fr; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--nk-edge); }
+.tl-when { font-family: var(--nk-font-display); font-style: italic; font-size: 22px; line-height: 28px; color: var(--art-accent); }
+.timeline strong { display: block; font-size: 18px; line-height: 24px; }
+.timeline p { margin-top: 4px; font-size: 15px; line-height: 22px; color: var(--nk-ink-soft); }
+
+/* ---- Slide 7: investment ----------------------------------------------- */
+/* The densest slide: a one-line heading and tighter rows keep three stages, the total and
+   the retainer picker above the navbar at 1600×900. */
+.investment .slide-head { max-width: 900px; }
+.investment .slide-head h2 { font-size: clamp(32px, 3.4vw, 52px); }
+.stages-list { display: grid; gap: 10px; margin-top: 22px; }
+.estimate-stage { border-top: 1px solid var(--nk-edge); padding-top: 10px; }
+.stage-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.stage-head h3 { font-family: var(--nk-font-display); font-size: 22px; line-height: 28px; font-weight: 400; }
+.stage-head strong { font-size: 20px; line-height: 28px; white-space: nowrap; }
+.stage-rows { display: grid; gap: 4px; margin-top: 6px; }
+.stage-row { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr); gap: 16px; font-size: 14px; line-height: 20px; }
+.stage-work { color: var(--nk-ink); }
+.stage-desc { color: var(--nk-ink-soft); }
+.estimate-total { display: flex; align-items: baseline; justify-content: space-between; margin-top: 12px; border-top: 2px solid var(--art-ink); padding-top: 8px; font-size: 14px; line-height: 20px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--nk-ink-faint); }
+.estimate-total strong { font-family: var(--nk-font-display); font-size: 34px; line-height: 36px; letter-spacing: 0; text-transform: none; color: var(--nk-ink); }
+.estimate-empty { margin-top: 32px; padding: 20px 24px; border: 1px dashed var(--nk-edge); font-size: 15px; line-height: 22px; color: var(--nk-ink-faint); }
+/* Label and the "Selected" summary share one row above the tiers; stacked on phones. */
+.retainer { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 0 24px; margin-top: 20px; }
+.retainer-label { grid-row: 1; grid-column: 1; font-size: 12px; line-height: 16px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--nk-ink-faint); }
+.retainer-grid { grid-row: 2; grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 10px; }
+.tier { display: grid; gap: 4px; border: 1px solid var(--nk-edge); background: var(--nk-card); padding: 12px 16px; transition: border-color 0.15s, background 0.15s; }
+.tier:hover { border-color: var(--art-ink); }
+.tier[aria-pressed='true'] { border-color: var(--art-ink); background: var(--art-ink); color: var(--art-paper); }
+.tier-name { font-family: var(--nk-font-display); font-size: 21px; line-height: 26px; }
+.tier-price { font-size: 17px; line-height: 24px; font-weight: 600; }
+.tier-price small { font-size: 12px; font-weight: 400; opacity: 0.75; }
+.tier-note { font-size: 13px; line-height: 18px; opacity: 0.8; }
+.retainer-summary { grid-row: 1; grid-column: 2; font-size: 14px; line-height: 20px; color: var(--nk-ink-soft); }
+.retainer-summary strong { color: var(--nk-ink); font-weight: 600; }
+
+/* ---- Slide 8: next steps ----------------------------------------------- */
+.spot-key { top: 48px; right: 56px; }
+.steps { display: grid; gap: 18px; margin-top: 32px; max-width: 720px; }
+.steps li { display: grid; grid-template-columns: 56px 1fr; gap: 12px; align-items: start; }
+.steps .art-num { font-size: 44px; line-height: 1; }
+.steps strong { display: block; font-size: 18px; line-height: 24px; }
+.steps p { margin-top: 4px; font-size: 15px; line-height: 22px; color: var(--nk-ink-soft); }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 28px; }
+.btn-primary, .btn-ghost { padding: 12px 22px; font-size: 15px; line-height: 20px; font-weight: 600; transition: background 0.15s, color 0.15s; }
+.btn-primary { background: var(--art-ink); color: var(--art-paper); }
+.btn-primary:hover { background: var(--art-accent); }
+.btn-ghost { border: 1px solid var(--art-ink); }
+.btn-ghost:hover { background: var(--nk-accent-soft); }
+.validity { font-size: 14px; line-height: 20px; color: var(--nk-ink-faint); }
+.ask { display: grid; gap: 8px; max-width: 720px; margin-top: 24px; font-size: 14px; line-height: 20px; color: var(--nk-ink-soft); }
+.ask em { color: var(--nk-ink-faint); }
+.ask textarea { width: 100%; resize: vertical; border: 1px solid var(--nk-edge); background: var(--nk-card); padding: 10px 12px; font: inherit; color: var(--nk-ink); outline: none; }
+.ask textarea:focus { border-color: var(--art-ink); }
+
+/* ---- Slide 9: close ---------------------------------------------------- */
+.close .wrap { min-height: calc(100vh - 96px); display: flex; flex-direction: column; justify-content: center; padding-top: 40px; }
+.close .art-chip { color: rgba(243, 239, 228, 0.75); }
+.close-title { font-size: clamp(52px, 7.4vw, 104px); }
+.close-title em { color: #d9c39a; }
+.close-text { max-width: 520px; margin-top: 24px; font-size: 19px; line-height: 28px; color: rgba(243, 239, 228, 0.86); }
+.close-contact { display: grid; margin-top: 32px; font-size: 15px; line-height: 22px; color: rgba(243, 239, 228, 0.86); }
+.close-contact strong { font-size: 18px; color: var(--art-paper); }
+.spot-hand { top: 12%; right: 8%; }
+
+/* ---- Small screens ----------------------------------------------------- */
+@media (max-width: 1023px) {
+  .phases, .outcomes, .principles, .retainer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  .wrap { padding: 40px 20px 0; }
+  .cover-wrap { padding: 20px 20px 96px; }
+  .cover h1, .close-title { font-size: clamp(40px, 12vw, 64px); }
+  .phases, .outcomes, .principles, .team, .retainer-grid { grid-template-columns: 1fr; }
+  .timeline li { grid-template-columns: 1fr; gap: 6px; }
+  .stage-row { grid-template-columns: 1fr; gap: 2px; }
+  .retainer { grid-template-columns: 1fr; }
+  .retainer-summary { grid-row: 3; grid-column: 1; margin-top: 10px; }
+  .spot-envelope, .spot-key { top: 16px; right: 12px; }
+  .spot-hand { top: 4%; right: -6%; }
+}

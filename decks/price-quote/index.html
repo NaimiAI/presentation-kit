@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en" data-theme="offer-letterhead">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Price quote — letterhead document</title>
+  <link rel="stylesheet" href="naimi-kit/kit.css">
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Document format: a cover letter on letterhead + itemized quote + terms, Letter sheets. -->
+  <main id="deck" hidden data-nk-format="document" data-nk-page="letter">
+
+    <!-- Page 1 — Cover letter -->
+    <section class="sheet letter" data-nk-slide="letter">
+      <header class="letterhead" data-animate="up">
+        <div class="brand">
+          <p class="brand-name">Harbor Merch Co.</p>
+          <p class="brand-tagline">branded corporate gifts and merchandise</p>
+        </div>
+        <p class="requisites">Harbor Merch Co. LLC · EIN 84-1234567<br>18 Pier Street, Suite 400, Boston, MA 02110<br>(617) 555-0133 · hello@harbormerch.co</p>
+      </header>
+
+      <div class="letter-meta" data-animate="up" data-delay="0.1">
+        <p>Quote No. <span data-nk-text="offerNumber" data-nk-fallback="PQ-2026-001"></span> · <span id="offer-date"></span></p>
+        <p class="letter-to">To: <strong data-nk-text="companyName" data-nk-fallback="Client company"></strong><span data-nk-hide-empty="contactName"><br><span data-nk-text="contactName"></span><span data-nk-hide-empty="contactTitle">, <span data-nk-text="contactTitle"></span></span></span></p>
+      </div>
+
+      <h1 data-animate="up" data-delay="0.15">Price quote<br>for branded corporate gift sets</h1>
+
+      <div class="letter-body" data-animate="up" data-delay="0.2">
+        <p class="salute"><span data-nk-text="salutation" data-nk-fallback="Dear team"></span>,</p>
+        <p>
+          Thank you for your interest in our products. As requested, here is our quote for
+          producing and delivering branded gift sets <span data-nk-text="occasion" data-nk-fallback="for your upcoming event"></span>
+          for <span data-nk-text="companyName" data-nk-fallback="your company"></span> — with your logo applied
+          and packaging in your brand colors.
+        </p>
+        <p>
+          The quote includes the itemized pricing (page 2), the product descriptions (page 3)
+          and the delivery and payment terms (page 4). The total comes to
+          <strong id="letter-total">$0</strong>; production lead time is
+          <strong data-nk-text="leadTime" data-nk-fallback="14 business days"></strong> from artwork approval.
+        </p>
+        <p data-nk-hide-empty="offerNote" data-nk-text="offerNote"></p>
+        <p>
+          We would be glad to discuss the details and prepare samples. This quote is valid
+          through <span id="letter-valid">the end of the month</span>
+        </p>
+      </div>
+
+      <div class="letter-sign" data-animate="up" data-delay="0.3">
+        <div>
+          <p class="sign-role">Sincerely,</p>
+          <p class="sign-name">Nora Bell, founder</p>
+          <p class="sign-name">Harbor Merch Co.</p>
+        </div>
+        <div class="stamp" aria-hidden="true"><span>Harbor Merch</span></div>
+      </div>
+
+      <footer class="sheet-foot">
+        <span>Prepared by <span data-nk-text="managerName" data-nk-fallback="sales team"></span> · <span data-nk-text="managerContact" data-nk-fallback="(617) 555-0133"></span></span>
+        <span>page 1 — letter</span>
+      </footer>
+    </section>
+
+    <!-- Page 2 — Itemized quote -->
+    <section class="sheet" data-nk-slide="specification">
+      <header class="page-head" data-animate="up">
+        <p class="kicker">Attachment 1 to quote No. <span data-nk-text="offerNumber" data-nk-fallback="PQ-2026-001"></span></p>
+        <h2>Itemized quote</h2>
+        <p>Unit prices include one-color logo imprint and standard packaging. Sales tax is estimated at the rate below.</p>
+      </header>
+
+      <div id="spec-table" class="table-wrap" data-animate="up" data-delay="0.1"></div>
+      <div id="spec-empty" class="empty-state" hidden>
+        No line items yet. Fill the "Line items" field when creating the presentation —
+        one line per item: "Description | SKU | Unit | Qty | Unit price".
+      </div>
+
+      <dl class="totals" data-animate="up" data-delay="0.2">
+        <div><dt>Subtotal</dt><dd id="total-net">$0</dd></div>
+        <div id="discount-row" hidden><dt>Discount <span id="discount-pct"></span></dt><dd id="total-discount">− $0</dd></div>
+        <div id="tax-row" hidden><dt>Sales tax <span id="tax-pct"></span></dt><dd id="total-tax">$0</dd></div>
+        <div class="grand"><dt>Total</dt><dd id="total-gross">$0</dd></div>
+      </dl>
+      <p class="totals-note" data-animate="up" data-delay="0.25">Amount in words: <span id="total-words">zero dollars and 00/100</span>.</p>
+
+      <footer class="sheet-foot">
+        <span>Quote No. <span data-nk-text="offerNumber" data-nk-fallback="PQ-2026-001"></span> · <span data-nk-text="companyName" data-nk-fallback="Client company"></span></span>
+        <span>page 2 — itemized quote</span>
+      </footer>
+    </section>
+
+    <!-- Page 3 — Products -->
+    <section class="sheet" data-nk-slide="products">
+      <header class="page-head" data-animate="up">
+        <p class="kicker">Attachment 2</p>
+        <h2>The products</h2>
+        <p>The core items of the gift set. Each is available with laser engraving or pad-printed logo.</p>
+      </header>
+
+      <div class="products" data-stagger="0.1" data-stagger-base="0.1">
+        <article class="product" data-animate="up">
+          <img src="assets/product-pen.webp" alt="Fountain pen">
+          <div>
+            <h3>"Master" fountain pen</h3>
+            <p>Brass body, lacquer finish, stainless-steel nib. Logo or name engraved on the cap. Individual gift box.</p>
+            <p class="product-meta">SKU PEN-114 · from 100 pcs</p>
+          </div>
+        </article>
+        <article class="product" data-animate="up">
+          <img src="assets/product-cup.webp" alt="Ceramic mug">
+          <div>
+            <h3>"Morning" mug</h3>
+            <p>Ceramic, 12 oz, matte glaze. Two-color decal, dishwasher safe. Gift box with an insert.</p>
+            <p class="product-meta">SKU CUP-052 · from 50 pcs</p>
+          </div>
+        </article>
+        <article class="product" data-animate="up">
+          <img src="assets/product-key.webp" alt="Key keychain">
+          <div>
+            <h3>"Key" keychain</h3>
+            <p>Cast brass with patina, stainless-steel ring. Laser-engraved logo on the plate. Kraft envelope packaging.</p>
+            <p class="product-meta">SKU KEY-021 · from 100 pcs</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="branding" data-animate="up" data-delay="0.4">
+        <h3>Branding and packaging</h3>
+        <p>We prepare the imprint proof within 2 business days of receiving your vector logo; a physical sample within 5 business days. The set ships in a rigid board box with foil stamping and a greeting card insert with your copy.</p>
+      </div>
+
+      <footer class="sheet-foot">
+        <span>Quote No. <span data-nk-text="offerNumber" data-nk-fallback="PQ-2026-001"></span> · <span data-nk-text="companyName" data-nk-fallback="Client company"></span></span>
+        <span>page 3 — products</span>
+      </footer>
+    </section>
+
+    <!-- Page 4 — Terms and acceptance -->
+    <section class="sheet" data-nk-slide="terms">
+      <header class="page-head" data-animate="up">
+        <p class="kicker">Attachment 3</p>
+        <h2>Delivery and payment terms</h2>
+      </header>
+
+      <table class="terms-table" data-animate="up" data-delay="0.1">
+        <tbody>
+          <tr><th>Lead time</th><td><span data-nk-text="leadTime" data-nk-fallback="14 business days"></span> from artwork approval and receipt of the deposit</td></tr>
+          <tr><th>Shipping</th><td data-nk-text="deliveryTerms" data-nk-fallback="Free ground shipping to one address in the contiguous US; split shipments and expedited freight at cost"></td></tr>
+          <tr><th>Payment</th><td data-nk-text="paymentTerms" data-nk-fallback="50% deposit on order confirmation, 50% net 15 from shipment"></td></tr>
+          <tr><th>Warranty</th><td>12 months on the products; imprint defects replaced at our cost within 10 days</td></tr>
+          <tr><th>Documents</th><td>Order confirmation, invoice, packing list; product compliance certificates on request</td></tr>
+          <tr><th>Valid through</th><td id="terms-valid">the end of the month</td></tr>
+        </tbody>
+      </table>
+
+      <div class="approve" data-animate="up" data-delay="0.2">
+        <p class="approve-title">Your response</p>
+        <div class="approve-actions" data-nk-block="decision">
+          <button type="button" class="btn btn-primary" data-nk-field="offerDecision" data-nk-value="accepted" data-nk-action="accept">Accept the quote</button>
+          <button type="button" class="btn" data-nk-field="offerDecision" data-nk-value="samples" data-nk-action="sample-request">Request samples</button>
+        </div>
+        <p class="approve-state" id="approve-state">No response yet — we see your choice the moment you click.</p>
+      </div>
+
+      <div class="signatures" data-animate="up" data-delay="0.3">
+        <div class="sign">
+          <p class="sign-role">Supplier</p>
+          <p class="sign-name">Harbor Merch Co. LLC, Nora Bell, founder</p>
+          <div class="sign-line"><span>signature</span><span>date</span></div>
+        </div>
+        <div class="sign">
+          <p class="sign-role">Buyer</p>
+          <p class="sign-name"><span data-nk-text="companyName" data-nk-fallback="Client company"></span><span data-nk-hide-empty="contactName">, <span data-nk-text="contactName"></span></span></p>
+          <div class="sign-line"><span>signature</span><span>date</span></div>
+        </div>
+      </div>
+
+      <div class="manager" data-animate="up" data-delay="0.35">
+        <p class="eyebrow">Your sales contact</p>
+        <p class="manager-name" data-nk-text="managerName" data-nk-fallback="Sales team"></p>
+        <p class="manager-contact" data-nk-text="managerContact" data-nk-fallback="(617) 555-0133 · hello@harbormerch.co"></p>
+      </div>
+
+      <footer class="sheet-foot">
+        <span>Quote No. <span data-nk-text="offerNumber" data-nk-fallback="PQ-2026-001"></span> · <span data-nk-text="companyName" data-nk-fallback="Client company"></span></span>
+        <span>page 4 — terms</span>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="naimi-kit/kit.js" defer></script>
+  <script src="deck.js" defer></script>
+</body>
+</html>

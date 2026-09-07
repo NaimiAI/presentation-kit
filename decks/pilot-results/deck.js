@@ -46,8 +46,8 @@ naimi.ready((kit) => {
     ;[0.25, 0.5, 0.75, 1].forEach((tick) => {
       const y = CHART.height - CHART.padY - innerHeight * tick
       const group = svg('g')
-      group.append(svg('line', { x1: CHART.padX, x2: CHART.width - CHART.padX, y1: y, y2: y, stroke: 'var(--nk-edge)', 'stroke-dasharray': '4 6' }))
-      const text = svg('text', { x: CHART.padX - 8, y: y + 4, 'text-anchor': 'end', 'font-size': 11, fill: 'var(--nk-ink-faint)' })
+      group.append(svg('line', { x1: CHART.padX, x2: CHART.width - CHART.padX, y1: y, y2: y, stroke: 'var(--art-ink)', 'stroke-opacity': 0.22, 'stroke-dasharray': '4 6' }))
+      const text = svg('text', { x: CHART.padX - 8, y: y + 4, 'text-anchor': 'end', 'font-size': 11, fill: 'var(--art-ink)', 'fill-opacity': 0.6 })
       text.textContent = String(Math.round(maxValue * tick))
       group.append(text)
       grid.append(group)
@@ -59,12 +59,12 @@ naimi.ready((kit) => {
       const y = CHART.height - CHART.padY - height
       const last = index === weeks.length - 1
       const group = svg('g')
-      group.append(svg('rect', { x, y, width: barWidth, height, rx: 6, fill: last ? 'var(--nk-positive)' : 'var(--nk-accent)', opacity: last ? 1 : 0.45 + index * 0.06 }))
-      const week = svg('text', { x: x + barWidth / 2, y: CHART.height - CHART.padY + 16, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--nk-ink-faint)' })
+      group.append(svg('rect', { x, y, width: barWidth, height, fill: last ? 'var(--art-accent-2)' : 'var(--art-ink)', opacity: last ? 1 : 0.35 + index * 0.08 }))
+      const week = svg('text', { x: x + barWidth / 2, y: CHART.height - CHART.padY + 16, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--art-ink)', 'fill-opacity': 0.6 })
       week.textContent = `W${index + 1}`
       group.append(week)
       if (last) {
-        const label = svg('text', { x: x + barWidth / 2, y: y - 8, 'text-anchor': 'middle', 'font-size': 13, 'font-weight': 700, fill: 'var(--nk-positive-ink)' })
+        const label = svg('text', { x: x + barWidth / 2, y: y - 8, 'text-anchor': 'middle', 'font-size': 13, 'font-weight': 700, fill: 'var(--art-ink)' })
         label.textContent = `${Math.round(value)}%`
         group.append(label)
       }

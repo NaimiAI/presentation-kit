@@ -70,19 +70,19 @@
       }
     ]
   },
-  "engine": "nk/0.9.0",
+  "engine": "nk/0.10.0",
   "slides": [
     {
       "id": "offer",
-      "title": "Interactive offer"
+      "title": "Interactive offer (loud: the pack's shelf of clay objects closes the cover)"
     },
     {
       "id": "configurator",
-      "title": "Service configurator"
+      "title": "Service configurator (quiet: the pack's paper, one clay spot)"
     },
     {
       "id": "summary",
-      "title": "Estimate summary"
+      "title": "Estimate summary (loud: the pack's coral field)"
     }
   ]
 }
