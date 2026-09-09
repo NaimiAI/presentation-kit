@@ -18,7 +18,9 @@
 //   GEMINI_API_KEY | GOOGLE_API_KEY       Google AI API directly
 //   GOOGLE_CLOUD_PROJECT                  Vertex AI: GOOGLE_CLOUD_LOCATION (default global),
 //                                         bearer from GOOGLE_ACCESS_TOKEN or the metadata server
-//   NAIMI_IMAGE_MODEL                     model id (default gemini-2.5-flash-image)
+//   NAIMI_IMAGE_MODEL                     model id (default gemini-3.1-flash-image — Nano Banana 2;
+//                                         gemini-3-pro-image, gemini-3.1-flash-lite-image and the
+//                                         older gemini-2.5-flash-image work too)
 //
 // Output: WebP at the roster size (≈1400 px long side, q82); a spot/figure goes through
 // tools/art-cutout.mjs (chroma key → transparent WebP). Without ImageMagick the raw PNG is
@@ -32,7 +34,7 @@ import os from 'node:os'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-export const DEFAULT_IMAGE_MODEL = 'gemini-2.5-flash-image'
+export const DEFAULT_IMAGE_MODEL = 'gemini-3.1-flash-image'
 export const ROLES = Object.freeze({
   hero: { ratio: '16:9', keyed: false, hint: 'Wide composition for a 16:9 presentation cover; keep the upper-left third quiet, with no objects, so a headline can sit on it.' },
   plate: { ratio: '4:3', keyed: false, hint: 'A 4:3 plate that sits beside text; keep one third of the frame quiet.' },
