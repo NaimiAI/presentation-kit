@@ -1,0 +1,14 @@
+{
+  "personalization": {
+    "companyName": "Northwind Software",
+    "contactName": "Jordan Blake",
+    "eventTitle": "Signal — an evening for revenue leaders",
+    "eventDate": "2026-07-16",
+    "eventTime": "6:00 PM PT · dinner + talks",
+    "joinUrl": "https://example.com/rsvp/signal-sf",
+    "customFields": []
+  },
+  "clientFacts": {},
+  "demoData": {},
+  "canPersist": true
+}

@@ -125,6 +125,7 @@ showing a genre and a style of personalization (details in each deck's `README.m
 | `service-configurator` | interactive price list (mint theme) | service checkboxes, bundle discount, live total |
 | `client-onboarding` | new-client welcome pack | 30-day plan from a kickoff date, team with photos, external links |
 | `event-invite` | event invitation (poster) | RSVP, add-to-calendar and video links |
+| `event-invite-noir` | the same invitation on the dark `noir-lime` theme (outlined type, no art pack) | same as `event-invite` |
 | `sponsor-package` | event sponsorship offer (velvet night poster: aubergine + amber) | tier picker saved on the presentation; benefits matrix highlights the chosen tier; booking deadline |
 | `design-brief` | design-studio brief (gallery serif editorial, hairlines, Klein blue) | self-fill: underline textareas, photographic moodboard multi-select, deliverables checklist, budget/deadline chips |
 | `b2b-services` | B2B consulting presentation (dark premium "navy & gold", serif) | painPoints textarea → "what we heard" list; priority-practice picker saved as an interactive field |
