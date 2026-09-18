@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Real-estate listing presentation</title>
+  <title>Home tour presentation</title>
   <link rel="stylesheet" href="naimi-kit/kit.css">
   <link rel="stylesheet" href="deck.css">
 </head>
@@ -21,25 +21,26 @@
         <div><p>Claire Bennett</p><span>Bennett Residential</span></div>
       </div>
       <div class="cover-panel" data-animate="up-lg" data-delay="0.45">
-        <p class="eyebrow">Listing presentation</p>
-        <h1>A marketing plan for<br><span data-nk-text="propertyAddress" data-nk-fallback="your home"></span></h1>
-        <p class="prepared">Prepared for <strong data-nk-text="companyName" data-nk-fallback="the owners"></strong><span>·</span><span id="present-date"></span></p>
+        <p class="eyebrow">For sale</p>
+        <h1 data-nk-text="propertyAddress" data-nk-fallback="4128 SE Woodstock Blvd"></h1>
+        <p class="cover-specs" data-nk-text="homeSpecs" data-nk-fallback="2,780 sq ft · 0.28 acre lot · 4 bedrooms"></p>
+        <p class="prepared">Prepared for <strong data-nk-text="companyName" data-nk-fallback="you"></strong><span>·</span><span id="present-date"></span></p>
       </div>
     </section>
 
-    <!-- Slide 2 — Your home & the market -->
-    <section class="shell" data-nk-slide="market">
+    <!-- Slide 2 — The home & the block -->
+    <section class="shell" data-nk-slide="house">
       <div class="wrap">
-        <p class="eyebrow" data-animate="up">Your home &amp; the market</p>
+        <p class="eyebrow" data-animate="up">The home &amp; the block</p>
         <div class="market-grid">
           <div data-animate="up" data-delay="0.1">
-            <h2>Selling a home you love is a big decision.</h2>
-            <p class="intro">You only get one chance at a first impression on the market, so we plan the launch carefully and price it with the data. Here is what makes your home stand out.</p>
+            <h2>A home you move into, not one you fix up.</h2>
+            <p class="intro">The owners built it for themselves and are only selling because of a move, so there is no half-finished work and nothing hiding behind the drywall. Here is what we think matters most.</p>
             <ul id="home-highlights" class="highlights" hidden></ul>
           </div>
           <div data-animate="up" data-delay="0.2">
             <div class="comps-card">
-              <p class="card-label">Nearby sales</p>
+              <p class="card-label">Recent sales nearby</p>
               <div class="comps-head"><span>Address</span><span>Sold</span><span>Days</span></div>
               <div id="comps-rows"></div>
             </div>
@@ -47,106 +48,114 @@
               <div class="median-card median-accent"><p>Median sold price</p><strong id="median-price"></strong></div>
               <div class="median-card"><p>Median days on market</p><strong id="median-days"></strong></div>
             </div>
+            <p id="price-vs-median" class="price-note" hidden></p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Slide 3 — Pricing strategy -->
-    <section class="shell" data-nk-slide="pricing">
+    <!-- Slide 3 — How to buy it -->
+    <section class="shell" data-nk-slide="purchase">
       <div class="wrap">
-        <p class="eyebrow" data-animate="up">Pricing strategy</p>
-        <h2 data-animate="up" data-delay="0.08">Pick the approach — then see what lands in your pocket</h2>
+        <p class="eyebrow" data-animate="up">How to buy it</p>
+        <h2 data-animate="up" data-delay="0.08">Pick your path — then see what the money looks like</h2>
         <div class="strategy-grid" data-stagger="0.08" data-stagger-base="0.15">
-          <button class="strategy" type="button" data-nk-field="pricingStrategy" data-nk-value="premium" data-nk-action="pricing-premium" aria-pressed="false" data-animate="up">
-            <span class="strategy-tag">Test the ceiling</span><strong>Premium</strong><span class="strategy-copy">Aim above market to find the top buyer — expect more days on market.</span><span class="strategy-state">Choose</span>
+          <button class="strategy" type="button" data-nk-field="purchaseOption" data-nk-value="cash" data-nk-action="purchase-cash" aria-pressed="false" data-animate="up">
+            <span class="strategy-tag">Fastest close</span><strong>All cash</strong><span class="strategy-copy">The sellers credit you for the speed: no appraisal, no lender, keys in under two weeks.</span><span class="strategy-state">Choose</span>
           </button>
-          <button class="strategy" type="button" data-nk-field="pricingStrategy" data-nk-value="market" data-nk-action="pricing-market" aria-pressed="true" data-animate="up">
-            <span class="strategy-tag">Balanced</span><strong>At market</strong><span class="strategy-copy">Price to the comps for steady showings and a clean, on-pace sale.</span><span class="strategy-state">✓ Selected</span>
+          <button class="strategy" type="button" data-nk-field="purchaseOption" data-nk-value="mortgage" data-nk-action="purchase-mortgage" aria-pressed="true" data-animate="up">
+            <span class="strategy-tag">Most buyers</span><strong>Financed</strong><span class="strategy-copy">Put your down payment in, finance the rest. The home already appraised clean last month.</span><span class="strategy-state">✓ Selected</span>
           </button>
-          <button class="strategy" type="button" data-nk-field="pricingStrategy" data-nk-value="sharp" data-nk-action="pricing-sharp" aria-pressed="false" data-animate="up">
-            <span class="strategy-tag">Drive multiple offers</span><strong>Sharp</strong><span class="strategy-copy">List a touch under to spark competition and push the final price up.</span><span class="strategy-state">Choose</span>
+          <button class="strategy" type="button" data-nk-field="purchaseOption" data-nk-value="bridge" data-nk-action="purchase-bridge" aria-pressed="false" data-animate="up">
+            <span class="strategy-tag">If you own a home</span><strong>Buy before you sell</strong><span class="strategy-copy">We front the equity in your current home so your offer is not contingent on selling it first.</span><span class="strategy-state">Choose</span>
           </button>
         </div>
         <div class="pricing-grid">
           <div class="calculator-card" data-animate="up" data-delay="0.35">
-            <div class="range-head"><label for="list-price-range">List price</label><strong id="list-price-display">$725,000</strong></div>
-            <div class="range-controls">
-              <input id="list-price-range" type="range" min="615000" max="835000" step="5000" value="725000" data-nk-field="listPrice">
-              <input id="list-price-number" type="number" min="615000" max="835000" step="5000" value="725000" data-nk-field="listPrice" aria-label="List price">
+            <div id="down-payment-block">
+              <div class="range-head"><label id="down-payment-label" for="down-payment-range">Down payment</label><strong id="down-payment-display">$145,000</strong></div>
+              <div class="range-controls">
+                <input id="down-payment-range" type="range" min="75000" max="505000" step="5000" value="145000" data-nk-field="downPayment">
+                <input id="down-payment-number" type="number" min="75000" max="505000" step="5000" value="145000" data-nk-field="downPayment" aria-label="Down payment">
+              </div>
             </div>
-            <p class="recommended">Recommended list: <strong id="recommended-price">$725,000</strong></p>
+            <p id="cash-note" class="cash-note" hidden>All cash means no lender and no waiting: escrow opens the same week and the sellers hand over the keys in ten days.</p>
+            <p class="recommended" id="calculator-note"></p>
+            <div class="included">
+              <p class="card-label">Conveys with the home</p>
+              <ul>
+                <li>Miele appliances and the quartz island</li>
+                <li>Window treatments, built-in lighting, patio furniture</li>
+                <li>Detached studio with its own half bath</li>
+              </ul>
+            </div>
           </div>
           <div class="net-card" data-animate="up" data-delay="0.45">
-            <p class="card-label">Estimated net to you</p>
-            <strong id="net-proceeds" class="net-value">$674,250</strong>
-            <div class="net-lines">
-              <p><span>List price</span><strong id="net-list-price">$725,000</strong></p>
-              <p><span>Commission (5.5%)</span><span id="commission">−$39,875</span></p>
-              <p><span>Closing costs (1.5%)</span><span id="closing-costs">−$10,875</span></p>
-            </div>
-            <p class="fine-print">Estimate only — excludes mortgage payoff, prorated taxes and any concessions. We build a line-by-line net sheet before you sign.</p>
+            <p class="card-label" id="result-label">Monthly payment</p>
+            <strong id="result-value" class="net-value">$3,666</strong>
+            <div class="net-lines" id="result-lines"></div>
+            <p class="fine-print" id="result-note"></p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Slide 4 — Marketing plan -->
-    <section class="shell" data-nk-slide="marketing-plan">
+    <!-- Slide 4 — Walk the house -->
+    <section class="shell" data-nk-slide="tour">
       <div class="wrap">
-        <p class="eyebrow" data-animate="up">The marketing plan</p>
-        <h2 data-animate="up" data-delay="0.08">From prep to open house in about two weeks</h2>
-        <div class="marketing-grid">
-          <div class="timeline" data-stagger="0.1" data-stagger-base="0.15">
-            <article class="timeline-card" data-animate="up">
-              <span class="icon-circle"><svg class="ico" viewBox="0 0 24 24"><path d="m11 10 3 3"></path><path d="M6.5 21A3.5 3.5 0 1 0 3 17.5a2.62 2.62 0 0 1-.708 1.792A1 1 0 0 0 3 21z"></path><path d="M9.969 17.031 21.378 5.624a1 1 0 0 0-3.002-3.002L6.967 14.031"></path></svg></span>
-              <div><p class="step-head"><strong>1. Prep &amp; staging</strong><span>Week 1</span></p><p>Declutter, light repairs and a staging plan that makes each room photograph well.</p></div>
-            </article>
-            <article class="timeline-card" data-animate="up">
-              <span class="icon-circle"><svg class="ico" viewBox="0 0 24 24"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z"></path><circle cx="12" cy="13" r="3"></circle></svg></span>
-              <div><p class="step-head"><strong>2. Photography + film</strong><span>Week 1–2</span></p><p>Magazine-grade stills, a walkthrough film and a floor plan — shot at golden hour.</p></div>
-            </article>
-            <article class="timeline-card" data-animate="up">
-              <span class="icon-circle"><svg class="ico" viewBox="0 0 24 24"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"></path><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14"></path><path d="M8 6v8"></path></svg></span>
-              <div><p class="step-head"><strong>3. Launch everywhere</strong><span>Week 2</span></p><p>Live on the MLS and every major portal, plus a targeted email to my buyer list.</p></div>
-            </article>
-            <article class="timeline-card" data-animate="up">
-              <span class="icon-circle"><svg class="ico" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></span>
-              <div><p class="step-head"><strong>4. Open house &amp; private tours</strong><span>Week 2+</span></p><p>A launch-weekend open house followed by private showings for serious buyers.</p></div>
-            </article>
-          </div>
-          <div class="listing-photos" data-animate="up" data-delay="0.3">
-            <img src="assets/home-living.webp" alt=""><img src="assets/home-kitchen.webp" alt="">
-            <p>Magazine-grade photography comes standard — no upsells, no per-photo fees.</p>
-          </div>
+        <p class="eyebrow" data-animate="up">Walk the house</p>
+        <h2 data-animate="up" data-delay="0.08">Four rooms worth the drive</h2>
+        <div class="tour-grid" data-stagger="0.08" data-stagger-base="0.15">
+          <figure class="tour-item" data-animate="up">
+            <img src="assets/home-living.webp" alt="Great room with fireplace">
+            <figcaption><strong>Great room</strong><span>420 sq ft · light on two sides, 18-ft ceiling</span></figcaption>
+          </figure>
+          <figure class="tour-item" data-animate="up">
+            <img src="assets/home-kitchen.webp" alt="Kitchen and dining">
+            <figcaption><strong>Kitchen &amp; dining</strong><span>Miele appliances and the quartz island stay</span></figcaption>
+          </figure>
+          <figure class="tour-item" data-animate="up">
+            <img src="assets/home-bedroom.webp" alt="Primary bedroom">
+            <figcaption><strong>Primary bedroom</strong><span>260 sq ft · walk-in closet and ensuite</span></figcaption>
+          </figure>
+          <figure class="tour-item" data-animate="up">
+            <img src="assets/home-garden.webp" alt="Deck and backyard">
+            <figcaption><strong>Deck &amp; backyard</strong><span>0.28 acre with mature firs and a detached studio</span></figcaption>
+          </figure>
         </div>
+        <p class="tour-note" data-animate="up" data-delay="0.5">Shot in March, no virtual staging and nothing swapped in: the furniture you see in the kitchen and on the deck stays with the house.</p>
       </div>
     </section>
 
-    <!-- Slide 5 — Why Claire -->
-    <section class="shell" data-nk-slide="track-record">
+    <!-- Slide 5 — Why this home -->
+    <section class="shell" data-nk-slide="why-this-home">
       <div class="wrap">
-        <p class="eyebrow" data-animate="up">Why Claire</p>
-        <h2 data-animate="up" data-delay="0.08">A track record that speaks for itself</h2>
+        <p class="eyebrow" data-animate="up">Why this home</p>
+        <h2 data-animate="up" data-delay="0.08">The numbers — and the owners' own words</h2>
         <div class="stats" data-stagger="0.08" data-stagger-base="0.15">
-          <div class="stat" data-animate="up"><strong>94</strong><span>Homes sold</span></div>
-          <div class="stat" data-animate="up"><strong>11</strong><span>Avg. days on market</span></div>
-          <div class="stat" data-animate="up"><strong>101%</strong><span>Avg. sale-to-list</span></div>
-          <div class="stat" data-animate="up"><strong>$62M</strong><span>Career volume</span></div>
+          <div class="stat" data-animate="up"><strong>2,780</strong><span>sq ft of living space</span></div>
+          <div class="stat" data-animate="up"><strong>0.28</strong><span>acre corner lot</span></div>
+          <div class="stat" data-animate="up"><strong>2019</strong><span>year built</span></div>
+          <div class="stat" data-animate="up"><strong>12</strong><span>min to downtown</span></div>
         </div>
         <div class="why-grid">
           <figure class="testimonial" data-animate="up" data-delay="0.4">
-            <blockquote>“Claire had us under contract in nine days, $23k over ask.”</blockquote>
-            <figcaption><strong>Mark &amp; Jenna T.</strong><span>·</span>Laurelhurst</figcaption>
+            <blockquote>“We built this house for ourselves and picked every window. We're moving closer to family — otherwise we'd never leave.”</blockquote>
+            <figcaption><strong>Mark &amp; Jenna T.</strong><span>·</span>the owners</figcaption>
           </figure>
           <div class="contact-card" data-animate="up" data-delay="0.5">
             <img src="assets/agent-headshot.webp" alt="">
-            <strong>Claire Bennett</strong><p>Independent brokerage · Portland, OR</p>
+            <strong>Claire Bennett</strong><p>Listing agent · Portland, OR</p>
             <div class="contact-links">
               <a href="tel:5035550142"><svg class="ico" viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>(503) 555-0142</a>
               <a href="mailto:claire@bennettresidential.com"><svg class="ico" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>claire@bennettresidential.com</a>
             </div>
           </div>
+        </div>
+        <div class="checks" data-stagger="0.06" data-stagger-base="0.6">
+          <div class="check" data-animate="up"><strong>Title &amp; disclosures</strong><p>One owner since 2019, clear title, no liens or open permits — the disclosure packet is ready before your tour.</p></div>
+          <div class="check" data-animate="up"><strong>Systems</strong><p>New roof and heat pump (2024), tankless water heater, 200-amp panel, radon test on file — all under warranty.</p></div>
+          <div class="check" data-animate="up"><strong>The block</strong><p>Quiet dead-end street, K-8 school six blocks away, Sunday farmers market and I-205 in four minutes.</p></div>
         </div>
       </div>
     </section>
@@ -155,25 +164,25 @@
     <section class="shell" data-nk-slide="next-steps">
       <div class="wrap">
         <p class="eyebrow" data-animate="up">Next steps</p>
-        <h2 id="next-heading" data-animate="up" data-delay="0.08">Here's how we start</h2>
+        <h2 id="next-heading" data-animate="up" data-delay="0.08">Here's how this goes</h2>
         <div class="next-grid">
           <div class="path" data-stagger="0.1" data-stagger-base="0.15">
-            <div class="path-step" data-animate="left"><span>1</span><div><strong>Walkthrough &amp; prep list</strong><p>I tour the home and leave a room-by-room punch list.</p></div></div>
-            <div class="path-step" data-animate="left"><span>2</span><div><strong>Sign the listing agreement</strong><p>We lock the price, timeline and marketing plan.</p></div></div>
-            <div class="path-step" data-animate="left"><span>3</span><div><strong>Launch in ~2 weeks</strong><p>Photos, staging and a full-market launch weekend.</p></div></div>
+            <div class="path-step" data-animate="left"><span>1</span><div><strong>Private tour</strong><p>I walk you through the house and the block, with the inspection and disclosure packet in hand.</p></div></div>
+            <div class="path-step" data-animate="left"><span>2</span><div><strong>Offer &amp; earnest money</strong><p>We write the offer, lock the price and take the home off the market.</p></div></div>
+            <div class="path-step" data-animate="left"><span>3</span><div><strong>Close &amp; keys</strong><p>Escrow, final walkthrough and recording — keys the day it records.</p></div></div>
           </div>
           <div class="self-fill" data-animate="up" data-delay="0.3">
-            <h3>Tell me about your timeline</h3>
+            <h3>When are you hoping to move?</h3>
             <div class="timeline-options">
               <button type="button" data-key="asap" data-nk-action="timeline-asap" aria-pressed="false">ASAP</button>
               <button type="button" data-key="1-3" data-nk-action="timeline-1-3-months" aria-pressed="false">1–3 months</button>
               <button type="button" data-key="3-6" data-nk-action="timeline-3-6-months" aria-pressed="false">3–6 months</button>
               <button type="button" data-key="exploring" data-nk-action="timeline-exploring" aria-pressed="false">Just exploring</button>
             </div>
-            <label for="seller-questions">Questions before we talk?</label>
-            <input id="seller-questions" type="text" placeholder="Anything on your mind…">
+            <label for="buyer-questions">Anything you want checked before the tour?</label>
+            <input id="buyer-questions" type="text" placeholder="e.g. the crawl space, the HOA dues…">
             <p class="answer-note">Your answers reach me instantly.</p>
-            <a id="booking-link" class="booking-link" target="_blank" rel="noreferrer" data-nk-action="book-walkthrough" data-nk-hide-empty="bookingUrl" hidden>Book your walkthrough<svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+            <a id="booking-link" class="booking-link" target="_blank" rel="noreferrer" data-nk-action="book-viewing" data-nk-hide-empty="bookingUrl" hidden>Book a private tour<svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
             <div id="call-fallback" class="call-fallback"><svg class="ico" viewBox="0 0 24 24"><path d="M8 2v4"></path><path d="M16 2v4"></path><path d="M21 14V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path><path d="M3 10h18"></path><path d="m16 20 2 2 4-4"></path></svg>Call or text Claire at (503) 555-0142</div>
           </div>
         </div>

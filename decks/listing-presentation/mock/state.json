@@ -2,11 +2,12 @@
   "personalization": {
     "companyName": "The Hendersons",
     "propertyAddress": "4128 SE Woodstock Blvd, Portland, OR",
+    "homeSpecs": "2,780 sq ft · 0.28 acre lot · 4 bedrooms · 12 min to downtown",
     "presentDate": "2026-03-14",
-    "homeHighlights": "Sun-filled corner lot with mature Japanese maples\nRenovated chef's kitchen with quartz island\nFinished basement with a legal ADU\nNew roof and heat pump (2024)",
-    "compsLines": "4102 SE 42nd Ave | $712,000 | 9\n3820 SE Steele St | $689,000 | 14\n4519 SE Reedway St | $748,000 | 6\n3944 SE Duke St | $701,000 | 12",
-    "recommendedPrice": "$725,000",
-    "bookingUrl": "https://calendly.com/claire-bennett/walkthrough",
+    "homeHighlights": "Built by the owners in 2019 — nothing left half-finished\nGreat room with a fireplace and light on two sides\nFour bedrooms, two with walk-in closets and ensuites\nCorner lot with mature firs and a detached 400 sq ft studio",
+    "compsLines": "4102 SE 42nd Ave | $748,000 | 21\n3820 SE Steele St | $739,000 | 34\n4519 SE Reedway St | $781,000 | 16\n3944 SE Duke St | $735,000 | 29",
+    "askingPrice": "$725,000",
+    "bookingUrl": "https://calendly.com/claire-bennett/private-tour",
     "customFields": []
   },
   "clientFacts": {},

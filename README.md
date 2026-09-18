@@ -61,7 +61,7 @@ that's a real personalized presentation, exactly what your client would receive.
   </tr>
   <tr>
     <td align="center"><a href="https://app.naimi.ai/emma-noah-sullivan-89a06b"><img src="decks/kitchen-remodel/preview.webp" width="260" alt="Kitchen remodel proposal"/><br/><b>Kitchen remodel proposal</b></a><br/>live configurator with financing</td>
-    <td align="center"><a href="https://app.naimi.ai/the-hendersons-c711e0"><img src="decks/listing-presentation/preview.webp" width="260" alt="Real-estate listing presentation"/><br/><b>Real-estate listing</b></a><br/>comps, net-proceeds calculator</td>
+    <td align="center"><a href="https://app.naimi.ai/the-hendersons-c711e0"><img src="decks/listing-presentation/preview.webp" width="260" alt="Home tour presentation"/><br/><b>Home tour for a buyer</b></a><br/>photo tour, three ways to buy</td>
     <td align="center"><a href="https://app.naimi.ai/sarah-james-ac5f35"><img src="decks/photography-package/preview.webp" width="260" alt="Wedding photography packages"/><br/><b>Wedding photography packages</b></a><br/>client picks package &amp; add-ons</td>
   </tr>
   <tr>

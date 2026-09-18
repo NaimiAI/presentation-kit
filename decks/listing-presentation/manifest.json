@@ -1,15 +1,15 @@
 {
   "schemaVersion": "naimi.presentation.v1",
   "id": "listing-presentation",
-  "name": "Real-estate listing presentation",
-  "description": "Image-led listing pitch for home sellers: comps table from a simple text field, pricing-strategy picker with a net-proceeds calculator, marketing plan, and seller self-fill timeline",
+  "name": "Home tour presentation",
+  "description": "Image-led presentation of a home an agent is selling to a buyer: nearby sales from a simple text field with an automatic price check, three purchase paths sharing one adaptive calculator (financed, all cash, buy-before-you-sell), a four-frame photo tour, and a buyer self-fill move timeline",
   "entry": "index.html",
   "preview": "preview.webp",
   "personalization": {
     "fields": [
       {
         "key": "companyName",
-        "label": "Seller name(s)",
+        "label": "Buyer name(s)",
         "placeholder": "e.g. Emma & Noah Sullivan",
         "type": "text",
         "required": true
@@ -21,32 +21,38 @@
         "type": "text"
       },
       {
+        "key": "homeSpecs",
+        "label": "Spec line under the address",
+        "placeholder": "2,780 sq ft · 0.28 acre lot · 4 bedrooms",
+        "type": "text"
+      },
+      {
         "key": "presentDate",
         "label": "Presentation date",
         "type": "date"
       },
       {
         "key": "homeHighlights",
-        "label": "Home highlights (one per line)",
-        "placeholder": "Sun-filled corner lot\nRenovated chef's kitchen\nDetached studio / ADU",
+        "label": "What makes the home worth seeing (one per line)",
+        "placeholder": "Built by the owners in 2019\nGreat room with a fireplace and 18-ft ceiling\nDetached studio with its own entrance",
         "type": "textarea"
       },
       {
         "key": "compsLines",
-        "label": "Nearby sales — one per line: Address | Sold price | Days on market",
-        "placeholder": "4102 SE 42nd Ave | $712,000 | 9\n3820 SE Steele St | $689,000 | 14",
+        "label": "Recent sales nearby — one per line: Address | Sold price | Days on market",
+        "placeholder": "4102 SE 42nd Ave | $748,000 | 21\n3820 SE Steele St | $739,000 | 34",
         "type": "textarea"
       },
       {
-        "key": "recommendedPrice",
-        "label": "Recommended list price",
+        "key": "askingPrice",
+        "label": "Asking price",
         "placeholder": "$725,000",
         "type": "text"
       },
       {
         "key": "bookingUrl",
-        "label": "Booking link (optional)",
-        "placeholder": "https://calendly.com/claire-bennett/walkthrough",
+        "label": "Tour booking link (optional)",
+        "placeholder": "https://calendly.com/claire-bennett/private-tour",
         "type": "text"
       }
     ],
@@ -56,15 +62,15 @@
     "namespace": "listing",
     "fields": [
       {
-        "key": "pricingStrategy",
-        "label": "Pricing strategy",
+        "key": "purchaseOption",
+        "label": "Purchase path",
         "type": "string",
-        "defaultValue": "market",
+        "defaultValue": "mortgage",
         "promoteToClientFacts": true
       },
       {
-        "key": "listPrice",
-        "label": "List price",
+        "key": "downPayment",
+        "label": "Down payment or equity applied",
         "type": "number",
         "defaultValue": 0,
         "promoteToClientFacts": true
@@ -78,8 +84,8 @@
         "promoteToClientFacts": true
       },
       {
-        "key": "sellerQuestions",
-        "label": "Seller questions",
+        "key": "buyerQuestions",
+        "label": "Buyer questions",
         "type": "string",
         "defaultValue": "",
         "collectFromClient": true
@@ -93,20 +99,20 @@
       "title": "Cover"
     },
     {
-      "id": "market",
-      "title": "Your home & the market"
+      "id": "house",
+      "title": "The home & the block"
     },
     {
-      "id": "pricing",
-      "title": "Pricing strategy"
+      "id": "purchase",
+      "title": "How to buy it"
     },
     {
-      "id": "marketing-plan",
-      "title": "Marketing plan"
+      "id": "tour",
+      "title": "Walk the house"
     },
     {
-      "id": "track-record",
-      "title": "Why Claire"
+      "id": "why-this-home",
+      "title": "Why this home"
     },
     {
       "id": "next-steps",
