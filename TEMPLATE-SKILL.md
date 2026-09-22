@@ -162,8 +162,10 @@ you must apply from the start:
   reorder: the service's per-slide analytics and slide links key on it). **To edit
   one slide, don't read the whole file**: grep the marker or `data-nk-slide`, read
   that range, edit in place.
-- **Section = page.** One section is one screen, one PDF page, one future PPTX slide.
+- **Section = page.** One section is one screen, one PDF page, one PowerPoint slide.
   Don't emulate pages inside a section or design visual joins between sections.
+  Speaker notes, if the user wants them, go to `data-nk-notes="…"` on the section — the
+  PPTX export puts them into the slide notes; the web deck never shows them.
 - **Final view is the DOM/CSS default.** Without animations a slide must already look
   finished; never hide content with your own CSS until an animation reveals it. All
   entrance animation goes through the runtime (`data-animate`/`data-stagger`). Any

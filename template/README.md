@@ -58,6 +58,7 @@ assets/         (if needed) deck images — as files, referenced by relative pat
 | `data-nk-hide-empty="key"` | Hides the block when the personalization value is empty |
 | `data-nk-field="key"` on an `input range/number` | Two-way binding to an interactive field |
 | `data-nk-field="key" data-nk-value="v"` on a button | Value pick; the runtime maintains `aria-pressed` across the group (style `[aria-pressed='true']`), type via `data-nk-type="boolean\|number"` |
+| `data-nk-notes="text"` on a `<section>` | Speaker notes: the PPTX export puts them into the slide notes (line break — `&#10;`); the web deck never shows them |
 | `data-nk-action="name"` on a clickable element | A semantic client action (accept the offer, RSVP, sign): the click is reported to the host as an event — the platform builds "the client accepted" notifications on it. Combines with `data-nk-field` on the same element; names are kebab-case by meaning (`accept`, `rsvp-yes`, `sign`) |
 | `data-animate="up\|up-lg\|left\|right\|scale\|grow"` | Entrance animation when the slide is shown (+ `data-delay="0.2"`, and `data-grow="72%"` for `grow`) |
 | `data-stagger="0.08"` on a container | Auto-cascade of children with `data-animate` (+ `data-stagger-base`) |
