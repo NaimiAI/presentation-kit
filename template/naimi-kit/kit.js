@@ -1,9 +1,9 @@
-/* Naimi kit runtime (kit.js) — engine nk/0.10.0. Precompiled platform
+/* Naimi kit runtime (kit.js) — engine nk/0.11.0. Precompiled platform
  * artifact: don't read or edit it, it travels into the bundle byte for byte.
  * Docs for deck authors: ../README.md · MIT License. */
 (() => {
   "use strict";
-  const ENGINE_VERSION = "0.10.0";
+  const ENGINE_VERSION = "0.11.0";
   const STRINGS = {
     en: {
       first: "First slide (Home)",
@@ -79,7 +79,7 @@
   function postReady() {
     window.parent.postMessage({
       type: "naimi:ready",
-      payload: { engine: `nk/${ENGINE_VERSION}`, format: DOC ? "document" : "slides", capabilities: ["static", "slideEvents", "panel", "scroll", "defaultMode", "startSlide", "goto", "actions", "inspect", "document"] }
+      payload: { engine: `nk/${ENGINE_VERSION}`, format: DOC ? "document" : "slides", capabilities: ["static", "slideEvents", "panel", "scroll", "defaultMode", "startSlide", "goto", "actions", "inspect", "document", "highlight"] }
     }, "*");
   }
   const READY_RETRIES_MS = [250, 800, 2e3];
@@ -695,6 +695,7 @@
       if (index >= 0) navTo(index);
     }
     if (cmd.kind === "inspect") setInspect(cmd.on);
+    if (cmd.kind === "highlight") setHighlight(cmd.on);
   }
   function applyHostStartSlide() {
     if (hostStartApplied) return;
@@ -958,6 +959,22 @@
     if (!inspectOn) return false;
     setInspect(false);
     return true;
+  }
+  let highlightOn = false;
+  let highlightStyle = null;
+  function highlightMount() {
+    if (highlightStyle) return;
+    highlightStyle = document.createElement("style");
+    highlightStyle.textContent = ".nk-highlight-on :is([data-nk-text],[data-nk-hide-empty]){outline:2px dashed #a855f7!important;outline-offset:3px}";
+    document.head.appendChild(highlightStyle);
+  }
+  function setHighlight(on) {
+    const next = Boolean(on);
+    if (next === highlightOn || next && STATIC) return;
+    highlightOn = next;
+    if (next) highlightMount();
+    deckRoot.classList.toggle("nk-highlight-on", next);
+    if (embedded) window.parent.postMessage({ type: "naimi:event", payload: { kind: "highlight", on: highlightOn } }, "*");
   }
   const kit = {
     personalization: personalizationValue,
