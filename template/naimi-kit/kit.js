@@ -489,6 +489,7 @@
     const next = shownSlides();
     if (next.length === sections.length && next.every((section, i) => section === sections[i])) return;
     const shownNow = sections[current];
+    const indexNow = current;
     sections = next;
     current = Math.max(0, sections.indexOf(shownNow));
     const frame = stage.querySelector(":scope > .nk-frame");
@@ -512,7 +513,7 @@
       mountSlide(current, 0, null);
     }
     updateChrome();
-    emitSlideChange();
+    if (sections[current] !== shownNow || current !== indexNow) emitSlideChange();
   }
   function isEditableTarget(t) {
     if (!(t instanceof HTMLElement)) return false;
