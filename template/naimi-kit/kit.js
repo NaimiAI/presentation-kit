@@ -1,9 +1,9 @@
-/* Naimi kit runtime (kit.js) — engine nk/0.11.0. Precompiled platform
+/* Naimi kit runtime (kit.js) — engine nk/0.12.0. Precompiled platform
  * artifact: don't read or edit it, it travels into the bundle byte for byte.
  * Docs for deck authors: ../README.md · MIT License. */
 (() => {
   "use strict";
-  const ENGINE_VERSION = "0.11.0";
+  const ENGINE_VERSION = "0.12.0";
   const STRINGS = {
     en: {
       first: "First slide (Home)",
@@ -53,6 +53,7 @@
   }
   function emitState() {
     if (!state) return;
+    applySlideVisibility();
     applyPersonalizationAll();
     syncBoundControls();
     for (const fn of stateListeners) {
@@ -79,7 +80,7 @@
   function postReady() {
     window.parent.postMessage({
       type: "naimi:ready",
-      payload: { engine: `nk/${ENGINE_VERSION}`, format: DOC ? "document" : "slides", capabilities: ["static", "slideEvents", "panel", "scroll", "defaultMode", "startSlide", "goto", "actions", "inspect", "document", "highlight"] }
+      payload: { engine: `nk/${ENGINE_VERSION}`, format: DOC ? "document" : "slides", capabilities: ["static", "slideEvents", "panel", "scroll", "defaultMode", "startSlide", "goto", "actions", "inspect", "document", "highlight", "hideEmptySlide"] }
     }, "*");
   }
   const READY_RETRIES_MS = [250, 800, 2e3];
@@ -170,6 +171,11 @@
   }
   function applyPersonalizationAll() {
     for (const section of sections) applyPersonalization(section);
+  }
+  const slideShown = (section) => !section.dataset.nkHideEmpty || Boolean(personalizationValue(section.dataset.nkHideEmpty));
+  function shownSlides() {
+    const shown = allSections.filter(slideShown);
+    return shown.length || !allSections.length ? shown : allSections.slice(0, 1);
   }
   function coerce(el, raw) {
     const type = el.dataset.nkType ?? (el instanceof HTMLInputElement && (el.type === "range" || el.type === "number") ? "number" : "string");
@@ -279,6 +285,7 @@
       settleOnFinish(anim, el, spec.to);
     }
   }
+  let allSections = [];
   let sections = [];
   let current = 0;
   let navBusy = false;
@@ -346,7 +353,8 @@
   }
   function buildPlayer() {
     const source = document.getElementById("deck");
-    sections = Array.from(source ? source.querySelectorAll(":scope > section") : []);
+    allSections = Array.from(source ? source.querySelectorAll(":scope > section") : []);
+    sections = shownSlides();
     DOC = source?.dataset.nkFormat === "document";
     if (DOC) {
       const [w, h] = PAGE_SIZES[String(source.dataset.nkPage || "a4").toLowerCase()] ?? PAGE_SIZES.a4;
@@ -356,7 +364,6 @@
       rs.setProperty("--nk-sheet-height", `${h}px`);
       rs.setProperty("--nk-page-ratio", `${w} / ${h}`);
     }
-    const nameOf = DOC ? T.page : T.slide;
     source?.remove();
     root = document.getElementById("root") ?? document.body.appendChild(Object.assign(document.createElement("div"), { id: "root" }));
     shell = document.createElement("div");
@@ -378,7 +385,7 @@
     store = document.createElement("div");
     store.className = "nk-store";
     store.hidden = true;
-    for (const section of sections) store.appendChild(section);
+    for (const section of allSections) store.appendChild(section);
     deckRoot.appendChild(store);
     const bar = document.createElement("div");
     bar.className = "z-50 nk-navbar";
@@ -389,14 +396,7 @@
     left.append(navButton("first", "first", T.first, () => navTo(0)), navButton("prev", "prev", T.prev, () => navTo(current - 1)));
     dotsBox = document.createElement("div");
     dotsBox.className = "nk-dots";
-    sections.forEach((_, i) => {
-      const dot = document.createElement("button");
-      dot.type = "button";
-      dot.className = "nk-dot";
-      dot.title = nameOf(i + 1);
-      dot.addEventListener("click", () => navTo(i));
-      dotsBox.appendChild(dot);
-    });
+    fillDots(dotsBox);
     const right = document.createElement("div");
     right.className = "nk-nav-group";
     right.append(navButton("next", "next", T.next, () => navTo(current + 1)), navButton("last", "last", T.last, () => navTo(sections.length - 1)));
@@ -448,14 +448,7 @@
     railInner.className = "nk-rail-inner";
     railDotsBox = document.createElement("div");
     railDotsBox.className = "nk-rail-dots";
-    sections.forEach((_, i) => {
-      const dot = document.createElement("button");
-      dot.type = "button";
-      dot.className = "nk-dot";
-      dot.title = nameOf(i + 1);
-      dot.addEventListener("click", () => navTo(i));
-      railDotsBox.appendChild(dot);
-    });
+    fillDots(railDotsBox);
     railInner.append(
       navButton("railPrev", "up", T.prev, () => navTo(current - 1)),
       railDotsBox,
@@ -479,6 +472,47 @@
       mountSlide(current, 0, null);
     }
     updateChrome();
+  }
+  function fillDots(box) {
+    const nameOf = DOC ? T.page : T.slide;
+    box.replaceChildren(...sections.map((_, i) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "nk-dot";
+      dot.title = nameOf(i + 1);
+      dot.addEventListener("click", () => navTo(i));
+      return dot;
+    }));
+  }
+  function applySlideVisibility() {
+    if (!stage) return;
+    const next = shownSlides();
+    if (next.length === sections.length && next.every((section, i) => section === sections[i])) return;
+    const shownNow = sections[current];
+    sections = next;
+    current = Math.max(0, sections.indexOf(shownNow));
+    const frame = stage.querySelector(":scope > .nk-frame");
+    const keepFrame = viewMode === "slides" && Boolean(frame) && sections[current] === shownNow;
+    for (const section of allSections) if (!(keepFrame && section === shownNow)) store.appendChild(section);
+    if (!keepFrame) frame?.remove();
+    fillDots(dotsBox);
+    fillDots(railDotsBox);
+    thumbBtns = [];
+    if (panelOpen) rebuildThumbs();
+    if (scrollEl) {
+      scrollWraps = buildScrollWraps();
+      scrollEl.replaceChildren(...scrollWraps);
+    }
+    if (viewMode === "scroll") {
+      sections.forEach((section, i) => scrollWraps[i].appendChild(section));
+      scrollWraps[current].scrollIntoView({ block: "start", behavior: "auto" });
+      revealNear();
+      startScrollObservers();
+    } else if (!keepFrame) {
+      mountSlide(current, 0, null);
+    }
+    updateChrome();
+    emitSlideChange();
   }
   function isEditableTarget(t) {
     if (!(t instanceof HTMLElement)) return false;
@@ -645,9 +679,9 @@
     }
   }
   function scrollReveal(index) {
-    if (scrollRevealed.has(index)) return;
-    scrollRevealed.add(index);
     const section = sections[index];
+    if (scrollRevealed.has(section)) return;
+    scrollRevealed.add(section);
     applyPersonalization(section);
     bindControls(section);
     revealSection(section);
@@ -673,7 +707,7 @@
       }
     }, { root: scrollEl, rootMargin: "-49% 0px -49% 0px" });
     for (const wrap of scrollWraps) {
-      if (!scrollRevealed.has(Number(wrap.dataset.sectionIndex))) lazyIO.observe(wrap);
+      if (!scrollRevealed.has(sections[Number(wrap.dataset.sectionIndex)])) lazyIO.observe(wrap);
       activeIO.observe(wrap);
     }
   }
@@ -719,12 +753,7 @@
     if (!scrollEl) {
       scrollEl = document.createElement("div");
       scrollEl.className = "nk-scroll";
-      scrollWraps = sections.map((_, i) => {
-        const wrap = document.createElement("section");
-        wrap.className = "nk-scroll-sec";
-        wrap.dataset.sectionIndex = String(i);
-        return wrap;
-      });
+      scrollWraps = buildScrollWraps();
       scrollEl.append(...scrollWraps);
       scrollEl.hidden = true;
       deckRoot.insertBefore(scrollEl, store);
@@ -738,9 +767,18 @@
     setModeButtons();
     updateChrome();
     scrollWraps[current].scrollIntoView({ block: "start", behavior: "auto" });
-    if (keepReveal) scrollRevealed.add(current);
-    for (const i of STATIC && DOC ? sections.keys() : [current - 1, current, current + 1]) if (sections[i]) scrollReveal(i);
+    if (keepReveal) scrollRevealed.add(sections[current]);
+    revealNear();
     startScrollObservers();
+  }
+  const buildScrollWraps = () => sections.map((_, i) => {
+    const wrap = document.createElement("section");
+    wrap.className = "nk-scroll-sec";
+    wrap.dataset.sectionIndex = String(i);
+    return wrap;
+  });
+  function revealNear() {
+    for (const i of STATIC && DOC ? sections.keys() : [current - 1, current, current + 1]) if (sections[i]) scrollReveal(i);
   }
   function exitScroll() {
     if (viewMode !== "scroll") return;

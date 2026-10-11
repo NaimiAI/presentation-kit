@@ -55,7 +55,7 @@ assets/         (if needed) deck images — as files, referenced by relative pat
 | Attribute | What it does |
 |---|---|
 | `data-nk-text="key"` | Fills in a personalization value (+ `data-nk-fallback="…"` while it is empty) |
-| `data-nk-hide-empty="key"` | Hides the block when the personalization value is empty |
+| `data-nk-hide-empty="key"` | Hides the block when the personalization value is empty. On the `<section>` itself the whole slide leaves the deck while the value is empty: the counter, dots, panel, scroll view, PDF and PPTX know nothing of it (engine nk/0.12+); a deck whose every slide is conditional keeps its first |
 | `data-nk-field="key"` on an `input range/number` | Two-way binding to an interactive field |
 | `data-nk-field="key" data-nk-value="v"` on a button | Value pick; the runtime maintains `aria-pressed` across the group (style `[aria-pressed='true']`), type via `data-nk-type="boolean\|number"` |
 | `data-nk-notes="text"` on a `<section>` | Speaker notes: the PPTX export puts them into the slide notes (line break — `&#10;`); the web deck never shows them |
