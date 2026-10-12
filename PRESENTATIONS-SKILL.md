@@ -92,9 +92,9 @@ call it unless explicitly asked.
 The outline is the template printed as text: every slide with what it says, `{{key}}`
 where each field stands, the sample value the author previewed there and its length.
 Write a value **about as long as its sample** — a text twice the length breaks the
-slide — and in the sample's format (line breaks, `Title | Description` rows). A field
-marked "hidden when empty" may stay empty: its block, or its whole slide, simply
-doesn't show.
+slide — and in the sample's format (line breaks, `Title | Description` rows). Where
+the outline says "hidden when empty" or "shown only when {{key}} is filled", the field
+may stay empty: that block, or that whole slide, simply doesn't show.
 
 ```
 POST /api/presentations

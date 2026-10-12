@@ -65,7 +65,8 @@ assets/         (if needed) deck images — as files, referenced by relative pat
 | `data-stagger="0.08"` on a container | Auto-cascade of children with `data-animate` (+ `data-stagger-base`) |
 
 Declare `data-nk-text` and `data-nk-slot` keys in `manifest.json` →
-`personalization.fields`, and `data-nk-field` keys in `demoData.fields`.
+`personalization.fields` (except `stagesJson` — `showStagesEditor` brings it), and
+`data-nk-field` keys in `demoData.fields`.
 
 ## API for `deck.js`
 

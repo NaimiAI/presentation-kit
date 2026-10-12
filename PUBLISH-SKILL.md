@@ -45,8 +45,9 @@ the same.
    root. Everything else is on you — **nothing rejects it, it just breaks for the
    viewer**: the deck runs in a sandboxed iframe under a CSP that allows no CDN and no
    absolute URLs at all, so fonts, styles, scripts and images must be files inside the
-   folder. `mock/state.json` is only for your local preview; keep it, but the service
-   never reads it.
+   folder. `mock/state.json` never reaches a viewer, but keep it and keep it
+   realistic: its personalization values become the **samples** the service shows to
+   whoever fills the fields later — the length and format a value is expected to have.
 4. **Cover**: `preview.webp` fresh (re-capture if slides changed) and referenced by
    `manifest.preview` — or the key dropped. Never block publishing over a cover.
 
