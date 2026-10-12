@@ -24,7 +24,7 @@
         <p class="eyebrow">For sale</p>
         <h1 data-nk-text="propertyAddress" data-nk-fallback="4128 SE Woodstock Blvd"></h1>
         <p class="cover-specs" data-nk-text="homeSpecs" data-nk-fallback="2,780 sq ft · 0.28 acre lot · 4 bedrooms"></p>
-        <p class="prepared">Prepared for <strong data-nk-text="companyName" data-nk-fallback="you"></strong><span>·</span><span id="present-date"></span></p>
+        <p class="prepared">Prepared for <strong data-nk-text="companyName" data-nk-fallback="you"></strong><span>·</span><span id="present-date" data-nk-slot="presentDate"></span></p>
       </div>
     </section>
 
@@ -36,19 +36,19 @@
           <div data-animate="up" data-delay="0.1">
             <h2>A home you move into, not one you fix up.</h2>
             <p class="intro">The owners built it for themselves and are only selling because of a move, so there is no half-finished work and nothing hiding behind the drywall. Here is what we think matters most.</p>
-            <ul id="home-highlights" class="highlights" hidden></ul>
+            <ul id="home-highlights" class="highlights" hidden data-nk-slot="homeHighlights"></ul>
           </div>
           <div data-animate="up" data-delay="0.2">
             <div class="comps-card">
               <p class="card-label">Recent sales nearby</p>
               <div class="comps-head"><span>Address</span><span>Sold</span><span>Days</span></div>
-              <div id="comps-rows"></div>
+              <div id="comps-rows" data-nk-slot="compsLines"></div>
             </div>
             <div id="median-cards" class="median-grid" hidden>
               <div class="median-card median-accent"><p>Median sold price</p><strong id="median-price"></strong></div>
               <div class="median-card"><p>Median days on market</p><strong id="median-days"></strong></div>
             </div>
-            <p id="price-vs-median" class="price-note" hidden></p>
+            <p id="price-vs-median" class="price-note" hidden data-nk-slot="askingPrice"></p>
           </div>
         </div>
       </div>
@@ -80,7 +80,7 @@
               </div>
             </div>
             <p id="cash-note" class="cash-note" hidden>All cash means no lender and no waiting: escrow opens the same week and the sellers hand over the keys in ten days.</p>
-            <p class="recommended" id="calculator-note"></p>
+            <p class="recommended" id="calculator-note" data-nk-slot="askingPrice"></p>
             <div class="included">
               <p class="card-label">Conveys with the home</p>
               <ul>

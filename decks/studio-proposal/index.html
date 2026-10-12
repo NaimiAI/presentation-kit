@@ -19,7 +19,7 @@
         <div class="cover-content">
           <header class="cover-head" data-animate="up">
             <p class="studio-name">Fieldnote Studio</p>
-            <p id="proposal-date" class="document-date"></p>
+            <p id="proposal-date" class="document-date" data-nk-slot="proposalDate"></p>
           </header>
 
           <div class="cover-main" data-animate="up-lg" data-delay="0.15">
@@ -35,7 +35,7 @@
               <p class="studio-tagline">digital products &amp; brand systems</p>
               <p class="studio-contacts">hello@fieldnote.studio · (415) 555-0148</p>
             </div>
-            <p id="cover-valid" class="valid-until" hidden>Valid through <span></span></p>
+            <p id="cover-valid" class="valid-until" hidden>Valid through <span data-nk-slot="validUntil"></span></p>
           </footer>
         </div>
       </div>
@@ -102,12 +102,12 @@
         </header>
 
         <div id="estimate-content" class="estimate-content">
-          <div id="stages-list" class="stages-list"></div>
+          <div id="stages-list" class="stages-list" data-nk-slot="stagesJson"></div>
           <div class="estimate-total" data-animate="up" data-delay="0.45">
             <div class="total-line"><p>Total</p><strong id="stages-total">$0</strong></div>
             <div class="total-notes">
-              <p id="pricing-disclaimer"></p>
-              <p id="estimate-valid" hidden>Price held through <span></span></p>
+              <p id="pricing-disclaimer" data-nk-slot="pricingDisclaimer"></p>
+              <p id="estimate-valid" hidden>Price held through <span data-nk-slot="validUntil"></span></p>
             </div>
           </div>
         </div>
@@ -128,7 +128,7 @@
         <div class="terms-grid">
           <div data-animate="up">
             <h3 class="eyebrow">Working terms</h3>
-            <div id="conditions-list" class="conditions-list"></div>
+            <div id="conditions-list" class="conditions-list" data-nk-slot="workConditions"></div>
           </div>
           <div data-animate="up" data-delay="0.15">
             <h3 class="eyebrow">Next step</h3>

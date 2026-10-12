@@ -36,7 +36,7 @@
         <div class="cover-facts" data-animate="up" data-delay="0.35">
           <div>
             <p>Date</p>
-            <strong id="proposal-date"></strong>
+            <strong id="proposal-date" data-nk-slot="proposalDate"></strong>
           </div>
           <div>
             <p>Timeline</p>
@@ -44,7 +44,7 @@
           </div>
           <div>
             <p>Valid through</p>
-            <strong id="cover-valid-until" class="accent-text">by agreement</strong>
+            <strong id="cover-valid-until" class="accent-text" data-nk-slot="validUntil">by agreement</strong>
           </div>
         </div>
       </div>
@@ -95,12 +95,12 @@
         </header>
 
         <div id="estimate-content" class="estimate-content">
-          <div id="stages-list" class="stages-list"></div>
+          <div id="stages-list" class="stages-list" data-nk-slot="stagesJson"></div>
           <div class="estimate-total" data-animate="up" data-delay="0.45">
             <p>Total</p>
             <strong id="stages-total">$0</strong>
           </div>
-          <p id="estimate-valid-until" class="estimate-valid" hidden>Price held through <span></span></p>
+          <p id="estimate-valid-until" class="estimate-valid" hidden>Price held through <span data-nk-slot="validUntil"></span></p>
         </div>
         <div id="estimate-empty" class="empty-state" hidden>
           No stages added yet. Add them in the stages editor when you create the
@@ -157,7 +157,7 @@
         <div class="terms-grid">
           <div>
             <p class="eyebrow">Working terms</p>
-            <div id="conditions-list" class="conditions-list"></div>
+            <div id="conditions-list" class="conditions-list" data-nk-slot="workConditions"></div>
             <div id="terms-valid-until" class="terms-valid" hidden data-animate="up" data-delay="0.5">
               <p>This proposal is valid through <span></span></p>
             </div>

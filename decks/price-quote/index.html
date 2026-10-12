@@ -24,7 +24,7 @@
       </header>
 
       <div class="letter-meta" data-animate="up" data-delay="0.1">
-        <p>Quote No. <span data-nk-text="offerNumber" data-nk-fallback="PQ-2026-001"></span> · <span id="offer-date"></span></p>
+        <p>Quote No. <span data-nk-text="offerNumber" data-nk-fallback="PQ-2026-001"></span> · <span id="offer-date" data-nk-slot="offerDate"></span></p>
         <p class="letter-to">To: <strong data-nk-text="companyName" data-nk-fallback="Client company"></strong><span data-nk-hide-empty="contactName"><br><span data-nk-text="contactName"></span><span data-nk-hide-empty="contactTitle">, <span data-nk-text="contactTitle"></span></span></span></p>
       </div>
 
@@ -47,7 +47,7 @@
         <p data-nk-hide-empty="offerNote" data-nk-text="offerNote"></p>
         <p>
           We would be glad to discuss the details and prepare samples. This quote is valid
-          through <span id="letter-valid">the end of the month</span>
+          through <span id="letter-valid" data-nk-slot="validUntil">the end of the month</span>
         </p>
       </div>
 
@@ -74,7 +74,7 @@
         <p>Unit prices include one-color logo imprint and standard packaging. Sales tax is estimated at the rate below.</p>
       </header>
 
-      <div id="spec-table" class="table-wrap" data-animate="up" data-delay="0.1"></div>
+      <div id="spec-table" class="table-wrap" data-animate="up" data-delay="0.1" data-nk-slot="specification"></div>
       <div id="spec-empty" class="empty-state" hidden>
         No line items yet. Fill the "Line items" field when creating the presentation —
         one line per item: "Description | SKU | Unit | Qty | Unit price".
@@ -82,8 +82,8 @@
 
       <dl class="totals" data-animate="up" data-delay="0.2">
         <div><dt>Subtotal</dt><dd id="total-net">$0</dd></div>
-        <div id="discount-row" hidden><dt>Discount <span id="discount-pct"></span></dt><dd id="total-discount">− $0</dd></div>
-        <div id="tax-row" hidden><dt>Sales tax <span id="tax-pct"></span></dt><dd id="total-tax">$0</dd></div>
+        <div id="discount-row" hidden><dt>Discount <span id="discount-pct" data-nk-slot="discountPercent"></span></dt><dd id="total-discount">− $0</dd></div>
+        <div id="tax-row" hidden><dt>Sales tax <span id="tax-pct" data-nk-slot="taxRate"></span></dt><dd id="total-tax">$0</dd></div>
         <div class="grand"><dt>Total</dt><dd id="total-gross">$0</dd></div>
       </dl>
       <p class="totals-note" data-animate="up" data-delay="0.25">Amount in words: <span id="total-words">zero dollars and 00/100</span>.</p>
@@ -154,7 +154,7 @@
           <tr><th>Payment</th><td data-nk-text="paymentTerms" data-nk-fallback="50% deposit on order confirmation, 50% net 15 from shipment"></td></tr>
           <tr><th>Warranty</th><td>12 months on the products; imprint defects replaced at our cost within 10 days</td></tr>
           <tr><th>Documents</th><td>Order confirmation, invoice, packing list; product compliance certificates on request</td></tr>
-          <tr><th>Valid through</th><td id="terms-valid">the end of the month</td></tr>
+          <tr><th>Valid through</th><td id="terms-valid" data-nk-slot="validUntil">the end of the month</td></tr>
         </tbody>
       </table>
 

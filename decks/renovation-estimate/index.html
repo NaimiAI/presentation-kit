@@ -28,7 +28,7 @@
         <div class="doc-id">
           <p class="doc-kind">Estimate</p>
           <p class="doc-number">No. <span data-nk-text="estimateNumber" data-nk-fallback="EST-2026-001"></span></p>
-          <p class="doc-date">dated <span id="estimate-date"></span></p>
+          <p class="doc-date">dated <span id="estimate-date" data-nk-slot="estimateDate"></span></p>
         </div>
       </header>
 
@@ -52,11 +52,11 @@
             <div><dt>Materials</dt><dd id="cover-materials">$0</dd></div>
             <div id="cover-discount-row" hidden><dt>Discount</dt><dd id="cover-discount">$0</dd></div>
           </dl>
-          <p class="summary-note">Sales tax on materials included; permits billed at cost. Pricing valid through <span id="cover-valid">the end of the month</span></p>
+          <p class="summary-note">Sales tax on materials included; permits billed at cost. Pricing valid through <span id="cover-valid" data-nk-slot="validUntil">the end of the month</span></p>
         </aside>
         <figure class="cover-figure" data-animate="up" data-delay="0.3">
           <!-- The property photo is a per-client image field; until it is set, a plan sketch stands in. -->
-          <img id="object-photo" class="cover-photo" alt="Property" hidden>
+          <img id="object-photo" class="cover-photo" alt="Property" hidden data-nk-slot="objectPhoto">
           <img id="floor-plan" class="cover-photo" src="assets/floor-plan.webp" alt="Floor plan">
           <figcaption id="cover-caption">Floor plan — confirmed at the site visit</figcaption>
         </figure>
@@ -84,7 +84,7 @@
         </div>
       </header>
 
-      <div id="works-table" class="table-wrap" data-animate="up" data-delay="0.1"></div>
+      <div id="works-table" class="table-wrap" data-animate="up" data-delay="0.1" data-nk-slot="worksEstimate"></div>
       <div id="works-empty" class="empty-state" hidden>
         No labor lines yet. Fill the "Estimate: labor" field when creating the presentation —
         one line per item, sections start with "#".
@@ -111,7 +111,7 @@
         </div>
       </header>
 
-      <div id="materials-table" class="table-wrap" data-animate="up" data-delay="0.1"></div>
+      <div id="materials-table" class="table-wrap" data-animate="up" data-delay="0.1" data-nk-slot="materialsEstimate"></div>
       <div id="materials-empty" class="empty-state" hidden>
         No material lines yet. Fill the "Estimate: materials" field — same format as labor.
       </div>
@@ -126,7 +126,7 @@
         <dl class="grand-rows">
           <div><dt>Labor</dt><dd id="grand-works">$0</dd></div>
           <div><dt>Materials</dt><dd id="grand-materials">$0</dd></div>
-          <div id="grand-discount-row" hidden><dt>Discount <span id="grand-discount-pct"></span></dt><dd id="grand-discount">− $0</dd></div>
+          <div id="grand-discount-row" hidden><dt>Discount <span id="grand-discount-pct" data-nk-slot="discountPercent"></span></dt><dd id="grand-discount">− $0</dd></div>
           <div class="grand-total"><dt>Estimate total</dt><dd id="grand-total">$0</dd></div>
         </dl>
         <p class="grand-note" id="estimate-notes" data-nk-text="estimateNotes" data-nk-fallback="Not included: finish materials, furniture and appliances, debris hauling beyond two dumpsters, permit fees and engineering."></p>
@@ -166,7 +166,7 @@
       </table>
 
       <h3 class="sub-head" data-animate="up" data-delay="0.4">Terms</h3>
-      <ul id="conditions-list" class="conditions"></ul>
+      <ul id="conditions-list" class="conditions" data-nk-slot="workConditions"></ul>
 
       <footer class="sheet-foot">
         <span>Estimate <span data-nk-text="estimateNumber" data-nk-fallback="EST-2026-001"></span> · <span data-nk-text="companyName" data-nk-fallback="Client"></span></span>

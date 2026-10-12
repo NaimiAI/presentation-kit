@@ -25,8 +25,8 @@
         </div>
         <div class="doc-id">
           <p class="doc-kind">Service quote</p>
-          <p class="doc-number">No. <span data-nk-text="quoteNumber" data-nk-fallback="Q-2026-001"></span> · <span id="quote-date"></span></p>
-          <p class="doc-valid">valid through <span id="quote-valid">the end of the month</span></p>
+          <p class="doc-number">No. <span data-nk-text="quoteNumber" data-nk-fallback="Q-2026-001"></span> · <span id="quote-date" data-nk-slot="quoteDate"></span></p>
+          <p class="doc-valid">valid through <span id="quote-valid" data-nk-slot="validUntil">the end of the month</span></p>
         </div>
       </header>
 
@@ -58,7 +58,7 @@
           <p class="summary-sub"><span id="summary-level">standard</span> tier · <span id="summary-annual">$0</span> per year</p>
         </div>
         <dl class="summary-side">
-          <div><dt>Onboarding (one-time)</dt><dd id="summary-setup">$0</dd></div>
+          <div><dt>Onboarding (one-time)</dt><dd id="summary-setup" data-nk-slot="setupFee">$0</dd></div>
           <div><dt>Agreement</dt><dd>12 months, no early-termination fee</dd></div>
           <div><dt>Taxes</dt><dd>services are not subject to sales tax</dd></div>
         </dl>
@@ -86,7 +86,7 @@
         <img class="page-spot" src="assets/spot-envelope.webp" alt="">
       </header>
 
-      <div id="services-list" class="services" data-animate="up" data-delay="0.1"></div>
+      <div id="services-list" class="services" data-animate="up" data-delay="0.1" data-nk-slot="stagesJson"></div>
       <div id="services-empty" class="empty-state" hidden>
         No service blocks yet. Add them in the stages editor when creating the presentation:
         block name, monthly price and "what's included | detail" lines.
@@ -173,7 +173,7 @@
       </ol>
 
       <h3 class="sub-head" data-animate="up" data-delay="0.3">Terms</h3>
-      <ul id="conditions-list" class="conditions"></ul>
+      <ul id="conditions-list" class="conditions" data-nk-slot="workConditions"></ul>
 
       <div class="need" data-animate="up" data-delay="0.4">
         <p class="eyebrow">What we need from you</p>

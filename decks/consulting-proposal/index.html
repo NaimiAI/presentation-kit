@@ -20,7 +20,7 @@
       <div class="art-content cover-wrap">
         <div class="cover-top" data-animate="up">
           <span class="art-chip">Northmark Advisory</span>
-          <span class="art-chip">Proposal · <span id="proposal-date">2026</span></span>
+          <span class="art-chip">Proposal · <span id="proposal-date" data-nk-slot="proposalDate">2026</span></span>
         </div>
         <div class="cover-main">
           <h1 class="art-display" data-animate="up-lg" data-delay="0.1">
@@ -32,7 +32,7 @@
         </div>
         <div class="cover-meta" data-animate="up" data-delay="0.4">
           <span>Prepared for <strong data-nk-text="contactName" data-nk-fallback="you"></strong></span>
-          <span>Valid through <strong id="valid-until-cover">the end of the month</strong></span>
+          <span>Valid through <strong id="valid-until-cover" data-nk-slot="validUntil">the end of the month</strong></span>
         </div>
       </div>
     </section>
@@ -150,7 +150,7 @@
       <div class="wrap">
         <header class="slide-head" data-animate="up">
           <p class="art-chip">05 · twelve weeks</p>
-          <h2 class="art-display">From <strong id="start-date">kick-off</strong> to hand-over</h2>
+          <h2 class="art-display">From <strong id="start-date" data-nk-slot="startDate">kick-off</strong> to hand-over</h2>
         </header>
         <ol class="timeline" data-stagger="0.12" data-stagger-base="0.2">
           <li data-animate="up">
@@ -177,7 +177,7 @@
           <h2 class="art-display">Priced by stage, <em>fixed</em> up front</h2>
         </header>
         <div id="estimate-content" data-animate="up" data-delay="0.15">
-          <div id="stages-list" class="stages-list"></div>
+          <div id="stages-list" class="stages-list" data-nk-slot="stagesJson"></div>
           <div class="estimate-total">
             <span>Project total</span>
             <strong id="stages-total">$0</strong>
@@ -215,12 +215,12 @@
         <ol class="steps" data-stagger="0.12" data-stagger-base="0.2">
           <li data-animate="up"><span class="art-num">1</span><div><strong>Accept the proposal</strong><p>One click below — we send the agreement the same day.</p></div></li>
           <li data-animate="up"><span class="art-num">2</span><div><strong>Name a sponsor</strong><p>One executive who owns the outcome and the calendar.</p></div></li>
-          <li data-animate="up"><span class="art-num">3</span><div><strong>Kick-off on <span id="kickoff-date">the agreed date</span></strong><p>Half a day with the leadership team; discovery starts the same week.</p></div></li>
+          <li data-animate="up"><span class="art-num">3</span><div><strong>Kick-off on <span id="kickoff-date" data-nk-slot="startDate">the agreed date</span></strong><p>Half a day with the leadership team; discovery starts the same week.</p></div></li>
         </ol>
         <div class="actions" data-animate="up" data-delay="0.55">
           <button type="button" class="btn-primary" data-nk-action="accept">Accept the proposal</button>
           <button type="button" class="btn-ghost" data-nk-action="questions">I have questions</button>
-          <span class="validity">Valid through <strong id="valid-until">the end of the month</strong></span>
+          <span class="validity">Valid through <strong id="valid-until" data-nk-slot="validUntil">the end of the month</strong></span>
         </div>
         <label class="ask" data-animate="up" data-delay="0.65">
           <span>Anything we should know before we start? <em>(saved for your consultant)</em></span>
