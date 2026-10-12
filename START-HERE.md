@@ -44,7 +44,9 @@ what that gives, ask first, don't install unasked.
 - **Presentation** — a **personalized presentation** for **one** client, made from a
   template in seconds: personalized fields filled with that client's data, plus a
   public URL that opens without login. "Create a presentation for client Acme" is this —
-  no rebuild needed.
+  no rebuild needed. When filling the fields is not enough, the template is **adapted
+  for that client** — texts rewritten, slides added or dropped: still one presentation,
+  and the template itself stays as it was.
 
 > In the REST API the names map directly: **template** = `template`
 > (`/api/templates`), per-client **presentation** = `presentation`
@@ -144,6 +146,7 @@ usually publishing (**naimi-publish**) and then the first client presentation.
 | Build or change a **template** — slides, design, personalization fields | **naimi-template** (`TEMPLATE-SKILL.md`) |
 | **Publish** a finished template, or push an edit | **naimi-publish** (`PUBLISH-SKILL.md`) |
 | Make/edit a **presentation** for a client; stats, deal status, **what the client answered**; manage clients | **naimi-client-presentations** (`PRESENTATIONS-SKILL.md`) |
+| **Adapt the template for one client** — texts rewritten, slides added or dropped, their own photos — when filling the fields is not enough | **naimi-client-presentations** (`PRESENTATIONS-SKILL.md` → "Adapt the template for one client"); never a new template per client |
 | **Service & account** — notifications, team, plan/billing, badge, custom domain, how presentations open (slides vs feed) | **naimi-client-presentations** (`PRESENTATIONS-SKILL.md`) |
 | Wants a particular **look** — bolder, warmer, more premium, "like a poster" — or a restyle of an existing deck | **naimi-template** (`TEMPLATE-SKILL.md` → "Art direction": ten ready art packs) |
 | A **commercial offer, quote, estimate or letter** that should read and print like a Word document — portrait pages, tables | **naimi-template** (`TEMPLATE-SKILL.md` → "Document format": start from a document deck) |

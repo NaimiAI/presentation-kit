@@ -1,6 +1,6 @@
 ---
 name: naimi-client-presentations
-description: Operate Naimi Web Pres via its REST API — create personalized client presentations from a template, edit a presentation's personalization, track deal statuses, view stats and the client's own self-fill answers, manage clients and their accumulated facts, export a presentation as PDF. Also runs the account through the same API — team and invitations, open notifications, custom domains, plan and limits, how a presentation opens — and routes secrets and payments to the service UI. Use for any operational request about Naimi presentations, clients or the service. No build step and no kit needed — pure API.
+description: Operate Naimi Web Pres via its REST API — create personalized client presentations from a template, adapt a template for one client when filling the fields is not enough, edit a presentation's personalization, track deal statuses, view stats and the client's own self-fill answers, manage clients and their accumulated facts, export a presentation as PDF. Also runs the account through the same API — team and invitations, open notifications, custom domains, plan and limits, how a presentation opens — and routes secrets and payments to the service UI. Use for any operational request about Naimi presentations, clients or the service. No build step and no kit needed — pure API.
 ---
 
 # Naimi — client presentations
@@ -21,7 +21,9 @@ To the user always say *presentation* / *template*, never the API names. Routing
 "create/change a presentation for client X", "who opened it" → this skill (pure API).
 "Make/fix a template, slides, design, fields" → `naimi-template` + `naimi-publish`.
 In doubt, ask whether the change is for **one client** (presentation) or **for
-everyone** (template).
+everyone** (template). One client, but the fields can't carry it — texts rewritten,
+slides added or dropped, their own photos? Still a presentation: "Adapt the template
+for one client" below. **Never make a new template per client.**
 
 The user is non-technical: run the calls yourself and reply with results (links,
 statuses, numbers) in plain language — no raw curl/JSON unless asked. **Reply in the
@@ -50,6 +52,7 @@ curl -sf -H "Authorization: Bearer $NAIMI_TOKEN" "$NAIMI_URL/api/auth/me"
 |---|---|
 | List templates | `GET /api/templates` |
 | Personalization schema of one | `GET /api/templates/:templateId` → `manifest.personalization` |
+| The document itself — slides, texts, where each field stands | `GET /api/templates/:templateId/outline?format=markdown` → `{ markdown }`; of a presentation — `GET /api/presentations/:presentationId/outline?format=markdown` |
 | How the template opens for clients | `PATCH /api/templates/:templateId` `{ "defaultViewMode": "scroll" \| "slides" }` (scroll = feed; viewers keep the toggle; a **document** template ignores it — it always reads as portrait pages) |
 | Find clients by name | `GET /api/clients?q=<substring>` |
 | Client card + all its presentations | `GET /api/clients/:clientId` |
@@ -58,6 +61,7 @@ curl -sf -H "Authorization: Bearer $NAIMI_TOKEN" "$NAIMI_URL/api/auth/me"
 | One presentation + its editing schema | `GET /api/presentations/:presentationId` |
 | Create a presentation | `POST /api/presentations` (recipe below) |
 | Edit personalization | `PATCH /api/presentations/:presentationId` (full replace, recipe below) |
+| Adapt the template for one client | `POST /api/presentations` with `"deck": "own"` → `…/deck` → `…/deck/apply` (recipe below) |
 | Deal status | `PATCH /api/presentations/:presentationId/status` `{ "status": "in_progress" \| "successful" \| "lost" }` |
 | Pre-seed interactive values | `PATCH /api/presentations/:presentationId/data` `{ "data": { "<key>": <value> } }` |
 | Upload a picture for an `image` field | `POST /api/personalization-images` (multipart, field `image`) → `{ url }` |
@@ -79,10 +83,18 @@ call it unless explicitly asked.
 ```
 - [ ] 1. Pick the template: GET /api/templates (ask if ambiguous)
 - [ ] 2. Read its schema: GET /api/templates/:templateId → manifest.personalization
+        and the document: GET /api/templates/:templateId/outline?format=markdown
 - [ ] 3. Find or create the client: GET /api/clients?q=<name>; reuse client.facts as defaults
 - [ ] 4. Fill personalization per the rules below (confirm invented wording)
 - [ ] 5. POST /api/presentations → reply with presentation.shareUrl
 ```
+
+The outline is the template printed as text: every slide with what it says, `{{key}}`
+where each field stands, the sample value the author previewed there and its length.
+Write a value **about as long as its sample** — a text twice the length breaks the
+slide — and in the sample's format (line breaks, `Title | Description` rows). A field
+marked "hidden when empty" may stay empty: its block, or its whole slide, simply
+doesn't show.
 
 ```
 POST /api/presentations
@@ -113,6 +125,73 @@ If this is the user's **first** presentation, close the loop: offer to open
 `presentation.personalization` from step 2, change what's needed, send everything
 back. Top-level `companyName` is required. The shareUrl never changes on edit —
 links already sent keep working.
+
+## Recipe: adapt the template for one client
+
+A presentation is made in one of two ways. **Fill the fields** — the recipe above:
+instant, and right whenever the fields can carry the brief. **Adapt the template for
+the client** — when they can't: the texts have to be rewritten for this client, slides
+added, dropped or reordered, their own photos put in. Then you rework the template's
+deck for this one client and the presentation shows **its own version**. It stays one
+presentation of one client: the template is not changed, and no new template appears.
+
+To the user say exactly that — "I'll adapt the template for this client", "here is the
+preview", "the link is created / updated" — never "own deck", "revision" or "apply".
+
+```
+- [ ] 1. Read the template as a document: GET /api/templates/:templateId/outline?format=markdown
+- [ ] 2. Create the presentation without a link:
+        POST /api/presentations { "templateId", "clientId" | "client", "deck": "own" }
+        → presentation.shareUrl is null until step 6
+- [ ] 3. Take the base — the template's current revision:
+        GET /api/templates/:templateId/revisions/current/bundle.zip → unzip into a working folder
+- [ ] 4. Rework it for the client by the rules of naimi-template (TEMPLATE-SKILL.md):
+        same slide grammar, same bundle rules; then zip the folder's contents
+- [ ] 5. Upload it as a working version, look at it, show it:
+        POST /api/presentations/:presentationId/deck (multipart, field bundle)
+        → revision.id, revision.previewUrl (prefix it with NAIMI_URL)
+- [ ] 6. On the user's yes — create the link:
+        POST /api/presentations/:presentationId/deck/apply { "revisionId" }
+        → reply with presentation.shareUrl
+```
+
+```bash
+curl -sf -H "Authorization: Bearer $NAIMI_TOKEN" -o base.zip \
+  "$NAIMI_URL/api/templates/<templateId>/revisions/current/bundle.zip"
+
+curl -sf -H "Authorization: Bearer $NAIMI_TOKEN" \
+  -F "bundle=@acme-deck.zip;type=application/zip" \
+  "$NAIMI_URL/api/presentations/<presentationId>/deck"
+
+curl -sf -X POST -H "Authorization: Bearer $NAIMI_TOKEN" -H "Content-Type: application/json" \
+  -d '{"revisionId":"<revisionId>"}' "$NAIMI_URL/api/presentations/<presentationId>/deck/apply"
+```
+
+- **An upload never touches the client's link** — it is a working version. Only
+  `deck/apply` creates the link, and later updates it; so iterate freely: upload again
+  (add `-F "replace=<revisionId>"` to overwrite the previous working version), look,
+  update the link when it is right. A later edit is the same loop from step 4 — keep
+  the working folder.
+- **The template is a neutral sample — always start from it, never from another
+  client's version.** Whatever you don't replace reaches this client as written: a
+  sample name in a footer, someone else's photo, placeholder numbers. Before creating
+  the link, re-read your version as a document —
+  `GET /api/presentations/:presentationId/outline?revisionId=<revisionId>&format=markdown`
+  — and make sure nothing of the sample is left; a slide you have nothing for is
+  removed, not left half-filled.
+- The adapted deck may keep personalization fields (`companyName` always comes from
+  the client): pass their values in `personalization` at step 2 or with the usual
+  `PATCH` before step 6 — `deck/apply` checks the required fields of **your** version
+  (`400 missing_fields`). The preview link shows such fields with sample values;
+  `GET /api/presentations/:presentationId/deck/<revisionId>/preview` returns exactly
+  what the client would get.
+- A presentation made by filling the fields can be adapted later the same way (steps
+  3–6 on its id): its link keeps showing the template until `deck/apply`.
+  `GET /api/presentations/:presentationId/deck` lists the versions;
+  `DELETE /api/presentations/:presentationId/deck` returns it to the template.
+- Refusals: `409 template_draft` — the template is not published yet;
+  `400 invalid_bundle` — the bundle rules of naimi-publish; `402 limit_exceeded` — the
+  plan's storage or monthly presentations.
 
 ## Personalization rules
 
@@ -200,5 +279,8 @@ or limits at all.
 - [ ] stagesJson is a valid JSON string (decks with showStagesEditor)
 - [ ] existing client found via ?q= (not duplicated); facts reused as defaults
 - [ ] edits sent as the FULL personalization object
+- [ ] values are about as long as their samples in the outline
+- [ ] template adapted for one client: started from the template, nothing of the sample
+      left, the link created only after the user saw the preview
 - [ ] the link in the reply is presentation.shareUrl from the API response
 ```

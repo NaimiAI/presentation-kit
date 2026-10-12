@@ -176,6 +176,17 @@ you must apply from the start:
   frame. Hover transitions need no guard.
 - **Text stays text** — real DOM text nodes, never baked into images (PDF/PPTX export
   reads them). Icons are inline SVG.
+- **Every personalization field has a place in the markup.** Where the runtime writes
+  the value it is `data-nk-text="key"`. Where **your `deck.js`** draws it from
+  `kit.personalization('key')` — a formatted date, a table built from a text field or
+  from the stages editor (`stagesJson`), an `<img>` whose `src` it sets — put
+  `data-nk-slot="key"` on the element the script fills: the one whose content it
+  replaces, not a wrapper around static text (two values in one element:
+  `data-nk-slot="validFrom validUntil"`). The slot is a label, not a binding: the
+  runtime ignores it and the script keeps drawing. The service reads it when it prints
+  the deck for whoever fills the fields later — an agent creating a presentation, the
+  draft a manager reviews — so they know which slide each value lands on; a field
+  with no place is filled blind.
 - **No CDNs, no absolute URLs, no `data:` images** — fonts and images are files inside
   the folder (strict viewer CSP; enforced at publish).
 
@@ -244,7 +255,8 @@ Copy one and rewrite the content — the print rules and the table parsers are a
 
 - `schemaVersion` exactly as above; `id` (kebab-case latin) and `name` non-empty.
 - `personalization.fields` **must include `companyName`**. Types: `text | date |
-  textarea | image`. Every `data-nk-text` key is declared here.
+  textarea | image`. Every `data-nk-text` and `data-nk-slot` key is declared here
+  (`stagesJson` is not a field — it comes with `showStagesEditor`).
 - `type: "image"` — a **per-client picture** (e.g. renders of the client's project).
   The manager uploads it in the "create presentation" form; the value arrives as a
   platform-hosted URL string (allowed by the CSP). In slides use it as `<img src>`;
@@ -363,6 +375,8 @@ stores the bundle, not your editing convenience; future edits start from these f
 - [ ] manifest: id/name set, companyName present, every data-nk-field key declared
 - [ ] slide grammar: marker comment + unique data-nk-slide on every section
 - [ ] texts read personalization (no hardcoded client names); actions marked data-nk-action
+- [ ] every personalization field has a place: data-nk-text, or data-nk-slot on the
+      element deck.js fills
 - [ ] images local, lean; no CDN / data: / absolute URLs
 - [ ] art pack (if used): scrim over every bleed plate, no two loud slides in a row, unused plates deleted
 - [ ] built from a client's PDF/PPTX → their own images are in the deck (ingest-source),

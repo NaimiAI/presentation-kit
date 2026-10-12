@@ -56,6 +56,7 @@ assets/         (if needed) deck images — as files, referenced by relative pat
 |---|---|
 | `data-nk-text="key"` | Fills in a personalization value (+ `data-nk-fallback="…"` while it is empty) |
 | `data-nk-hide-empty="key"` | Hides the block when the personalization value is empty. On the `<section>` itself the whole slide leaves the deck while the value is empty: the counter, dots, panel, scroll view, PDF and PPTX know nothing of it (engine nk/0.12+); a deck whose every slide is conditional keeps its first |
+| `data-nk-slot="key"` | The place of a personalization field that `deck.js` draws instead of the runtime: a date in its own format, a table built from a text field or from the stages editor (`stagesJson`), the `src` of a picture. Goes on the element whose content the script writes; two values in one element — keys separated by a space. The runtime never reads it — it is a label for the service: printing the deck for whoever fills the fields, it names the slide and the place of the value |
 | `data-nk-field="key"` on an `input range/number` | Two-way binding to an interactive field |
 | `data-nk-field="key" data-nk-value="v"` on a button | Value pick; the runtime maintains `aria-pressed` across the group (style `[aria-pressed='true']`), type via `data-nk-type="boolean\|number"` |
 | `data-nk-notes="text"` on a `<section>` | Speaker notes: the PPTX export puts them into the slide notes (line break — `&#10;`); the web deck never shows them |
@@ -63,8 +64,8 @@ assets/         (if needed) deck images — as files, referenced by relative pat
 | `data-animate="up\|up-lg\|left\|right\|scale\|grow"` | Entrance animation when the slide is shown (+ `data-delay="0.2"`, and `data-grow="72%"` for `grow`) |
 | `data-stagger="0.08"` on a container | Auto-cascade of children with `data-animate` (+ `data-stagger-base`) |
 
-Declare `data-nk-text` keys in `manifest.json` → `personalization.fields`, and
-`data-nk-field` keys in `demoData.fields`.
+Declare `data-nk-text` and `data-nk-slot` keys in `manifest.json` →
+`personalization.fields`, and `data-nk-field` keys in `demoData.fields`.
 
 ## API for `deck.js`
 
