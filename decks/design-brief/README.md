@@ -1,9 +1,8 @@
 # design-brief — design studio brief (self-fill)
 
 A design-studio intake brief styled as a gallery sheet: near-white surface,
-hairline rules, oversized lowercase serif, Klein-blue accent. Same genre as
-`agency-brief` but the opposite visual language — the pair shows how different
-two self-fill questionnaires can look.
+hairline rules, oversized lowercase serif, Klein-blue accent — a self-fill
+questionnaire that reads like an editorial page, not a form.
 
 What it demonstrates:
 
@@ -16,7 +15,7 @@ What it demonstrates:
   string fields, promoted to the client card);
 - calm editorial copy addressed to a brand owner.
 
-The studio name lives in slide copy (Slide01/05) — adjust when adapting. The
+The studio name lives in slide copy (slides 1 and 5) — adjust when adapting. The
 six moodboard photos live in `assets/mood-*.webp`.
 
 To build on this deck, copy `decks/design-brief/` into your working folder and add

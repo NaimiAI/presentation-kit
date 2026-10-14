@@ -27,7 +27,7 @@ What it demonstrates:
 
 Program, speakers and the recording link are constants in `index.html`; the
 event title fallback and link derivation live in `deck.js`. Replace them with
-your own. To restyle the deck, replace `assets/art/` with another pack's `pack/` folder and
+your own. To restyle the deck, replace `assets/art/` with another pack's folder `art/<pack>/pack/` and
 change `data-theme` — the class names are the same in every pack (see `art/README.md`).
 
 Slides: `poster` → `agenda` → `rsvp` (see the `<!-- Slide N -->` markers in

@@ -39,11 +39,9 @@ Swap the customer story in `index.html` — the cover, challenges, results and t
 quote — and the savings constants at the top of `deck.js`, then replace
 `assets/quote-headshot.webp` with your customer's headshot (keep it in `.art-duotone`
 so it stays inside the pack). To restyle the deck, replace `assets/art/` with another
-pack's `pack/` folder and change `data-theme` — the class names are the same in every
+pack's folder `art/<pack>/pack/` and change `data-theme` — the class names are the same in every
 pack (see `art/README.md`); only the loud slides need re-checking, because every pack
 composes its hero plate differently.
-
-## Build
 
 To build on this deck, copy `decks/case-study/` into your working folder and add
 `template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent

@@ -31,11 +31,9 @@ What it demonstrates:
 The network legend (name, locations, AUV) and the economics model (expense
 shares, rent, investment range) are represented in `index.html` and `deck.js` —
 replace them together when adapting. To restyle the deck, replace `assets/art/` with
-another pack's `pack/` folder and change `data-theme` — the class names are the same in
+another pack's folder `art/<pack>/pack/` and change `data-theme` — the class names are the same in
 every pack (see `art/README.md`); only the cover needs re-checking, because plates are
 composed differently.
-
-Check from the repository root:
 
 To build on this deck, copy `decks/franchise-offer/` into your working folder and add
 `template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent

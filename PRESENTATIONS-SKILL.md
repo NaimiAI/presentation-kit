@@ -37,13 +37,17 @@ values, fill the schema by meaning, confirm anything you invented, return the li
 `.env` at the kit root (`START-HERE.md` → "Connected or local-only?"; the cloud
 service is `https://app.naimi.ai`, tokens at `<NAIMI_URL>/app/authoring`). Every call sends
 `Authorization: Bearer $NAIMI_TOKEN`; bodies are JSON; errors are
-`{ "error": "<message>" }`. Recurring ones: `402` + `code: "limit_exceeded"` — a plan
-limit (body names the resource; upgrades at `<URL>/app/billing`, tenant admin);
-`403` — usually needs a tenant admin. The curl examples are bash; on Windows use
-`$env:NAIMI_TOKEN = "..."` (`curl.exe` works the same). Smoke test:
+`{ "error": "<message>", "code": "<code>" }` plus what to fix (`missingFields`, the
+`key` of a field). Call with `curl -sS --fail-with-body` (curl 7.76+): a refusal still
+prints that body, while `-f` alone swallows it; a download to a file (`-o`) takes
+`-sSf`, so an error never lands in the file. Recurring ones: `402` +
+`code: "limit_exceeded"` — a plan limit (body names the resource; upgrades at
+`<URL>/app/billing`, tenant admin); `403` — usually needs a tenant admin. The curl
+examples are bash; on Windows use `$env:NAIMI_TOKEN = "..."` (`curl.exe` works the
+same). Smoke test:
 
 ```bash
-curl -sf -H "Authorization: Bearer $NAIMI_TOKEN" "$NAIMI_URL/api/auth/me"
+curl -sS --fail-with-body -H "Authorization: Bearer $NAIMI_TOKEN" "$NAIMI_URL/api/auth/me"
 ```
 
 ## API map
@@ -86,7 +90,7 @@ call it unless explicitly asked.
         and the document: GET /api/templates/:templateId/outline?format=markdown
 - [ ] 3. Find or create the client: GET /api/clients?q=<name>; reuse client.facts as defaults
 - [ ] 4. Fill personalization per the rules below (confirm invented wording)
-- [ ] 5. POST /api/presentations → reply with presentation.shareUrl
+- [ ] 5. POST /api/presentations → check the link (below) → reply with presentation.shareUrl
 ```
 
 The outline is the template printed as text: every slide with what it says, `{{key}}`
@@ -108,6 +112,13 @@ POST /api/presentations
 → `201 { presentation }`. The link works immediately, no publish step; keep
 `presentation.id` for later edits. Passing `client: {...}` inline creates (or reuses)
 the client automatically.
+
+**Check the link before you hand it over.** `GET $NAIMI_URL/api/public/presentations/<slug>`
+— no token; `<slug>` is the last part of `shareUrl` — returns exactly what the link
+serves: `presentation.personalization` holds the values the deck receives (`companyName`,
+`contactName`, `stagesJson` and the other platform keys at the top, the template's own
+fields under `customFields` as `{ key, value }`). A key the template does not declare is
+not there — it never reaches the client; `404` — the link shows nothing.
 
 If this is the user's **first** presentation, close the loop: offer to open
 `shareUrl` together, and to set up open notifications (account table below).
@@ -145,25 +156,29 @@ preview", "the link is created / updated" — never "own deck", "revision" or "a
         → presentation.shareUrl is null until step 6
 - [ ] 3. Take the base — the template's current revision:
         GET /api/templates/:templateId/revisions/current/bundle.zip → unzip into a working folder
-- [ ] 4. Rework it for the client by the rules of naimi-template (TEMPLATE-SKILL.md):
-        same slide grammar, same bundle rules; then zip the folder's contents
-- [ ] 5. Upload it as a working version, look at it, show it:
+- [ ] 4. Rework it for the client by the rules of naimi-template (TEMPLATE-SKILL.md),
+        then the pre-flight of naimi-publish (PUBLISH-SKILL.md): slide grammar,
+        manifest.slides rewritten to the slides you kept (the base lists the
+        template's), bundle rules; zip the folder's contents
+- [ ] 5. Upload it as a working version and read it back:
         POST /api/presentations/:presentationId/deck (multipart, field bundle)
-        → revision.id, revision.previewUrl (prefix it with NAIMI_URL)
+        → revision.id, revision.previewUrl (prefix it with NAIMI_URL);
+        GET /api/presentations/:presentationId/outline?revisionId=<revisionId>&format=markdown
+        → your slides in your order, nothing of the sample left; show the user previewUrl
 - [ ] 6. On the user's yes — create the link:
         POST /api/presentations/:presentationId/deck/apply { "revisionId" }
-        → reply with presentation.shareUrl
+        → check the link, reply with presentation.shareUrl
 ```
 
 ```bash
-curl -sf -H "Authorization: Bearer $NAIMI_TOKEN" -o base.zip \
+curl -sSf -H "Authorization: Bearer $NAIMI_TOKEN" -o base.zip \
   "$NAIMI_URL/api/templates/<templateId>/revisions/current/bundle.zip"
 
-curl -sf -H "Authorization: Bearer $NAIMI_TOKEN" \
+curl -sS --fail-with-body -H "Authorization: Bearer $NAIMI_TOKEN" \
   -F "bundle=@acme-deck.zip;type=application/zip" \
   "$NAIMI_URL/api/presentations/<presentationId>/deck"
 
-curl -sf -X POST -H "Authorization: Bearer $NAIMI_TOKEN" -H "Content-Type: application/json" \
+curl -sS --fail-with-body -X POST -H "Authorization: Bearer $NAIMI_TOKEN" -H "Content-Type: application/json" \
   -d '{"revisionId":"<revisionId>"}' "$NAIMI_URL/api/presentations/<presentationId>/deck/apply"
 ```
 
@@ -174,17 +189,18 @@ curl -sf -X POST -H "Authorization: Bearer $NAIMI_TOKEN" -H "Content-Type: appli
   the working folder.
 - **The template is a neutral sample — always start from it, never from another
   client's version.** Whatever you don't replace reaches this client as written: a
-  sample name in a footer, someone else's photo, placeholder numbers. Before creating
-  the link, re-read your version as a document —
-  `GET /api/presentations/:presentationId/outline?revisionId=<revisionId>&format=markdown`
-  — and make sure nothing of the sample is left; a slide you have nothing for is
-  removed, not left half-filled.
+  sample name in a footer, someone else's photo, placeholder numbers, the fallback of
+  a field left empty. So the outline of step 5 is the check before the link: nothing
+  of the sample is left, and a slide you have nothing for is removed, not left
+  half-filled.
 - The adapted deck may keep personalization fields (`companyName` always comes from
   the client): pass their values in `personalization` at step 2 or with the usual
   `PATCH` before step 6 — `deck/apply` checks the required fields of **your** version
-  (`400 missing_fields`). The preview link shows such fields with sample values;
-  `GET /api/presentations/:presentationId/deck/<revisionId>/preview` returns exactly
-  what the client would get.
+  (`400 missing_fields`). `revision.previewUrl` is a page of the service: it shows this
+  version with the presentation's values and client to whoever signs in to manage
+  it — the link to show the user; the client's link does not move.
+  `GET /api/presentations/:presentationId/deck/<revisionId>/preview` returns the same
+  as JSON — exactly what the client's link would serve.
 - A presentation made by filling the fields can be adapted later the same way (steps
   3–6 on its id): its link keeps showing the template until `deck/apply`.
   `GET /api/presentations/:presentationId/deck` lists the versions;
@@ -203,7 +219,7 @@ curl -sf -X POST -H "Authorization: Bearer $NAIMI_TOKEN" -H "Content-Type: appli
   domain serves the presentation):
 
 ```bash
-curl -sf -H "Authorization: Bearer $NAIMI_TOKEN" \
+curl -sS --fail-with-body -H "Authorization: Bearer $NAIMI_TOKEN" \
   -F "image=@project.webp" "$NAIMI_URL/api/personalization-images"
 # → { "imageId": "pimg_...", "url": "/api/personalization-images/pimg_.../image.webp" }
 ```
@@ -215,13 +231,26 @@ curl -sf -H "Authorization: Bearer $NAIMI_TOKEN" \
   non-standard keys are stored as `customFields` — decks resolve both the same way.
   `customFields: [{ key, value }]` is the explicit form when the schema sets
   `showCustomFields: true`.
-- Required fields are enforced: missing → 400 with `missingFields: [...]`.
-- `stagesJson` (when `showStagesEditor: true`): stages/pricing as a JSON **string**;
-  `rows` is one line per work item, `Title | Description`:
+- Required fields are enforced: missing → `400` + `code: "missing_fields"` with
+  `missingFields: [...]`.
+- `stagesJson` (when `showStagesEditor: true`) — the table of stages: a list of
+  `{ "title", "cost", "rows" }`, `cost` a plain number (`80000` or `"80 000"`), `rows`
+  one line per work item, `Title | Description`. Send the list itself or its JSON
+  string, at most 30 stages; `[]` clears the table. The service stores it as the JSON
+  string the deck reads — `[{ "title", "costRub", "rows" }]`, rows joined by line
+  breaks — and that form is accepted back as is:
 
 ```json
-"[{\"title\":\"Stage 1. Customer-care agent\",\"costRub\":80000,\"rows\":\"CRM integration | Connect to Retail CRM\\nTesting | Validate on real requests\"}]"
+"stagesJson": [
+  { "title": "Stage 1. Customer-care agent", "cost": 80000,
+    "rows": ["CRM integration | Connect to Retail CRM", "Testing | Validate on real requests"] }
+]
 ```
+
+- A value its field cannot take — an object or a list in a text field, a table that is
+  not a list of stages, a cost like `"4,800"` — is refused whole: `400` +
+  `code: "invalid_field_value"` with the field's `key`; nothing is written. Fix that
+  value and send again.
 
 ## Interactive values (demoData)
 
@@ -276,11 +305,13 @@ or limits at all.
 ```
 - [ ] required schema fields filled; dates are YYYY-MM-DD
 - [ ] image fields: file uploaded, value = returned url
-- [ ] stagesJson is a valid JSON string (decks with showStagesEditor)
+- [ ] stages sent as the list [{ title, cost, rows }] (decks with showStagesEditor)
 - [ ] existing client found via ?q= (not duplicated); facts reused as defaults
 - [ ] edits sent as the FULL personalization object
 - [ ] values are about as long as their samples in the outline
-- [ ] template adapted for one client: started from the template, nothing of the sample
-      left, the link created only after the user saw the preview
+- [ ] template adapted for one client: started from the template, manifest.slides
+      rewritten, nothing of the sample left in the outline of your version, the link
+      created only after the user saw the preview
+- [ ] the link checked: GET /api/public/presentations/<slug> serves your values
 - [ ] the link in the reply is presentation.shareUrl from the API response
 ```

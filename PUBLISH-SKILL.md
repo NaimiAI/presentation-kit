@@ -29,7 +29,9 @@ link, per-client presentations, open tracking) and let them decide — never blo
 local work over it.
 
 Commands here are bash; on Windows use `$env:NAIMI_URL = "..."` — `curl.exe` works
-the same.
+the same. Calls run as `curl -sS --fail-with-body` (curl 7.76+): a refusal still prints its
+body — `error`, `code` and what to fix — while `-f` alone swallows it; a download to a file
+(`-o`) takes `-sSf`, so an error never lands in the file.
 
 ## Pre-flight
 
@@ -65,15 +67,15 @@ PowerShell: `Compress-Archive -Path my-presentation\* -DestinationPath retail-ro
 
 ```bash
 # new template (add -F "status=draft" to keep it hidden from managers for now)
-curl -sf -H "Authorization: Bearer $NAIMI_TOKEN" \
+curl -sS --fail-with-body -H "Authorization: Bearer $NAIMI_TOKEN" \
   -F "bundle=@retail-roi-offer.zip;type=application/zip" \
   "$NAIMI_URL/api/templates/upload"
 
 # find an existing template's id
-curl -sf -H "Authorization: Bearer $NAIMI_TOKEN" "$NAIMI_URL/api/templates"
+curl -sS --fail-with-body -H "Authorization: Bearer $NAIMI_TOKEN" "$NAIMI_URL/api/templates"
 
 # new revision of an existing template
-curl -sf -H "Authorization: Bearer $NAIMI_TOKEN" \
+curl -sS --fail-with-body -H "Authorization: Bearer $NAIMI_TOKEN" \
   -F "bundle=@retail-roi-offer.zip;type=application/zip" \
   "$NAIMI_URL/api/templates/<templateId>/revisions"
 ```
@@ -108,7 +110,7 @@ new template. Two things make that safe to do properly:
   have the working folder again, in bundle form:
 
 ```bash
-curl -sf -H "Authorization: Bearer $NAIMI_TOKEN" -o current.zip \
+curl -sSf -H "Authorization: Bearer $NAIMI_TOKEN" -o current.zip \
   "$NAIMI_URL/api/templates/<templateId>/revisions/current/bundle.zip"
 unzip current.zip -d my-presentation && echo "<templateId>" > my-presentation/.naimi-template-id
 ```
@@ -119,13 +121,13 @@ unzip current.zip -d my-presentation && echo "<templateId>" > my-presentation/.n
   template without changing anything for anyone:
 
 ```bash
-curl -sf -H "Authorization: Bearer $NAIMI_TOKEN" \
+curl -sS --fail-with-body -H "Authorization: Bearer $NAIMI_TOKEN" \
   -F "bundle=@retail-roi-offer.zip;type=application/zip" -F "stage=1" \
   "$NAIMI_URL/api/templates/<templateId>/revisions"
 # → revision.id, revision.previewUrl (prefix with NAIMI_URL) — show this link to the user
 
 # on their yes — make it the current revision
-curl -sf -X PATCH -H "Authorization: Bearer $NAIMI_TOKEN" -H "Content-Type: application/json" \
+curl -sS --fail-with-body -X PATCH -H "Authorization: Bearer $NAIMI_TOKEN" -H "Content-Type: application/json" \
   -d '{"currentRevisionId":"<revisionId>"}' "$NAIMI_URL/api/templates/<templateId>"
 ```
 
@@ -150,7 +152,7 @@ client" in `PRESENTATIONS-SKILL.md`.
    template (`data-nk-format="document"`) has no start mode — skip this step:
 
 ```bash
-curl -sf -X PATCH -H "Authorization: Bearer $NAIMI_TOKEN" -H "Content-Type: application/json" \
+curl -sS --fail-with-body -X PATCH -H "Authorization: Bearer $NAIMI_TOKEN" -H "Content-Type: application/json" \
   -d '{"defaultViewMode":"scroll"}' "$NAIMI_URL/api/templates/<templateId>"   # back: "slides"
 ```
 

@@ -28,7 +28,7 @@ What it demonstrates:
 
 Event facts and the benefits matrix live in `index.html`, the tiers and their prices in the
 `TIERS` constant at the top of `deck.js` — replace them with the real event when adapting.
-To restyle the deck, replace `assets/art/` with another pack's `pack/` folder and change
+To restyle the deck, replace `assets/art/` with another pack's folder `art/<pack>/pack/` and change
 `data-theme` — the class names are the same in every pack (see `art/README.md`).
 
 Slides: `poster` → `audience` → `tiers` → `benefits` → `booking` (see the `<!-- Slide N -->`

@@ -21,8 +21,6 @@ What it demonstrates:
 The supplier's details ("Harbor Merch Co.") are fixed copy in `index.html` — replace them
 with the user's company once when adapting the template.
 
-Compose and validate from the repository root:
-
 To build on this deck, copy `decks/price-quote/` into your working folder and add
 `template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent
 which deck you want to start from).

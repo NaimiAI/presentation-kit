@@ -49,7 +49,7 @@ preview — the one built into Python, Node or your editor will do.)
 
 ## Ready-made decks
 
-18 decks in different genres, each with its own design system and
+Decks in different genres, each with its own design system and
 personalization mechanics. Click any preview to open a **live example** —
 that's a real personalized presentation, exactly what your client would receive.
 
@@ -83,6 +83,11 @@ that's a real personalized presentation, exactly what your client would receive.
     <td align="center"><a href="https://app.naimi.ai/atlas-payments-a45950"><img src="decks/sponsor-package/preview.webp" width="260" alt="Event sponsorship package"/><br/><b>Event sponsorship package</b></a><br/>tier picker, benefits matrix</td>
     <td align="center"><a href="https://app.naimi.ai/ridgeline-outfitters-e843c0"><img src="decks/client-onboarding/preview.webp" width="260" alt="New-client welcome pack"/><br/><b>New-client welcome pack</b></a><br/>30-day plan from kickoff date</td>
     <td align="center"><a href="https://app.naimi.ai/jamie-rivera-4750f5"><img src="decks/job-offer/preview.webp" width="260" alt="Job offer to a candidate"/><br/><b>Job offer to a candidate</b></a><br/>total comp, candidate replies inline</td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://app.naimi.ai/pulse-energy-9a69d9"><img src="decks/agency-pitch/preview.webp" width="260" alt="Agency campaign pitch"/><br/><b>Agency campaign pitch</b></a><br/>package picker, reach estimate</td>
+    <td align="center"><a href="https://app.naimi.ai/cobalt-logistics-e61c10"><img src="decks/consulting-proposal/preview.webp" width="260" alt="Consulting engagement proposal"/><br/><b>Consulting engagement proposal</b></a><br/>priced stages, retainer picker</td>
+    <td align="center"><a href="https://app.naimi.ai/northwind-software-fab0f2"><img src="decks/event-invite-noir/preview.webp" width="260" alt="Event invitation — noir"/><br/><b>Event invitation — noir</b></a><br/>RSVP on a dark poster</td>
   </tr>
 </table>
 

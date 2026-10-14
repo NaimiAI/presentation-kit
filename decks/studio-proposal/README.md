@@ -9,8 +9,7 @@ What it demonstrates:
 - deep personalization: project title, our understanding, dates, pricing note,
   and working terms are all filled by the manager when creating a presentation;
 - estimate through the stages editor (`showStagesEditor: true` + `stagesJson`);
-- custom deck theme without editing `index.html` (CSS preset + `data-theme` from
-  `slides/index.ts`);
+- custom deck theme through `deck.css` + `data-theme` on `index.html`;
 - document without interactive fields (`demoData.fields: []`).
 
 Sender details (studio name and contacts) live in the slide markup in

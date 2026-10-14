@@ -134,13 +134,14 @@ showing a genre and a style of personalization (details in each deck's `README.m
 | `job-offer` | job offer to a candidate (warm "sunrise"; the client is the candidate) | total comp (base / equity / benefits); the candidate answers right in the offer: accept/questions chips + a question box (`collectFromClient`) |
 | `listing-presentation` | home tour for a buyer (estate linen: hunter green + brass, serif) | nearby sales from a text field with an automatic price check; three purchase paths sharing one adaptive calculator, both promoted to the client card; four-frame photo tour; buyer self-fill move timeline |
 | `photography-package` | wedding photography packages (fine-art gallery ivory) | portfolio-led; the couple picks the package and add-ons themselves (client self-fill), live total with tier include-logic |
+| `agency-pitch` | creative-agency campaign pitch (`sticker-pop` art pack) | package picker with a budget-based reach estimate, launch plan counted back from a date, book-a-call action |
+| `consulting-proposal` | advisory engagement proposal (`cyanotype` art pack) | priced stages from the stages editor, retainer picker, accept action + client question box |
 | `renovation-estimate` | **document** (Letter): remodel estimate, engineering form | labor and materials tables from text fields with sections, summary with discount, payment schedule, client approval + comment |
 | `service-quote` | **document** (Letter): managed services quote, corporate | service blocks from the stages editor, two SLA tiers the client picks in the document, onboarding plan |
 | `price-quote` | **document** (Letter): supplier's quote as a letter on letterhead | salutation and letter body from fields, itemized quote with discount, sales tax and the amount in words, product cards with pictures, terms |
 
-The offer-style decks (`proposal-mono`, `studio-proposal`) set
-`personalization.showStagesEditor: true`, which makes the presentation form show a
-stages/pricing editor.
+Decks whose mechanic names the stages editor set `personalization.showStagesEditor: true`
+— the presentation form then shows a stages/pricing editor (`stagesJson`).
 
 To let the user **see** what's possible before choosing, hand out the live example
 links from the kit's `README.md` — one per ready-made deck, no account needed. With
@@ -187,6 +188,13 @@ you must apply from the start:
   the deck for whoever fills the fields later — an agent creating a presentation, the
   draft a manager reviews — so they know which slide each value lands on; a field
   with no place is filled blind.
+- **A fallback is what the client sees when the field is left empty** — and any field
+  but the company name may be. The fallback is `data-nk-fallback`, else the text you
+  wrote inside the `data-nk-text` element; for a block `deck.js` draws, its empty
+  state. Write neutral words that stand on their own, or show nothing:
+  `data-nk-hide-empty="key"` on the block or the whole slide (a table of stages hides
+  this way). Sample data — a person's name, an email, a phone, a website, a hint for
+  whoever fills the field — lives in `mock/state.json`, never in a fallback.
 - **No CDNs, no absolute URLs, no `data:` images** — fonts and images are files inside
   the folder (strict viewer CSP; enforced at publish).
 
@@ -377,6 +385,8 @@ stores the bundle, not your editing convenience; future edits start from these f
 - [ ] texts read personalization (no hardcoded client names); actions marked data-nk-action
 - [ ] every personalization field has a place: data-nk-text, or data-nk-slot on the
       element deck.js fills
+- [ ] fallbacks are neutral or hidden empty: no sample names, emails, phones, sites or
+      hints to the author — those live in the mock
 - [ ] images local, lean; no CDN / data: / absolute URLs
 - [ ] art pack (if used): scrim over every bleed plate, no two loud slides in a row, unused plates deleted
 - [ ] built from a client's PDF/PPTX → their own images are in the deck (ingest-source),

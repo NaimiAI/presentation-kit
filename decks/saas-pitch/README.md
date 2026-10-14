@@ -25,7 +25,7 @@ What it demonstrates:
   animated (the clay pack never fakes a UI inside a plate);
 - light personalization: company, contact, deal manager.
 
-To restyle it, replace `assets/art/` with another pack's `pack/` folder and change
+To restyle it, replace `assets/art/` with another pack's folder `art/<pack>/pack/` and change
 `data-theme` — the class names are the same in every pack (see `art/README.md`).
 
 Product and pricing are constants in `deck.js` and the slide markup in

@@ -32,8 +32,6 @@ To restyle it, replace `assets/art/` with another calm pack (`cyanotype`, `engra
 `art/README.md`); only the loud slides need a second look, because every pack composes
 its hero differently.
 
-Compose and validate from the repository root:
-
 To build on this deck, copy `decks/investor-pitch/` into your working folder and add
 `template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent
 which deck you want to start from).

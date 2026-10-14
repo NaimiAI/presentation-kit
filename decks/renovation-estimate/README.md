@@ -20,8 +20,6 @@ What it demonstrates:
 The contractor's details ("Northline Builders") are fixed copy in `index.html` — replace
 them with the user's company once when adapting the template.
 
-Compose and validate from the repository root:
-
 To build on this deck, copy `decks/renovation-estimate/` into your working folder and add
 `template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent
 which deck you want to start from).

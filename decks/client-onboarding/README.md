@@ -29,7 +29,7 @@ What it demonstrates:
 
 Team, links and SLA are constants in `index.html`; replace them with your own.
 
-To restyle it, replace `assets/art/` with another warm pack's `pack/` folder and change
+To restyle it, replace `assets/art/` with another warm pack's folder `art/<pack>/pack/` and change
 `data-theme` — the class names are the same in every pack (see `art/README.md`).
 
 To build on this deck, copy `decks/client-onboarding/` into your working folder and add

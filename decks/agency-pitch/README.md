@@ -22,7 +22,7 @@ What it demonstrates:
 - **light personalization** that carries the pitch: campaign name, the client's goal
   in their words, the idea paragraph, the launch date (the plan counts back from it).
 
-To restyle it, replace `assets/art/` with another pack's `pack/` folder and change
+To restyle it, replace `assets/art/` with another pack's folder `art/<pack>/pack/` and change
 `data-theme` — the class names are the same in every pack (see `art/README.md`).
 
 To build on this deck, copy `decks/agency-pitch/` into your working folder and add

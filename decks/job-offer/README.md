@@ -31,11 +31,11 @@ What it demonstrates:
   (medical/401(k)/PTO/parental leave/stipends) instead of sales KPIs, "comp
   reviews twice a year" instead of discounts.
 
-`deck.css` is byte-identical to the RU copy (`decks/job-offer/`): the two decks
+`deck.css` is byte-identical to the RU copy of the deck: the two decks
 differ in markup only — the RU one carries six benefit cards instead of eight and
 uses the `.cols-3` modifier for them.
 
-To restyle the deck, replace `assets/art/` with another pack's `pack/` folder and
+To restyle the deck, replace `assets/art/` with another pack's folder `art/<pack>/pack/` and
 change `data-theme` — the class names are the same in every pack (`art/README.md`).
 
 The employer brand (name, tagline, size) is embedded in `index.html` — replace

@@ -28,13 +28,11 @@ What it demonstrates:
 - mixed pricing cadences (monthly retainers + one-time setup) rolled into a
   first-month total, calculated once and shared across slides through `deck.js`.
 
-To restyle it, replace `assets/art/` with another pack's `pack/` folder and change
+To restyle it, replace `assets/art/` with another pack's folder `art/<pack>/pack/` and change
 `data-theme` — the class names are the same in every pack (see `art/README.md`).
 
 The service menu and prices are the `SERVICES` array in `deck.js`; when changing
 the service set, mirror the keys in `manifest.json -> demoData.fields`.
-
-Compose and validate from the repository root:
 
 To build on this deck, copy `decks/service-configurator/` into your working folder and add
 `template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent

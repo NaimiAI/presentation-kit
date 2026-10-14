@@ -54,6 +54,9 @@ assets/         (if needed) deck images — as files, referenced by relative pat
 
 | Attribute | What it does |
 |---|---|
+| `data-nk-slide="name"` on a `<section>` | The name of a slide — see "Format rules" |
+| `data-nk-format="document"` (+ `data-nk-page="a4\|letter"`) on `<main id="deck">` | The document format — see below |
+| `data-nk-block="name"` inside a slide | An optional name of a block: when a user points at an element in the service's editor, the element's address names its block too, so an edit finds the place faster. Changes nothing in the show |
 | `data-nk-text="key"` | Fills in a personalization value (+ `data-nk-fallback="…"` while it is empty) |
 | `data-nk-hide-empty="key"` | Hides the block when the personalization value is empty. On the `<section>` itself the whole slide leaves the deck while the value is empty: the counter, dots, panel, scroll view, PDF and PPTX know nothing of it (engine nk/0.12+); a deck whose every slide is conditional keeps its first |
 | `data-nk-slot="key"` | The place of a personalization field that `deck.js` draws instead of the runtime: a date in its own format, a table built from a text field or from the stages editor (`stagesJson`), the `src` of a picture. Goes on the element whose content the script writes; two values in one element — keys separated by a space. The runtime never reads it — it is a label for the service: printing the deck for whoever fills the fields, it names the slide and the place of the value |
@@ -67,6 +70,23 @@ assets/         (if needed) deck images — as files, referenced by relative pat
 Declare `data-nk-text` and `data-nk-slot` keys in `manifest.json` →
 `personalization.fields` (except `stagesJson` — `showStagesEditor` brings it), and
 `data-nk-field` keys in `demoData.fields`.
+
+**The fallback** (`data-nk-fallback`, else the author's text inside the element; for a block
+`deck.js` draws, its empty state) is what the client sees when the field was left empty:
+neutral words, or nothing — `data-nk-hide-empty` hides the block or the slide (an empty
+table of stages hides this way too). Sample data — a name, an email, a phone, a website, a
+hint for whoever fills the field — lives in `mock/state.json`, never in the fallback.
+
+## Service fields of the manifest
+
+Besides the contract (`TEMPLATE-SKILL.md` → "manifest.json contract") the manifest carries
+three fields about the deck itself:
+
+| Field | What it means |
+|---|---|
+| `format` | `"document"` — a document (portrait pages, below); no field — slides. On upload the service derives it from `data-nk-format="document"` on `<main id="deck">` |
+| `engine` | `"nk/<version>"` — the engine the deck runs on; the service stamps it on upload from `naimi-kit/kit.js`, never write it by hand. It tells the service a kit deck: the PowerPoint export is there for a slide deck with `engine` |
+| `slides` | `[{ "id", "title" }]` — the slide index: `id` from `data-nk-slide`, `title` from the marker, DOM order; the service labels slides by it. The service never recomputes it — rewrite it after slides are inserted, removed or reordered (`PUBLISH-SKILL.md` → "Pre-flight") |
 
 ## API for `deck.js`
 

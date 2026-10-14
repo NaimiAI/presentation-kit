@@ -26,8 +26,6 @@ highlights, nearby sales, asking price, and an optional tour booking link.
 The house numbers on "Why this home" (size, lot, year, commute) and the photo-tour captions live
 in the markup: the deck author edits them per property, not the manager in the client card.
 
-**Compose and validate**
-
 To build on this deck, copy `decks/listing-presentation/` into your working folder and add
 `template/naimi-kit/` next to it — see `TEMPLATE-SKILL.md` (or just tell your agent
 which deck you want to start from).
