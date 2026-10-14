@@ -107,7 +107,6 @@ naimi.ready((kit) => {
     const stages = parseStages(kit.personalization('stagesJson', ''))
     el('stages-list').replaceChildren(...stages.map(makeStage))
     el('estimate-content').hidden = stages.length === 0
-    el('estimate-empty').hidden = stages.length > 0
     el('stages-total').textContent = formatUsd(
       stages.reduce((sum, stage) => sum + stage.cost, 0),
     )

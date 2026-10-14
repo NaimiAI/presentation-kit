@@ -64,9 +64,9 @@
         </dl>
       </div>
 
-      <div class="current" data-animate="up" data-delay="0.35">
+      <div class="current" data-animate="up" data-delay="0.35" data-nk-hide-empty="currentSetup">
         <p class="eyebrow">Where things stand today</p>
-        <p data-nk-text="currentSetup" data-nk-fallback="Describe the client's current setup: who supports them, what breaks, what is missing."></p>
+        <p data-nk-text="currentSetup"></p>
       </div>
 
       <footer class="sheet-foot">
@@ -76,7 +76,7 @@
     </section>
 
     <!-- Page 2 — Service scope -->
-    <section class="sheet" data-nk-slide="services">
+    <section class="sheet" data-nk-slide="services" data-nk-hide-empty="stagesJson">
       <header class="page-head" data-animate="up">
         <div>
           <p class="kicker">1</p>
@@ -87,10 +87,6 @@
       </header>
 
       <div id="services-list" class="services" data-animate="up" data-delay="0.1" data-nk-slot="stagesJson"></div>
-      <div id="services-empty" class="empty-state" hidden>
-        No service blocks yet. Add them in the stages editor when creating the presentation:
-        block name, monthly price and "what's included | detail" lines.
-      </div>
 
       <div class="total-line" data-animate="up" data-delay="0.2">
         <span>Monthly total, Standard tier</span>
@@ -220,7 +216,7 @@
       <div class="manager" data-animate="up" data-delay="0.3">
         <p class="eyebrow">Your account manager</p>
         <p class="manager-name" data-nk-text="managerName" data-nk-fallback="Account manager"></p>
-        <p class="manager-contact" data-nk-text="managerContact" data-nk-fallback="(206) 555-0177 · sales@beaconit.co"></p>
+        <p class="manager-contact" data-nk-text="managerContact" data-nk-hide-empty="managerContact"></p>
       </div>
 
       <footer class="sheet-foot">

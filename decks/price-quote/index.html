@@ -61,7 +61,7 @@
       </div>
 
       <footer class="sheet-foot">
-        <span>Prepared by <span data-nk-text="managerName" data-nk-fallback="sales team"></span> · <span data-nk-text="managerContact" data-nk-fallback="(617) 555-0133"></span></span>
+        <span>Prepared by <span data-nk-text="managerName" data-nk-fallback="sales team"></span><span data-nk-hide-empty="managerContact"> · <span data-nk-text="managerContact"></span></span></span>
         <span>page 1 — letter</span>
       </footer>
     </section>
@@ -75,10 +75,7 @@
       </header>
 
       <div id="spec-table" class="table-wrap" data-animate="up" data-delay="0.1" data-nk-slot="specification"></div>
-      <div id="spec-empty" class="empty-state" hidden>
-        No line items yet. Fill the "Line items" field when creating the presentation —
-        one line per item: "Description | SKU | Unit | Qty | Unit price".
-      </div>
+      <div id="spec-empty" class="empty-state" hidden>We'll confirm the line items with you separately.</div>
 
       <dl class="totals" data-animate="up" data-delay="0.2">
         <div><dt>Subtotal</dt><dd id="total-net">$0</dd></div>
@@ -183,7 +180,7 @@
       <div class="manager" data-animate="up" data-delay="0.35">
         <p class="eyebrow">Your sales contact</p>
         <p class="manager-name" data-nk-text="managerName" data-nk-fallback="Sales team"></p>
-        <p class="manager-contact" data-nk-text="managerContact" data-nk-fallback="(617) 555-0133 · hello@harbormerch.co"></p>
+        <p class="manager-contact" data-nk-text="managerContact" data-nk-hide-empty="managerContact"></p>
       </div>
 
       <footer class="sheet-foot">

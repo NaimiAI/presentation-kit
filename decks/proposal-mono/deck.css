@@ -87,7 +87,6 @@ p, h1, h2, h3 { margin: 0; }
 .estimate-total p { font-size: 14px; line-height: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.35em; }
 .estimate-total strong { color: var(--nk-accent); font-family: var(--nk-font-display); font-size: 48px; line-height: 48px; font-weight: 900; letter-spacing: -0.025em; font-variant-numeric: tabular-nums; }
 .estimate-valid { margin-top: 8px; color: var(--nk-ink-faint); font-size: 12px; line-height: 16px; text-align: right; text-transform: uppercase; letter-spacing: 0.2em; }
-.empty-state { margin-top: 32px; padding: 16px 20px; border: 2px solid var(--nk-accent-edge); background: var(--nk-accent-soft); color: var(--nk-accent-ink); font-size: 14px; line-height: 20px; }
 
 /* How we work. */
 .process-head { justify-content: space-between; }

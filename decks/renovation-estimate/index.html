@@ -85,10 +85,7 @@
       </header>
 
       <div id="works-table" class="table-wrap" data-animate="up" data-delay="0.1" data-nk-slot="worksEstimate"></div>
-      <div id="works-empty" class="empty-state" hidden>
-        No labor lines yet. Fill the "Estimate: labor" field when creating the presentation —
-        one line per item, sections start with "#".
-      </div>
+      <div id="works-empty" class="empty-state" hidden>We'll confirm the scope of work after the site visit.</div>
 
       <div class="total-line" data-animate="up" data-delay="0.2">
         <span>Labor total</span>
@@ -112,9 +109,7 @@
       </header>
 
       <div id="materials-table" class="table-wrap" data-animate="up" data-delay="0.1" data-nk-slot="materialsEstimate"></div>
-      <div id="materials-empty" class="empty-state" hidden>
-        No material lines yet. Fill the "Estimate: materials" field — same format as labor.
-      </div>
+      <div id="materials-empty" class="empty-state" hidden>We'll confirm the materials after the site visit.</div>
 
       <div class="total-line" data-animate="up" data-delay="0.2">
         <span>Materials total</span>
@@ -212,7 +207,7 @@
       <div class="manager" data-animate="up" data-delay="0.3">
         <p class="eyebrow">Your project manager</p>
         <p class="manager-name" data-nk-text="managerName" data-nk-fallback="Project manager"></p>
-        <p class="manager-contact" data-nk-text="managerContact" data-nk-fallback="(503) 555-0142 · estimates@northlinebuilders.com"></p>
+        <p class="manager-contact" data-nk-text="managerContact" data-nk-hide-empty="managerContact"></p>
       </div>
 
       <footer class="sheet-foot">

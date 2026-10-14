@@ -176,16 +176,13 @@
           <p class="art-chip">06 · investment</p>
           <h2 class="art-display">Priced by stage, <em>fixed</em> up front</h2>
         </header>
-        <div id="estimate-content" data-animate="up" data-delay="0.15">
+        <div id="estimate-content" data-animate="up" data-delay="0.15" data-nk-hide-empty="stagesJson">
           <div id="stages-list" class="stages-list" data-nk-slot="stagesJson"></div>
           <div class="estimate-total">
             <span>Project total</span>
             <strong id="stages-total">$0</strong>
           </div>
         </div>
-        <p id="estimate-empty" class="estimate-empty" data-animate="up" data-delay="0.15" hidden>
-          Stages and prices appear here from the stages editor when the presentation is created.
-        </p>
         <div class="retainer" data-animate="up" data-delay="0.35">
           <p class="retainer-label">After the project — pick how we stay</p>
           <div class="retainer-grid">
@@ -237,8 +234,8 @@
         <h2 class="art-display close-title" data-animate="up-lg" data-delay="0.1">Thank you,<br><em data-nk-text="contactName" data-nk-fallback="and see you soon"></em></h2>
         <p class="close-text" data-animate="up" data-delay="0.3">The print is yours to keep — the questions are ours to answer, any day this week.</p>
         <div class="close-contact" data-animate="up" data-delay="0.45">
-          <strong data-nk-text="managerName" data-nk-fallback="Emily Carter"></strong>
-          <span data-nk-text="managerContact" data-nk-fallback="emily@northmark.example"></span>
+          <strong data-nk-text="managerName" data-nk-hide-empty="managerName"></strong>
+          <span data-nk-text="managerContact" data-nk-hide-empty="managerContact"></span>
         </div>
       </div>
     </section>

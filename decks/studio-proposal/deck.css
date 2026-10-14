@@ -97,7 +97,6 @@ p, h1, h2, h3, blockquote { margin: 0; }
 .total-notes { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; margin-top: 8px; }
 .total-notes p:first-child { color: var(--nk-ink-faint); font-size: 14px; line-height: 20px; font-style: italic; }
 .total-notes p:last-child { color: var(--nk-accent-ink); font-size: 12px; line-height: 16px; text-transform: uppercase; letter-spacing: 0.2em; }
-.empty-state { padding: 16px 20px; border: 1px solid var(--nk-accent-edge); background: var(--nk-accent-soft); color: var(--nk-accent-ink); font-size: 14px; line-height: 20px; }
 
 /* Terms and signatures. */
 .terms-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }

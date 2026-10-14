@@ -91,7 +91,6 @@ naimi.ready((kit) => {
     const setup = parseCost(kit.personalization('setupFee', ''))
 
     el('services-list').replaceChildren(...services.map(makeService))
-    el('services-empty').hidden = services.length > 0
     el('services-total').textContent = formatUsd(basic)
 
     el('summary-monthly').textContent = formatUsd(monthly)

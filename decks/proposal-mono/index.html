@@ -40,7 +40,7 @@
           </div>
           <div>
             <p>Timeline</p>
-            <strong data-nk-text="projectDuration" data-nk-fallback="6–8 weeks"></strong>
+            <strong data-nk-text="projectDuration" data-nk-fallback="to be agreed"></strong>
           </div>
           <div>
             <p>Valid through</p>
@@ -59,9 +59,9 @@
         </header>
 
         <div class="scope-grid">
-          <div data-animate="up" data-delay="0.1">
+          <div data-animate="up" data-delay="0.1" data-nk-hide-empty="projectOverview">
             <p class="eyebrow">How we read it</p>
-            <p class="overview" data-nk-text="projectOverview" data-nk-fallback="Describe how you understood the client’s problem: what hurts today, the outcome they’re after, and why it matters right now."></p>
+            <p class="overview" data-nk-text="projectOverview"></p>
             <p class="scope-note">
               If we got anything wrong, tell your account owner and we’ll send an
               updated proposal the same day.
@@ -87,7 +87,7 @@
     </section>
 
     <!-- Slide 3 — Estimate -->
-    <section class="shell" data-nk-slide="estimate">
+    <section class="shell" data-nk-slide="estimate" data-nk-hide-empty="stagesJson">
       <div class="wrap content-wrap">
         <header class="slide-head" data-animate="up">
           <span>02</span>
@@ -102,10 +102,6 @@
           </div>
           <p id="estimate-valid-until" class="estimate-valid" hidden>Price held through <span data-nk-slot="validUntil"></span></p>
         </div>
-        <div id="estimate-empty" class="empty-state" hidden>
-          No stages added yet. Add them in the stages editor when you create the
-          presentation — the table and the total will build automatically.
-        </div>
       </div>
     </section>
 
@@ -117,7 +113,7 @@
             <span>03</span>
             <h2>How we work</h2>
           </div>
-          <p>timeline: <strong data-nk-text="projectDuration" data-nk-fallback="6–8 weeks"></strong></p>
+          <p>timeline: <strong data-nk-text="projectDuration" data-nk-fallback="to be agreed"></strong></p>
         </header>
 
         <div class="process-grid" data-stagger="0.1" data-stagger-base="0.12">
@@ -142,7 +138,7 @@
             <p>We hand off the result, train your team, and stay on call through the warranty window.</p>
           </div>
         </div>
-        <p class="mobile-duration">Total timeline — <span data-nk-text="projectDuration" data-nk-fallback="6–8 weeks"></span>.</p>
+        <p class="mobile-duration">Total timeline — <span data-nk-text="projectDuration" data-nk-fallback="to be agreed"></span>.</p>
       </div>
     </section>
 
