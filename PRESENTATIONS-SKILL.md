@@ -69,7 +69,7 @@ curl -sS --fail-with-body -H "Authorization: Bearer $NAIMI_TOKEN" "$NAIMI_URL/ap
 | Deal status | `PATCH /api/presentations/:presentationId/status` `{ "status": "in_progress" \| "successful" \| "lost" }` |
 | Pre-seed interactive values | `PATCH /api/presentations/:presentationId/data` `{ "data": { "<key>": <value> } }` |
 | Upload a picture for an `image` field | `POST /api/personalization-images` (multipart, field `image`) → `{ url }` |
-| Export as PDF | `GET /api/presentations/:presentationId/export.pdf` — vector, one page per slide (a **document** template prints portrait A4 / Letter pages, a long page continues on the next); slow (~0.5–2 min), save the binary as `<slug>.pdf`; `402` = monthly export quota; `503` = no Chromium on the install |
+| Export as PDF | `GET /api/presentations/:presentationId/export.pdf` — compressed (a smaller file, takes longer) or `…/export.pdf_uncompressed` — as printed (faster, a larger file); vector, one page per slide (a **document** template prints portrait A4 / Letter pages, a long page continues on the next); slow (~0.5–2 min), save the binary as `<slug>.pdf`; `402` = monthly export quota; `503` = no Chromium on the install |
 | Export as PowerPoint | `GET /api/presentations/:presentationId/export.pptx` — editable slides: texts stay text boxes, cards — shapes, speaker notes from `data-nk-notes`; only kit v2 slide decks (`presentation.pptxExportAvailable: true`, otherwise `422 pptx_deck_unsupported`); same monthly quota as PDF (`402`), save the binary as `<slug>.pptx` |
 | Client's own answers (self-fill) | `presentation.clientResponses` — `{ value, updatedAt }` per key |
 
