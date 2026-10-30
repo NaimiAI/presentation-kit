@@ -97,7 +97,7 @@ what that gives, ask first, don't install unasked.
 
 Don't lecture this list — teach it by doing: when a step finishes, say in one sentence
 where the user now is and offer the natural next step (template published → create the
-first presentation; presentation created → open the link together, set up open
+first presentation; presentation created → open its `previewUrl` together, set up open
 notifications). Much of the loop also works by hand in the service UI — mention the
 page when that is the easier path. And make it easy to brief you: the user isn't a
 designer or programmer — words, however rough, plus any files they can drop in are

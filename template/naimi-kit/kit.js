@@ -1,9 +1,9 @@
-/* Naimi kit runtime (kit.js) — engine nk/0.12.0. Precompiled platform
+/* Naimi kit runtime (kit.js) — engine nk/0.13.0. Precompiled platform
  * artifact: don't read or edit it, it travels into the bundle byte for byte.
  * Docs for deck authors: ../README.md · MIT License. */
 (() => {
   "use strict";
-  const ENGINE_VERSION = "0.12.0";
+  const ENGINE_VERSION = "0.13.0";
   const STRINGS = {
     en: {
       first: "First slide (Home)",
@@ -80,7 +80,7 @@
   function postReady() {
     window.parent.postMessage({
       type: "naimi:ready",
-      payload: { engine: `nk/${ENGINE_VERSION}`, format: DOC ? "document" : "slides", capabilities: ["static", "slideEvents", "panel", "scroll", "defaultMode", "startSlide", "goto", "actions", "inspect", "document", "highlight", "hideEmptySlide"] }
+      payload: { engine: `nk/${ENGINE_VERSION}`, format: DOC ? "document" : "slides", capabilities: ["static", "slideEvents", "panel", "scroll", "defaultMode", "startSlide", "goto", "actions", "inspect", "document", "highlight", "hideEmptySlide", "inspectFields"] }
     }, "*");
   }
   const READY_RETRIES_MS = [250, 800, 2e3];
@@ -729,7 +729,7 @@
       const index = slideIndexFor(cmd.slide);
       if (index >= 0) navTo(index);
     }
-    if (cmd.kind === "inspect") setInspect(cmd.on);
+    if (cmd.kind === "inspect") setInspect(cmd.on, cmd.scope);
     if (cmd.kind === "highlight") setHighlight(cmd.on);
   }
   function applyHostStartSlide() {
@@ -916,13 +916,21 @@
     }, { passive: true });
   }
   const INSPECT_TEXT_CAP = 300;
+  const FIELD_PLACES = "[data-nk-text],[data-nk-hide-empty],[data-nk-slot]";
   let inspectOn = false;
+  let inspectFields = false;
   let inspectEl = null;
   let inspectBox = null;
+  function slideOf(node) {
+    const section = node instanceof Element ? node.closest("section") : null;
+    return section && sections.includes(section) ? section : null;
+  }
   function inspectTarget(node) {
-    const el = node instanceof Element ? node : null;
-    const section = el?.closest("section");
-    return section && sections.includes(section) ? el : null;
+    const section = slideOf(node);
+    if (!section) return null;
+    if (!inspectFields) return node;
+    const place = node.closest(FIELD_PLACES);
+    return place && place !== section && section.contains(place) ? place : null;
   }
   function inspectPayload(el) {
     const section = el.closest("section");
@@ -945,7 +953,8 @@
   function inspectMount() {
     if (inspectBox) return;
     const style = document.createElement("style");
-    style.textContent = ".nk-inspect-box{position:fixed;top:0;left:0;pointer-events:none;z-index:2147483000;outline:2px solid #0ea5e9;background:rgba(14,165,233,.09)}.nk-inspect-on,.nk-inspect-on *{cursor:crosshair!important}";
+    const places = `.nk-inspect-on.nk-inspect-fields :is(${FIELD_PLACES}):not(section)`;
+    style.textContent = `.nk-inspect-box{position:fixed;top:0;left:0;pointer-events:none;z-index:2147483000;outline:2px solid #0ea5e9;background:rgba(14,165,233,.09)}.nk-inspect-on,.nk-inspect-on *{cursor:crosshair!important}.nk-inspect-on.nk-inspect-fields *{cursor:default!important}${places},${places} *{cursor:crosshair!important}`;
     document.head.appendChild(style);
     inspectBox = document.body.appendChild(document.createElement("div"));
     inspectBox.className = "nk-inspect-box";
@@ -966,11 +975,12 @@
     inspectSync();
   }
   function onInspectHit(event) {
-    const el = inspectTarget(event.target);
-    if (!el) return;
+    if (!slideOf(event.target)) return;
     event.preventDefault();
     event.stopPropagation();
     if (event.type !== "click") return;
+    const el = inspectTarget(event.target);
+    if (!el) return;
     inspectEl = el;
     inspectSync();
     emitInspect(inspectPayload(el));
@@ -979,9 +989,12 @@
     if (!embedded) return;
     window.parent.postMessage({ type: "naimi:event", payload: { kind: "inspect", on: inspectOn, target } }, "*");
   }
-  function setInspect(on) {
+  function setInspect(on, scope = null) {
     const next = Boolean(on);
-    if (next === inspectOn || next && STATIC) return;
+    if (next && STATIC) return;
+    inspectFields = next && scope === "fields";
+    deckRoot.classList.toggle("nk-inspect-fields", inspectFields);
+    if (next === inspectOn) return;
     inspectOn = next;
     const bind = next ? "addEventListener" : "removeEventListener";
     for (const type of ["pointerdown", "click"]) document[bind](type, onInspectHit, true);
@@ -1004,7 +1017,7 @@
   function highlightMount() {
     if (highlightStyle) return;
     highlightStyle = document.createElement("style");
-    highlightStyle.textContent = ".nk-highlight-on :is([data-nk-text],[data-nk-hide-empty]){outline:2px dashed #a855f7!important;outline-offset:3px}";
+    highlightStyle.textContent = `.nk-highlight-on :is(${FIELD_PLACES}){outline:2px dashed #a855f7!important;outline-offset:3px}`;
     document.head.appendChild(highlightStyle);
   }
   function setHighlight(on) {

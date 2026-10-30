@@ -61,7 +61,7 @@ curl -sS --fail-with-body -H "Authorization: Bearer $NAIMI_TOKEN" "$NAIMI_URL/ap
 | Find clients by name | `GET /api/clients?q=<substring>` |
 | Client card + all its presentations | `GET /api/clients/:clientId` |
 | Create / update a client | `POST /api/clients`, `PATCH /api/clients/:clientId` — `companyName`, `contactName`, `email`, `phone`, `notes` |
-| List/search presentations (stats, shareUrl) | `GET /api/presentations` (`?q=` searches by company server-side) |
+| List/search presentations (stats, shareUrl, previewUrl) | `GET /api/presentations` (`?q=` searches by company server-side) |
 | One presentation + its editing schema | `GET /api/presentations/:presentationId` |
 | Create a presentation | `POST /api/presentations` (recipe below) |
 | Edit personalization | `PATCH /api/presentations/:presentationId` (full replace, recipe below) |
@@ -119,9 +119,12 @@ serves: `presentation.personalization` holds the values the deck receives (`comp
 `contactName`, `stagesJson` and the other platform keys at the top, the template's own
 fields under `customFields` as `{ key, value }`). A key the template does not declare is
 not there — it never reaches the client; `404` — the link shows nothing.
+`shareUrl` is for the client — every open of it counts as a view and notifies the owner;
+the user looks at the result through `presentation.previewUrl`, which is never counted.
 
 If this is the user's **first** presentation, close the loop: offer to open
-`shareUrl` together, and to set up open notifications (account table below).
+`previewUrl` together (opening `shareUrl` would count as the client's first open), and
+to set up open notifications (account table below).
 
 ## Recipe: edit an existing presentation
 
@@ -164,7 +167,7 @@ preview", "the link is created / updated" — never "own deck", "revision" or "a
         POST /api/presentations/:presentationId/deck (multipart, field bundle)
         → revision.id, revision.previewUrl (prefix it with NAIMI_URL);
         GET /api/presentations/:presentationId/outline?revisionId=<revisionId>&format=markdown
-        → your slides in your order, nothing of the sample left; show the user previewUrl
+        → your slides in your order, nothing of the sample left; show the user revision.previewUrl
 - [ ] 6. On the user's yes — create the link:
         POST /api/presentations/:presentationId/deck/apply { "revisionId" }
         → check the link, reply with presentation.shareUrl
