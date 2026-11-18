@@ -300,6 +300,14 @@ sign, "I have questions" — with `data-nk-action="name"` on the clickable eleme
 reported to the platform as a semantic event (notifications like "client accepted"
 build on it). Combine freely with `data-nk-field` on the same element.
 
+### Video
+
+A YouTube video goes on a slide as a **link with `data-nk-video`** to the video page, a
+poster inside: the click opens the video in the service's player over the deck, and the
+PDF/PPTX export keeps the poster and the link. Never a player `<iframe>` — the viewer frames
+no other site and the client sees an empty box (the validator rejects it). Markup —
+`template/README.md` → "Video".
+
 ## Images
 
 - **Building from the user's PDF/PPTX? Their images are already in it** — run
@@ -387,7 +395,7 @@ stores the bundle, not your editing convenience; future edits start from these f
       element deck.js fills
 - [ ] fallbacks are neutral or hidden empty: no sample names, emails, phones, sites or
       hints to the author — those live in the mock
-- [ ] images local, lean; no CDN / data: / absolute URLs
+- [ ] images local, lean; no CDN / data: / absolute URLs; a video is a data-nk-video link, never an iframe
 - [ ] art pack (if used): scrim over every bleed plate, no two loud slides in a row, unused plates deleted
 - [ ] built from a client's PDF/PPTX → their own images are in the deck (ingest-source),
       not placeholders

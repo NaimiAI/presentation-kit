@@ -1,9 +1,9 @@
-/* Naimi kit runtime (kit.js) — engine nk/0.13.0. Precompiled platform
+/* Naimi kit runtime (kit.js) — engine nk/0.14.0. Precompiled platform
  * artifact: don't read or edit it, it travels into the bundle byte for byte.
  * Docs for deck authors: ../README.md · MIT License. */
 (() => {
   "use strict";
-  const ENGINE_VERSION = "0.13.0";
+  const ENGINE_VERSION = "0.14.0";
   const STRINGS = {
     en: {
       first: "First slide (Home)",
@@ -80,7 +80,7 @@
   function postReady() {
     window.parent.postMessage({
       type: "naimi:ready",
-      payload: { engine: `nk/${ENGINE_VERSION}`, format: DOC ? "document" : "slides", capabilities: ["static", "slideEvents", "panel", "scroll", "defaultMode", "startSlide", "goto", "actions", "inspect", "document", "highlight", "hideEmptySlide", "inspectFields"] }
+      payload: { engine: `nk/${ENGINE_VERSION}`, format: DOC ? "document" : "slides", capabilities: ["static", "slideEvents", "panel", "scroll", "defaultMode", "startSlide", "goto", "actions", "inspect", "document", "highlight", "hideEmptySlide", "inspectFields", "video"] }
     }, "*");
   }
   const READY_RETRIES_MS = [250, 800, 2e3];
@@ -460,8 +460,11 @@
     root.appendChild(shell);
     window.addEventListener("keydown", onKeydown);
     document.addEventListener("click", (event) => {
-      const el = event.target instanceof Element ? event.target.closest("[data-nk-action]") : null;
+      const target = event.target instanceof Element ? event.target : null;
+      const el = target?.closest("[data-nk-action]");
       if (el && el.dataset.nkAction) emitAction(el.dataset.nkAction);
+      const video = target?.closest("a[data-nk-video]");
+      if (video && !event.defaultPrevented) emitVideo(video, event);
     });
     stateListeners.add(scheduleActiveThumbRefresh);
     if (DOC) {
@@ -605,6 +608,19 @@
     }
     const id = sections[current]?.dataset.nkSlide ?? null;
     window.parent.postMessage({ type: "naimi:event", payload: { kind: "action", action, index: current, id } }, "*");
+  }
+  function emitVideo(link, event) {
+    let host = "";
+    try {
+      host = new URL(link.href).hostname;
+    } catch {
+      return;
+    }
+    const hosts = state?.ui?.video;
+    if (!embedded || !Array.isArray(hosts) || !hosts.includes(host)) return;
+    event.preventDefault();
+    const id = sections[current]?.dataset.nkSlide ?? null;
+    window.parent.postMessage({ type: "naimi:event", payload: { kind: "video", url: link.href, index: current, id } }, "*");
   }
   function go(index, { instant = false } = {}) {
     if (navBusy || index < 0 || index >= sections.length || index === current) return;

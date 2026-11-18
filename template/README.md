@@ -64,6 +64,7 @@ assets/         (if needed) deck images — as files, referenced by relative pat
 | `data-nk-field="key" data-nk-value="v"` on a button | Value pick; the runtime maintains `aria-pressed` across the group (style `[aria-pressed='true']`), type via `data-nk-type="boolean\|number"` |
 | `data-nk-notes="text"` on a `<section>` | Speaker notes: the PPTX export puts them into the slide notes (line break — `&#10;`); the web deck never shows them |
 | `data-nk-action="name"` on a clickable element | A semantic client action (accept the offer, RSVP, sign): the click is reported to the host as an event — the platform builds "the client accepted" notifications on it. Combines with `data-nk-field` on the same element; names are kebab-case by meaning (`accept`, `rsvp-yes`, `sign`) |
+| `data-nk-video` on a link `<a>` to a YouTube video | The click opens the video in the service's player over the deck; in the export it is a plain link (engine nk/0.14+) — see "Video" below |
 | `data-animate="up\|up-lg\|left\|right\|scale\|grow"` | Entrance animation when the slide is shown (+ `data-delay="0.2"`, and `data-grow="72%"` for `grow`) |
 | `data-stagger="0.08"` on a container | Auto-cascade of children with `data-animate` (+ `data-stagger-base`) |
 
@@ -76,6 +77,27 @@ Declare `data-nk-text` and `data-nk-slot` keys in `manifest.json` →
 neutral words, or nothing — `data-nk-hide-empty` hides the block or the slide (an empty
 table of stages hides this way too). Sample data — a name, an email, a phone, a website, a
 hint for whoever fills the field — lives in `mock/state.json`, never in the fallback.
+
+## Video
+
+A YouTube video on a slide is a **link with `data-nk-video`** to the video page
+(`youtube.com/watch?v=…`, `youtu.be/…`, `/shorts/…`; start at a second — `?t=90`) with a
+poster inside:
+
+```html
+<a class="video" data-nk-video href="https://youtu.be/VIDEO_ID" target="_blank" rel="noreferrer">
+  <img src="assets/video-poster.jpg" alt="">
+  <span class="video-label">▶ Product demo · 2:31</span>
+</a>
+```
+
+The click opens the video in the service's player over the deck (engine nk/0.14+). In a local
+preview, in PDF and PPTX, on a service without the player and for a link to another site it
+is a plain link — hence `target="_blank"` is required. A player `<iframe>` does not work in a
+deck: the viewer's CSP frames no other site, and the deck's sandbox breaks the player itself —
+the validator rejects such a frame. The poster is a picture file of the deck or a styled
+plate (a YouTube thumbnail cannot load in the deck); the ▶ badge and the look are your own
+styles in `deck.css`.
 
 ## Service fields of the manifest
 
