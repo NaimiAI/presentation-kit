@@ -302,11 +302,11 @@ build on it). Combine freely with `data-nk-field` on the same element.
 
 ### Video
 
-A YouTube video goes on a slide as a **link with `data-nk-video`** to the video page, a
-poster inside: the click opens the video in the service's player over the deck, and the
-PDF/PPTX export keeps the poster and the link. Never a player `<iframe>` — the viewer frames
-no other site and the client sees an empty box (the validator rejects it). Markup —
-`template/README.md` → "Video".
+A video from YouTube or VK Video goes on a slide as a **link with `data-nk-video`** to the
+video page, a poster inside: the click opens the video in the service's player over the
+deck, and the PDF/PPTX export keeps the poster and the link. Never a player `<iframe>` — the
+viewer frames no other site and the client sees an empty box (the validator rejects it).
+Markup — `template/README.md` → "Video".
 
 ## Images
 
